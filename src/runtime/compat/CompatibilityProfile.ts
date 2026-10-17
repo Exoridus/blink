@@ -23,6 +23,8 @@ export interface CompatibilityProfileInstance {
     readonly screenColor?: 'linear' | 'encoded';
     /** Whether shader image inputs retain encoded straight samples or use managed color upload. */
     readonly assetColor?: 'managed' | 'raw';
+    /** Keeps the generic Blink analyzers running although the profile also consumes PCM. */
+    readonly needsGenericAnalysis?: boolean;
     /** Optional continuous mono source at the profile's declared sample rate. */
     processPcm?(block: {
         readonly samples: Float32Array;
@@ -61,8 +63,13 @@ export class CompatibilityRegistry {
         return this;
     }
 
-    public resolve(effect: BlinkEffectIR): CompatibilityProfileInstance | null {
-        const id = effect.compatibility?.profile;
+    /** `substitute` may replace the declared profile id, for example to switch the audio analysis. */
+    public resolve(
+        effect: BlinkEffectIR,
+        substitute?: (declared: string) => string
+    ): CompatibilityProfileInstance | null {
+        const declared = effect.compatibility?.profile;
+        const id = declared === null || declared === undefined ? declared : (substitute?.(declared) ?? declared);
         if (id === null || id === undefined) {
             return null;
         }

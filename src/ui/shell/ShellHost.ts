@@ -1,5 +1,6 @@
 import type { UniformValue } from '@codexo/exojs';
 
+import type { AnalysisMode } from '../../runtime/compat/analysisMode';
 import type { CompatibilityReport } from '../../runtime/diagnostics/CompatibilityReport';
 import type { FaultRecord } from '../../runtime/health';
 import type { BlinkControlSpec, BlinkPresetRef } from '../../runtime/ir/types';
@@ -42,6 +43,11 @@ export interface ShellRuntimeState {
         readonly inputs: readonly string[];
         readonly kind: 'none' | 'camera' | 'file';
         readonly label: string;
+    };
+    /** Audio analysis mode and whether the running effect follows it; absent for a host without the switch. */
+    readonly analysis?: {
+        readonly mode: AnalysisMode;
+        readonly applicable: boolean;
     };
 }
 
@@ -125,6 +131,8 @@ export interface ShellHost {
      */
     fireBang(name: string): void;
 
+    /** Switches the audio analysis of SSF-family effects. Rejects when the running effect cannot be rebuilt. */
+    setAnalysisMode?(mode: AnalysisMode): Promise<void>;
     /** Feeds the camera to the running effect's image inputs. Rejects when access is denied. */
     useMediaCamera?(): Promise<void>;
     /** Feeds an image or video file to the running effect's image inputs. Rejects for an unreadable file. */
