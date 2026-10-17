@@ -1,0 +1,15 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.spectral_city",
+  "title": "Spectral City",
+  "author": "Blink",
+  "license": "MIT",
+  "description": "A graphic neon skyline with bass-driven towers, midrange windows and treble glints.",
+  "tags": ["audio-reactive", "graphic", "city"],
+  "shaders": { "glsl": "shaders/main.frag.glsl" },
+  "controls": [
+    { "name": "speed", "label": "Speed", "type": "float", "default": 0.5, "min": 0, "max": 2 },
+    { "name": "sensitivity", "label": "Audio response", "type": "float", "default": 1, "min": 0, "max": 3 },
+    { "name": "columns", "label": "Towers", "type": "int", "default": 24, "min": 8, "max": 48 }
+  ]
+}

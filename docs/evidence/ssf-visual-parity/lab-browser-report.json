@@ -1,0 +1,279 @@
+{
+  "checks": [
+    "51 sources; isolated Original/Original marker previews render",
+    "marker RGBA32F pass readback exact A/B equality",
+    "shared scene control propagated in identical order",
+    "override labelled; seek reconstructs original marker pixels",
+    "Enhanced replay fallback explicitly labelled",
+    "ExoJS worklet playback/pause runs without musical-quality promotion",
+    "controlled native two-frame RGBA32F feedback marker, float FRAMECOUNT and reset match recorded native fixture",
+    "sized-pass _uv/_uvc use pass-sized RENDERSIZE; native pixel parity remains unqualified",
+    "seven real GPU LINEAR/REPEAT sampler seam, wrap and texel-center probes match CPU oracle",
+    "opaque script workers: native priming, frame inputs, CSP network denial, infinite-loop termination and disposal"
+  ],
+  "status": "Frame 4 · 0.067 s · Sample 3584 · Epoch 0 · WARMING_UP · ORIGINAL_FALLBACK",
+  "gpu": {
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "browser": "153.0.8010.12",
+  "exoVersion": "0.19.1",
+  "build": "development modules",
+  "nativePixelParity": "INCONCLUSIVE; marker lane equivalence only",
+  "musicalAccuracy": "UNKNOWN",
+  "errors": [],
+  "passDiff": [
+    {
+      "name": "marker",
+      "format": "rgba32f",
+      "width": 1920,
+      "height": 1080,
+      "hashA": "b47c9fef1403e1a66e454edf2f486073804800ff4f0179c944b38c426b139c8f",
+      "hashB": "b47c9fef1403e1a66e454edf2f486073804800ff4f0179c944b38c426b139c8f",
+      "diff": {
+        "maxAbs": 0,
+        "rms": 0,
+        "firstMismatch": null,
+        "nonfiniteMismatch": 0
+      }
+    }
+  ],
+  "finalPassDiff": [
+    {
+      "name": "marker",
+      "format": "rgba32f",
+      "width": 1920,
+      "height": 1080,
+      "hashA": "74ce321d409296f1b8eb850ef910b437c48726ec851868d8a4e66f6defc5f5f6",
+      "hashB": "74ce321d409296f1b8eb850ef910b437c48726ec851868d8a4e66f6defc5f5f6",
+      "diff": {
+        "maxAbs": 0,
+        "rms": 0,
+        "firstMismatch": null,
+        "nonfiniteMismatch": 0
+      }
+    }
+  ],
+  "sandboxChecks": {
+    "init": {
+      "ok": true,
+      "error": null,
+      "uniforms": {
+        "calls": 1,
+        "dt": 0.017000000923871994,
+        "levelSeen": 0.25
+      },
+      "controls": {},
+      "logs": []
+    },
+    "frame": {
+      "ok": true,
+      "error": null,
+      "uniforms": {
+        "calls": 2,
+        "dt": 0.01666666753590107,
+        "levelSeen": 0.75
+      },
+      "controls": {},
+      "logs": []
+    },
+    "timeout": "Error: SSF script timeout; worker terminated",
+    "blocked": {
+      "ok": true,
+      "error": null,
+      "uniforms": {
+        "blocked": 0,
+        "noDocument": 1
+      },
+      "controls": {},
+      "logs": []
+    },
+    "isolated": {
+      "ok": true,
+      "error": null,
+      "uniforms": {
+        "blocked": 1,
+        "noDocument": 1
+      },
+      "controls": {},
+      "logs": []
+    },
+    "iframes": 0
+  },
+  "samplerChecks": [
+    {
+      "x": 0,
+      "actual": [
+        0.49951171875,
+        0.25,
+        0.25
+      ],
+      "expected": [
+        0.49951171875,
+        0.25,
+        0.25
+      ],
+      "maxAbs": 0
+    },
+    {
+      "x": 1,
+      "actual": [
+        0.49951171875,
+        0.25,
+        0.25
+      ],
+      "expected": [
+        0.49951171875,
+        0.25,
+        0.25
+      ],
+      "maxAbs": 0
+    },
+    {
+      "x": -1,
+      "actual": [
+        0.49951171875,
+        0.25,
+        0.25
+      ],
+      "expected": [
+        0.49951171875,
+        0.25,
+        0.25
+      ],
+      "maxAbs": 0
+    },
+    {
+      "x": 0.00048828125,
+      "actual": [
+        0,
+        0,
+        0.25
+      ],
+      "expected": [
+        0,
+        0,
+        0.25
+      ],
+      "maxAbs": 0
+    },
+    {
+      "x": 0.99951171875,
+      "actual": [
+        0.9990234375,
+        0.5,
+        0.25
+      ],
+      "expected": [
+        0.9990234375,
+        0.5,
+        0.25
+      ],
+      "maxAbs": 0
+    },
+    {
+      "x": 0.000244140625,
+      "actual": [
+        0.249755859375,
+        0.125,
+        0.25
+      ],
+      "expected": [
+        0.249755859375,
+        0.125,
+        0.25
+      ],
+      "maxAbs": 0
+    },
+    {
+      "x": -0.000244140625,
+      "actual": [
+        0.749267578125,
+        0.375,
+        0.25
+      ],
+      "expected": [
+        0.749267578125,
+        0.375,
+        0.25
+      ],
+      "maxAbs": 0
+    }
+  ],
+  "alphaProbe": {
+    "actual": [
+      0.25,
+      0.125,
+      0,
+      2
+    ],
+    "expected": [
+      0.25,
+      0.125,
+      0,
+      2
+    ],
+    "maxAbs": 0,
+    "status": "QUALIFIED_MARKER_PASS"
+  },
+  "feedbackProbe": {
+    "frames": [
+      [
+        0.25,
+        0.125,
+        0,
+        1
+      ],
+      [
+        0.5,
+        0.25,
+        0,
+        2
+      ]
+    ],
+    "reset": [
+      0.25,
+      0.125,
+      0,
+      1
+    ],
+    "expected": [
+      [
+        0.25,
+        0.125,
+        0,
+        1
+      ],
+      [
+        0.5,
+        0.25,
+        0,
+        2
+      ]
+    ],
+    "scope": "controlled marker matches supplied native GPU lifecycle capture; not arbitrary original app frames"
+  },
+  "coordinateProbe": {
+    "actual": [
+      0.0625,
+      0.9375,
+      -0.4375,
+      0.4375
+    ],
+    "expected": [
+      0.0625,
+      0.9375,
+      -0.4375,
+      0.4375
+    ],
+    "maxAbs": 0,
+    "screen": [
+      1920,
+      1080
+    ],
+    "target": [
+      8,
+      8
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+name,source_category,registered_51,blinkfx_status,implementation
+TIME,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_FadeInOut,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_Intensity,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_PrimeBang,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_RawLevel,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_InputLevel,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_Level,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_HighLevel,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_MidHighLevel,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_MidLevel,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BassLevel,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_Hits,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_HighHits,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_MidHighHits,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_MidHits,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BassHits,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_Time,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_HighTime,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_MidHighTime,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_MidTime,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BassTime,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BeatTime,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_CurvedTime,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_OnBeat,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_ToggleOnBeat,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_RandomOnBeat,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BassExpoCurve,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_Presence,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_HighPresence,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BassPresence,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_MidPresence,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_MidHighPresence,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPM,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMSin,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMTri,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMSin2,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMTri2,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMSin4,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMTri4,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMSin8,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMTri8,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMTwitcher,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_BPMConfidence,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/scalars.ts
+syn_Spectrum,NATIVE_SOURCE,True,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+syn_SpectrumJuiced,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/arrays.ts
+syn_SpectrumSmooth,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/arrays.ts
+syn_Waveform,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/arrays.ts
+syn_TimeSeries,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/arrays.ts
+syn_BassTimeSeries,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/arrays.ts
+syn_MidTimeSeries,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/arrays.ts
+syn_HighTimeSeries,NATIVE_SOURCE,True,QUALIFIED_PASS,src/packages/ssf/original/arrays.ts
+FRAMECOUNT,SHADER_BUILTIN,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+RENDERSIZE,SHADER_BUILTIN,False,QUALIFIED_SIZED_PASS_MARKER,src/packages/ssf/profile/helperLibrary.ts; src/packages/ssf/convert/convertSsfScene.ts; src/services/RenderService.ts
+_xy,SHADER_BUILTIN,False,QUALIFIED_SIZED_PASS_MARKER,src/packages/ssf/profile/helperLibrary.ts; src/packages/ssf/convert/convertSsfScene.ts; src/services/RenderService.ts
+_uv,SHADER_BUILTIN,False,QUALIFIED_SIZED_PASS_MARKER,src/packages/ssf/profile/helperLibrary.ts; src/packages/ssf/convert/convertSsfScene.ts; src/services/RenderService.ts
+_uvc,SHADER_BUILTIN,False,QUALIFIED_SIZED_PASS_MARKER,src/packages/ssf/profile/helperLibrary.ts; src/packages/ssf/convert/convertSsfScene.ts; src/services/RenderService.ts
+PI,GLSL_CONSTANT,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+_mouse,SHADER_BUILTIN,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+_click,SHADER_BUILTIN,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+_muv,SHADER_BUILTIN,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+_muvc,SHADER_BUILTIN,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+PASSINDEX,SHADER_BUILTIN,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+syn_FinalPass,HOST_BINDING,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+syn_Media,HOST_BINDING,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+syn_MediaType,HOST_BINDING,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+syn_LevelTrail,HOST_BINDING,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+syn_UserImage,HOST_BINDING,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+syn_MetaControls,HOST_BINDING,False,PORTABLE_ADAPTER_PARTIAL,src/packages/ssf/convert/convertSsfScene.ts; src/packages/ssf/profile/helperLibrary.ts; src/services/RenderService.ts
+syn_Threshold,CANDIDATE,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+syn_Beat,CANDIDATE,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Master,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_High_Color,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Paused,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Vert_Mirror,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Brightness,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Transition,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Gamma,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Contrast,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Vert_Flip,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Hue,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Saturation,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Invert,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Low_Color,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Hor_Mirror,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Media_Contrast,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Invert_Media,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Fit_or_Fill,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Hor_Flip,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Playback_Speed,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Limit_Colors,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+_Alpha_Channel,JS_CONTROL,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts
+DEBUG / debug*,CANDIDATE,False,PRESERVED_UNMAPPED,src/packages/ssf/convert/convertSsfScene.ts

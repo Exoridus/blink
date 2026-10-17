@@ -1,0 +1,97 @@
+{
+  "format": "blinkfx/1",
+  "id": "import.shadertoy.example-av",
+  "title": "Imported Shadertoy AV Example",
+  "version": "1.0.0",
+  "kind": "generator",
+  "outputs": {
+    "visual": true,
+    "audio": {
+      "shader": "sound",
+      "abi": "shadertoy-sound/1",
+      "channels": 2,
+      "sampleRate": "device"
+    }
+  },
+  "inputs": [
+    {
+      "name": "pointer",
+      "type": "pointer"
+    },
+    {
+      "name": "keyboard",
+      "type": "keyboard"
+    },
+    {
+      "name": "music",
+      "type": "audioTexture",
+      "samples": 512,
+      "representation": "spectrum-waveform"
+    }
+  ],
+  "passes": [
+    {
+      "name": "bufferA",
+      "shader": "bufferA",
+      "inputs": [
+        {
+          "source": "target.bufferA.previous",
+          "uniform": "iChannel0"
+        },
+        {
+          "source": "input.keyboard",
+          "uniform": "iChannel1"
+        }
+      ],
+      "target": {
+        "name": "bufferA",
+        "format": "rgba16f",
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "image",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.bufferA",
+          "uniform": "iChannel0"
+        },
+        {
+          "source": "input.music",
+          "uniform": "iChannel1"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "bufferA": "shaders/bufferA.frag.glsl",
+      "main": "shaders/image.frag.glsl",
+      "sound": {
+        "audio": "shaders/sound.glsl"
+      }
+    }
+  },
+  "requirements": {
+    "features": [
+      "persistent-feedback",
+      "float-targets",
+      "pointer-input",
+      "keyboard-input",
+      "audio-texture-input",
+      "audio-generation"
+    ],
+    "backends": ["webgl2"]
+  },
+  "compatibility": {
+    "source": {
+      "format": "shadertoy"
+    },
+    "profile": "shadertoy/1",
+    "mode": "preserve"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "previews": {
+    "com.codexo.aurora": {
+      "path": "effects/previews/com.codexo.aurora-a087161e5d4a0568.png",
+      "fingerprint": "a087161e5d4a056826d7192484d5900c8f907284fa2af88ffd5fa3eeed088ce3",
+      "source": "rendered"
+    },
+    "com.codexo.hypercoil": {
+      "path": "effects/previews/com.codexo.hypercoil-19d75e2f291bf27e.png",
+      "fingerprint": "19d75e2f291bf27ed216514d1f3d16e6076cb362b1e7215ba2f31bc26d2a35d2",
+      "source": "rendered"
+    },
+    "com.codexo.prism_orbit": {
+      "path": "effects/previews/com.codexo.prism_orbit-70d84b8dab8f5c5e.png",
+      "fingerprint": "70d84b8dab8f5c5e09cf2d3f40fb0cdccda77c834ac9526668db24c6055203f5",
+      "source": "rendered"
+    },
+    "com.codexo.spectral_city": {
+      "path": "effects/previews/com.codexo.spectral_city-25903abed3e49cec.png",
+      "fingerprint": "25903abed3e49ceca85ff3e0fc7f584f81940bdf668ac7d254c428d6c21b20e6",
+      "source": "rendered"
+    },
+    "com.codexo.ink_current": {
+      "path": "effects/previews/com.codexo.ink_current-d40f27f00d705d5e.png",
+      "fingerprint": "d40f27f00d705d5ecb9899aef91be694af8fdf47d83e0a59b3986c2d92914d93",
+      "source": "rendered"
+    }
+  }
+}

@@ -1,0 +1,1837 @@
+{
+  "reference": "Recovered Synesthesia 1.25.2 arithmetic on WebGL2; not a native host replay",
+  "sourceSha256": "c8819867c29e5d26ddb16868fa20f186e3fc7aa893741763b6104c6308f5adaa",
+  "renderer": "WebKit WebGL",
+  "rows": [
+    {
+      "name": "_toPolar",
+      "expression": "vec4(_toPolar(vec2(0.0, 0.0)), 0.0, 1.0)",
+      "pixels": [0, "NaN", 0, 1]
+    },
+    {
+      "name": "_toPolarTrue",
+      "expression": "vec4(_toPolarTrue(vec2(0.0, 0.0)), 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_toPolar",
+      "expression": "vec4(_toPolar(vec2(1.0, 0.0)), 0.0, 1.0)",
+      "pixels": [1, 0, 0, 1]
+    },
+    {
+      "name": "_toPolarTrue",
+      "expression": "vec4(_toPolarTrue(vec2(1.0, 0.0)), 0.0, 1.0)",
+      "pixels": [1, 0, 0, 1]
+    },
+    {
+      "name": "_toPolar",
+      "expression": "vec4(_toPolar(vec2(0.0, 1.0)), 0.0, 1.0)",
+      "pixels": [1, 1.5707963705062866, 0, 1]
+    },
+    {
+      "name": "_toPolarTrue",
+      "expression": "vec4(_toPolarTrue(vec2(0.0, 1.0)), 0.0, 1.0)",
+      "pixels": [1, 0.25, 0, 1]
+    },
+    {
+      "name": "_toPolar",
+      "expression": "vec4(_toPolar(vec2(-1.0, 0.0)), 0.0, 1.0)",
+      "pixels": [1, 0, 0, 1]
+    },
+    {
+      "name": "_toPolarTrue",
+      "expression": "vec4(_toPolarTrue(vec2(-1.0, 0.0)), 0.0, 1.0)",
+      "pixels": [1, 0.5, 0, 1]
+    },
+    {
+      "name": "_toPolar",
+      "expression": "vec4(_toPolar(vec2(0.0, -1.0)), 0.0, 1.0)",
+      "pixels": [1, -1.5707963705062866, 0, 1]
+    },
+    {
+      "name": "_toPolarTrue",
+      "expression": "vec4(_toPolarTrue(vec2(0.0, -1.0)), 0.0, 1.0)",
+      "pixels": [1, 0.75, 0, 1]
+    },
+    {
+      "name": "_toPolar",
+      "expression": "vec4(_toPolar(vec2(1.0, 1.0)), 0.0, 1.0)",
+      "pixels": [1.4142135381698608, 0.7853981852531433, 0, 1]
+    },
+    {
+      "name": "_toPolarTrue",
+      "expression": "vec4(_toPolarTrue(vec2(1.0, 1.0)), 0.0, 1.0)",
+      "pixels": [1.4142135381698608, 0.125, 0, 1]
+    },
+    {
+      "name": "_toPolar",
+      "expression": "vec4(_toPolar(vec2(-1.0, 1.0)), 0.0, 1.0)",
+      "pixels": [1.4142135381698608, -0.7853981852531433, 0, 1]
+    },
+    {
+      "name": "_toPolarTrue",
+      "expression": "vec4(_toPolarTrue(vec2(-1.0, 1.0)), 0.0, 1.0)",
+      "pixels": [1.4142135381698608, 0.375, 0, 1]
+    },
+    {
+      "name": "_toPolar",
+      "expression": "vec4(_toPolar(vec2(-1.0, -1.0)), 0.0, 1.0)",
+      "pixels": [1.4142135381698608, 0.7853981852531433, 0, 1]
+    },
+    {
+      "name": "_toPolarTrue",
+      "expression": "vec4(_toPolarTrue(vec2(-1.0, -1.0)), 0.0, 1.0)",
+      "pixels": [1.4142135381698608, 0.625, 0, 1]
+    },
+    {
+      "name": "_toPolar",
+      "expression": "vec4(_toPolar(vec2(1.0, -1.0)), 0.0, 1.0)",
+      "pixels": [1.4142135381698608, -0.7853981852531433, 0, 1]
+    },
+    {
+      "name": "_toPolarTrue",
+      "expression": "vec4(_toPolarTrue(vec2(1.0, -1.0)), 0.0, 1.0)",
+      "pixels": [1.4142135381698608, 0.8749999403953552, 0, 1]
+    },
+    {
+      "name": "_rotate",
+      "expression": "vec4(_rotate(vec2(1.0, 0.25), -3.14159265), 0.0, 1.0)",
+      "pixels": [-1, -0.25000008940696716, 0, 1]
+    },
+    {
+      "name": "_rotate",
+      "expression": "vec4(_rotate(vec2(1.0, 0.25), -1.57079633), 0.0, 1.0)",
+      "pixels": [-0.2500000298023224, 1, 0, 1]
+    },
+    {
+      "name": "_rotate",
+      "expression": "vec4(_rotate(vec2(1.0, 0.25), 0.0), 0.0, 1.0)",
+      "pixels": [1, 0.25, 0, 1]
+    },
+    {
+      "name": "_rotate",
+      "expression": "vec4(_rotate(vec2(1.0, 0.25), 1.57079633), 0.0, 1.0)",
+      "pixels": [0.24999995529651642, -1, 0, 1]
+    },
+    {
+      "name": "_rotate",
+      "expression": "vec4(_rotate(vec2(1.0, 0.25), 3.14159265), 0.0, 1.0)",
+      "pixels": [-1, -0.24999991059303284, 0, 1]
+    },
+    {
+      "name": "_toRect",
+      "expression": "vec4(_toRect(vec2(0.7, 2.0)), 0.0, 1.0)",
+      "pixels": [-0.29130280017852783, 0.6365081667900085, 0, 1]
+    },
+    {
+      "name": "_uv2uvc",
+      "expression": "vec4(p, 0.0, 1.0)",
+      "pixels": [-0.800000011920929, 0.6000000238418579, 0, 1]
+    },
+    {
+      "name": "_uvc2uv",
+      "expression": "vec4(p, 0.0, 1.0)",
+      "pixels": [0.550000011920929, 0.8999999761581421, 0, 1]
+    },
+    {
+      "name": "_scale",
+      "expression": "vec4(_scale(0.2, -1.0, 5.0), 0.0, 0.0, 1.0)",
+      "pixels": [0.20000004768371582, 0, 0, 1]
+    },
+    {
+      "name": "_smin",
+      "expression": "vec4(_smin(0.1, 0.4, 2.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.11874397844076157, 0, 0, 1]
+    },
+    {
+      "name": "_rand",
+      "expression": "vec4(_rand(1.25), 0.0, 0.0, 1.0)",
+      "pixels": [0.1875, 0, 0, 1]
+    },
+    {
+      "name": "_rand",
+      "expression": "vec4(_rand(vec2(1.25,-0.7)), 0.0, 0.0, 1.0)",
+      "pixels": [0.515625, 0, 0, 1]
+    },
+    {
+      "name": "_pulse",
+      "expression": "vec4(_pulse(0.4, 0.5, 0.2), 0.0, 0.0, 1.0)",
+      "pixels": [0.5, 0, 0, 1]
+    },
+    {
+      "name": "_sqPulse",
+      "expression": "vec4(_sqPulse(0.7, 0.5, 0.2), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_inRange",
+      "expression": "vec4(_inRange(0.3, 1.0, 0.0), 0.0, 0.0, 1.0)",
+      "pixels": [-1, 0, 0, 1]
+    },
+    {
+      "name": "_inRange",
+      "expression": "vec4(_inRange(vec4(0.0,0.1,0.8,1.0)), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_nsin",
+      "expression": "vec4(_nsin(1.2), 0.0, 0.0, 1.0)",
+      "pixels": [0.9660195112228394, 0, 0, 1]
+    },
+    {
+      "name": "_ncos",
+      "expression": "vec4(_ncos(1.2), 0.0, 0.0, 1.0)",
+      "pixels": [0.681178867816925, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(-2.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(-2.00, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.5, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(-1.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(-1.00, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.5, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(-0.25), 0.0, 0.0, 1.0)",
+      "pixels": [0.25, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(-0.25, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.25, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(0.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(0.00, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.5, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(0.25), 0.0, 0.0, 1.0)",
+      "pixels": [0.25, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(0.25, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.25, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(0.50), 0.0, 0.0, 1.0)",
+      "pixels": [0.5, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(0.50, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(1.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(1.00, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.5, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(1.25), 0.0, 0.0, 1.0)",
+      "pixels": [0.75, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(1.25, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.25, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(2.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(2.00, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.5, 0, 0, 1]
+    },
+    {
+      "name": "_mirror",
+      "expression": "vec4(_mirror(2.25), 0.0, 0.0, 1.0)",
+      "pixels": [0.25, 0, 0, 1]
+    },
+    {
+      "name": "_triWave",
+      "expression": "vec4(_triWave(2.25, 1.0), 0.0, 0.0, 1.0)",
+      "pixels": [-0.25, 0, 0, 1]
+    },
+    {
+      "name": "_nclamp",
+      "expression": "vec4(_nclamp(float(0.37)), 0.0, 0.0, 1.0)",
+      "pixels": [0.3700000047683716, 0, 0, 1]
+    },
+    {
+      "name": "_nclamp",
+      "expression": "vec4(_nclamp(vec2(0.37)), 0.0, 1.0)",
+      "pixels": [0.3700000047683716, 0.3700000047683716, 0, 1]
+    },
+    {
+      "name": "_nclamp",
+      "expression": "vec4(_nclamp(vec3(0.37)), 1.0)",
+      "pixels": [0.3700000047683716, 0.3700000047683716, 0.3700000047683716, 1]
+    },
+    {
+      "name": "_nclamp",
+      "expression": "vec4(_nclamp(vec4(0.37)))",
+      "pixels": [0.3700000047683716, 0.3700000047683716, 0.3700000047683716, 0.3700000047683716]
+    },
+    {
+      "name": "_pixelate",
+      "expression": "vec4(_pixelate(float(0.37), 8.0), 0.0, 0.0, 1.0)",
+      "pixels": [0.25, 0, 0, 1]
+    },
+    {
+      "name": "_pixelate",
+      "expression": "vec4(_pixelate(vec2(0.37), 8.0), 0.0, 1.0)",
+      "pixels": [0.25, 0.25, 0, 1]
+    },
+    {
+      "name": "_pixelate",
+      "expression": "vec4(_pixelate(vec3(0.37), 8.0), 1.0)",
+      "pixels": [0.25, 0.25, 0.25, 1]
+    },
+    {
+      "name": "_map",
+      "expression": "vec4(_map(float(0.37), float(0.1), float(0.8), float(-1.0), float(2.0)), 0.0, 0.0, 1.0)",
+      "pixels": [0.1571429967880249, 0, 0, 1]
+    },
+    {
+      "name": "_map",
+      "expression": "vec4(_map(vec2(0.37), vec2(0.1), vec2(0.8), vec2(-1.0), vec2(2.0)), 0.0, 1.0)",
+      "pixels": [0.1571429967880249, 0.1571429967880249, 0, 1]
+    },
+    {
+      "name": "_map",
+      "expression": "vec4(_map(vec3(0.37), vec3(0.1), vec3(0.8), vec3(-1.0), vec3(2.0)), 1.0)",
+      "pixels": [0.1571429967880249, 0.1571429967880249, 0.1571429967880249, 1]
+    },
+    {
+      "name": "_map",
+      "expression": "vec4(_map(vec4(0.37), vec4(0.1), vec4(0.8), vec4(-1.0), vec4(2.0)))",
+      "pixels": [0.1571429967880249, 0.1571429967880249, 0.1571429967880249, 0.1571429967880249]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(float(0.0), float(1.0), float(2.0), -0.50), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(float(0.0), float(1.0), float(2.0), 0.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(float(0.0), float(1.0), float(2.0), 0.25), 0.0, 0.0, 1.0)",
+      "pixels": [0.5, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(float(0.0), float(1.0), float(2.0), 0.50), 0.0, 0.0, 1.0)",
+      "pixels": [1, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(float(0.0), float(1.0), float(2.0), 0.75), 0.0, 0.0, 1.0)",
+      "pixels": [1.5, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(float(0.0), float(1.0), float(2.0), 1.00), 0.0, 0.0, 1.0)",
+      "pixels": [2, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(float(0.0), float(1.0), float(2.0), 1.50), 0.0, 0.0, 1.0)",
+      "pixels": [2, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec2(0.0), vec2(1.0), vec2(2.0), -0.50), 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec2(0.0), vec2(1.0), vec2(2.0), 0.00), 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec2(0.0), vec2(1.0), vec2(2.0), 0.25), 0.0, 1.0)",
+      "pixels": [0.5, 0.5, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec2(0.0), vec2(1.0), vec2(2.0), 0.50), 0.0, 1.0)",
+      "pixels": [1, 1, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec2(0.0), vec2(1.0), vec2(2.0), 0.75), 0.0, 1.0)",
+      "pixels": [1.5, 1.5, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec2(0.0), vec2(1.0), vec2(2.0), 1.00), 0.0, 1.0)",
+      "pixels": [2, 2, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec2(0.0), vec2(1.0), vec2(2.0), 1.50), 0.0, 1.0)",
+      "pixels": [2, 2, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec3(0.0), vec3(1.0), vec3(2.0), -0.50), 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec3(0.0), vec3(1.0), vec3(2.0), 0.00), 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec3(0.0), vec3(1.0), vec3(2.0), 0.25), 1.0)",
+      "pixels": [0.5, 0.5, 0.5, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec3(0.0), vec3(1.0), vec3(2.0), 0.50), 1.0)",
+      "pixels": [1, 1, 1, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec3(0.0), vec3(1.0), vec3(2.0), 0.75), 1.0)",
+      "pixels": [1.5, 1.5, 1.5, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec3(0.0), vec3(1.0), vec3(2.0), 1.00), 1.0)",
+      "pixels": [2, 2, 2, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec3(0.0), vec3(1.0), vec3(2.0), 1.50), 1.0)",
+      "pixels": [2, 2, 2, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec4(0.0), vec4(1.0), vec4(2.0), -0.50))",
+      "pixels": [0, 0, 0, 0]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec4(0.0), vec4(1.0), vec4(2.0), 0.00))",
+      "pixels": [0, 0, 0, 0]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec4(0.0), vec4(1.0), vec4(2.0), 0.25))",
+      "pixels": [0.5, 0.5, 0.5, 0.5]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec4(0.0), vec4(1.0), vec4(2.0), 0.50))",
+      "pixels": [1, 1, 1, 1]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec4(0.0), vec4(1.0), vec4(2.0), 0.75))",
+      "pixels": [1.5, 1.5, 1.5, 1.5]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec4(0.0), vec4(1.0), vec4(2.0), 1.00))",
+      "pixels": [2, 2, 2, 2]
+    },
+    {
+      "name": "_mix3",
+      "expression": "vec4(_mix3(vec4(0.0), vec4(1.0), vec4(2.0), 1.50))",
+      "pixels": [2, 2, 2, 2]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(float(0.0), float(1.0), float(2.0), float(3.0), -0.50), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(float(0.0), float(1.0), float(2.0), float(3.0), 0.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(float(0.0), float(1.0), float(2.0), float(3.0), 0.25), 0.0, 0.0, 1.0)",
+      "pixels": [0.75, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(float(0.0), float(1.0), float(2.0), float(3.0), 0.50), 0.0, 0.0, 1.0)",
+      "pixels": [1.5, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(float(0.0), float(1.0), float(2.0), float(3.0), 0.75), 0.0, 0.0, 1.0)",
+      "pixels": [2.25, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(float(0.0), float(1.0), float(2.0), float(3.0), 1.00), 0.0, 0.0, 1.0)",
+      "pixels": [3, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(float(0.0), float(1.0), float(2.0), float(3.0), 1.50), 0.0, 0.0, 1.0)",
+      "pixels": [3, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), -0.50), 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), 0.00), 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), 0.25), 0.0, 1.0)",
+      "pixels": [0.75, 0.75, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), 0.50), 0.0, 1.0)",
+      "pixels": [1.5, 1.5, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), 0.75), 0.0, 1.0)",
+      "pixels": [2.25, 2.25, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), 1.00), 0.0, 1.0)",
+      "pixels": [3, 3, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), 1.50), 0.0, 1.0)",
+      "pixels": [3, 3, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), -0.50), 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), 0.00), 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), 0.25), 1.0)",
+      "pixels": [0.75, 0.75, 0.75, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), 0.50), 1.0)",
+      "pixels": [1.5, 1.5, 1.5, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), 0.75), 1.0)",
+      "pixels": [2.25, 2.25, 2.25, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), 1.00), 1.0)",
+      "pixels": [3, 3, 3, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), 1.50), 1.0)",
+      "pixels": [3, 3, 3, 1]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), -0.50))",
+      "pixels": [0, 0, 0, 0]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), 0.00))",
+      "pixels": [0, 0, 0, 0]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), 0.25))",
+      "pixels": [0.75, 0.75, 0.75, 0.75]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), 0.50))",
+      "pixels": [1.5, 1.5, 1.5, 1.5]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), 0.75))",
+      "pixels": [2.25, 2.25, 2.25, 2.25]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), 1.00))",
+      "pixels": [3, 3, 3, 3]
+    },
+    {
+      "name": "_mix4",
+      "expression": "vec4(_mix4(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), 1.50))",
+      "pixels": [3, 3, 3, 3]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(float(0.0), float(1.0), float(2.0), float(3.0), float(4.0), -0.50), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(float(0.0), float(1.0), float(2.0), float(3.0), float(4.0), 0.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(float(0.0), float(1.0), float(2.0), float(3.0), float(4.0), 0.25), 0.0, 0.0, 1.0)",
+      "pixels": [1, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(float(0.0), float(1.0), float(2.0), float(3.0), float(4.0), 0.50), 0.0, 0.0, 1.0)",
+      "pixels": [2, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(float(0.0), float(1.0), float(2.0), float(3.0), float(4.0), 0.75), 0.0, 0.0, 1.0)",
+      "pixels": [3, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(float(0.0), float(1.0), float(2.0), float(3.0), float(4.0), 1.00), 0.0, 0.0, 1.0)",
+      "pixels": [4, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(float(0.0), float(1.0), float(2.0), float(3.0), float(4.0), 1.50), 0.0, 0.0, 1.0)",
+      "pixels": [4, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), vec2(4.0), -0.50), 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), vec2(4.0), 0.00), 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), vec2(4.0), 0.25), 0.0, 1.0)",
+      "pixels": [1, 1, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), vec2(4.0), 0.50), 0.0, 1.0)",
+      "pixels": [2, 2, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), vec2(4.0), 0.75), 0.0, 1.0)",
+      "pixels": [3, 3, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), vec2(4.0), 1.00), 0.0, 1.0)",
+      "pixels": [4, 4, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec2(0.0), vec2(1.0), vec2(2.0), vec2(3.0), vec2(4.0), 1.50), 0.0, 1.0)",
+      "pixels": [4, 4, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), vec3(4.0), -0.50), 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), vec3(4.0), 0.00), 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), vec3(4.0), 0.25), 1.0)",
+      "pixels": [1, 1, 1, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), vec3(4.0), 0.50), 1.0)",
+      "pixels": [2, 2, 2, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), vec3(4.0), 0.75), 1.0)",
+      "pixels": [3, 3, 3, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), vec3(4.0), 1.00), 1.0)",
+      "pixels": [4, 4, 4, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec3(0.0), vec3(1.0), vec3(2.0), vec3(3.0), vec3(4.0), 1.50), 1.0)",
+      "pixels": [4, 4, 4, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), vec4(4.0), -0.50))",
+      "pixels": [0, 0, 0, 0]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), vec4(4.0), 0.00))",
+      "pixels": [0, 0, 0, 0]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), vec4(4.0), 0.25))",
+      "pixels": [1, 1, 1, 1]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), vec4(4.0), 0.50))",
+      "pixels": [2, 2, 2, 2]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), vec4(4.0), 0.75))",
+      "pixels": [3, 3, 3, 3]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), vec4(4.0), 1.00))",
+      "pixels": [4, 4, 4, 4]
+    },
+    {
+      "name": "_mix5",
+      "expression": "vec4(_mix5(vec4(0.0), vec4(1.0), vec4(2.0), vec4(3.0), vec4(4.0), 1.50))",
+      "pixels": [4, 4, 4, 4]
+    },
+    {
+      "name": "_statelessContinuousChaotic",
+      "expression": "vec4(_statelessContinuousChaotic(-2.10), 0.0, 0.0, 1.0)",
+      "pixels": [0.9930243492126465, 0, 0, 1]
+    },
+    {
+      "name": "_statelessContinuousChaotic",
+      "expression": "vec4(_statelessContinuousChaotic(0.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_statelessContinuousChaotic",
+      "expression": "vec4(_statelessContinuousChaotic(0.20), 0.0, 0.0, 1.0)",
+      "pixels": [-0.6032426953315735, 0, 0, 1]
+    },
+    {
+      "name": "_statelessContinuousChaotic",
+      "expression": "vec4(_statelessContinuousChaotic(2.30), 0.0, 0.0, 1.0)",
+      "pixels": [0.9978547692298889, 0, 0, 1]
+    },
+    {
+      "name": "_statelessContinuousChaotic",
+      "expression": "vec4(_statelessContinuousChaotic(10.00), 0.0, 0.0, 1.0)",
+      "pixels": [0.956565797328949, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(float(-1.40)), 0.0, 0.0, 1.0)",
+      "pixels": [0.66796875, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(float(-1.40)), 0.0, 0.0, 1.0)",
+      "pixels": [0.5233925580978394, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(float(0.00)), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(float(0.00)), 0.0, 0.0, 1.0)",
+      "pixels": [0.0716552734375, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(float(0.30)), 0.0, 0.0, 1.0)",
+      "pixels": [0.11484375596046448, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(float(0.30)), 0.0, 0.0, 1.0)",
+      "pixels": [0.19368776679039001, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(float(2.70)), 0.0, 0.0, 1.0)",
+      "pixels": [0.3802246153354645, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(float(2.70)), 0.0, 0.0, 1.0)",
+      "pixels": [0.4928275942802429, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(float(0.37), 0.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(float(0.37), 1.00), 0.0, 0.0, 1.0)",
+      "pixels": [0.07082031667232513, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(float(0.37), 2.50), 0.0, 0.0, 1.0)",
+      "pixels": [0.16459886729717255, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(float(0.37), 9.00), 0.0, 0.0, 1.0)",
+      "pixels": [0.2009340524673462, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(vec2(-1.40)), 0.0, 0.0, 1.0)",
+      "pixels": [0.625893771648407, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec2(-1.40)), 0.0, 0.0, 1.0)",
+      "pixels": [0.5057384371757507, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(vec2(0.00)), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec2(0.00)), 0.0, 0.0, 1.0)",
+      "pixels": [0.1657656580209732, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(vec2(0.30)), 0.0, 0.0, 1.0)",
+      "pixels": [0.07726050913333893, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec2(0.30)), 0.0, 0.0, 1.0)",
+      "pixels": [0.18772125244140625, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(vec2(2.70)), 0.0, 0.0, 1.0)",
+      "pixels": [0.49579155445098877, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec2(2.70)), 0.0, 0.0, 1.0)",
+      "pixels": [0.5466024875640869, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec2(0.37), 0.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec2(0.37), 1.00), 0.0, 0.0, 1.0)",
+      "pixels": [0.05169302225112915, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec2(0.37), 2.50), 0.0, 0.0, 1.0)",
+      "pixels": [0.1831231415271759, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec2(0.37), 9.00), 0.0, 0.0, 1.0)",
+      "pixels": [0.24677537381649017, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(vec3(-1.40)), 0.0, 0.0, 1.0)",
+      "pixels": [0.5234512090682983, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec3(-1.40)), 0.0, 0.0, 1.0)",
+      "pixels": [0.486396849155426, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(vec3(0.00)), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec3(0.00)), 0.0, 0.0, 1.0)",
+      "pixels": [0.26829254627227783, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(vec3(0.30)), 0.0, 0.0, 1.0)",
+      "pixels": [0.3033788204193115, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec3(0.30)), 0.0, 0.0, 1.0)",
+      "pixels": [0.36391130089759827, 0, 0, 1]
+    },
+    {
+      "name": "_noise",
+      "expression": "vec4(_noise(vec3(2.70)), 0.0, 0.0, 1.0)",
+      "pixels": [0.3201168179512024, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec3(2.70)), 0.0, 0.0, 1.0)",
+      "pixels": [0.4156801998615265, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec3(0.37), 0.00), 0.0, 0.0, 1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec3(0.37), 1.00), 0.0, 0.0, 1.0)",
+      "pixels": [0.18312448263168335, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec3(0.37), 2.50), 0.0, 0.0, 1.0)",
+      "pixels": [0.3991190791130066, 0, 0, 1]
+    },
+    {
+      "name": "_fbm",
+      "expression": "vec4(_fbm(vec3(0.37), 9.00), 0.0, 0.0, 1.0)",
+      "pixels": [0.45251163840293884, 0, 0, 1]
+    },
+    {
+      "name": "_hash11",
+      "expression": "vec4(_hash11(float(0.37)), 0.0, 0.0, 1.0)",
+      "pixels": [0.2405226230621338, 0, 0, 1]
+    },
+    {
+      "name": "_hash12",
+      "expression": "vec4(_hash12(vec2(0.37)), 0.0, 0.0, 1.0)",
+      "pixels": [0.7502994537353516, 0, 0, 1]
+    },
+    {
+      "name": "_hash13",
+      "expression": "vec4(_hash13(vec3(0.37)), 0.0, 0.0, 1.0)",
+      "pixels": [0.30742645263671875, 0, 0, 1]
+    },
+    {
+      "name": "_hash21",
+      "expression": "vec4(_hash21(float(0.37)), 0.0, 1.0)",
+      "pixels": [0.6195011138916016, 0.6274833679199219, 0, 1]
+    },
+    {
+      "name": "_hash22",
+      "expression": "vec4(_hash22(vec2(0.37)), 0.0, 1.0)",
+      "pixels": [0.6195011138916016, 0.6274833679199219, 0, 1]
+    },
+    {
+      "name": "_hash23",
+      "expression": "vec4(_hash23(vec3(0.37)), 0.0, 1.0)",
+      "pixels": [0.6195011138916016, 0.6274833679199219, 0, 1]
+    },
+    {
+      "name": "_hash31",
+      "expression": "vec4(_hash31(float(0.37)), 1.0)",
+      "pixels": [0.6195011138916016, 0.6274833679199219, 0.6276206970214844, 1]
+    },
+    {
+      "name": "_hash32",
+      "expression": "vec4(_hash32(vec2(0.37)), 1.0)",
+      "pixels": [0.6195659637451172, 0.6275482177734375, 0.6276874542236328, 1]
+    },
+    {
+      "name": "_hash33",
+      "expression": "vec4(_hash33(vec3(0.37)), 1.0)",
+      "pixels": [0.6195659637451172, 0.6356678009033203, 0.6358051300048828, 1]
+    },
+    {
+      "name": "_hash41",
+      "expression": "vec4(_hash41(float(0.37)))",
+      "pixels": [0.8344345092773438, 0.84527587890625, 0.8713264465332031, 0.8585891723632812]
+    },
+    {
+      "name": "_hash42",
+      "expression": "vec4(_hash42(vec2(0.37)))",
+      "pixels": [0.8344345092773438, 0.84527587890625, 0.8713264465332031, 0.8585891723632812]
+    },
+    {
+      "name": "_hash43",
+      "expression": "vec4(_hash43(vec3(0.37)))",
+      "pixels": [0.8344345092773438, 0.84527587890625, 0.8713264465332031, 0.8585891723632812]
+    },
+    {
+      "name": "_hash44",
+      "expression": "vec4(_hash44(vec4(0.37)))",
+      "pixels": [0.8344345092773438, 0.84527587890625, 0.8713264465332031, 0.8585891723632812]
+    },
+    {
+      "name": "_rgb2hsv",
+      "expression": "vec4(_rgb2hsv(vec3(0.2,0.7,0.4)), 1.0)",
+      "pixels": [0.3999999761581421, 0.7142857313156128, 0.699999988079071, 1]
+    },
+    {
+      "name": "_hsv2rgb",
+      "expression": "vec4(_hsv2rgb(vec3(0.2,0.7,0.4)), 1.0)",
+      "pixels": [0.3439999222755432, 0.4000000059604645, 0.12000000476837158, 1]
+    },
+    {
+      "name": "_normalizeRGB",
+      "expression": "vec4(_normalizeRGB(-5.0, 128.0, 300.0), 1.0)",
+      "pixels": [0, 0.501960813999176, 1, 1]
+    },
+    {
+      "name": "_palette",
+      "expression": "vec4(_palette(0.37,vec3(0.4),vec3(0.3),vec3(0.5),vec3(0.7)), 1.0)",
+      "pixels": [0.6250324249267578, 0.6250324249267578, 0.6250324249267578, 1]
+    },
+    {
+      "name": "_brightness",
+      "expression": "vec4(_brightness(vec3(0.2,0.7,0.4), 2.0), 1.0)",
+      "pixels": [0.4000000059604645, 1.399999976158142, 0.800000011920929, 1]
+    },
+    {
+      "name": "_gamma",
+      "expression": "vec4(_gamma(vec3(0.2,0.7,0.4), 0.7), 1.0)",
+      "pixels": [0.100339375436306, 0.6007744669914246, 0.2700935900211334, 1]
+    },
+    {
+      "name": "_contrast",
+      "expression": "vec4(_contrast(vec3(0.2,0.7,0.4), 1.5), 1.0)",
+      "pixels": [0.04999998211860657, 0.7999999523162842, 0.3500000238418579, 1]
+    },
+    {
+      "name": "_saturation",
+      "expression": "vec4(_saturation(vec3(0.2,0.7,0.4), 1.7), 1.0)",
+      "pixels": [-0.15000000596046448, 0.699999988079071, 0.19000008702278137, 1]
+    },
+    {
+      "name": "_hueRotate",
+      "expression": "vec4(_hueRotate(vec3(0.2,0.7,0.4), 90.0), 1.0)",
+      "pixels": [0.260127991437912, 0.31786298751831055, 0.7220079898834229, 1]
+    },
+    {
+      "name": "_invert",
+      "expression": "vec4(_invert(vec3(0.2,0.7,0.4), 0.8), 1.0)",
+      "pixels": [0.6800000667572021, 0.3799999952316284, 0.5600000023841858, 1]
+    },
+    {
+      "name": "_grayscale",
+      "expression": "vec4(_grayscale(vec3(0.2,0.7,0.4), 1.5), 1.0)",
+      "pixels": [0.5720399618148804, 0.5720399618148804, 0.5720399618148804, 1]
+    },
+    {
+      "name": "_grayscale",
+      "expression": "vec4(_grayscale(vec3(0.2,0.7,0.4)), 1.0)",
+      "pixels": [0.5720399618148804, 0.5720399618148804, 0.5720399618148804, 1]
+    },
+    {
+      "name": "_luminance",
+      "expression": "vec4(_luminance(vec3(0.2,0.7,0.4)), 0.0, 0.0, 1.0)",
+      "pixels": [0.5720399618148804, 0, 0, 1]
+    },
+    {
+      "name": "_dichrome",
+      "expression": "vec4(_dichrome(vec3(0.2,0.7,0.4),vec3(0.2,0.0,0.0),vec3(0.0,0.7,0.0)), 1.0)",
+      "pixels": [0.2689995765686035, 0.7806998491287231, 0.2689995765686035, 1]
+    },
+    {
+      "name": "_brightness",
+      "expression": "vec4(_brightness(vec4(0.2,0.7,0.4,0.3), 2.0))",
+      "pixels": [0.4000000059604645, 1.399999976158142, 0.800000011920929, 0.6000000238418579]
+    },
+    {
+      "name": "_gamma",
+      "expression": "vec4(_gamma(vec4(0.2,0.7,0.4,0.3), 0.7))",
+      "pixels": [0.100339375436306, 0.6007744669914246, 0.2700935900211334, 0.30000001192092896]
+    },
+    {
+      "name": "_contrast",
+      "expression": "vec4(_contrast(vec4(0.2,0.7,0.4,0.3), 1.5))",
+      "pixels": [0.04999998211860657, 0.7999999523162842, 0.3500000238418579, 0.30000001192092896]
+    },
+    {
+      "name": "_saturation",
+      "expression": "vec4(_saturation(vec4(0.2,0.7,0.4,0.3), 1.7))",
+      "pixels": [-0.15000000596046448, 0.699999988079071, 0.19000008702278137, 0.30000001192092896]
+    },
+    {
+      "name": "_hueRotate",
+      "expression": "vec4(_hueRotate(vec4(0.2,0.7,0.4,0.3), 90.0))",
+      "pixels": [0.260127991437912, 0.31786298751831055, 0.7220079898834229, 0.30000001192092896]
+    },
+    {
+      "name": "_invert",
+      "expression": "vec4(_invert(vec4(0.2,0.7,0.4,0.3), 0.8))",
+      "pixels": [0.6800000667572021, 0.3799999952316284, 0.5600000023841858, 0.6200000047683716]
+    },
+    {
+      "name": "_grayscale",
+      "expression": "vec4(_grayscale(vec4(0.2,0.7,0.4,0.3), 1.5))",
+      "pixels": [0.5720399618148804, 0.5720399618148804, 0.5720399618148804, 0.30000001192092896]
+    },
+    {
+      "name": "_grayscale",
+      "expression": "vec4(_grayscale(vec4(0.2,0.7,0.4,0.3)))",
+      "pixels": [0.5720399618148804, 0.5720399618148804, 0.5720399618148804, 0.30000001192092896]
+    },
+    {
+      "name": "_luminance",
+      "expression": "vec4(_luminance(vec4(0.2,0.7,0.4,0.3)), 0.0, 0.0, 1.0)",
+      "pixels": [0.5720399618148804, 0, 0, 1]
+    },
+    {
+      "name": "_dichrome",
+      "expression": "vec4(_dichrome(vec4(0.2,0.7,0.4,0.3),vec3(0.2,0.0,0.0),vec3(0.0,0.7,0.0)))",
+      "pixels": [0.2689995765686035, 0.7806998491287231, 0.2689995765686035, 0.30000001192092896]
+    },
+    {
+      "name": "_hueSaturationContrast",
+      "expression": "vec4(_hueSaturationContrast(vec4(0.2,0.7,0.4,0.3),0.2,0.5,3.0))",
+      "pixels": [-0.34499990940093994, 0.12820014357566833, 0.8379999399185181, 0.30000001192092896]
+    },
+    {
+      "name": "_hueSaturationContrastLEGACY",
+      "expression": "vec4(_hueSaturationContrastLEGACY(vec4(0.2,0.7,0.4,0.3),0.2,0.5,3.0))",
+      "pixels": [-0.34499990940093994, 0.12820014357566833, 0.8379999399185181, 0.30000001192092896]
+    },
+    {
+      "name": "_invertImage",
+      "expression": "vec4(_invertImage(vec4(0.2,0.7,0.4,0.3)))",
+      "pixels": [0.320000022649765, 0.6200000047683716, 0.4400000274181366, 0.3799999952316284]
+    },
+    {
+      "name": "_isMediaActive",
+      "expression": "vec4(float(_isMediaActive()),0.0,0.0,1.0)",
+      "pixels": [0, 0, 0, 1]
+    },
+    {
+      "name": "_flipMediaCoords",
+      "expression": "vec4(_flipMediaCoords(vec2(0.2,0.7)), 0.0, 1.0)",
+      "pixels": [0.20000000298023224, 0.699999988079071, 0, 1]
+    },
+    {
+      "name": "_invertYAxisVideo",
+      "expression": "vec4(_invertYAxisVideo(vec2(0.2,0.7)), 0.0, 1.0)",
+      "pixels": [0.20000000298023224, 0.699999988079071, 0, 1]
+    },
+    {
+      "name": "_isMediaActive",
+      "expression": "vec4(float(_isMediaActive()),0.0,0.0,1.0)",
+      "pixels": [1, 0, 0, 1]
+    },
+    {
+      "name": "_flipMediaCoords",
+      "expression": "vec4(_flipMediaCoords(vec2(0.2,0.7)), 0.0, 1.0)",
+      "pixels": [0.20000000298023224, 0.699999988079071, 0, 1]
+    },
+    {
+      "name": "_invertYAxisVideo",
+      "expression": "vec4(_invertYAxisVideo(vec2(0.2,0.7)), 0.0, 1.0)",
+      "pixels": [0.20000000298023224, 0.699999988079071, 0, 1]
+    },
+    {
+      "name": "_isMediaActive",
+      "expression": "vec4(float(_isMediaActive()),0.0,0.0,1.0)",
+      "pixels": [1, 0, 0, 1]
+    },
+    {
+      "name": "_flipMediaCoords",
+      "expression": "vec4(_flipMediaCoords(vec2(0.2,0.7)), 0.0, 1.0)",
+      "pixels": [0.20000000298023224, 0.30000001192092896, 0, 1]
+    },
+    {
+      "name": "_invertYAxisVideo",
+      "expression": "vec4(_invertYAxisVideo(vec2(0.2,0.7)), 0.0, 1.0)",
+      "pixels": [0.20000000298023224, 0.30000001192092896, 0, 1]
+    },
+    {
+      "name": "_isMediaActive",
+      "expression": "vec4(float(_isMediaActive()),0.0,0.0,1.0)",
+      "pixels": [1, 0, 0, 1]
+    },
+    {
+      "name": "_flipMediaCoords",
+      "expression": "vec4(_flipMediaCoords(vec2(0.2,0.7)), 0.0, 1.0)",
+      "pixels": [0.800000011920929, 0.30000001192092896, 0, 1]
+    },
+    {
+      "name": "_invertYAxisVideo",
+      "expression": "vec4(_invertYAxisVideo(vec2(0.2,0.7)), 0.0, 1.0)",
+      "pixels": [0.800000011920929, 0.30000001192092896, 0, 1]
+    },
+    {
+      "name": "_applyMediaContrast",
+      "expression": "vec4(_applyMediaContrast(vec4(0.2,0.7,0.4,0.3)))",
+      "pixels": [-0.08799999952316284, 0.8919999599456787, 0.30400002002716064, 0.30000001192092896]
+    },
+    {
+      "name": "_applyInvertMedia",
+      "expression": "vec4(_applyInvertMedia(vec4(0.2,0.7,0.4,0.3)))",
+      "pixels": [0.320000022649765, 0.6200000047683716, 0.4400000274181366, 0.3799999952316284]
+    },
+    {
+      "name": "_correctImageCoords",
+      "expression": "vec4(_correctImageCoords(vec2(8.0,4.0), vec2(0.1,0.8)), 0.0, 1.0)",
+      "pixels": [0.10000000149011612, 1.100000023841858, 0, 1]
+    },
+    {
+      "name": "_correctImageCoords",
+      "expression": "vec4(_correctImageCoords(vec2(8.0,4.0)), 0.0, 1.0)",
+      "pixels": [
+        0.125, -0.25, 0, 1, 0.375, -0.25, 0, 1, 0.625, -0.25, 0, 1, 0.875, -0.25, 0, 1, 0.125, 0.25, 0, 1, 0.375, 0.25,
+        0, 1, 0.625, 0.25, 0, 1, 0.875, 0.25, 0, 1, 0.125, 0.75, 0, 1, 0.375, 0.75, 0, 1, 0.625, 0.75, 0, 1, 0.875,
+        0.75, 0, 1, 0.125, 1.25, 0, 1, 0.375, 1.25, 0, 1, 0.625, 1.25, 0, 1, 0.875, 1.25, 0, 1
+      ]
+    },
+    {
+      "name": "_correctMediaCoords",
+      "expression": "vec4(_correctMediaCoords(vec2(0.1,0.8)), 0.0, 1.0)",
+      "pixels": [0.10000000149011612, 1.100000023841858, 0, 1]
+    },
+    {
+      "name": "_correctMediaCoords",
+      "expression": "vec4(_correctMediaCoords(), 0.0, 1.0)",
+      "pixels": [
+        0.125, -0.25, 0, 1, 0.375, -0.25, 0, 1, 0.625, -0.25, 0, 1, 0.875, -0.25, 0, 1, 0.125, 0.25, 0, 1, 0.375, 0.25,
+        0, 1, 0.625, 0.25, 0, 1, 0.875, 0.25, 0, 1, 0.125, 0.75, 0, 1, 0.375, 0.75, 0, 1, 0.625, 0.75, 0, 1, 0.875,
+        0.75, 0, 1, 0.125, 1.25, 0, 1, 0.375, 1.25, 0, 1, 0.625, 1.25, 0, 1, 0.875, 1.25, 0, 1
+      ]
+    },
+    {
+      "name": "_applyMediaScale",
+      "expression": "vec4(_applyMediaScale(vec2(0.1,0.8)), 0.0, 1.0)",
+      "pixels": [0.30000001192092896, 0.6499999761581421, 0, 1]
+    },
+    {
+      "name": "_loadImage",
+      "expression": "vec4(_loadImage(syn_Media))",
+      "pixels": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.125, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25,
+        0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.875, 0.25, 0.25, 0.30000001192092896, 0.125,
+        0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896, 0.625, 0.75, 0.25, 0.30000001192092896,
+        0.875, 0.75, 0.25, 0.30000001192092896, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      ]
+    },
+    {
+      "name": "_loadImage",
+      "expression": "vec4(_loadImage(syn_Media,vec2(0.4,0.2)))",
+      "pixels": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.25, 0.25, 0.30000001192092896, 0.75, 0.25, 0.25,
+        0.30000001192092896, 0.875, 0.25, 0.25, 0.30000001192092896, 0.875, 0.25, 0.25, 0.30000001192092896, 0.5, 0.75,
+        0.25, 0.30000001192092896, 0.75, 0.75, 0.25, 0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896, 0.875,
+        0.75, 0.25, 0.30000001192092896, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      ]
+    },
+    {
+      "name": "_loadImage",
+      "expression": "vec4(_loadImage(syn_Media,vec2(0.0),true))",
+      "pixels": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.875, 0.75, 0.25, 0.30000001192092896, 0.625, 0.75, 0.25,
+        0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896, 0.125, 0.75, 0.25, 0.30000001192092896, 0.875,
+        0.25, 0.25, 0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25, 0.30000001192092896,
+        0.125, 0.25, 0.25, 0.30000001192092896, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      ]
+    },
+    {
+      "name": "_loadImage",
+      "expression": "vec4(_loadImage(syn_Media,vec2(0.0),false,0.0))",
+      "pixels": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.125, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25,
+        0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.875, 0.25, 0.25, 0.30000001192092896, 0.125,
+        0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896, 0.625, 0.75, 0.25, 0.30000001192092896,
+        0.875, 0.75, 0.25, 0.30000001192092896, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      ]
+    },
+    {
+      "name": "_textureImage",
+      "expression": "vec4(_textureImage(syn_Media,vec2(1.0)))",
+      "pixels": [0.875, 0.75, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_textureImage",
+      "expression": "vec4(_textureImage(syn_Media,vec2(0.1,0.8),true))",
+      "pixels": [0.875, 0, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_textureImage",
+      "expression": "vec4(_textureImage(syn_Media,vec2(0.1,0.8),false,0.0))",
+      "pixels": [0, 0.75, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_loadMedia",
+      "expression": "vec4(_loadMedia())",
+      "pixels": [
+        0.25, 0, 0.25, 0.30000001192092896, 0.375, 0, 0.25, 0.30000001192092896, 0.5, 0, 0.25, 0.30000001192092896,
+        0.625, 0, 0.25, 0.30000001192092896, 0.25, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25,
+        0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.25, 0.5,
+        0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896, 0.625,
+        0.5, 0.25, 0.30000001192092896, 0.25, 0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896,
+        0.5, 0.75, 0.25, 0.30000001192092896, 0.625, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_loadMedia",
+      "expression": "vec4(_loadMedia(vec2(0.4,0.2)))",
+      "pixels": [
+        0.625, 0.25, 0.25, 0.30000001192092896, 0.75, 0.25, 0.25, 0.30000001192092896, 0.875, 0.25, 0.25,
+        0.30000001192092896, 0, 0, 0, 0, 0.625, 0.5, 0.25, 0.30000001192092896, 0.75, 0.5, 0.25, 0.30000001192092896,
+        0.875, 0.5, 0.25, 0.30000001192092896, 0, 0, 0, 0, 0.625, 0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25,
+        0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0
+      ]
+    },
+    {
+      "name": "_loadMedia",
+      "expression": "vec4(_loadMedia(0.0))",
+      "pixels": [
+        0.25, 0, 0.25, 0.30000001192092896, 0.375, 0, 0.25, 0.30000001192092896, 0.5, 0, 0.25, 0.30000001192092896,
+        0.625, 0, 0.25, 0.30000001192092896, 0.25, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25,
+        0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.25, 0.5,
+        0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896, 0.625,
+        0.5, 0.25, 0.30000001192092896, 0.25, 0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896,
+        0.5, 0.75, 0.25, 0.30000001192092896, 0.625, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_loadMedia",
+      "expression": "vec4(_loadMedia(vec2(0.4,0.2),0.0))",
+      "pixels": [
+        0.625, 0.25, 0.25, 0.30000001192092896, 0.75, 0.25, 0.25, 0.30000001192092896, 0.875, 0.25, 0.25,
+        0.30000001192092896, 0, 0, 0, 0, 0.625, 0.5, 0.25, 0.30000001192092896, 0.75, 0.5, 0.25, 0.30000001192092896,
+        0.875, 0.5, 0.25, 0.30000001192092896, 0, 0, 0, 0, 0.625, 0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25,
+        0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0
+      ]
+    },
+    {
+      "name": "_textureMedia",
+      "expression": "vec4(_textureMedia(vec2(0.1,0.8)))",
+      "pixels": [0.25, 0.75, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_textureMedia",
+      "expression": "vec4(_textureMedia(vec2(0.1,0.8),0.0))",
+      "pixels": [0.25, 0.75, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_loadMediaAsMask",
+      "expression": "vec4(_loadMediaAsMask())",
+      "pixels": [0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224]
+    },
+    {
+      "name": "_loadMediaAsMask",
+      "expression": "vec4(_loadMediaAsMask(vec2(0.4,0.2)))",
+      "pixels": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0.800000011920929, 0.800000011920929, 0.800000011920929, 0.800000011920929,
+        0.800000011920929, 0.800000011920929, 0.800000011920929, 0.800000011920929, 0, 0, 0, 0, 0, 0, 0, 0,
+        0.800000011920929, 0.800000011920929, 0.800000011920929, 0.800000011920929, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0, 0, 0, 0, 0, 0, 0, 0, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0, 0, 0, 0, 0, 0, 0, 0, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224
+      ]
+    },
+    {
+      "name": "_textureMediaAsMask",
+      "expression": "vec4(_textureMediaAsMask(vec2(0.1,0.8)))",
+      "pixels": [0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224]
+    },
+    {
+      "name": "_loadUserImage",
+      "expression": "vec4(_loadUserImage())",
+      "pixels": [
+        0.25, 0, 0.25, 0.30000001192092896, 0.375, 0, 0.25, 0.30000001192092896, 0.5, 0, 0.25, 0.30000001192092896,
+        0.625, 0, 0.25, 0.30000001192092896, 0.25, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25,
+        0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.25, 0.5,
+        0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896, 0.625,
+        0.5, 0.25, 0.30000001192092896, 0.25, 0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896,
+        0.5, 0.75, 0.25, 0.30000001192092896, 0.625, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_textureUserImage",
+      "expression": "vec4(_textureUserImage(vec2(0.1,0.8)))",
+      "pixels": [0.25, 0.75, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_edgeDetect",
+      "expression": "vec4(_edgeDetect(syn_Media))",
+      "pixels": [
+        0.25, 0.25, 0, 0, 0.25, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.25, 0.25, 0, 0, 0.25, 0.25, 0, 0,
+        0.125, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.25, 0, 0,
+        0, 0.25, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0
+      ]
+    },
+    {
+      "name": "_edgeDetectSobel",
+      "expression": "vec4(_edgeDetectSobel(syn_Media))",
+      "pixels": [
+        0.8441652655601501, 0.8441652655601501, 0.8441652655601501, 0.8441652655601501, 1.547680377960205,
+        1.547680377960205, 1.547680377960205, 1.547680377960205, 1.8160847425460815, 1.8160847425460815,
+        1.8160847425460815, 1.8160847425460815, 0.9475895762443542, 0.9475895762443542, 0.9475895762443542,
+        0.9475895762443542, 1.2875597476959229, 1.2875597476959229, 1.2875597476959229, 1.2875597476959229,
+        1.620742678642273, 1.620742678642273, 1.620742678642273, 1.620742678642273, 1.8140722513198853,
+        1.8140722513198853, 1.8140722513198853, 1.8140722513198853, 1.044690728187561, 1.044690728187561,
+        1.044690728187561, 1.044690728187561, 1.7143886089324951, 1.7143886089324951, 1.7143886089324951,
+        1.7143886089324951, 1.7965888977050781, 1.7965888977050781, 1.7965888977050781, 1.7965888977050781,
+        1.876115322113037, 1.876115322113037, 1.876115322113037, 1.876115322113037, 1.2756667137145996,
+        1.2756667137145996, 1.2756667137145996, 1.2756667137145996, 0.9615134596824646, 0.9615134596824646,
+        0.9615134596824646, 0.9615134596824646, 1.1954842805862427, 1.1954842805862427, 1.1954842805862427,
+        1.1954842805862427, 1.448186993598938, 1.448186993598938, 1.448186993598938, 1.448186993598938,
+        0.9276649355888367, 0.9276649355888367, 0.9276649355888367, 0.9276649355888367
+      ]
+    },
+    {
+      "name": "_edgeDetectMedia",
+      "expression": "vec4(_edgeDetectMedia())",
+      "pixels": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25, 0.25, 0, 0, 0.25, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.125,
+        0.25, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0
+      ]
+    },
+    {
+      "name": "_edgeDetectSobelMedia",
+      "expression": "vec4(_edgeDetectSobelMedia())",
+      "pixels": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.2875597476959229, 1.2875597476959229, 1.2875597476959229,
+        1.2875597476959229, 1.620742678642273, 1.620742678642273, 1.620742678642273, 1.620742678642273,
+        1.8140722513198853, 1.8140722513198853, 1.8140722513198853, 1.8140722513198853, 1.044690728187561,
+        1.044690728187561, 1.044690728187561, 1.044690728187561, 0.9615134596824646, 0.9615134596824646,
+        0.9615134596824646, 0.9615134596824646, 1.1954842805862427, 1.1954842805862427, 1.1954842805862427,
+        1.1954842805862427, 1.448186993598938, 1.448186993598938, 1.448186993598938, 1.448186993598938,
+        0.9276649355888367, 0.9276649355888367, 0.9276649355888367, 0.9276649355888367, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0
+      ]
+    },
+    {
+      "name": "_hBlurTiltShift",
+      "expression": "vec4(_hBlurTiltShift(syn_Media, _uv, 0.2, 0.5))",
+      "pixels": [
+        0.48760786652565, 0, 0.25, 0.29999998211860657, 0.4958692491054535, 0, 0.25, 0.29999998211860657,
+        0.5041306614875793, 0, 0.25, 0.29999998211860657, 0.512391984462738, 0, 0.25, 0.29999998211860657,
+        0.20516523718833923, 0.25, 0.25, 0.29999998211860657, 0.4017217457294464, 0.25, 0.25, 0.29999998211860657,
+        0.5982782244682312, 0.25, 0.25, 0.29999998211860657, 0.7948346734046936, 0.25, 0.25, 0.29999998211860657,
+        0.20516523718833923, 0.5, 0.25, 0.29999998211860657, 0.4017217457294464, 0.5, 0.25, 0.29999998211860657,
+        0.5982782244682312, 0.5, 0.25, 0.29999998211860657, 0.7948346734046936, 0.5, 0.25, 0.29999998211860657,
+        0.48760786652565, 0.7499999403953552, 0.25, 0.29999998211860657, 0.4958692491054535, 0.7499999403953552, 0.25,
+        0.29999998211860657, 0.5041306614875793, 0.7499999403953552, 0.25, 0.29999998211860657, 0.512391984462738,
+        0.7499999403953552, 0.25, 0.29999998211860657
+      ]
+    },
+    {
+      "name": "_vBlurTiltShift",
+      "expression": "vec4(_vBlurTiltShift(syn_Media, _uv, 0.2, 0.5))",
+      "pixels": [
+        0.125, 0.36260786652565, 0.25, 0.29999998211860657, 0.3749999701976776, 0.36260786652565, 0.25,
+        0.29999998211860657, 0.6249998807907104, 0.36260786652565, 0.25, 0.29999998211860657, 0.8749998807907104,
+        0.36260786652565, 0.25, 0.29999998211860657, 0.125, 0.276721715927124, 0.25, 0.29999998211860657,
+        0.3749999701976776, 0.276721715927124, 0.25, 0.29999998211860657, 0.625, 0.276721715927124, 0.25,
+        0.29999998211860657, 0.875, 0.276721715927124, 0.25, 0.29999998211860657, 0.125, 0.4732782244682312, 0.25,
+        0.29999998211860657, 0.3749999701976776, 0.4732782244682312, 0.25, 0.29999998211860657, 0.625,
+        0.4732782244682312, 0.25, 0.29999998211860657, 0.875, 0.4732782244682312, 0.25, 0.29999998211860657, 0.125,
+        0.38739198446273804, 0.25, 0.29999998211860657, 0.3749999701976776, 0.38739198446273804, 0.25,
+        0.29999998211860657, 0.6249998807907104, 0.38739198446273804, 0.25, 0.29999998211860657, 0.8749998807907104,
+        0.38739198446273804, 0.25, 0.29999998211860657
+      ]
+    },
+    {
+      "name": "IMG_NORM_PIXEL",
+      "expression": "vec4(IMG_NORM_PIXEL(syn_Media,_uv))",
+      "pixels": [
+        0.125, 0, 0.25, 0.30000001192092896, 0.375, 0, 0.25, 0.30000001192092896, 0.625, 0, 0.25, 0.30000001192092896,
+        0.875, 0, 0.25, 0.30000001192092896, 0.125, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25,
+        0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.875, 0.25, 0.25, 0.30000001192092896, 0.125, 0.5,
+        0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.625, 0.5, 0.25, 0.30000001192092896, 0.875,
+        0.5, 0.25, 0.30000001192092896, 0.125, 0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896,
+        0.625, 0.75, 0.25, 0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "IMG_PIXEL",
+      "expression": "vec4(IMG_PIXEL(syn_Media,vec2(1.0,2.0)))",
+      "pixels": [0.125, 0.5, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "IMG_SIZE",
+      "expression": "vec4(IMG_SIZE(syn_Media), 0.0, 1.0)",
+      "pixels": [8, 4, 0, 1]
+    },
+    {
+      "name": "_correctImageCoords",
+      "expression": "vec4(_correctImageCoords(vec2(8.0,4.0), vec2(0.1,0.8)), 0.0, 1.0)",
+      "pixels": [0.30000001192092896, 0.800000011920929, 0, 1]
+    },
+    {
+      "name": "_correctImageCoords",
+      "expression": "vec4(_correctImageCoords(vec2(8.0,4.0)), 0.0, 1.0)",
+      "pixels": [
+        0.3125, 0.125, 0, 1, 0.4375, 0.125, 0, 1, 0.5625, 0.125, 0, 1, 0.6875, 0.125, 0, 1, 0.3125, 0.375, 0, 1, 0.4375,
+        0.375, 0, 1, 0.5625, 0.375, 0, 1, 0.6875, 0.375, 0, 1, 0.3125, 0.625, 0, 1, 0.4375, 0.625, 0, 1, 0.5625, 0.625,
+        0, 1, 0.6875, 0.625, 0, 1, 0.3125, 0.875, 0, 1, 0.4375, 0.875, 0, 1, 0.5625, 0.875, 0, 1, 0.6875, 0.875, 0, 1
+      ]
+    },
+    {
+      "name": "_correctMediaCoords",
+      "expression": "vec4(_correctMediaCoords(vec2(0.1,0.8)), 0.0, 1.0)",
+      "pixels": [0.30000001192092896, 0.800000011920929, 0, 1]
+    },
+    {
+      "name": "_correctMediaCoords",
+      "expression": "vec4(_correctMediaCoords(), 0.0, 1.0)",
+      "pixels": [
+        0.3125, 0.125, 0, 1, 0.4375, 0.125, 0, 1, 0.5625, 0.125, 0, 1, 0.6875, 0.125, 0, 1, 0.3125, 0.375, 0, 1, 0.4375,
+        0.375, 0, 1, 0.5625, 0.375, 0, 1, 0.6875, 0.375, 0, 1, 0.3125, 0.625, 0, 1, 0.4375, 0.625, 0, 1, 0.5625, 0.625,
+        0, 1, 0.6875, 0.625, 0, 1, 0.3125, 0.875, 0, 1, 0.4375, 0.875, 0, 1, 0.5625, 0.875, 0, 1, 0.6875, 0.875, 0, 1
+      ]
+    },
+    {
+      "name": "_applyMediaScale",
+      "expression": "vec4(_applyMediaScale(vec2(0.1,0.8)), 0.0, 1.0)",
+      "pixels": [0.30000001192092896, 0.6499999761581421, 0, 1]
+    },
+    {
+      "name": "_loadImage",
+      "expression": "vec4(_loadImage(syn_Media))",
+      "pixels": [
+        0.25, 0, 0.25, 0.30000001192092896, 0.375, 0, 0.25, 0.30000001192092896, 0.5, 0, 0.25, 0.30000001192092896,
+        0.625, 0, 0.25, 0.30000001192092896, 0.25, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25,
+        0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.25, 0.5,
+        0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896, 0.625,
+        0.5, 0.25, 0.30000001192092896, 0.25, 0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896,
+        0.5, 0.75, 0.25, 0.30000001192092896, 0.625, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_loadImage",
+      "expression": "vec4(_loadImage(syn_Media,vec2(0.4,0.2)))",
+      "pixels": [
+        0.625, 0.25, 0.25, 0.30000001192092896, 0.75, 0.25, 0.25, 0.30000001192092896, 0.875, 0.25, 0.25,
+        0.30000001192092896, 0.875, 0.25, 0.25, 0.30000001192092896, 0.625, 0.5, 0.25, 0.30000001192092896, 0.75, 0.5,
+        0.25, 0.30000001192092896, 0.875, 0.5, 0.25, 0.30000001192092896, 0.875, 0.5, 0.25, 0.30000001192092896, 0.625,
+        0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25, 0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896,
+        0.875, 0.75, 0.25, 0.30000001192092896, 0.625, 0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25,
+        0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_loadImage",
+      "expression": "vec4(_loadImage(syn_Media,vec2(0.0),true))",
+      "pixels": [
+        0.625, 0.75, 0.25, 0.30000001192092896, 0.5, 0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25,
+        0.30000001192092896, 0.25, 0.75, 0.25, 0.30000001192092896, 0.625, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5,
+        0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.25, 0.5, 0.25, 0.30000001192092896, 0.625,
+        0.25, 0.25, 0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25, 0.30000001192092896,
+        0.25, 0.25, 0.25, 0.30000001192092896, 0.625, 0, 0.25, 0.30000001192092896, 0.5, 0, 0.25, 0.30000001192092896,
+        0.375, 0, 0.25, 0.30000001192092896, 0.25, 0, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_loadImage",
+      "expression": "vec4(_loadImage(syn_Media,vec2(0.0),false,0.0))",
+      "pixels": [
+        0.25, 0, 0.25, 0.30000001192092896, 0.375, 0, 0.25, 0.30000001192092896, 0.5, 0, 0.25, 0.30000001192092896,
+        0.625, 0, 0.25, 0.30000001192092896, 0.25, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25,
+        0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.25, 0.5,
+        0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896, 0.625,
+        0.5, 0.25, 0.30000001192092896, 0.25, 0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896,
+        0.5, 0.75, 0.25, 0.30000001192092896, 0.625, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_textureImage",
+      "expression": "vec4(_textureImage(syn_Media,vec2(1.0)))",
+      "pixels": [0.75, 0.75, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_textureImage",
+      "expression": "vec4(_textureImage(syn_Media,vec2(0.1,0.8),true))",
+      "pixels": [0.625, 0, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_textureImage",
+      "expression": "vec4(_textureImage(syn_Media,vec2(0.1,0.8),false,0.0))",
+      "pixels": [0.25, 0.75, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_loadMedia",
+      "expression": "vec4(_loadMedia())",
+      "pixels": [
+        0.375, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25, 0.30000001192092896, 0.5, 0.25, 0.25,
+        0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25,
+        0.25, 0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.375,
+        0.5, 0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896, 0.5,
+        0.5, 0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896,
+        0.5, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_loadMedia",
+      "expression": "vec4(_loadMedia(vec2(0.4,0.2)))",
+      "pixels": [
+        0.75, 0.5, 0.25, 0.30000001192092896, 0.75, 0.5, 0.25, 0.30000001192092896, 0.875, 0.5, 0.25,
+        0.30000001192092896, 0.875, 0.5, 0.25, 0.30000001192092896, 0.75, 0.5, 0.25, 0.30000001192092896, 0.75, 0.5,
+        0.25, 0.30000001192092896, 0.875, 0.5, 0.25, 0.30000001192092896, 0.875, 0.5, 0.25, 0.30000001192092896, 0.75,
+        0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25, 0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896,
+        0.875, 0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25,
+        0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_loadMedia",
+      "expression": "vec4(_loadMedia(0.0))",
+      "pixels": [
+        0.375, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25, 0.30000001192092896, 0.5, 0.25, 0.25,
+        0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25,
+        0.25, 0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.375,
+        0.5, 0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896, 0.5,
+        0.5, 0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896,
+        0.5, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_loadMedia",
+      "expression": "vec4(_loadMedia(vec2(0.4,0.2),0.0))",
+      "pixels": [
+        0.75, 0.5, 0.25, 0.30000001192092896, 0.75, 0.5, 0.25, 0.30000001192092896, 0.875, 0.5, 0.25,
+        0.30000001192092896, 0.875, 0.5, 0.25, 0.30000001192092896, 0.75, 0.5, 0.25, 0.30000001192092896, 0.75, 0.5,
+        0.25, 0.30000001192092896, 0.875, 0.5, 0.25, 0.30000001192092896, 0.875, 0.5, 0.25, 0.30000001192092896, 0.75,
+        0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25, 0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896,
+        0.875, 0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25, 0.30000001192092896, 0.75, 0.75, 0.25,
+        0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_textureMedia",
+      "expression": "vec4(_textureMedia(vec2(0.1,0.8)))",
+      "pixels": [0.375, 0.5, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_textureMedia",
+      "expression": "vec4(_textureMedia(vec2(0.1,0.8),0.0))",
+      "pixels": [0.375, 0.5, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_loadMediaAsMask",
+      "expression": "vec4(_loadMediaAsMask())",
+      "pixels": [0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224]
+    },
+    {
+      "name": "_loadMediaAsMask",
+      "expression": "vec4(_loadMediaAsMask(vec2(0.4,0.2)))",
+      "pixels": [
+        0, 0, 0, 0, 0.800000011920929, 0.800000011920929, 0.800000011920929, 0.800000011920929, 0.800000011920929,
+        0.800000011920929, 0.800000011920929, 0.800000011920929, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0, 0, 0, 0, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0, 0,
+        0, 0, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0, 0, 0, 0, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224,
+        0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224
+      ]
+    },
+    {
+      "name": "_textureMediaAsMask",
+      "expression": "vec4(_textureMediaAsMask(vec2(0.1,0.8)))",
+      "pixels": [0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224]
+    },
+    {
+      "name": "_loadUserImage",
+      "expression": "vec4(_loadUserImage())",
+      "pixels": [
+        0.375, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25, 0.30000001192092896, 0.5, 0.25, 0.25,
+        0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25,
+        0.25, 0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.5, 0.25, 0.25, 0.30000001192092896, 0.375,
+        0.5, 0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896, 0.5,
+        0.5, 0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896,
+        0.5, 0.5, 0.25, 0.30000001192092896, 0.5, 0.5, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "_textureUserImage",
+      "expression": "vec4(_textureUserImage(vec2(0.1,0.8)))",
+      "pixels": [0.375, 0.5, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "_edgeDetect",
+      "expression": "vec4(_edgeDetect(syn_Media))",
+      "pixels": [
+        0.25, 0.25, 0, 0, 0.25, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.25, 0.25, 0, 0, 0.25, 0.25, 0, 0,
+        0.125, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.25, 0, 0,
+        0, 0.25, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0
+      ]
+    },
+    {
+      "name": "_edgeDetectSobel",
+      "expression": "vec4(_edgeDetectSobel(syn_Media))",
+      "pixels": [
+        0.8441652655601501, 0.8441652655601501, 0.8441652655601501, 0.8441652655601501, 1.547680377960205,
+        1.547680377960205, 1.547680377960205, 1.547680377960205, 1.8160847425460815, 1.8160847425460815,
+        1.8160847425460815, 1.8160847425460815, 0.9475895762443542, 0.9475895762443542, 0.9475895762443542,
+        0.9475895762443542, 1.2875597476959229, 1.2875597476959229, 1.2875597476959229, 1.2875597476959229,
+        1.620742678642273, 1.620742678642273, 1.620742678642273, 1.620742678642273, 1.8140722513198853,
+        1.8140722513198853, 1.8140722513198853, 1.8140722513198853, 1.044690728187561, 1.044690728187561,
+        1.044690728187561, 1.044690728187561, 1.7143886089324951, 1.7143886089324951, 1.7143886089324951,
+        1.7143886089324951, 1.7965888977050781, 1.7965888977050781, 1.7965888977050781, 1.7965888977050781,
+        1.876115322113037, 1.876115322113037, 1.876115322113037, 1.876115322113037, 1.2756667137145996,
+        1.2756667137145996, 1.2756667137145996, 1.2756667137145996, 0.9615134596824646, 0.9615134596824646,
+        0.9615134596824646, 0.9615134596824646, 1.1954842805862427, 1.1954842805862427, 1.1954842805862427,
+        1.1954842805862427, 1.448186993598938, 1.448186993598938, 1.448186993598938, 1.448186993598938,
+        0.9276649355888367, 0.9276649355888367, 0.9276649355888367, 0.9276649355888367
+      ]
+    },
+    {
+      "name": "_edgeDetectMedia",
+      "expression": "vec4(_edgeDetectMedia())",
+      "pixels": [
+        0.125, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.125, 0.25, 0,
+        0, 0.125, 0.25, 0, 0, 0.125, 0.25, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125,
+        0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0
+      ]
+    },
+    {
+      "name": "_edgeDetectSobelMedia",
+      "expression": "vec4(_edgeDetectSobelMedia())",
+      "pixels": [
+        1.2272061109542847, 1.2272061109542847, 1.2272061109542847, 1.2272061109542847, 1.547680377960205,
+        1.547680377960205, 1.547680377960205, 1.547680377960205, 1.7219232320785522, 1.7219232320785522,
+        1.7219232320785522, 1.7219232320785522, 1.8160847425460815, 1.8160847425460815, 1.8160847425460815,
+        1.8160847425460815, 1.4391577243804932, 1.4391577243804932, 1.4391577243804932, 1.4391577243804932,
+        1.620742678642273, 1.620742678642273, 1.620742678642273, 1.620742678642273, 1.7398245334625244,
+        1.7398245334625244, 1.7398245334625244, 1.7398245334625244, 1.8140722513198853, 1.8140722513198853,
+        1.8140722513198853, 1.8140722513198853, 1.7398245334625244, 1.7398245334625244, 1.7398245334625244,
+        1.7398245334625244, 1.7965888977050781, 1.7965888977050781, 1.7965888977050781, 1.7965888977050781,
+        1.8424317836761475, 1.8424317836761475, 1.8424317836761475, 1.8424317836761475, 1.876115322113037,
+        1.876115322113037, 1.876115322113037, 1.876115322113037, 1.0557845830917358, 1.0557845830917358,
+        1.0557845830917358, 1.0557845830917358, 1.1954842805862427, 1.1954842805862427, 1.1954842805862427,
+        1.1954842805862427, 1.330757975578308, 1.330757975578308, 1.330757975578308, 1.330757975578308,
+        1.448186993598938, 1.448186993598938, 1.448186993598938, 1.448186993598938
+      ]
+    },
+    {
+      "name": "_hBlurTiltShift",
+      "expression": "vec4(_hBlurTiltShift(syn_Media, _uv, 0.2, 0.5))",
+      "pixels": [
+        0.48760786652565, 0, 0.25, 0.29999998211860657, 0.4958692491054535, 0, 0.25, 0.29999998211860657,
+        0.5041306614875793, 0, 0.25, 0.29999998211860657, 0.512391984462738, 0, 0.25, 0.29999998211860657,
+        0.20516523718833923, 0.25, 0.25, 0.29999998211860657, 0.4017217457294464, 0.25, 0.25, 0.29999998211860657,
+        0.5982782244682312, 0.25, 0.25, 0.29999998211860657, 0.7948346734046936, 0.25, 0.25, 0.29999998211860657,
+        0.20516523718833923, 0.5, 0.25, 0.29999998211860657, 0.4017217457294464, 0.5, 0.25, 0.29999998211860657,
+        0.5982782244682312, 0.5, 0.25, 0.29999998211860657, 0.7948346734046936, 0.5, 0.25, 0.29999998211860657,
+        0.48760786652565, 0.7499999403953552, 0.25, 0.29999998211860657, 0.4958692491054535, 0.7499999403953552, 0.25,
+        0.29999998211860657, 0.5041306614875793, 0.7499999403953552, 0.25, 0.29999998211860657, 0.512391984462738,
+        0.7499999403953552, 0.25, 0.29999998211860657
+      ]
+    },
+    {
+      "name": "_vBlurTiltShift",
+      "expression": "vec4(_vBlurTiltShift(syn_Media, _uv, 0.2, 0.5))",
+      "pixels": [
+        0.125, 0.36260786652565, 0.25, 0.29999998211860657, 0.3749999701976776, 0.36260786652565, 0.25,
+        0.29999998211860657, 0.6249998807907104, 0.36260786652565, 0.25, 0.29999998211860657, 0.8749998807907104,
+        0.36260786652565, 0.25, 0.29999998211860657, 0.125, 0.276721715927124, 0.25, 0.29999998211860657,
+        0.3749999701976776, 0.276721715927124, 0.25, 0.29999998211860657, 0.625, 0.276721715927124, 0.25,
+        0.29999998211860657, 0.875, 0.276721715927124, 0.25, 0.29999998211860657, 0.125, 0.4732782244682312, 0.25,
+        0.29999998211860657, 0.3749999701976776, 0.4732782244682312, 0.25, 0.29999998211860657, 0.625,
+        0.4732782244682312, 0.25, 0.29999998211860657, 0.875, 0.4732782244682312, 0.25, 0.29999998211860657, 0.125,
+        0.38739198446273804, 0.25, 0.29999998211860657, 0.3749999701976776, 0.38739198446273804, 0.25,
+        0.29999998211860657, 0.6249998807907104, 0.38739198446273804, 0.25, 0.29999998211860657, 0.8749998807907104,
+        0.38739198446273804, 0.25, 0.29999998211860657
+      ]
+    },
+    {
+      "name": "IMG_NORM_PIXEL",
+      "expression": "vec4(IMG_NORM_PIXEL(syn_Media,_uv))",
+      "pixels": [
+        0.125, 0, 0.25, 0.30000001192092896, 0.375, 0, 0.25, 0.30000001192092896, 0.625, 0, 0.25, 0.30000001192092896,
+        0.875, 0, 0.25, 0.30000001192092896, 0.125, 0.25, 0.25, 0.30000001192092896, 0.375, 0.25, 0.25,
+        0.30000001192092896, 0.625, 0.25, 0.25, 0.30000001192092896, 0.875, 0.25, 0.25, 0.30000001192092896, 0.125, 0.5,
+        0.25, 0.30000001192092896, 0.375, 0.5, 0.25, 0.30000001192092896, 0.625, 0.5, 0.25, 0.30000001192092896, 0.875,
+        0.5, 0.25, 0.30000001192092896, 0.125, 0.75, 0.25, 0.30000001192092896, 0.375, 0.75, 0.25, 0.30000001192092896,
+        0.625, 0.75, 0.25, 0.30000001192092896, 0.875, 0.75, 0.25, 0.30000001192092896
+      ]
+    },
+    {
+      "name": "IMG_PIXEL",
+      "expression": "vec4(IMG_PIXEL(syn_Media,vec2(1.0,2.0)))",
+      "pixels": [0.125, 0.5, 0.25, 0.30000001192092896]
+    },
+    {
+      "name": "IMG_SIZE",
+      "expression": "vec4(IMG_SIZE(syn_Media), 0.0, 1.0)",
+      "pixels": [8, 4, 0, 1]
+    },
+    {
+      "name": "_exists",
+      "expression": "vec4(float(_exists(syn_Media)),float(_exists(emptyTexture)),0.0,1.0)",
+      "pixels": [1, 0, 0, 1]
+    }
+  ]
+}

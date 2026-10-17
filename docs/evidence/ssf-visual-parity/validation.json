@@ -1,0 +1,22 @@
+{
+  "typecheck": "PASS (npm run build includes tsc --noEmit)",
+  "build": "PASS",
+  "targetedTests": {
+    "files": 24,
+    "tests": 225,
+    "status": "PASS"
+  },
+  "scopedLint": {
+    "errors": 0,
+    "warnings": 29
+  },
+  "browserChecks": {
+    "visual": 8,
+    "development": 10,
+    "production": 6
+  },
+  "fullRepositoryTest": "NOT_REPEATED",
+  "fullRepositoryLint": "SKIPPED",
+  "nativeScreenshotParity": "INCONCLUSIVE",
+  "commitPushMergePr": "NONE"
+}

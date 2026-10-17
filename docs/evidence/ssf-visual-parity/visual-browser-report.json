@@ -1,0 +1,517 @@
+{
+  "browser": "153.0.8010.12",
+  "result": "PASS",
+  "referenceVersion": "1.25.2.185",
+  "comparisonVersion": "1.25.4.189 (user reported)",
+  "checks": [
+    "1920x1080 at DPR 2",
+    "preview resize leaves target unchanged",
+    "fitting/UI scale preserves frame and output",
+    "GPU quadrant corners",
+    "GPU UV pixel centers",
+    "RGBA32F color channels",
+    "Spectrum and LevelTrail RGBA ramp direction",
+    "PNG comparison without advancing feedback"
+  ],
+  "probes": [
+    {
+      "mode": "quadrants",
+      "width": 1920,
+      "height": 1080,
+      "format": "rgba32f",
+      "corners": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "channelSamples": [],
+      "expectedRampCorners": null,
+      "presentedBottomLeft": [
+        255,
+        0,
+        0,
+        255
+      ],
+      "uniforms": [
+        {
+          "pass": 0,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 0,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        },
+        {
+          "pass": 1,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 1,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        }
+      ],
+      "gpu": "WebKit WebGL"
+    },
+    {
+      "mode": "coordinates",
+      "width": 1920,
+      "height": 1080,
+      "format": "rgba32f",
+      "corners": [
+        [
+          0.0002604166802484542,
+          0.9995370507240295,
+          0,
+          1
+        ],
+        [
+          0.9997395873069763,
+          0.9995370507240295,
+          0,
+          1
+        ],
+        [
+          0.0002604166802484542,
+          0.00046296295477077365,
+          0,
+          1
+        ],
+        [
+          0.9997395873069763,
+          0.00046296295477077365,
+          0,
+          1
+        ]
+      ],
+      "channelSamples": [],
+      "expectedRampCorners": null,
+      "presentedBottomLeft": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "uniforms": [
+        {
+          "pass": 0,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 0,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        },
+        {
+          "pass": 1,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 1,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        }
+      ],
+      "gpu": "WebKit WebGL"
+    },
+    {
+      "mode": "color",
+      "width": 1920,
+      "height": 1080,
+      "format": "rgba32f",
+      "corners": [
+        [
+          0.25,
+          0.5,
+          0.75,
+          1
+        ],
+        [
+          0.25,
+          0.5,
+          0.75,
+          1
+        ],
+        [
+          0.25,
+          0.5,
+          0.75,
+          1
+        ],
+        [
+          0.25,
+          0.5,
+          0.75,
+          1
+        ]
+      ],
+      "channelSamples": [],
+      "expectedRampCorners": null,
+      "presentedBottomLeft": [
+        64,
+        128,
+        191,
+        255
+      ],
+      "uniforms": [
+        {
+          "pass": 0,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 0,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        },
+        {
+          "pass": 1,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 1,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        }
+      ],
+      "gpu": "WebKit WebGL"
+    },
+    {
+      "mode": "spectrum",
+      "width": 1920,
+      "height": 1080,
+      "format": "rgba32f",
+      "corners": [
+        [
+          0.18333333730697632,
+          0.18333333730697632,
+          0.18333333730697632,
+          1
+        ],
+        [
+          0.3166656494140625,
+          0.3166656494140625,
+          0.3166656494140625,
+          1
+        ],
+        [
+          0.23333334922790527,
+          0.23333334922790527,
+          0.23333334922790527,
+          1
+        ],
+        [
+          0.76666259765625,
+          0.76666259765625,
+          0.76666259765625,
+          1
+        ]
+      ],
+      "channelSamples": [
+        {
+          "actual": 0.2500651776790619,
+          "expected": 0.25006516675057355
+        },
+        {
+          "actual": 0.5001303553581238,
+          "expected": 0.5001303335011471
+        },
+        {
+          "actual": 0.49973931908607483,
+          "expected": 0.4997393329977058
+        },
+        {
+          "actual": 0.5002606511116028,
+          "expected": 0.5002606670022942
+        }
+      ],
+      "expectedRampCorners": [
+        0.18333332985639572,
+        0.3166656494140625,
+        0.23333331942558289,
+        0.76666259765625
+      ],
+      "presentedBottomLeft": [
+        60,
+        60,
+        60,
+        255
+      ],
+      "uniforms": [
+        {
+          "pass": 0,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 0,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        },
+        {
+          "pass": 1,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 1,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        }
+      ],
+      "gpu": "WebKit WebGL"
+    },
+    {
+      "mode": "trail",
+      "width": 1920,
+      "height": 1080,
+      "format": "rgba32f",
+      "corners": [
+        [
+          0.2239583283662796,
+          0.2239583283662796,
+          0.2239583283662796,
+          1
+        ],
+        [
+          0.27603912353515625,
+          0.27603912353515625,
+          0.27603912353515625,
+          1
+        ],
+        [
+          0.3958333134651184,
+          0.3958333134651184,
+          0.3958333134651184,
+          1
+        ],
+        [
+          0.604156494140625,
+          0.604156494140625,
+          0.604156494140625,
+          1
+        ]
+      ],
+      "channelSamples": [
+        {
+          "actual": 0.25006526708602905,
+          "expected": 0.2500652702728985
+        },
+        {
+          "actual": 0.5001305341720581,
+          "expected": 0.500130540545797
+        },
+        {
+          "actual": 0.4997389316558838,
+          "expected": 0.49973891890840616
+        },
+        {
+          "actual": 0.5002610683441162,
+          "expected": 0.5002610810915938
+        }
+      ],
+      "expectedRampCorners": [
+        0.2239583320915699,
+        0.27603912353515625,
+        0.3958333283662796,
+        0.604156494140625
+      ],
+      "presentedBottomLeft": [
+        101,
+        101,
+        101,
+        255
+      ],
+      "uniforms": [
+        {
+          "pass": 0,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 0,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        },
+        {
+          "pass": 1,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "values": {
+            "RENDERSIZE": [
+              1920,
+              1080
+            ],
+            "bl_time": 0,
+            "bl_deltaTime": 0.0069444444961845875,
+            "bl_frame": 0,
+            "bl_pass": 1,
+            "bl_resolution": [
+              1920,
+              1080
+            ],
+            "syn_MediaType": 0
+          }
+        }
+      ],
+      "gpu": "WebKit WebGL"
+    }
+  ],
+  "imageComparison": {
+    "stage": "browser presentation RGB bytes",
+    "frame": 0,
+    "epoch": 0,
+    "reference": {
+      "name": "self-test.png",
+      "sha256": "cb56ebfbbecb47ad68800a0d676df857d4e7d0c191d6e9610232f332076c1c1b"
+    },
+    "masks": [],
+    "metrics": {
+      "comparedPixels": 2073600,
+      "maskedPixels": 0,
+      "maxAbs": 0,
+      "meanAbs": 0,
+      "rms": 0
+    },
+    "verdict": "INCONCLUSIVE: reference PCM/time/control identity must be externally established"
+  },
+  "errors": [],
+  "nativePixelParity": "INCONCLUSIVE: no native image capture supplied"
+}

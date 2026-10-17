@@ -1,0 +1,21 @@
+{
+  "Shader": {
+    "info": {
+      "id": "fixt06",
+      "name": "Pointer",
+      "username": "blink-fixture",
+      "description": "Pointer",
+      "tags": ["fixture"],
+      "license": "MIT"
+    },
+    "renderpass": [
+      {
+        "type": "image",
+        "name": "Image",
+        "code": "void mainImage(out vec4 fragColor, in vec2 fragCoord) {\n  vec2 uv = fragCoord / iResolution.xy;\n  float d = distance(fragCoord, iMouse.xy);\n  float ring = smoothstep(30.0, 28.0, d) * step(1.0, iMouse.z + 1.0);\n  fragColor = vec4(uv * 0.3, 0.0, 1.0) + vec4(ring, ring * step(0.0, iMouse.z), 0.0, 0.0);\n}",
+        "inputs": [],
+        "outputs": []
+      }
+    ]
+  }
+}

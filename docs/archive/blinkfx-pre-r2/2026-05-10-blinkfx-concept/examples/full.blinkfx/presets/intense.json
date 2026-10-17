@@ -1,0 +1,7 @@
+{
+  "name": "intense",
+  "values": {
+    "intensity": 0.95,
+    "palette": "inferno"
+  }
+}

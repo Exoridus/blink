@@ -1,0 +1,28 @@
+{
+  "Shader": {
+    "info": {
+      "id": "fixt03",
+      "name": "Common shared",
+      "username": "blink-fixture",
+      "description": "Common shared",
+      "tags": ["fixture"],
+      "license": "MIT"
+    },
+    "renderpass": [
+      {
+        "type": "common",
+        "name": "Common",
+        "code": "vec3 palette(float t) { return 0.5 + 0.5 * cos(6.28318 * (vec3(1.0, 1.0, 1.0) * t + vec3(0.0, 0.33, 0.67))); }",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "type": "image",
+        "name": "Image",
+        "code": "void mainImage(out vec4 fragColor, in vec2 fragCoord) {\n  vec2 uv = fragCoord / iResolution.xy;\n  fragColor = vec4(palette(uv.x + iTime * 0.1), 1.0);\n}",
+        "inputs": [],
+        "outputs": []
+      }
+    ]
+  }
+}

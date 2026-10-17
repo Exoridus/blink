@@ -1,0 +1,8 @@
+{
+  "sourceContract": "SSF-1.25.2-native-gpu-closure-2026-10-13",
+  "sourceMatrixSha256": "d05368f24e0b04cb16af5e8d1f9a2edfa8e1c8fc5f7f407eb77a6e00f5f31e90",
+  "nativeFields": 359,
+  "inventoryFields": 92,
+  "releaseGate": "NOT_ACCEPTED",
+  "note": "Source evidence labels and BlinkFX implementation status are independent."
+}

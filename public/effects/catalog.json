@@ -1,0 +1,19 @@
+{
+  "packages": [
+    "effects/aurora.blinkfx/manifest.json",
+    "effects/full.blinkfx/manifest.json",
+    "effects/prism_orbit.blinkfx/manifest.json",
+    "effects/spectral_city.blinkfx/manifest.json",
+    "effects/ink_current.blinkfx/manifest.json",
+    "effects/audio_debug.blinkfx/manifest.json",
+    "effects/dynamic_probe.blinkfx/manifest.json",
+    "effects/feedback_twin.blinkfx/manifest.json",
+    "effects/input_probe.blinkfx/manifest.json",
+    "effects/minimal.blinkfx/manifest.json",
+    "effects/multipass_probe.blinkfx/manifest.json",
+    "effects/parity_twin.blinkfx/manifest.json",
+    "effects/script_probe.blinkfx/manifest.json",
+    "effects/wgsl_audio_probe.blinkfx/manifest.json",
+    "effects/wgsl_probe.blinkfx/manifest.json"
+  ]
+}

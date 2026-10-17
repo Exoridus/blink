@@ -1,0 +1,26 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.parity_twin",
+  "title": "Parity Twin",
+  "description": "The same deterministic picture in GLSL and WGSL: an asymmetric marker image and a gradient buffer, so the two backends can be compared pixel by pixel.",
+  "controls": [
+    { "name": "amount", "type": "float", "default": 0.5, "min": 0, "max": 1 }
+  ],
+  "assets": [
+    { "name": "marker", "type": "texture2d", "path": "assets/marker.png", "sampling": { "filter": "linear", "wrap": "clamp" } }
+  ],
+  "shaders": {
+    "glsl": { "write": "shaders/write.frag.glsl", "present": "shaders/present.frag.glsl" },
+    "wgsl": { "write": "shaders/write.wgsl", "present": "shaders/present.wgsl" }
+  },
+  "passes": [
+    {
+      "name": "write",
+      "shader": "write",
+      "inputs": [{ "source": "asset.marker", "uniform": "marker" }],
+      "target": { "name": "buf", "persistent": false },
+      "clear": true
+    },
+    { "name": "present", "shader": "present", "inputs": ["buf"], "target": "screen", "clear": true }
+  ]
+}

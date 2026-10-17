@@ -1,0 +1,333 @@
+{
+  "id": "ssf_audio_probe_master_v1",
+  "version": 1,
+  "description": "Deterministic probe audio for Synesthesia/Blink SSF audio parity calibration.",
+  "wavFile": "ssf_audio_probe_master_v1.wav",
+  "sha256": "71f8b3efbd2e4919ba7e0919315e3999d6bbe477174a6dcb24e274680eac24e6",
+  "audioFormat": {
+    "sampleRate": 48000,
+    "channels": 2,
+    "channelLayout": "dual-mono",
+    "encoding": "PCM_S16LE",
+    "bitsPerSample": 16,
+    "byteRate": 192000
+  },
+  "durationSeconds": 99.0,
+  "sampleCountPerChannel": 4752000,
+  "peakAbsoluteFloat": 0.5,
+  "segments": [
+    {
+      "id": "initial_silence",
+      "kind": "silence",
+      "startSeconds": 0.0,
+      "endSeconds": 2.0,
+      "durationSeconds": 2.0,
+      "startSample": 0,
+      "endSample": 96000,
+      "parameters": {}
+    },
+    {
+      "id": "sync_intro",
+      "kind": "sync_clicks",
+      "startSeconds": 2.0,
+      "endSeconds": 4.0,
+      "durationSeconds": 2.0,
+      "startSample": 96000,
+      "endSample": 192000,
+      "parameters": {
+        "clickOffsetsSeconds": [
+          0.1,
+          0.3,
+          0.7,
+          1.5
+        ],
+        "clickDurationSeconds": 0.01,
+        "clickAmplitude": 0.48
+      }
+    },
+    {
+      "id": "impulse_train",
+      "kind": "impulse_train",
+      "startSeconds": 4.0,
+      "endSeconds": 10.0,
+      "durationSeconds": 6.0,
+      "startSample": 192000,
+      "endSample": 480000,
+      "parameters": {
+        "subRegions": [
+          {
+            "label": "slow_clicks",
+            "rangeSeconds": [
+              0.0,
+              2.0
+            ],
+            "clicksPerSecond": 1
+          },
+          {
+            "label": "faster_clicks",
+            "rangeSeconds": [
+              2.0,
+              4.0
+            ],
+            "clicksPerSecond": 4
+          },
+          {
+            "label": "irregular_cluster",
+            "rangeSeconds": [
+              4.0,
+              6.0
+            ],
+            "clickOffsetsSeconds": [
+              4.1,
+              4.32,
+              4.61,
+              4.95,
+              5.1,
+              5.45,
+              5.78
+            ]
+          }
+        ],
+        "clickDurationSeconds": 0.01,
+        "clickAmplitude": 0.42
+      }
+    },
+    {
+      "id": "amplitude_step_sine",
+      "kind": "tone_amplitude_steps",
+      "startSeconds": 10.0,
+      "endSeconds": 20.0,
+      "durationSeconds": 10.0,
+      "startSample": 480000,
+      "endSample": 960000,
+      "parameters": {
+        "frequencyHz": 440.0,
+        "steps": [
+          {
+            "startSeconds": 0.0,
+            "endSeconds": 2.0,
+            "amplitude": 0.05
+          },
+          {
+            "startSeconds": 2.0,
+            "endSeconds": 4.0,
+            "amplitude": 0.15
+          },
+          {
+            "startSeconds": 4.0,
+            "endSeconds": 6.0,
+            "amplitude": 0.3
+          },
+          {
+            "startSeconds": 6.0,
+            "endSeconds": 8.0,
+            "amplitude": 0.5
+          },
+          {
+            "startSeconds": 8.0,
+            "endSeconds": 10.0,
+            "amplitude": 0.2
+          }
+        ],
+        "fadeSeconds": 0.03
+      }
+    },
+    {
+      "id": "low_tone_bursts",
+      "kind": "tone_bursts",
+      "startSeconds": 20.0,
+      "endSeconds": 28.0,
+      "durationSeconds": 8.0,
+      "startSample": 960000,
+      "endSample": 1344000,
+      "parameters": {
+        "frequenciesHz": [
+          60.0,
+          100.0,
+          180.0
+        ],
+        "burstDurationSeconds": 2.0,
+        "gapSeconds": 0.5,
+        "finalGapSeconds": 1.0,
+        "amplitude": 0.35,
+        "fadeSeconds": 0.025
+      }
+    },
+    {
+      "id": "mid_tone_bursts",
+      "kind": "tone_bursts",
+      "startSeconds": 28.0,
+      "endSeconds": 36.0,
+      "durationSeconds": 8.0,
+      "startSample": 1344000,
+      "endSample": 1728000,
+      "parameters": {
+        "frequenciesHz": [
+          500.0,
+          1000.0,
+          2000.0
+        ],
+        "burstDurationSeconds": 2.0,
+        "gapSeconds": 0.5,
+        "finalGapSeconds": 1.0,
+        "amplitude": 0.35,
+        "fadeSeconds": 0.025
+      }
+    },
+    {
+      "id": "high_tone_bursts",
+      "kind": "tone_bursts",
+      "startSeconds": 36.0,
+      "endSeconds": 44.0,
+      "durationSeconds": 8.0,
+      "startSample": 1728000,
+      "endSample": 2112000,
+      "parameters": {
+        "frequenciesHz": [
+          4000.0,
+          8000.0,
+          12000.0
+        ],
+        "burstDurationSeconds": 2.0,
+        "gapSeconds": 0.5,
+        "finalGapSeconds": 1.0,
+        "amplitude": 0.35,
+        "fadeSeconds": 0.025
+      }
+    },
+    {
+      "id": "log_sine_sweep",
+      "kind": "sweep",
+      "startSeconds": 44.0,
+      "endSeconds": 60.0,
+      "durationSeconds": 16.0,
+      "startSample": 2112000,
+      "endSample": 2880000,
+      "parameters": {
+        "startFrequencyHz": 30.0,
+        "endFrequencyHz": 16000.0,
+        "sweepType": "logarithmic",
+        "amplitude": 0.35,
+        "fadeSeconds": 0.05
+      }
+    },
+    {
+      "id": "noise_bursts",
+      "kind": "noise",
+      "startSeconds": 60.0,
+      "endSeconds": 70.0,
+      "durationSeconds": 10.0,
+      "startSample": 2880000,
+      "endSample": 3360000,
+      "parameters": {
+        "subRegions": [
+          {
+            "label": "white_noise_burst",
+            "startSeconds": 0.0,
+            "endSeconds": 2.0,
+            "noiseType": "white",
+            "amplitude": 0.3
+          },
+          {
+            "label": "silence_gap",
+            "startSeconds": 2.0,
+            "endSeconds": 3.0,
+            "noiseType": "silence"
+          },
+          {
+            "label": "pinkish_noise_burst",
+            "startSeconds": 3.0,
+            "endSeconds": 5.0,
+            "noiseType": "pinkish",
+            "amplitude": 0.3,
+            "method": "frequency_domain_tilt_1_over_sqrt_f"
+          },
+          {
+            "label": "silence_gap",
+            "startSeconds": 5.0,
+            "endSeconds": 6.0,
+            "noiseType": "silence"
+          },
+          {
+            "label": "low_amplitude_white_noise",
+            "startSeconds": 6.0,
+            "endSeconds": 8.0,
+            "noiseType": "white",
+            "amplitude": 0.15
+          },
+          {
+            "label": "final_silence",
+            "startSeconds": 8.0,
+            "endSeconds": 10.0,
+            "noiseType": "silence"
+          }
+        ],
+        "randomSeed": 42
+      }
+    },
+    {
+      "id": "bpm_groove_120",
+      "kind": "percussion",
+      "startSeconds": 70.0,
+      "endSeconds": 94.0,
+      "durationSeconds": 24.0,
+      "startSample": 3360000,
+      "endSample": 4512000,
+      "parameters": {
+        "bpm": 120,
+        "beatIntervalSeconds": 0.5,
+        "numberOfBeats": 48,
+        "eventPattern": {
+          "everyBeat": "kick_pulse",
+          "everySecondBeat": "bright_click",
+          "everyFourthBeat": "accent"
+        },
+        "kick": {
+          "baseFreqHz": 90.0,
+          "durationSeconds": 0.12,
+          "amplitude": 0.22
+        },
+        "brightClick": {
+          "durationSeconds": 0.01,
+          "amplitude": 0.16
+        },
+        "accent": {
+          "clickDurationSeconds": 0.014,
+          "clickAmplitude": 0.22,
+          "extraKickFreqHz": 100.0,
+          "extraKickDurationSeconds": 0.14,
+          "extraKickAmplitude": 0.12
+        }
+      }
+    },
+    {
+      "id": "sync_outro",
+      "kind": "sync_clicks",
+      "startSeconds": 94.0,
+      "endSeconds": 96.0,
+      "durationSeconds": 2.0,
+      "startSample": 4512000,
+      "endSample": 4608000,
+      "parameters": {
+        "clickOffsetsSeconds": [
+          0.1,
+          0.9,
+          1.3,
+          1.5
+        ],
+        "clickDurationSeconds": 0.01,
+        "clickAmplitude": 0.48
+      }
+    },
+    {
+      "id": "final_silence",
+      "kind": "silence",
+      "startSeconds": 96.0,
+      "endSeconds": 99.0,
+      "durationSeconds": 3.0,
+      "startSample": 4608000,
+      "endSample": 4752000,
+      "parameters": {}
+    }
+  ]
+}

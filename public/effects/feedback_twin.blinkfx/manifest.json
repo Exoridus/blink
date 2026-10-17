@@ -1,0 +1,32 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.feedback_twin",
+  "title": "Feedback Twin",
+  "description": "A persistent half-float feedback buffer that converges to a fixed picture, in GLSL and WGSL, so the two backends can be compared after any number of frames.",
+  "assets": [
+    { "name": "marker", "type": "texture2d", "path": "assets/marker.png", "sampling": { "filter": "linear", "wrap": "clamp" } }
+  ],
+  "shaders": {
+    "glsl": { "accumulate": "shaders/accumulate.frag.glsl", "present": "shaders/present.frag.glsl" },
+    "wgsl": { "accumulate": "shaders/accumulate.wgsl", "present": "shaders/present.wgsl" }
+  },
+  "passes": [
+    {
+      "name": "accumulate",
+      "shader": "accumulate",
+      "inputs": [
+        { "source": "asset.marker", "uniform": "marker" },
+        { "source": "target.acc.previous", "uniform": "acc" }
+      ],
+      "target": { "name": "acc", "persistent": true, "format": "rgba16f" },
+      "clear": false
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [{ "source": "target.acc", "uniform": "acc" }],
+      "target": "screen",
+      "clear": true
+    }
+  ]
+}

@@ -1,0 +1,685 @@
+// The shell container spans the viewport but never intercepts a click itself - only
+// `.shell-overlay`, below, opts back into pointer events over its own painted area - so
+// the effect underneath stays interactive everywhere the shell has nothing drawn.
+.shell {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+// --- Panel geometry constants -------------------------------------------------------
+// Kept as variables, not literals folded into the calc() expressions below, so a later
+// edit to the border width, header padding, toggle size or body padding keeps the
+// overlap math in sync instead of silently invalidating it the way a bare number would.
+$shell-edge-inset: 16px; // distance every panel's fixed corner sits from its two edges
+$shell-panel-gap: 8px; // desired clearance between two panels that share an edge
+
+$shell-panel-border-width: 1px; // .shell-overlay border-width
+$shell-header-vertical-padding: 8px; // &__header padding, top/bottom component
+$shell-toggle-size: 22px; // &__toggle width/height - taller than the header's text, so
+// it, not the padding alone, is what sets the header's rendered height
+$shell-body-bottom-padding: 10px; // &__body padding, bottom component (top is 0)
+
+// A panel's rendered height is its body's own `max-height` plus everything around the
+// body that max-height does not measure: the frame's top+bottom border, the header
+// (padding above and below the toggle, plus the toggle's own height), and the body's
+// bottom padding. Nothing in this file sets box-sizing: border-box, so both padding and
+// border add to a panel's height on top of max-height rather than being carved out of
+// it - if that changed, this sum would need to change with it.
+$shell-panel-chrome: (2 * $shell-panel-border-width) + $shell-toggle-size + (2 * $shell-header-vertical-padding) +
+    $shell-body-bottom-padding;
+
+// Effect (anchored $shell-edge-inset from the top) and Debug (anchored the same
+// distance from the bottom) share the left edge. Each one's rendered height is its
+// body's max-height plus $shell-panel-chrome (above), not the max-height alone, so for
+// the two to never meet with less than $shell-panel-gap of daylight between them, even
+// both fully expanded at once:
+//   2 * $shell-edge-inset + 2 * (bodyCap + $shell-panel-chrome) + $shell-panel-gap <= 100vh
+// solved for the body's own max-height, bodyCap:
+$shell-shared-edge-body-cap: calc(
+    (100vh - #{2 * $shell-edge-inset} - #{2 * $shell-panel-chrome} - #{$shell-panel-gap}) / 2
+);
+
+// Below $shell-narrow-breakpoint (further down) all three panels stack in one column
+// instead of pairing up on two edges - the same per-panel chrome and gap budget as
+// above, now split three ways instead of two.
+$shell-narrow-stack-body-cap: calc((100vh - #{3 * $shell-panel-chrome} - #{3 * $shell-panel-gap}) / 3);
+
+// Below this width two `min(320px, 90vw)` panels can no longer sit side by side without
+// overlapping: 2 * 320px plus the three 16px gutters between and around them needs at
+// least 672px, and below roughly 356px each panel's own 90vw already spans past the
+// opposite one - there is no narrower-but-still-two-column layout available. 700px gives
+// a small margin above that 672px arithmetic threshold. Below it every panel switches to
+// a single static column (see the per-panel `@media` blocks below): block-level elements
+// in normal flow cannot overlap each other horizontally, which closes the top-row and
+// bottom-row cases structurally instead of by another arithmetic margin.
+$shell-narrow-breakpoint: 700px;
+
+.shell-overlay {
+    position: fixed;
+    z-index: 200;
+
+    // One fixed corner per panel: they never overlap each other and never cover the
+    // center, where the effect itself is meant to be seen.
+    &[data-shell-id='effect-panel'] {
+        top: $shell-edge-inset;
+        left: $shell-edge-inset;
+
+        // Shares the left edge with the debug panel's bottom anchor (below).
+        // $shell-shared-edge-body-cap (derived above) already accounts for the border,
+        // header and body padding around this max-height, not just the max-height
+        // itself, so the two panels stay $shell-panel-gap apart even both fully
+        // expanded at once - not merely "usually".
+        .shell-overlay__body {
+            max-height: $shell-shared-edge-body-cap;
+        }
+
+        @media (max-width: $shell-narrow-breakpoint) {
+            position: static;
+
+            .shell-overlay__body {
+                max-height: $shell-narrow-stack-body-cap;
+            }
+        }
+    }
+
+    &[data-shell-id='control-panel'] {
+        top: $shell-edge-inset;
+        right: $shell-edge-inset;
+
+        @media (max-width: $shell-narrow-breakpoint) {
+            position: static;
+
+            .shell-overlay__body {
+                max-height: $shell-narrow-stack-body-cap;
+            }
+        }
+    }
+
+    &[data-shell-id='debug-panel'] {
+        bottom: $shell-edge-inset;
+        left: $shell-edge-inset;
+
+        // See the effect panel above: same shared-edge derivation, same cap.
+        .shell-overlay__body {
+            max-height: $shell-shared-edge-body-cap;
+        }
+
+        @media (max-width: $shell-narrow-breakpoint) {
+            position: static;
+
+            .shell-overlay__body {
+                max-height: $shell-narrow-stack-body-cap;
+            }
+        }
+    }
+
+    &[data-shell-id='compatibility-panel'] {
+        right: $shell-edge-inset;
+        bottom: $shell-edge-inset;
+
+        .shell-overlay__body {
+            max-height: $shell-shared-edge-body-cap;
+        }
+
+        @media (max-width: $shell-narrow-breakpoint) {
+            position: static;
+
+            .shell-overlay__body {
+                max-height: $shell-narrow-stack-body-cap;
+            }
+        }
+    }
+
+    // Sized to its own content, never the viewport, so it never intercepts pointer
+    // events over the effect outside its own painted area.
+    max-width: min(320px, 90vw);
+    width: max-content;
+
+    @media (max-width: $shell-narrow-breakpoint) {
+        // `position: static` above (per panel) drops each out of its fixed corner and
+        // into this normal-flow, full-width, single-column stack instead.
+        max-width: none;
+        width: auto;
+        margin: 0 $shell-edge-inset $shell-panel-gap;
+    }
+
+    background: rgba(20, 20, 24, 0.92);
+    border: $shell-panel-border-width solid #2a2a30;
+    border-radius: 6px;
+    color: #e8e8ea;
+    font-family:
+        system-ui,
+        -apple-system,
+        'Segoe UI',
+        sans-serif;
+    font-size: 13px;
+    pointer-events: auto;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: $shell-header-vertical-padding 10px;
+    }
+
+    &__title {
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__toggle {
+        appearance: none;
+        flex: none;
+        width: $shell-toggle-size;
+        height: $shell-toggle-size;
+        border: 1px solid #3a3a42;
+        border-radius: 4px;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+            background: #232328;
+        }
+    }
+
+    &__body {
+        max-height: 60vh;
+        padding: 0 10px $shell-body-bottom-padding;
+        overflow: auto;
+    }
+
+    &--collapsed &__body {
+        display: none;
+    }
+}
+
+.effect-panel {
+    &__install-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 8px;
+    }
+
+    &__install,
+    &__reload,
+    &__remove {
+        appearance: none;
+        border: 1px solid #3a3a42;
+        border-radius: 4px;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+
+        &:hover:not(:disabled) {
+            background: #232328;
+        }
+
+        &:disabled {
+            cursor: default;
+            opacity: 0.5;
+        }
+    }
+
+    &__install {
+        flex: 1;
+        padding: 6px 8px;
+    }
+
+    &__reload {
+        flex: none;
+        width: 32px;
+        height: 32px;
+        padding: 6px;
+    }
+
+    &__group-title {
+        margin-top: 10px;
+        padding: 4px 8px;
+        color: #a8a8b0;
+        font-size: 11px;
+        font-weight: 600;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__remove {
+        flex: none;
+        padding: 2px 8px;
+    }
+
+    &__item {
+        display: flex;
+        gap: 4px;
+    }
+
+    &__faults {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 6px;
+        font-size: 12px;
+    }
+
+    &__fault {
+        color: #ffd27a;
+
+        &--disabled {
+            color: #ff8a80;
+        }
+    }
+
+    &__status {
+        min-height: 1.2em;
+        margin-bottom: 6px;
+        color: #a8a8b0;
+        font-size: 12px;
+
+        &--error {
+            color: #ff8a80;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__entry {
+        appearance: none;
+        width: 100%;
+        padding: 6px 8px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+
+        &:hover:not(:disabled) {
+            background: #232328;
+        }
+
+        &:disabled {
+            cursor: default;
+            opacity: 0.6;
+        }
+
+        &--active {
+            border-color: #4a90e2;
+            background: #1c2733;
+        }
+    }
+}
+
+.control-panel {
+    &__status {
+        min-height: 1.2em;
+        margin-bottom: 6px;
+        color: #a8a8b0;
+        font-size: 12px;
+
+        &--error {
+            color: #ff8a80;
+        }
+    }
+
+    &__presets {
+        // Childless when the effect ships no presets (see ControlPanel.buildPresets) - the
+        // layout and spacing below apply only once there is something to lay out, so an
+        // effect without presets never gains an empty gap here.
+        &:not(:empty) {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+    }
+
+    &__preset-select {
+        flex: 1 1 auto;
+        min-width: 0;
+        background: #1a1a1e;
+        color: inherit;
+        font: inherit;
+
+        &:disabled {
+            opacity: 0.6;
+        }
+    }
+
+    &__preset-apply {
+        appearance: none;
+        flex: none;
+        padding: 4px 10px;
+        border: 1px solid #3a3a42;
+        border-radius: 4px;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+
+        &:hover:not(:disabled) {
+            background: #232328;
+        }
+
+        &:disabled {
+            cursor: default;
+            opacity: 0.6;
+        }
+    }
+
+    &__groups {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__group-title {
+        margin: 0;
+        color: #a8a8b0;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    &__control {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__label-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    &__label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__reset {
+        appearance: none;
+        flex: none;
+        padding: 2px 6px;
+        border: 1px solid #3a3a42;
+        border-radius: 4px;
+        background: transparent;
+        color: #a8a8b0;
+        font: inherit;
+        font-size: 11px;
+        cursor: pointer;
+
+        &:hover {
+            background: #232328;
+            color: inherit;
+        }
+    }
+
+    &__widgets {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__range,
+    &__alpha {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    &__number,
+    &__point-x,
+    &__point-y {
+        flex: none;
+        width: 64px;
+    }
+
+    &__select {
+        width: 100%;
+        background: #1a1a1e;
+        color: inherit;
+        font: inherit;
+    }
+
+    &__color {
+        flex: none;
+        padding: 0;
+        border: 1px solid #3a3a42;
+        border-radius: 4px;
+        background: none;
+    }
+
+    &__bang {
+        appearance: none;
+        width: 100%;
+        padding: 6px 8px;
+        border: 1px solid #3a3a42;
+        border-radius: 4px;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+
+        &:hover {
+            background: #232328;
+        }
+    }
+}
+
+.debug-panel {
+    &__fault {
+        padding: 2px 0;
+        color: #ffd27a;
+        font-size: 12px;
+
+        &--disabled {
+            color: #ff8a80;
+        }
+    }
+
+    &__timing-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 2px 0;
+
+        &--over {
+            color: #ffd27a;
+        }
+    }
+
+    &__timing-label {
+        color: #a8a8b0;
+    }
+
+    &__timing-value {
+        flex: none;
+        white-space: nowrap;
+    }
+
+    font-variant-numeric: tabular-nums;
+
+    &__status {
+        min-height: 1.2em;
+        margin-bottom: 6px;
+        color: #a8a8b0;
+        font-size: 12px;
+
+        &--error {
+            color: #ff8a80;
+        }
+    }
+
+    &__metrics {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 10px;
+    }
+
+    &__metric {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    &__metric-label {
+        color: #a8a8b0;
+        font-size: 12px;
+    }
+
+    &__metric-value {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__section + &__section {
+        margin-top: 10px;
+    }
+
+    &__section-title {
+        margin: 0 0 4px;
+        color: #a8a8b0;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    &__pass,
+    &__audio-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 2px 0;
+    }
+
+    &__pass-name,
+    &__audio-label {
+        overflow: hidden;
+        color: #a8a8b0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__pass-detail,
+    &__audio-value {
+        flex: none;
+        white-space: nowrap;
+    }
+}
+
+.compatibility-panel {
+    font-size: 12px;
+
+    &__level {
+        display: inline-block;
+        margin-bottom: 8px;
+        padding: 1px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        background: #2a2a31;
+
+        &--compatible {
+            color: #8ee6a0;
+        }
+
+        &--degraded {
+            color: #ffd27a;
+        }
+    }
+
+    &__row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 2px 0;
+
+        &[data-status='disabled'],
+        &[data-status='downgraded'] {
+            color: #ffd27a;
+        }
+
+        &[data-status='failed'] {
+            color: #ff8a80;
+        }
+    }
+
+    &__label {
+        overflow: hidden;
+        color: #a8a8b0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__heading {
+        margin: 10px 0 4px;
+        color: #a8a8b0;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    &__note {
+        padding: 2px 0;
+        color: #a8a8b0;
+        line-height: 1.35;
+    }
+}
+
+.shell-overlay[data-shell-id='output-panel'] {
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .shell-overlay__body {
+        max-height: 45vh;
+        overflow: auto;
+    }
+
+    label {
+        display: block;
+        margin: 8px 0;
+    }
+
+    input[type='number'] {
+        width: 80px;
+    }
+}

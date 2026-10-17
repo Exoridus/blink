@@ -1,0 +1,24 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.wgsl_audio_probe",
+  "title": "WGSL Audio Probe",
+  "description": "Reads the spectrum, level-trail and waveform surfaces from WGSL with textureLoad, so data textures can be checked on WebGPU.",
+  "requirements": { "backends": ["webgpu"] },
+  "inputs": [
+    { "name": "wave", "type": "audio", "required": false }
+  ],
+  "shaders": { "wgsl": { "main": "shaders/main.wgsl" } },
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        { "source": "blink.audio.spectrum", "uniform": "spectrum" },
+        { "source": "blink.audio.levelTrail", "uniform": "trail" },
+        { "source": "input.wave", "uniform": "wave" }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.wgsl_probe",
+  "title": "WGSL Probe",
+  "description": "Two-pass WGSL probe for WebGPU: pass 0 writes a gradient buffer, pass 1 composites it.",
+  "requirements": { "backends": ["webgpu"] },
+  "shaders": {
+    "wgsl": {
+      "write": "shaders/write.wgsl",
+      "present": "shaders/present.wgsl"
+    }
+  },
+  "passes": [
+    { "name": "write", "shader": "write", "target": { "name": "buf", "persistent": false }, "clear": true },
+    { "name": "present", "shader": "present", "inputs": ["buf"], "target": "screen", "clear": true }
+  ]
+}

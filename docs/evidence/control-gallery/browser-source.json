@@ -1,0 +1,36 @@
+{
+  "desktop": {
+    "controls": 42,
+    "groups": 7,
+    "knobs": 6,
+    "toggles": 5,
+    "bangs": 5,
+    "pads": 6,
+    "colors": 7,
+    "dropdowns": 5,
+    "alpha": 0,
+    "width": 1282,
+    "horizontalOverflow": false
+  },
+  "knob": 0.8,
+  "sourceContracts": {
+    "bipolarToggle": true,
+    "dropdownIndex": true,
+    "counterTriggerAndReset": true
+  },
+  "xy": [
+    0.5,
+    1
+  ],
+  "actions": {
+    "locks": true,
+    "reset": true,
+    "undo": true
+  },
+  "mobile": {
+    "width": 358,
+    "bodyOverflow": false,
+    "documentOverflow": false
+  },
+  "errors": []
+}

@@ -1,0 +1,80 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.hypercoil",
+  "title": "Hypercoil",
+  "author": "DIMA",
+  "description": "Audio-reactive recursive tunnel with feedback trails.",
+  "license": "MIT",
+  "thumbnail": "thumbnail.webp",
+  "tags": ["tunnel", "feedback", "audio-reactive"],
+  "controls": [
+    {
+      "name": "intensity",
+      "label": "Intensity",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "group": "Motion"
+    },
+    {
+      "name": "palette",
+      "label": "Palette",
+      "type": "enum",
+      "default": "aurora",
+      "options": ["aurora", "inferno", "mono"],
+      "group": "Color"
+    }
+  ],
+  "assets": [
+    {
+      "name": "noise",
+      "type": "texture2d",
+      "path": "assets/noise.png",
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "feedback",
+      "shader": "feedback",
+      "inputs": ["feedback.previous", "noise", "blink.audio.spectrum"],
+      "target": {
+        "name": "feedback",
+        "scale": 0.5,
+        "format": "rgba8",
+        "persistent": true
+      }
+    },
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": ["feedback"],
+      "target": "screen"
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "feedback": "shaders/feedback.frag.glsl",
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "presets": [
+    { "name": "default", "path": "presets/default.json" },
+    { "name": "intense", "path": "presets/intense.json" }
+  ],
+  "script": {
+    "entry": "script.ts",
+    "events": [
+      {
+        "input": "palette",
+        "on": "change",
+        "handler": "onPaletteChange"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.multipass_probe",
+  "title": "Multipass Probe",
+  "description": "Two-pass transient-buffer probe: pass 0 writes a gradient buffer, pass 1 composites it.",
+  "shaders": { "glsl": "shaders/main.frag.glsl" },
+  "passes": [
+    { "name": "write", "shader": "main", "target": { "name": "buf", "persistent": false }, "clear": true },
+    { "name": "present", "shader": "main", "inputs": ["buf"], "target": "screen", "clear": true }
+  ]
+}

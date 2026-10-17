@@ -1,0 +1,2 @@
+node scripts/check-repository-policy.ts --staged
+npx --no-install lint-staged

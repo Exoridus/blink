@@ -1,0 +1,1543 @@
+{
+  "scope": "conversion/schema/IR loading; GLSL GPU compilation and original scene pixels not qualified",
+  "count": 128,
+  "statuses": {
+    "complete": 2,
+    "approximate": 123,
+    "failed": 3
+  },
+  "scenes": [
+    {
+      "scene": "PLUS",
+      "sourceSha256": "cca3eebeb4ef9b8d54ac522b175e66501ceffb5b99a9ad33c062f59e888030c6",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "SkaiWalkerOG",
+      "sourceSha256": "e4567d56bcfb88e081b804dddeb2c65ad934ca9a04342b2525721f713d12567b",
+      "status": "failed",
+      "irLoaded": false,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "include-unresolved",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "alien_cavern",
+      "sourceSha256": "b65405eeeb519239a0c5ef800d5d1bc90635e4bf9cab7e79b4d119e04d9f95f8",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "audio_indicators",
+      "sourceSha256": "53cc9666d9321ace4bf01eaccad3e926ef0ac987dfbe59be4d0ee915794303b0",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "beamers",
+      "sourceSha256": "bbbb73a84919f804dde69e047530d7774d7f5d88590248fd168c30a72921cfdc",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "beats_in_4d",
+      "sourceSha256": "75f745851bf364160e62d52dc7bb5c094431fdaad21d569650a24d0ffd0095bb",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "biopsy",
+      "sourceSha256": "75d84d73b5da77d74c226d29820d0ba71083cb1154b2e7ef62b9d31ad8671ca0",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-untyped",
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "biopsy_v2",
+      "sourceSha256": "201887880b230d5cb8ffa92764e9bc80915a75511b2fb942718aa6189614e08e",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-untyped",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "boreal",
+      "sourceSha256": "7796765edb34f4d8e238fc50f5834fbe27184fbddabe41e4f73dd18d47e0c4d4",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "bouncy_hexagons",
+      "sourceSha256": "ac533a4f6b2e720431e0a684957131ce6306db6f25efaea8fbfa4910d52367f4",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "canvas",
+      "sourceSha256": "d3749fc81422367e848006b1f7fea0f02511166a4d5cbf4588fa5d61ed5b40b0",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "churning",
+      "sourceSha256": "cf0e45d6ab7cb48c208ad79a710bd1ed3dc7ae3b053f4bc38cf0f31a600c1aa0",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-untyped",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "circles5",
+      "sourceSha256": "fec93c42a27a04df9c79c5a6e4a17a9b4fa7c4710b197f49a3a61e8cf60e69fd",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted"
+      ]
+    },
+    {
+      "scene": "circuit_bending",
+      "sourceSha256": "21997c099a95c40798068355db7f4c6bba7266f372a2e52ed61005576afda982",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "cloudten",
+      "sourceSha256": "006634b652b12e3853afd37683c741b0e9051b60f9f107f3189b2e61efc15d32",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "compound_iris",
+      "sourceSha256": "1f3d8630596b66fa240977e4749403e4b31aa4c3dfe65b160d89976db59ebb99",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-untyped",
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "cosmic_dust",
+      "sourceSha256": "4786001c11014dbc85da8561f1332bb4fe6c18471ede5276903000bfea09ee91",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "dark_twister",
+      "sourceSha256": "1d4052e7bd239b3d00f54e0c4b9e4923570f421e5518ddbc586d0496ec1cffcd",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "helper-native-parity-unverified",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "deeper",
+      "sourceSha256": "66176fb4ef31f6e7bd1054fd4504b94f9e56f65dc65ce53e42165584f67a97d0",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "deeper_v2",
+      "sourceSha256": "b1e7ecc725fcfebb511e1704d063fee61a55376446592fad4998c9faa6d7db78",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "dispersion",
+      "sourceSha256": "4ea66df1ecfbb1334938f431c8dcfb8c608fa85cb359711603a749733e514c46",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "dynamical_flame",
+      "sourceSha256": "1852d10c29142bacdf7f6c10a139423e49676e47bed674a79d78437e4b5b419c",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "entombed_silicon_dreams",
+      "sourceSha256": "7dff67e6344e33418de4e61d4be046d386c0adf6d08a44144f4dbf7030638f89",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "target-sampling-unsupported",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "equirectangular",
+      "sourceSha256": "a99973744fa1da843eae07a2a2d998dbac255bbbc34a5712da048bd56b3e0624",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "exoplanet",
+      "sourceSha256": "1e94ec32429716c70274ec28b7a1520e03602fa61903c48a6edb986a9f50652b",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "filter_blown",
+      "sourceSha256": "a3c11a90509067c2c7ccee8731583508e3dd8be433c220341b86a1b56e141dcd",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "fire_tunnel",
+      "sourceSha256": "f1910e2952308ae720c2e5dbbae53039ecf6301519ce35e99ee684349a23c19e",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "fluid_body",
+      "sourceSha256": "07d8fb8a6f49acb910343c2f885dca0e50b2afd05b4a3cfdfa1d20e3d8606f2b",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted"
+      ]
+    },
+    {
+      "scene": "fractilian_foundation",
+      "sourceSha256": "dc5eba0b08a3818fbd387f5e776885eb39a9d2e066c07ebd3b75ac0aa1789a8e",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "fuzzy_signal",
+      "sourceSha256": "9531503400304c425eb625773142334fe2c779aee68534bbefab19738f2ac9c1",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "gaussian_smoothlife",
+      "sourceSha256": "0c8edf772fb41b8d4d5107f8e548bd408d0615f261ee110e4b4d10fbf8019abe",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "glassier",
+      "sourceSha256": "8dcc896b497f3b09e1e68683ed828baedb156ccb80fdfc462b0eea4c0b4a6eb2",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "glitch",
+      "sourceSha256": "b602459c153d9cfa3dd387d6a5ecb4aabe82e494ec3413edb36c7631c0f3334e",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "glob",
+      "sourceSha256": "0cd1fcabe3c5f1f35c2fb4ce0dfb40d38b8a8e1fd24a79b8cec51a0a24bd0183",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "gpu_melter",
+      "sourceSha256": "26ff0a11e40a3cfa6b306d9af5e1c392bddba8c990c2867a045a4ab6c3fa33e6",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "hex_array",
+      "sourceSha256": "e803d7e43d494f6220d89a1cdbbadc0f04c3e97291a17dc1e607f3088c18e584",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted"
+      ]
+    },
+    {
+      "scene": "hexoplanet",
+      "sourceSha256": "50076158e3234d7133fe61c6861e57a048d9a595e8795d7ff75c510d62594987",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "hextunnel",
+      "sourceSha256": "a4cc60883d3e02cd554be9977696bca3cff1ed05fc6d61c47c8935e7c1cab9b6",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "hills_eels",
+      "sourceSha256": "f7f0a56cb0cf5687400a02f2040e1066459907af9ee69b23ebdfaafda4119477",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "hue_review",
+      "sourceSha256": "3106dfa106706e8e91e9e5d2029e8ce155555ba26b83c94db832f69d7d8c9213",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "inkshot",
+      "sourceSha256": "395ce323ad6f1075205094cd753383b6dcd9771805c326cf898c0e44358c12bf",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "kaleidowhoa_man",
+      "sourceSha256": "e88659fccd263660ef80c5c59e39e8ca4874dfc9d31c697f5feb62a8e8b8c81d",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "kifs_flythrough",
+      "sourceSha256": "2955ddc2257df89579c704f6e940bc170cd2ec0e9029da98534810013fd0e676",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted"
+      ]
+    },
+    {
+      "scene": "lattix",
+      "sourceSha256": "33824d1e0f543bcdc37e883dc23dfb87b835a59ba93271a491d78c2d99a2bebb",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "logo_grid_pulses",
+      "sourceSha256": "5f9c81719bb4fa84c9458827d44272ea91d40a3cbebb7b1eabc736d8dac1b4c8",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-color-default-unverified",
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "target-sampling-unsupported",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "lost_in_the_sauce",
+      "sourceSha256": "0a0a692a7bea7ec9860f46540ab4f40812f973c5791e36c6f24390d27a500348",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "mandelbrot_decoration",
+      "sourceSha256": "33a6e96bb387949551097afd5ff489f515af0fb17cef6ff46fec183c26e6da2f",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "meta_experiment_3",
+      "sourceSha256": "12a212db77d9b08e373c893ca41370da59f7ff4bd7c740fb67c44f177f1d417d",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "midi_mapping",
+      "sourceSha256": "bb597a67fbe2a46a2494d7b491fbdd40ce1f4a7fdbd19df587f19c1d159c7730",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified"
+      ]
+    },
+    {
+      "scene": "milk_honey_smoke_bile",
+      "sourceSha256": "cd4167c062acae32ca35771a580350cf7b2f7bc46ba443322cb0215e61ae0544",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "min_max_hex",
+      "sourceSha256": "b747339d26d00bc99fb5f20216c3639dae4348e26e56a12fa09f88e6d241cbb3",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "molten",
+      "sourceSha256": "b990c4f164df1eafcb71cf3d85d38c17679a1406fec6a1d2f72474f110e97c4f",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "myoplasm",
+      "sourceSha256": "e6a7828abdf1ebca1f9686ec5ec2f9ead60521b732afa84a98a85e72bde7841c",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "native-final-pass-feedback-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "neon_city",
+      "sourceSha256": "16f203ba74f67d3c4b331af8255684da98d57d819a15e361b03bdb4d592e2f58",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-overridden",
+        "native-single-buffer-adapted",
+        "target-sampling-unsupported",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "neuron_proximitors",
+      "sourceSha256": "2c5f645a12992e6d2534017c03e1b12e0693346f7e3c22815d73d0a39444690f",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "nova",
+      "sourceSha256": "71081de6c31cd5810cc0942b9f88dd73764374abab330b3250f38860f89fabda",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "overload",
+      "sourceSha256": "e649b02ada93f2bf3df405d62468d40482a1221633e6856f68f619ab5362e2e7",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "pop",
+      "sourceSha256": "9346999e4845ba797a2f937035d6e203b4e3b5bc55194fc19f2769297a1fa762",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-untyped",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "primitiv_logik",
+      "sourceSha256": "b30b81c71c0f2e7625c5c198b23a016a163927ac928790c532e58bacf11ce609",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "pxl_sort_1",
+      "sourceSha256": "5755c7af2b1bff7d4c7c1aa6a155ea10966dbca2457d20bc5584ada3e7cde319",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "quicksand",
+      "sourceSha256": "8bcf69018d9f46eee6dac613ec8969dd93189b63a67592aaf373e7e5bf8a56b1",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "raw_video",
+      "sourceSha256": "e5e47394d4728a66cf4e60c55d8976a1db6585eae0a1927b3e97080ed63b7cc0",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "helper-native-parity-unverified"
+      ]
+    },
+    {
+      "scene": "ray_marching_experiment_62",
+      "sourceSha256": "5a628a86cc81f60134fbe0f6b46fceb8db4b3dcbd5d78150deb3237fe8be9102",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "raymarched_reflections",
+      "sourceSha256": "5bf8e104467c6750dd5527f6c559feb82757fb2fc063bf7a78ec4548adfef3c3",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "rearranged",
+      "sourceSha256": "ebd18f319be73f7e77db09be01f09d677c4664130aa5bab12dafc94d930cabc7",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "redrum",
+      "sourceSha256": "16be5dde64d67f9ff2d49b8b1be5fcc932cd9556bc0c0757e69659e97465b059",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "replik8",
+      "sourceSha256": "fa9d4ae4f7b1b9875a12c59953e00ec3e17c712fc57412a1365510abc45d3fd1",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "scaffold_fractal",
+      "sourceSha256": "4dd5290ec4679d6060f335c76382c64f83b7b8c00ed1575fa3f02215ebe58d45",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "shrouded",
+      "sourceSha256": "581b9a90beaa8aa5c340a0722c11b167bb99e38658cfb884902fb0263d8035e9",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "sinusoidal_warp",
+      "sourceSha256": "d16ae4fce3f2abe3e88e4b4d525b3fc6cf07deff1fb432eabc31e7d76722e95d",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "sprinkles",
+      "sourceSha256": "2eb87b0f11f28593b0af8a491faf84a0b2801b4732747f2334189cadb54dd97d",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-untyped",
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "square_shoals",
+      "sourceSha256": "6a60e69681d895c5d4e5b70797ad0d533e34f55d9744190c445c0001ba262fc3",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-untyped",
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "stained_glass",
+      "sourceSha256": "7cdd727f4647bcdff6e54ad5abf3a9904c9b948453443bc16de3ea9a8c490973",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "sun_set",
+      "sourceSha256": "1d6c77f281442cc6daa436e4b0bc5afe3860e47c20945e09b44f8dba25eed923",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-untyped",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "swarm",
+      "sourceSha256": "e98627cc67479cd3c1021714653653ade690d547e01bfc7e6fd021a31aa027e7",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "terrain_lattice",
+      "sourceSha256": "3f78971974357de088aaf1445e2bab4efa7865c471b6645628257d78d335d278",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "test_card",
+      "sourceSha256": "ae5396410e70d6f451f2960a34d4e882c4a27f91095a302a882c28870ee3ac70",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "thresholder",
+      "sourceSha256": "b9bf55f68cb90a0b264cfb6e58b325798b2151570ea73a00fab7b9350b63b547",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "traced_tunnel",
+      "sourceSha256": "0da2a040103c873b5b4626e1d6d89c59d4f66194c0ceed7b931e781fcf64417d",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "transparent_isoslices",
+      "sourceSha256": "f8e8563a26559fc40f984557649ba394b6c5a05e54160a2f8c15227884029fff",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "tunnel_beauty_6",
+      "sourceSha256": "190f0d1846afc96a3c6acdd46a2c5b00e4afb64877ba79120920bd50fdda89ed",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "turbo_encabulator_fluid",
+      "sourceSha256": "9bd1ed4914e3c24ad436e52e76c28f4f33d52a95e70a10b866034b1174c5891b",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "vein_melter",
+      "sourceSha256": "499add72d6f5efc6e8565d97a9d8cfcdcc1e6f2be0c310b5c31388598198a812",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "videofx_1",
+      "sourceSha256": "5f27c88f67db7623bf322d1c56dccc305324bcc67926262878fc34b5cb4fcac4",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "videofx_directionalblur",
+      "sourceSha256": "e1e1e894e90a650d0d66a46c7795333dcd4dbddd3d842da9879af8a24b775909",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "voronoi_geode",
+      "sourceSha256": "88ddeb38cc094518808147c60c0c27296474fd95b08582352d6a10067ca1844e",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "waterly",
+      "sourceSha256": "cbbc41e3498c1b3cee63476b2510736cf25083ea439a8df49e0d34afeeb67098",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "alien_torus",
+      "sourceSha256": "7f59ba37f9ea78982bb7d0a9e8d0812afccb48825359d024a5cd25828a11129e",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "psybernautic_neuron",
+      "sourceSha256": "b2a2884b4072e143787f58bf4e75e9e7510d8fd7201d575e201b4f27f52c6f55",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "rainbow_factory",
+      "sourceSha256": "14a9a626459c1465884c0d7978ffc39a194ce659194c5cc02a1f05fb2166a6cb",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "sphere_chaser",
+      "sourceSha256": "0a897cccf4e3a8be7457f1fd6ae0fec8da1ee6c9f10a14c9a2096eb9c701b1b6",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-traveler",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "transcendental_rites",
+      "sourceSha256": "0235571600eb4cb7b8c8c688fa86d6b7278ff8386ef8078cb4fd3a7f6ce1357e",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "journey_thru_the_grid",
+      "sourceSha256": "10a384f413b6332ce81c924a850c462b7da3ed775680ace96b8c43aaa717cfdf",
+      "status": "failed",
+      "irLoaded": false,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "include-unresolved",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "shape_migration_ii",
+      "sourceSha256": "52e10c78f350d299b67155ff16fe87b34a6188f35715e19278b2ddae255dfa48",
+      "status": "failed",
+      "irLoaded": false,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "include-unresolved",
+        "helper-native-parity-unverified",
+        "image-missing",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "bos_color-exercises",
+      "sourceSha256": "74927105481d928918bcc31a317fa77895f96aabce33a29990149e771a0447eb",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-untyped",
+        "helper-native-parity-unverified"
+      ]
+    },
+    {
+      "scene": "bos_easing-functions",
+      "sourceSha256": "3ec9e3b2f95d602512ec5b593a4d27f648cdec88cb43c106841a412337bf0649",
+      "status": "complete",
+      "irLoaded": true,
+      "issues": []
+    },
+    {
+      "scene": "bos_shaping-functions",
+      "sourceSha256": "d25e086d38c2eba2b2c7c71c47aa23c6ff5f7ed5ead79ea0df275906ddb68d17",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "hello_world",
+      "sourceSha256": "30b666760e3fe13c4756a7694ba23011d02e6fff9b3bafcf01573c9a675b3404",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "transitions-ignored",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "beats_in_4d",
+      "sourceSha256": "e98b4f7b8aa47a765725710a8431b98fa3f5f4d5da6fdfc709edded360da840a",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "blue_steel_grid",
+      "sourceSha256": "046ca93f9a539daf73b37c14ea41e2db7a2611290c4c9d26a62065274c039c4f",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "bouncing_ball",
+      "sourceSha256": "5540e414d57d08400b4a28b7c23e977b04071f2831f50c7483f0cc54e0bb8078",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "target-sampling-unsupported",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "bouncing_lines",
+      "sourceSha256": "4d684cf51b2b10f95c7401b3f56336ad88979d52ef3bd08cca6e07df11404d39",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "bouncy_hexagons",
+      "sourceSha256": "8ee6cdad37f2b80b2f45edad3b26bc7442ccaaa97f2ef4368fd9a8f13defff41",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "constrained-bouncing-amiga-ball",
+      "sourceSha256": "72ebcb40bfb381b501de711b95357a1110f865212868a0424ecbcd8927797020",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "dark_twister",
+      "sourceSha256": "0095f7b3c0b5a53b9f045e4ce36605e83119b6db7adadba7ce84364918e6c915",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "helper-native-parity-unverified",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "electric_mandelbrot",
+      "sourceSha256": "692c64b2f58608dbb60c10be8345b928833aeade708cf5f662900bcd0dde5ffc",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "encore500",
+      "sourceSha256": "6652bed255f955b1ea27b3871363d3d01660ebc9614a57986e4fac79c474454b",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "native-single-buffer-adapted",
+        "target-sampling-unsupported",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "entombed_silicon_dreams",
+      "sourceSha256": "8ded3f0ec2f83ec164ddde8be3ab12266df9a851b8391752248fffd388862d5f",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "flat_planes",
+      "sourceSha256": "ac4587116d4f83d82c6934cd5dbbf00eece2170bcef59c7c79bf773627b74bc3",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-color-default-unverified",
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "hyperlines",
+      "sourceSha256": "a3b18b08e0f2c796c27f02e4944f7ea7ab5d466bd58296f89cbb2b589e98bd25",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "hyperspace",
+      "sourceSha256": "e2213a63c2d9b05d1a5b40d3a2a63d91a4e0204cd810a1fb6a3626f5faa16358",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "hyperspace_scenesat",
+      "sourceSha256": "8564362e295ff7d03938f2ac5af79f9f85ae2d2936b58e40c6d537cf259b1522",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "info",
+      "sourceSha256": "14f51ae5c39e07f596a45d9c374af12d18e2f95c94a1645fb25d8a9405ac046c",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "kali_galaxy",
+      "sourceSha256": "4f377058eb37f92e77fed4ef867920b296796253d0fee6edc01b047d5e2935fc",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "neon_city",
+      "sourceSha256": "352a3c13890c2a99d312f1c6e83b20d6c080a5b1c0e97f2d42d0220f699ef970",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-overridden",
+        "native-single-buffer-adapted",
+        "target-sampling-unsupported",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "neon_giza",
+      "sourceSha256": "c81729996f316537e255cbb23fe49dd698df4612aa03eb2e6dba1bb858db8cd0",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "neon_scenesat",
+      "sourceSha256": "7c2e0f78d4da4438e4b0b55f5162d3f920c7815cc533611f91f958b626890a01",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "native-single-buffer-adapted",
+        "target-sampling-unsupported",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "neon_triangulator",
+      "sourceSha256": "0281f520d065553e5a09c2c089d11f488e39a93ffe4d2d454f08ddf1aef8b23f",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "onair",
+      "sourceSha256": "5465c61f6bdc77b3f235261166d9e5d6db167af6cdb7d89ee6f3573e92d479c4",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "native-single-buffer-adapted",
+        "target-sampling-unsupported",
+        "native-final-pass-feedback-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "pretty-ok-reflections",
+      "sourceSha256": "dca65677e6991dd2c8c4760b8af270395c6a07c899ca232229957340d8b9129c",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "scenesat_intro",
+      "sourceSha256": "05dd84b9f8583260e6bc5486f68007a4c90b4f6c8203819a707718f2f4098066",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "smallest",
+      "sourceSha256": "d09558ed5e78839a9c14c02b8a8cb5d01c3e6cf93735a911019f16ce8976aa80",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": []
+    },
+    {
+      "scene": "spiralling_out_of_control",
+      "sourceSha256": "c0911f66c2ccfbc086aa21a35e87bdc7389e85ac39afc6f18d7463c87b0b38df",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "control-color-default-unverified",
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "submerged-spectral-shimmering-siphonophores",
+      "sourceSha256": "aad93ea54d5c4dcbaee9a5a4252e870cda3dfa377ebe22d85181859722d58023",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-native-dynamics-unverified",
+        "helper-native-parity-unverified",
+        "native-single-buffer-adapted",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "anotherspheriodfractalthing",
+      "sourceSha256": "45455c8923d73a52f7175ef5c7a11276e48a36bf89f05a190a1f35050be58678",
+      "status": "complete",
+      "irLoaded": true,
+      "issues": []
+    },
+    {
+      "scene": "fractal_pyramid",
+      "sourceSha256": "2bf5dc80fc580b2644b23a7c8f9f22c2433aa615f026cceb84c407514705e903",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-untyped",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "funkgalaxy",
+      "sourceSha256": "35baabd43050a4c2968737d743c4b48b89d68ae5e3fbdf8e370491845a333e4d",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "helper-native-parity-unverified",
+        "audio-original-qualified-profile"
+      ]
+    },
+    {
+      "scene": "treasure",
+      "sourceSha256": "a299f9c797ccdbeba099b73f93b38387807046afd6eab91d3aae412a4452df5f",
+      "status": "approximate",
+      "irLoaded": true,
+      "issues": [
+        "control-untyped",
+        "audio-original-qualified-profile"
+      ]
+    }
+  ]
+}

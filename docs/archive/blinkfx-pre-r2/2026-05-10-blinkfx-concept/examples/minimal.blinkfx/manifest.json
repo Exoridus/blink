@@ -1,0 +1,8 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.plasma",
+  "title": "Plasma",
+  "shaders": {
+    "glsl": "shaders/main.frag.glsl"
+  }
+}

@@ -1,0 +1,13 @@
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.sln text eol=crlf
+*.vcxproj* text eol=crlf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+*.wav binary
+*.bin binary
+*.zip binary
+*.blinkfx binary

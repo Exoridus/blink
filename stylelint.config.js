@@ -1,0 +1,20 @@
+export default {
+    extends: ['stylelint-config-standard-scss'],
+    ignoreFiles: ['dist/**', 'node_modules/**', 'public/**', 'test/fixtures/**', '.workspace/**'],
+    rules: {
+        'selector-class-pattern': null,
+        'color-function-alias-notation': null,
+        'declaration-empty-line-before': null,
+        'scss/operator-no-newline-after': null,
+        'declaration-block-single-line-max-declarations': null,
+        'property-no-deprecated': [true, { severity: 'warning' }],
+        'keyframes-name-pattern': null,
+        'alpha-value-notation': null,
+        'color-function-notation': null,
+        'color-hex-length': null,
+        'media-feature-range-notation': null,
+        'declaration-block-no-redundant-longhand-properties': null,
+        'shorthand-property-no-redundant-values': null,
+        'no-descending-specificity': null,
+    },
+};

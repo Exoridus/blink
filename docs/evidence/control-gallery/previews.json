@@ -1,0 +1,345 @@
+{
+  "version": 1,
+  "runtimeHash": "90baad7b74c694579d7d25d883eeeb225a33024a7b64887aa17db3c0065c7f1b",
+  "width": 320,
+  "height": 180,
+  "framesToRender": 6,
+  "results": [
+    {
+      "id": "com.codexo.control_gallery",
+      "source": "rendered",
+      "litPixels": 57511,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1455
+    },
+    {
+      "id": "com.codexo.hypercoil",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 915
+    },
+    {
+      "id": "com.codexo.parity_twin",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1134
+    },
+    {
+      "id": "com.codexo.feedback_twin",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1005
+    },
+    {
+      "id": "com.codexo.ssf.biopsy",
+      "source": "rendered",
+      "litPixels": 49526,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 5619
+    },
+    {
+      "id": "com.codexo.ssf.biopsy_v2",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 7926
+    },
+    {
+      "id": "com.codexo.ssf.boreal",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 2400
+    },
+    {
+      "id": "com.codexo.ssf.bouncy_hexagons",
+      "source": "rendered",
+      "litPixels": 57400,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 21197
+    },
+    {
+      "id": "com.codexo.ssf.circuit_bending",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1283
+    },
+    {
+      "id": "com.codexo.ssf.cloudten",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 5576
+    },
+    {
+      "id": "com.codexo.ssf.cosmic_dust",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 3876
+    },
+    {
+      "id": "com.codexo.ssf.dynamical_flame",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 2487
+    },
+    {
+      "id": "com.codexo.ssf.equirectangular",
+      "source": "rendered",
+      "litPixels": 29234,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1038
+    },
+    {
+      "id": "com.codexo.ssf.fire_tunnel",
+      "source": "rendered",
+      "litPixels": 57536,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 2880
+    },
+    {
+      "id": "com.codexo.ssf.gaussian_smoothlife",
+      "source": "rendered",
+      "litPixels": 57596,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 3265
+    },
+    {
+      "id": "com.codexo.ssf.glitch",
+      "source": "declared-thumbnail",
+      "litPixels": 0,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 8360
+    },
+    {
+      "id": "com.codexo.ssf.hexoplanet",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 5259
+    },
+    {
+      "id": "com.codexo.ssf.hextunnel",
+      "source": "rendered",
+      "litPixels": 57587,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 2428
+    },
+    {
+      "id": "com.codexo.ssf.kifs_flythrough",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 3990
+    },
+    {
+      "id": "com.codexo.ssf.logo_grid_pulses",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 45577
+    },
+    {
+      "id": "com.codexo.ssf.midi_mapping",
+      "source": "rendered",
+      "litPixels": 33365,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1668
+    },
+    {
+      "id": "com.codexo.ssf.molten",
+      "source": "rendered",
+      "litPixels": 22608,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 3347
+    },
+    {
+      "id": "com.codexo.ssf.mrange_synesthesia_public_bouncy_hexagons",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 19938
+    },
+    {
+      "id": "com.codexo.ssf.mrange_synesthesia_public_constrained_bouncing_amiga_ball",
+      "source": "rendered",
+      "litPixels": 55676,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 22657
+    },
+    {
+      "id": "com.codexo.ssf.mrange_synesthesia_public_encore500",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 9144
+    },
+    {
+      "id": "com.codexo.ssf.mrange_synesthesia_public_hyperspace_scenesat",
+      "source": "rendered",
+      "litPixels": 16468,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1171
+    },
+    {
+      "id": "com.codexo.ssf.mrange_synesthesia_public_neon_scenesat",
+      "source": "rendered",
+      "litPixels": 56560,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 8017
+    },
+    {
+      "id": "com.codexo.ssf.mrange_synesthesia_public_neon_triangulator",
+      "source": "rendered",
+      "litPixels": 51857,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1050
+    },
+    {
+      "id": "com.codexo.ssf.mrange_synesthesia_public_scenesat_intro",
+      "source": "rendered",
+      "litPixels": 21120,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 830
+    },
+    {
+      "id": "com.codexo.ssf.neon_city",
+      "source": "rendered",
+      "litPixels": 20947,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 62353
+    },
+    {
+      "id": "com.codexo.ssf.overload",
+      "source": "rendered",
+      "litPixels": 54829,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1283
+    },
+    {
+      "id": "com.codexo.ssf.redrum",
+      "source": "declared-thumbnail",
+      "litPixels": 0,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1254
+    },
+    {
+      "id": "com.codexo.ssf.replik8",
+      "source": "rendered",
+      "litPixels": 33008,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1299
+    },
+    {
+      "id": "com.codexo.ssf.shrouded",
+      "source": "declared-thumbnail",
+      "litPixels": 0,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 6514
+    },
+    {
+      "id": "com.codexo.ssf.stained_glass",
+      "source": "rendered",
+      "litPixels": 57434,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 2272
+    },
+    {
+      "id": "com.codexo.ssf.terrain_lattice",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 2202
+    },
+    {
+      "id": "com.codexo.ssf.traced_tunnel",
+      "source": "rendered",
+      "litPixels": 2288,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1284
+    },
+    {
+      "id": "com.codexo.ssf.transparent_isoslices",
+      "source": "rendered",
+      "litPixels": 57600,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1023
+    },
+    {
+      "id": "com.codexo.ssf.vein_melter",
+      "source": "rendered",
+      "litPixels": 57549,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 2027
+    },
+    {
+      "id": "com.codexo.ssf.voronoi_geode",
+      "source": "rendered",
+      "litPixels": 52865,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1031
+    },
+    {
+      "id": "com.codexo.ssf.waterly",
+      "source": "rendered",
+      "litPixels": 10990,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 755
+    },
+    {
+      "id": "com.codexo.ssf.synesthesia_control_gallery",
+      "source": "rendered",
+      "litPixels": 57511,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 1213
+    }
+  ]
+}

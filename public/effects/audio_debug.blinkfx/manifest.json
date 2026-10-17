@@ -1,0 +1,59 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.audio_debug",
+  "title": "Audio Analysis Dashboard",
+  "author": "Blink",
+  "description": "Synesthesia-compatible audio analysis dashboard. Visualizes the spectrum and level-trail surfaces and the scalar SSF compatibility signals.",
+  "license": "MIT",
+  "tags": [
+    "debug",
+    "audio",
+    "diagnostic",
+    "dashboard"
+  ],
+  "shaders": {
+    "glsl": "shaders/main.frag.glsl"
+  },
+  "controls": [
+    {
+      "name": "mode",
+      "label": "View",
+      "type": "enum",
+      "default": "dashboard",
+      "options": [
+        "dashboard",
+        "spectrum",
+        "histogram",
+        "combined"
+      ],
+      "group": "Display"
+    }
+  ],
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "1"
+    },
+    "profile": "ssf/1",
+    "mode": "native",
+    "converter": "hand-authored"
+  },
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "fx_spectrum"
+        },
+        {
+          "source": "blink.audio.levelTrail",
+          "uniform": "fx_histogram"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ]
+}

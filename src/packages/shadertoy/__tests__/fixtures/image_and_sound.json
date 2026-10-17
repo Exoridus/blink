@@ -1,0 +1,28 @@
+{
+  "Shader": {
+    "info": {
+      "id": "fixt10",
+      "name": "Image and sound",
+      "username": "blink-fixture",
+      "description": "Image and sound",
+      "tags": ["fixture"],
+      "license": "MIT"
+    },
+    "renderpass": [
+      {
+        "type": "image",
+        "name": "Image",
+        "code": "void mainImage(out vec4 fragColor, in vec2 fragCoord) {\n  fragColor = vec4(vec3(0.5 + 0.5 * sin(iTime * 6.2831853 * 2.0)), 1.0);\n}",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "type": "sound",
+        "name": "Sound",
+        "code": "vec2 mainSound(int samp, float time) {\n  return vec2(sin(6.2831853 * 220.0 * time));\n}",
+        "inputs": [],
+        "outputs": []
+      }
+    ]
+  }
+}

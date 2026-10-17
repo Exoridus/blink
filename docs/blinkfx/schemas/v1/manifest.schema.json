@@ -1,0 +1,639 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BlinkFX Manifest v1 Final Candidate R2",
+  "type": "object",
+  "required": ["format", "id", "title", "shaders"],
+  "additionalProperties": true,
+  "properties": {
+    "format": {
+      "const": "blinkfx/1"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "kind": {
+      "enum": ["generator", "filter", "transition"]
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/control"
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/hostInput"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "passes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/pass"
+      }
+    },
+    "presets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/preset"
+      }
+    },
+    "script": {
+      "$ref": "#/$defs/script"
+    },
+    "requirements": {
+      "$ref": "#/$defs/requirements"
+    },
+    "fallbacks": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": ["fail", "disable", "rgba8", "approximate"]
+      }
+    },
+    "compatibility": {
+      "type": "object"
+    },
+    "diagnostics": {
+      "type": "object"
+    },
+    "shaders": {
+      "$ref": "#/$defs/shaderSet"
+    },
+    "outputs": {
+      "$ref": "#/$defs/outputs"
+    }
+  },
+  "$id": "urn:blinkfx:schema:1.0.0-rc.2:manifest",
+  "$comment": "Unreleased candidate. Semantic references, unique names, bounded resources and host capabilities require conformance checks beyond JSON Schema.",
+  "$defs": {
+    "shaderProgram": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "required": ["fragment"],
+          "additionalProperties": false,
+          "properties": {
+            "fragment": {
+              "type": "string",
+              "minLength": 1
+            },
+            "vertex": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["audio"],
+          "additionalProperties": false,
+          "properties": {
+            "audio": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "shaderBackend": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "$ref": "#/$defs/shaderProgram"
+          }
+        }
+      ]
+    },
+    "wgslBackend": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      ]
+    },
+    "shaderSet": {
+      "type": "object",
+      "anyOf": [
+        {
+          "required": ["glsl"]
+        },
+        {
+          "required": ["wgsl"]
+        }
+      ],
+      "properties": {
+        "glsl": {
+          "$ref": "#/$defs/shaderBackend"
+        },
+        "wgsl": {
+          "$ref": "#/$defs/wgslBackend"
+        }
+      }
+    },
+    "control": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "type": {
+          "enum": ["float", "int", "bool", "color", "enum", "point2d", "bang"]
+        },
+        "default": {},
+        "min": {},
+        "max": {},
+        "step": {
+          "type": "number"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "float"
+              }
+            }
+          },
+          "then": {
+            "required": ["default"],
+            "properties": {
+              "default": {
+                "type": "number"
+              },
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "int"
+              }
+            }
+          },
+          "then": {
+            "required": ["default"],
+            "properties": {
+              "default": {
+                "type": "integer"
+              },
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "bool"
+              }
+            }
+          },
+          "then": {
+            "required": ["default"],
+            "properties": {
+              "default": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "color"
+              }
+            }
+          },
+          "then": {
+            "required": ["default"],
+            "properties": {
+              "default": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "point2d"
+              }
+            }
+          },
+          "then": {
+            "required": ["default"],
+            "properties": {
+              "default": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "min": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "max": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "enum"
+              }
+            }
+          },
+          "then": {
+            "required": ["default", "options"],
+            "properties": {
+              "default": {
+                "type": "string"
+              },
+              "options": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "hostInput": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": ["image", "audio", "audioFFT", "audioTexture", "pointer", "keyboard"]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "samples": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "representation": {
+          "enum": ["spectrum-waveform"]
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "required": ["name", "type", "path"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "const": "texture2d"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sampling": {
+          "type": "object",
+          "properties": {
+            "filter": {
+              "enum": ["nearest", "linear", "mipmap"]
+            },
+            "wrap": {
+              "enum": ["clamp", "repeat", "mirror"]
+            }
+          }
+        }
+      }
+    },
+    "passInput": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "required": ["source", "uniform"],
+          "properties": {
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniform": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "renderTarget": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "width": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "height": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "scale": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "format": {
+          "enum": ["rgba8", "rgba16f", "rgba32f"]
+        },
+        "persistent": {
+          "type": "boolean"
+        }
+      }
+    },
+    "pass": {
+      "type": "object",
+      "required": ["name", "shader"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shader": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/passInput"
+          }
+        },
+        "target": {
+          "oneOf": [
+            {
+              "const": "screen"
+            },
+            {
+              "$ref": "#/$defs/renderTarget"
+            }
+          ]
+        },
+        "clear": {
+          "type": "boolean"
+        }
+      }
+    },
+    "preset": {
+      "type": "object",
+      "required": ["name", "path"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "eventBinding": {
+      "type": "object",
+      "required": ["input", "on", "handler"],
+      "properties": {
+        "input": {
+          "type": "string",
+          "minLength": 1
+        },
+        "on": {
+          "enum": ["change", "offToOn", "onToOff", "whileOn", "whileOff"]
+        },
+        "handler": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "script": {
+      "type": "object",
+      "required": ["entry"],
+      "properties": {
+        "entry": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "enum": ["javascript"]
+        },
+        "abi": {
+          "type": "string",
+          "minLength": 1
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/eventBinding"
+          }
+        }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "features": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "backends": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["webgl2", "webgpu"]
+          }
+        }
+      }
+    },
+    "audioOutput": {
+      "type": "object",
+      "required": ["shader"],
+      "additionalProperties": false,
+      "properties": {
+        "shader": {
+          "type": "string",
+          "minLength": 1
+        },
+        "abi": {
+          "type": "string",
+          "minLength": 1
+        },
+        "channels": {
+          "enum": [1, 2]
+        },
+        "sampleRate": {
+          "oneOf": [
+            {
+              "const": "device"
+            },
+            {
+              "type": "integer",
+              "minimum": 1
+            }
+          ]
+        }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "visual": {
+          "type": "boolean"
+        },
+        "audio": {
+          "$ref": "#/$defs/audioOutput"
+        }
+      }
+    }
+  }
+}

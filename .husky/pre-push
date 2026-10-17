@@ -1,0 +1,2 @@
+node scripts/check-push-policy.ts "$1"
+npm run check

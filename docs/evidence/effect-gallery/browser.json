@@ -1,0 +1,57 @@
+{
+  "desktop": {
+    "cards": 135,
+    "groups": [
+      "BlinkFX (.blinkfx)",
+      "Synesthesia (.synScene)",
+      "Community (.synScene)"
+    ],
+    "dropdowns": 0,
+    "submitButtons": 0,
+    "selectedSource": "url",
+    "images": 135,
+    "documentOverflow": false,
+    "canvasCount": 0
+  },
+  "mobile": {
+    "width": 390,
+    "documentOverflow": false,
+    "rootOverflow": false,
+    "firstCardWidth": 173
+  },
+  "keyboardStart": {
+    "configs": [
+      {
+        "sourceType": "mic",
+        "packageId": "com.codexo.audio_debug"
+      }
+    ],
+    "locked": true
+  },
+  "upload": {
+    "gatedBeforeFile": true,
+    "startsWithFreshFile": true
+  },
+  "restored": {
+    "selected": "com.codexo.aurora",
+    "expected": "com.codexo.aurora",
+    "source": "url",
+    "url": "https://example.com/saved",
+    "submissions": 0
+  },
+  "previewFailure": {
+    "hidden": true,
+    "cardEnabled": true,
+    "noErrorCard": true
+  },
+  "gpuContextsBeforeStart": 0,
+  "actualIndex": {
+    "escapedPermissionFailure": true,
+    "failureUnlocksCards": true,
+    "successfulCardStart": "Plasma",
+    "reloadRestoresEffect": true,
+    "reloadDefaultsToUrlWithoutPlayback": true
+  },
+  "pageErrors": [],
+  "pageErrorCount": 0
+}

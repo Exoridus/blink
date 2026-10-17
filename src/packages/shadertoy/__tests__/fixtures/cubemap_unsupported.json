@@ -1,0 +1,32 @@
+{
+  "Shader": {
+    "info": {
+      "id": "fixt11",
+      "name": "Cubemap channel",
+      "username": "blink-fixture",
+      "description": "Cubemap channel",
+      "tags": ["fixture"],
+      "license": "MIT"
+    },
+    "renderpass": [
+      {
+        "type": "image",
+        "name": "Image",
+        "code": "void mainImage(out vec4 fragColor, in vec2 fragCoord) {\n  fragColor = texture(iChannel0, vec3(0.0, 1.0, 0.0));\n}",
+        "inputs": [
+          {
+            "channel": 0,
+            "ctype": "cubemap",
+            "src": "/media/a/cube.png",
+            "sampler": {
+              "filter": "linear",
+              "wrap": "clamp",
+              "vflip": "false"
+            }
+          }
+        ],
+        "outputs": []
+      }
+    ]
+  }
+}

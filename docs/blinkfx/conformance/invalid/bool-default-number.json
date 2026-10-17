@@ -1,0 +1,15 @@
+{
+  "format": "blinkfx/1",
+  "id": "example.invalid",
+  "title": "Invalid control",
+  "shaders": {
+    "glsl": "main.glsl"
+  },
+  "controls": [
+    {
+      "name": "x",
+      "type": "bool",
+      "default": 1
+    }
+  ]
+}

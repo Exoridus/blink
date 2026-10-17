@@ -1,0 +1,27 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.dynamic_probe",
+  "title": "Dynamic Size Probe",
+  "author": "DIMA",
+  "description": "Renders stripes into a render target sized by an expression, through a custom vertex stage and a package-local include.",
+  "license": "MIT",
+  "tags": ["probe", "targets"],
+  "controls": [
+    { "name": "resolution", "label": "Resolution", "type": "float", "default": 0.25, "min": 0.02, "max": 1, "step": 0.01 },
+    { "name": "detail", "label": "Detail", "type": "float", "default": 0.5, "min": 0, "max": 1, "step": 0.01 },
+    { "name": "wobble", "label": "Wobble", "type": "float", "default": 0.02, "min": 0, "max": 0.2, "step": 0.005 }
+  ],
+  "passes": [
+    {
+      "name": "write",
+      "shader": "main",
+      "target": { "name": "low", "width": "max(16, $WIDTH * $resolution)", "height": "max(16, $HEIGHT * $resolution)" }
+    },
+    { "name": "present", "shader": "main", "inputs": ["low"], "target": "screen" }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": { "fragment": "shaders/main.frag.glsl", "vertex": "shaders/main.vert.glsl" }
+    }
+  }
+}

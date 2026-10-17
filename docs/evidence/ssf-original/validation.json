@@ -1,0 +1,28 @@
+{
+  "tests": {
+    "command": "npm test -- --reporter=dot",
+    "filesPassed": 97,
+    "testsPassed": 1245,
+    "failures": 0
+  },
+  "typecheck": {
+    "command": "npm run ts-check / tsc --noEmit in build",
+    "status": "PASS"
+  },
+  "build": {
+    "command": "npm run build",
+    "status": "PASS",
+    "warnings": [
+      "dependency IIFE export name",
+      "chunk larger than 500 kB"
+    ]
+  },
+  "scopedLint": {
+    "status": "PASS_WITH_WARNINGS",
+    "errors": 0,
+    "warnings": 104
+  },
+  "fullRepositoryLint": "SKIPPED; focused SSF/Lab/changed-file lint only",
+  "diffWhitespace": "PASS",
+  "releaseGate": "NOT_ACCEPTED"
+}

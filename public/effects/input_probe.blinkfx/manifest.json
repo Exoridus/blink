@@ -1,0 +1,34 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.input_probe",
+  "title": "Input Probe",
+  "author": "DIMA",
+  "description": "Samples every host input type, so what the runtime binds is visible on screen.",
+  "license": "MIT",
+  "tags": ["probe", "inputs"],
+  "inputs": [
+    { "name": "wave", "type": "audio", "samples": 512 },
+    { "name": "fft", "type": "audioFFT", "samples": 512 },
+    { "name": "audioTex", "type": "audioTexture", "samples": 512, "representation": "spectrum-waveform" },
+    { "name": "keys", "type": "keyboard" }
+  ],
+  "requirements": {
+    "features": ["audio-waveform-input", "audio-fft-input", "audio-texture-input", "keyboard-input"]
+  },
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        { "source": "input.wave", "uniform": "uWave" },
+        { "source": "input.fft", "uniform": "uFft" },
+        { "source": "input.audioTex", "uniform": "uAudioTex" },
+        { "source": "input.keys", "uniform": "uKeys" }
+      ],
+      "target": "screen"
+    }
+  ],
+  "shaders": {
+    "glsl": { "main": "shaders/main.frag.glsl" }
+  }
+}

@@ -1,0 +1,1433 @@
+[
+  {
+    "id": "com.codexo.ssf.plus",
+    "scene": "/effects/PLUS.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.skaiwalkerog",
+    "scene": "/effects/SkaiWalkerOG.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.alexjtiemann_synesthesiascenes_alien_torus",
+    "scene": "/effects/alexjtiemann_SynesthesiaScenes/alien_torus.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.alexjtiemann_synesthesiascenes_psybernautic_neuron",
+    "scene": "/effects/alexjtiemann_SynesthesiaScenes/psybernautic_neuron.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.alexjtiemann_synesthesiascenes_rainbow_factory",
+    "scene": "/effects/alexjtiemann_SynesthesiaScenes/rainbow_factory.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.alexjtiemann_synesthesiascenes_sphere_chaser",
+    "scene": "/effects/alexjtiemann_SynesthesiaScenes/sphere_chaser.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.alexjtiemann_synesthesiascenes_transcendental_rites",
+    "scene": "/effects/alexjtiemann_SynesthesiaScenes/transcendental_rites.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.alien_cavern",
+    "scene": "/effects/alien_cavern.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.audio_indicators",
+    "scene": "/effects/audio_indicators.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.beamers",
+    "scene": "/effects/beamers.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.beats_in_4d",
+    "scene": "/effects/beats_in_4d.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.biopsy",
+    "scene": "/effects/biopsy.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.biopsy_v2",
+    "scene": "/effects/biopsy_v2.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.boreal",
+    "scene": "/effects/boreal.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.bouncy_hexagons",
+    "scene": "/effects/bouncy_hexagons.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.canvas",
+    "scene": "/effects/canvas.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.churning",
+    "scene": "/effects/churning.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.circles5",
+    "scene": "/effects/circles5.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.circuit_bending",
+    "scene": "/effects/circuit_bending.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.cloudten",
+    "scene": "/effects/cloudten.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.compound_iris",
+    "scene": "/effects/compound_iris.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.cosmic_dust",
+    "scene": "/effects/cosmic_dust.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.dark_twister",
+    "scene": "/effects/dark_twister.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.deeper",
+    "scene": "/effects/deeper.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.deeper_v2",
+    "scene": "/effects/deeper_v2.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.dispersion",
+    "scene": "/effects/dispersion.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.dynamical_flame",
+    "scene": "/effects/dynamical_flame.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.entombed_silicon_dreams",
+    "scene": "/effects/entombed_silicon_dreams.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.equirectangular",
+    "scene": "/effects/equirectangular.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.exoplanet",
+    "scene": "/effects/exoplanet.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.filter_blown",
+    "scene": "/effects/filter_blown.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.fire_tunnel",
+    "scene": "/effects/fire_tunnel.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.fluid_body",
+    "scene": "/effects/fluid_body.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.fractilian_foundation",
+    "scene": "/effects/fractilian_foundation.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.fuzzy_signal",
+    "scene": "/effects/fuzzy_signal.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.gaussian_smoothlife",
+    "scene": "/effects/gaussian_smoothlife.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.glassier",
+    "scene": "/effects/glassier.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.glitch",
+    "scene": "/effects/glitch.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.glob",
+    "scene": "/effects/glob.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.gpu_melter",
+    "scene": "/effects/gpu_melter.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.hex_array",
+    "scene": "/effects/hex_array.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.hexoplanet",
+    "scene": "/effects/hexoplanet.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.hextunnel",
+    "scene": "/effects/hextunnel.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.hills_eels",
+    "scene": "/effects/hills_eels.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.hue_review",
+    "scene": "/effects/hue_review.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.inkshot",
+    "scene": "/effects/inkshot.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.kaleidowhoa_man",
+    "scene": "/effects/kaleidowhoa_man.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.kifs_flythrough",
+    "scene": "/effects/kifs_flythrough.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.lattix",
+    "scene": "/effects/lattix.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.llwt_synesthesia_bos_color_exercises",
+    "scene": "/effects/llwt_synesthesia/bos_color-exercises.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.llwt_synesthesia_bos_easing_functions",
+    "scene": "/effects/llwt_synesthesia/bos_easing-functions.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.llwt_synesthesia_bos_shaping_functions",
+    "scene": "/effects/llwt_synesthesia/bos_shaping-functions.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.llwt_synesthesia_hello_world",
+    "scene": "/effects/llwt_synesthesia/hello_world.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.logo_grid_pulses",
+    "scene": "/effects/logo_grid_pulses.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.lost_in_the_sauce",
+    "scene": "/effects/lost_in_the_sauce.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mandelbrot_decoration",
+    "scene": "/effects/mandelbrot_decoration.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.meta_experiment_3",
+    "scene": "/effects/meta_experiment_3.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.midi_mapping",
+    "scene": "/effects/midi_mapping.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.milk_honey_smoke_bile",
+    "scene": "/effects/milk_honey_smoke_bile.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.min_max_hex",
+    "scene": "/effects/min_max_hex.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.molten",
+    "scene": "/effects/molten.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_beats_in_4d",
+    "scene": "/effects/mrange_synesthesia-public/beats_in_4d.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_blue_steel_grid",
+    "scene": "/effects/mrange_synesthesia-public/blue_steel_grid.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_bouncing_ball",
+    "scene": "/effects/mrange_synesthesia-public/bouncing_ball.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_bouncing_lines",
+    "scene": "/effects/mrange_synesthesia-public/bouncing_lines.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_bouncy_hexagons",
+    "scene": "/effects/mrange_synesthesia-public/bouncy_hexagons.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_constrained_bouncing_amiga_ball",
+    "scene": "/effects/mrange_synesthesia-public/constrained-bouncing-amiga-ball.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_dark_twister",
+    "scene": "/effects/mrange_synesthesia-public/dark_twister.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_electric_mandelbrot",
+    "scene": "/effects/mrange_synesthesia-public/electric_mandelbrot.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_encore500",
+    "scene": "/effects/mrange_synesthesia-public/encore500.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_entombed_silicon_dreams",
+    "scene": "/effects/mrange_synesthesia-public/entombed_silicon_dreams.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_flat_planes",
+    "scene": "/effects/mrange_synesthesia-public/flat_planes.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_hyperlines",
+    "scene": "/effects/mrange_synesthesia-public/hyperlines.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_hyperspace",
+    "scene": "/effects/mrange_synesthesia-public/hyperspace.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_hyperspace_scenesat",
+    "scene": "/effects/mrange_synesthesia-public/hyperspace_scenesat.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_info",
+    "scene": "/effects/mrange_synesthesia-public/info.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_kali_galaxy",
+    "scene": "/effects/mrange_synesthesia-public/kali_galaxy.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_neon_city",
+    "scene": "/effects/mrange_synesthesia-public/neon_city.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_neon_giza",
+    "scene": "/effects/mrange_synesthesia-public/neon_giza.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_neon_scenesat",
+    "scene": "/effects/mrange_synesthesia-public/neon_scenesat.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_neon_triangulator",
+    "scene": "/effects/mrange_synesthesia-public/neon_triangulator.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_pretty_ok_reflections",
+    "scene": "/effects/mrange_synesthesia-public/pretty-ok-reflections.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_scenesat_intro",
+    "scene": "/effects/mrange_synesthesia-public/scenesat_intro.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_smallest",
+    "scene": "/effects/mrange_synesthesia-public/smallest.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_spiralling_out_of_control",
+    "scene": "/effects/mrange_synesthesia-public/spiralling_out_of_control.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.mrange_synesthesia_public_submerged_spectral_shimmering_siphonophores",
+    "scene": "/effects/mrange_synesthesia-public/submerged-spectral-shimmering-siphonophores.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.myoplasm",
+    "scene": "/effects/myoplasm.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      },
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.neon_city",
+    "scene": "/effects/neon_city.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.neuron_proximitors",
+    "scene": "/effects/neuron_proximitors.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.nova",
+    "scene": "/effects/nova.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.overload",
+    "scene": "/effects/overload.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.patchfunk_synesthesiashaders_anotherspheriodfractalthing",
+    "scene": "/effects/patchfunk_synesthesiaShaders/anotherspheriodfractalthing.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.patchfunk_synesthesiashaders_fractal_pyramid",
+    "scene": "/effects/patchfunk_synesthesiaShaders/fractal_pyramid.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.patchfunk_synesthesiashaders_funkgalaxy",
+    "scene": "/effects/patchfunk_synesthesiaShaders/funkgalaxy.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.patchfunk_synesthesiashaders_treasure",
+    "scene": "/effects/patchfunk_synesthesiaShaders/treasure.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.pop",
+    "scene": "/effects/pop.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.primitiv_logik",
+    "scene": "/effects/primitiv_logik.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.pxl_sort_1",
+    "scene": "/effects/pxl_sort_1.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.quicksand",
+    "scene": "/effects/quicksand.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.raw_video",
+    "scene": "/effects/raw_video.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.ray_marching_experiment_62",
+    "scene": "/effects/ray_marching_experiment_62.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.raymarched_reflections",
+    "scene": "/effects/raymarched_reflections.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.rearranged",
+    "scene": "/effects/rearranged.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.redrum",
+    "scene": "/effects/redrum.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.replik8",
+    "scene": "/effects/replik8.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.scaffold_fractal",
+    "scene": "/effects/scaffold_fractal.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.shrouded",
+    "scene": "/effects/shrouded.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.sinusoidal_warp",
+    "scene": "/effects/sinusoidal_warp.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.sprinkles",
+    "scene": "/effects/sprinkles.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.square_shoals",
+    "scene": "/effects/square_shoals.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.stained_glass",
+    "scene": "/effects/stained_glass.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.sun_set",
+    "scene": "/effects/sun_set.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.swarm",
+    "scene": "/effects/swarm.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.terrain_lattice",
+    "scene": "/effects/terrain_lattice.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.test_card",
+    "scene": "/effects/test_card.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.thresholder",
+    "scene": "/effects/thresholder.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.traced_tunnel",
+    "scene": "/effects/traced_tunnel.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.transparent_isoslices",
+    "scene": "/effects/transparent_isoslices.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.tunnel_beauty_6",
+    "scene": "/effects/tunnel_beauty_6.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.turbo_encabulator_fluid",
+    "scene": "/effects/turbo_encabulator_fluid.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.vein_melter",
+    "scene": "/effects/vein_melter.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.videofx_1",
+    "scene": "/effects/videofx_1.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.videofx_directionalblur",
+    "scene": "/effects/videofx_directionalblur.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.voronoi_geode",
+    "scene": "/effects/voronoi_geode.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  },
+  {
+    "id": "com.codexo.ssf.waterly",
+    "scene": "/effects/waterly.synScene",
+    "success": true,
+    "sources": [
+      {
+        "success": true,
+        "log": ""
+      }
+    ]
+  }
+]

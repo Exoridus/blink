@@ -1,0 +1,15 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.prism_orbit",
+  "title": "Prism Orbit",
+  "author": "Blink",
+  "license": "MIT",
+  "description": "Neon orbital ribbons: bass expands the rings, mids bend them and high frequencies add fine detail.",
+  "tags": ["audio-reactive", "geometric", "rings"],
+  "shaders": { "glsl": "shaders/main.frag.glsl" },
+  "controls": [
+    { "name": "speed", "label": "Speed", "type": "float", "default": 0.7, "min": 0, "max": 2 },
+    { "name": "sensitivity", "label": "Audio response", "type": "float", "default": 1, "min": 0, "max": 3 },
+    { "name": "tint", "label": "Tint", "type": "color", "default": [0.25, 0.75, 1, 1] }
+  ]
+}

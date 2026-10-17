@@ -1,0 +1,26 @@
+[
+  {
+    "id": "com.codexo.control_gallery",
+    "scene": "/effects/Synesthesia_Control_Gallery.blinkfx",
+    "collection": "blinkfx",
+    "success": true,
+    "frames": 6,
+    "faults": [],
+    "gpuError": 0,
+    "litPixels": 57511,
+    "errors": [],
+    "elapsedMs": 936
+  },
+  {
+    "id": "com.codexo.ssf.synesthesia_control_gallery",
+    "scene": "/effects/Synesthesia_Control_Gallery.synScene",
+    "collection": "community",
+    "success": true,
+    "frames": 6,
+    "faults": [],
+    "gpuError": 0,
+    "litPixels": 57511,
+    "errors": [],
+    "elapsedMs": 954
+  }
+]

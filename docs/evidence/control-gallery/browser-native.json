@@ -1,0 +1,22 @@
+{
+  "layout": {
+    "controls": 47,
+    "groups": 8,
+    "alphas": 1,
+    "knobDirection": "column",
+    "axisSpinner": "textfield"
+  },
+  "native": {
+    "integer": 7,
+    "boolean": 0,
+    "enumIndex": 2,
+    "rgba": [
+      0.20000000298023224,
+      0.699999988079071,
+      1,
+      0.1
+    ],
+    "bangCount": 2
+  },
+  "errors": []
+}

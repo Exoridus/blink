@@ -1,0 +1,25 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.audio-only-demo",
+  "title": "Audio Only Demo",
+  "outputs": {
+    "visual": false,
+    "audio": {
+      "shader": "sound",
+      "abi": "blink-audio/1",
+      "channels": 2,
+      "sampleRate": "device"
+    }
+  },
+  "shaders": {
+    "glsl": {
+      "sound": {
+        "audio": "shaders/sound.glsl"
+      }
+    }
+  },
+  "requirements": {
+    "features": ["audio-generation"],
+    "backends": ["webgl2"]
+  }
+}

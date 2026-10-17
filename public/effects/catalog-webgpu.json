@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "wgsl_probe.blinkfx/manifest.json",
+    "parity_twin.blinkfx/manifest.json",
+    "feedback_twin.blinkfx/manifest.json",
+    "wgsl_audio_probe.blinkfx/manifest.json"
+  ]
+}

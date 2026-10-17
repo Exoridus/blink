@@ -1,0 +1,32 @@
+{
+  "Shader": {
+    "info": {
+      "id": "fixt07",
+      "name": "Keyboard",
+      "username": "blink-fixture",
+      "description": "Keyboard",
+      "tags": ["fixture"],
+      "license": "MIT"
+    },
+    "renderpass": [
+      {
+        "type": "image",
+        "name": "Image",
+        "code": "void mainImage(out vec4 fragColor, in vec2 fragCoord) {\n  vec2 uv = fragCoord / iResolution.xy;\n  float down = texelFetch(iChannel0, ivec2(int(uv.x * 255.0), 0), 0).x;\n  float pressed = texelFetch(iChannel0, ivec2(int(uv.x * 255.0), 1), 0).x;\n  float toggle = texelFetch(iChannel0, ivec2(int(uv.x * 255.0), 2), 0).x;\n  fragColor = vec4(down, pressed, toggle, 1.0);\n}",
+        "inputs": [
+          {
+            "channel": 0,
+            "ctype": "keyboard",
+            "src": "/presets/tex00.png",
+            "sampler": {
+              "filter": "nearest",
+              "wrap": "clamp",
+              "vflip": "false"
+            }
+          }
+        ],
+        "outputs": []
+      }
+    ]
+  }
+}

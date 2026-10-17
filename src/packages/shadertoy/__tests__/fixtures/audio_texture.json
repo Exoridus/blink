@@ -1,0 +1,32 @@
+{
+  "Shader": {
+    "info": {
+      "id": "fixt08",
+      "name": "Audio texture",
+      "username": "blink-fixture",
+      "description": "Audio texture",
+      "tags": ["fixture"],
+      "license": "MIT"
+    },
+    "renderpass": [
+      {
+        "type": "image",
+        "name": "Image",
+        "code": "void mainImage(out vec4 fragColor, in vec2 fragCoord) {\n  vec2 uv = fragCoord / iResolution.xy;\n  float fft = texture(iChannel0, vec2(uv.x, 0.25)).x;\n  float wave = texture(iChannel0, vec2(uv.x, 0.75)).x;\n  fragColor = vec4(step(uv.y, fft), smoothstep(0.02, 0.0, abs(uv.y - wave)), 0.2, 1.0);\n}",
+        "inputs": [
+          {
+            "channel": 0,
+            "ctype": "music",
+            "src": "/media/a/audio.mp3",
+            "sampler": {
+              "filter": "linear",
+              "wrap": "clamp",
+              "vflip": "false"
+            }
+          }
+        ],
+        "outputs": []
+      }
+    ]
+  }
+}

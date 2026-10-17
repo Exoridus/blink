@@ -1,0 +1,21 @@
+{
+  "Shader": {
+    "info": {
+      "id": "fixt09",
+      "name": "Sound only",
+      "username": "blink-fixture",
+      "description": "Sound only",
+      "tags": ["fixture"],
+      "license": "MIT"
+    },
+    "renderpass": [
+      {
+        "type": "sound",
+        "name": "Sound",
+        "code": "vec2 mainSound(int samp, float time) {\n  return vec2(sin(6.2831853 * 440.0 * time) * exp(-3.0 * fract(time)));\n}",
+        "inputs": [],
+        "outputs": []
+      }
+    ]
+  }
+}

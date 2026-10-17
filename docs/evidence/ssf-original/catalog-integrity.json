@@ -1,0 +1,16 @@
+{
+  "remaining": 135,
+  "collections": {
+    "blinkfx": 10,
+    "builtin": 87,
+    "community": 38
+  },
+  "retainedScenes": 125,
+  "filesVerified": 505,
+  "removed": [
+    "apbeckman_WIP/journey_thru_the_grid.synScene",
+    "apbeckman_WIP/shape_migration_ii.synScene",
+    "mrange_synesthesia-public/onair.synScene"
+  ],
+  "mismatches": []
+}

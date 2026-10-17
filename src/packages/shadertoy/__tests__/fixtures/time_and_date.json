@@ -1,0 +1,21 @@
+{
+  "Shader": {
+    "info": {
+      "id": "fixt02",
+      "name": "Time, frame and date",
+      "username": "blink-fixture",
+      "description": "Time, frame and date",
+      "tags": ["fixture"],
+      "license": "MIT"
+    },
+    "renderpass": [
+      {
+        "type": "image",
+        "name": "Image",
+        "code": "void mainImage(out vec4 fragColor, in vec2 fragCoord) {\n  vec2 uv = fragCoord / iResolution.xy;\n  float hour = iDate.w / 86400.0;\n  float tick = mod(float(iFrame), 60.0) / 60.0;\n  fragColor = vec4(hour, tick, fract(iTime * iTimeDelta * 10.0) * uv.x, 1.0);\n}",
+        "inputs": [],
+        "outputs": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "packages": [
+    "aurora.blinkfx",
+    "full.blinkfx",
+    "prism_orbit.blinkfx",
+    "spectral_city.blinkfx",
+    "ink_current.blinkfx"
+  ]
+}

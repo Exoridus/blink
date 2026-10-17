@@ -1,0 +1,34 @@
+{
+  "result": "PASS",
+  "previews": 135,
+  "uniquePaths": 135,
+  "sources": {
+    "rendered": 125,
+    "declared-thumbnail": 10,
+    "blank": 0
+  },
+  "bytes": 9530222,
+  "width": 320,
+  "height": 180,
+  "cached": 135,
+  "pngCRCAndInflation": "PASS",
+  "initialFailures": [
+    {
+      "id": "com.codexo.ssf.neuron_proximitors",
+      "error": "Error: Preview watchdog expired",
+      "elapsedMs": 120358
+    }
+  ],
+  "retry": [
+    {
+      "id": "com.codexo.ssf.neuron_proximitors",
+      "source": "declared-thumbnail",
+      "litPixels": 0,
+      "frames": 6,
+      "gpuError": 0,
+      "elapsedMs": 100204
+    }
+  ],
+  "recovered": true,
+  "runtimeHash": "9415bd5752e55c4a501ff3e91dab5c9e0649ef057f273b6769e807f6c6fe269d"
+}

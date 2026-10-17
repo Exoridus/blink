@@ -1,0 +1,7 @@
+{
+  "format": "blinkfx/1",
+  "id": "example.basic",
+  "shaders": {
+    "glsl": "shaders/main.frag.glsl"
+  }
+}

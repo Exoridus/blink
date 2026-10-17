@@ -1,0 +1,14 @@
+{
+  "format": "blinkfx/1",
+  "id": "example.basic",
+  "title": "Basic",
+  "shaders": {
+    "glsl": "shaders/main.frag.glsl"
+  },
+  "controls": [
+    {
+      "name": "speed",
+      "type": "object"
+    }
+  ]
+}

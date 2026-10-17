@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+.workspace/
+.superpowers/
+converted-corpus*/
+public/
+test/fixtures/
+src/packages/ssf/original/__tests__/fixtures/
+docs/archive/
+docs/evidence/
+docs/research/
+docs/superpowers/
+LICENSE
+package-lock.json

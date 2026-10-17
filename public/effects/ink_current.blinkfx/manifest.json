@@ -1,0 +1,15 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ink_current",
+  "title": "Ink Current",
+  "author": "Blink",
+  "license": "MIT",
+  "description": "Soft flowing interference contours, with bass changing the currents and mids opening luminous veins.",
+  "tags": ["audio-reactive", "organic", "contours"],
+  "shaders": { "glsl": "shaders/main.frag.glsl" },
+  "controls": [
+    { "name": "speed", "label": "Speed", "type": "float", "default": 0.6, "min": 0, "max": 2 },
+    { "name": "sensitivity", "label": "Audio response", "type": "float", "default": 1, "min": 0, "max": 3 },
+    { "name": "detail", "label": "Contours", "type": "float", "default": 12, "min": 4, "max": 24 }
+  ]
+}

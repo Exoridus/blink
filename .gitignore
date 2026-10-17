@@ -1,0 +1,29 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+blink.zip
+.slice01-tmp/
+
+# Analyse-Scratch (extrahierte Fremd-Bundles, Referenzmaterial)
+.workspace/
+
+.blink-deploy-*.tgz
+
+# Output of scripts/convert-ssf.ts when browsing converted corpora in the dev server
+converted-corpus*/
+
+# Third-party scene packages, at any depth; converted copies remain private too.
+*.synScene
+
+# Contributor tooling and local configuration
+.superpowers/
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+*.tsbuildinfo
