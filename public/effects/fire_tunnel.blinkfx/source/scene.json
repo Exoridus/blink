@@ -1,0 +1,101 @@
+{
+   "CONTROLS" : [
+   {
+         "DEFAULT" : 0.25,
+         "DESCRIPTION" : "Turn down for softer look, up for crisper edges. Default: 50%.",
+         "MAX" : 0.0,
+         "MIN" : 0.5,
+         "NAME" : "sharpness",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "tunnel"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Turn up to decrease diameter of tunnel, constricting it, or turn down to make it wider. Default: 50%.",
+         "MAX" : 2.0,
+         "MIN" : 0,
+         "NAME" : "constriction",
+         "TYPE" : "slider",
+         "UI_GROUP" : "tunnel"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Turn up for noisier tunnel, or all the way down for just the smooth geometric tunnel, no cloud-like noise.",
+         "MAX" : 2.0,
+         "MIN" : 0,
+         "NAME" : "noise",
+         "TYPE" : "slider",
+         "UI_GROUP" : "tunnel"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Turn up to change it from a tunnel to just two planes. Once it is planes, try playing with the 'twist' slider.",
+         "MAX" : 0.5,
+         "MIN" : 1.0,
+         "NAME" : "planes_only",
+         "TYPE" : "slider",
+         "UI_GROUP" : "tunnel"
+      },{
+         "DEFAULT" : 0.2,
+         "DESCRIPTION" : "Determines how much the bass will make you travel forward. Default: 25%.",
+         "MAX" : 0.8,
+         "MIN" : 0,
+         "NAME" : "auto_in",
+         "TYPE" : "slider",
+         "UI_GROUP" : "speed"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Additional, constant motion forward or backwards. Turn auto_in all the way down and just use this slider for full manual control.",
+         "MAX" : 1.0,
+         "MIN" : 0,
+         "NAME" : "const_speed",
+         "TYPE" : "slider traveler",
+         "PARAMS":0.12,
+         "UI_GROUP" : "speed"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Field of view. Default: 50%.",
+         "MAX" : 2.0,
+         "MIN" : 0.03,
+         "NAME" : "fov",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Add a twist to the tunnel's geometry.",
+         "NAME" : "twist",
+         "MAX" : 1.0,
+         "MIN" : -1.0,
+         "TYPE" : "slider smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "rotation"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Add a spin to the camera, forward for clockwise. Default: 50%.",
+         "NAME" : "spin",
+         "TYPE" : "slider traveler",
+         "PARAMS":0.01,
+         "UI_GROUP" : "rotation"
+      }
+   ],
+   "GPU": 2,
+   "TAGS" : 
+   [
+    "raymarching",
+    "dark",
+    "3d",
+    "realistic"
+   ],
+   "CREDIT" : "aiekick",
+   "DESCRIPTION" : "Fire Tunnel",
+   "WIDTH" : 1920,
+   "HEIGHT" : 1080,
+   "PASSES":[{"TARGET":"tunnelPass", "HEIGHT":360, "WIDTH":640}],
+   "IMAGES" : [
+      {
+         "NAME" : "image30",
+         "PATH" : "images/30.png"
+      }
+   ],
+   "IMAGE_PATH" : "fire_tunnel.png",
+   "TITLE" : "Fire Tunnel"
+}

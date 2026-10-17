@@ -1,0 +1,219 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Minimum bass gain – lower value for bass response",
+			"MAX" : 2,
+			"MIN" : 0,
+			"NAME" : "min_bass_gain",
+			"PARAMS" : 0.19901,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 1.5,
+			"DESCRIPTION" : "Maximum bass gain – upper value for bass response",
+			"MAX" : 2,
+			"MIN" : 0,
+			"NAME" : "max_bass_gain",
+			"PARAMS" : 0.20301,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Main bass gain – multiplier for bass visualization intensity",
+			"MAX" : 3,
+			"MIN" : 0,
+			"NAME" : "main_bass_gain",
+			"PARAMS" : 0.19401,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Bass threshold low – lower smoothstep edge for FFT visualization",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "low_bass_edge",
+			"PARAMS" : 0.20601,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Bass threshold high – upper smoothstep edge for FFT visualization",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "high_bass_edge",
+			"PARAMS" : 0.20901,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Drop ball – reset the bouncing ball to starting position",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "drop_ball",
+			"TYPE" : "bang",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "CRT effect – screen distortion and scanline intensity",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "crt_effect",
+			"PARAMS" : 0.20501,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Mix mode – blend mode for media layer (0=brightness, 1=alpha)",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "mix_mode",
+			"PARAMS" : 0.19001,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media opacity – media layer transparency (0=hidden, 1=opaque)",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opaque",
+			"PARAMS" : 0.19701,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.25,
+			"DESCRIPTION" : "Camera rotation X – rotation speed around xz-plane",
+			"MAX" : 2,
+			"MIN" : -2,
+			"NAME" : "rotation_speed_0",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.1234,
+			"DESCRIPTION" : "Camera rotation Y – rotation speed around xy-plane",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "rotation_speed_1",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.9,
+			"DESCRIPTION" : "Reflection mode – blend between diffuse and specular (0=diffuse, 1=shiny)",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "reflection_mode",
+			"PARAMS" : 0.20401,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.125,
+			"DESCRIPTION" : "Motion blur – temporal smoothing for reduced noise",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "motion_blur",
+			"PARAMS" : 0.19501,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Sky mode – star field and background intensity",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "sky_mode",
+			"PARAMS" : 0.21401,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Sun mode – sun glow intensity in the scene",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "sun_mode",
+			"PARAMS" : 0.20301,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 7,
+			"DESCRIPTION" : "",
+			"MAX" : 9,
+			"MIN" : 1,
+			"NAME" : "denoise_level",
+			"TYPE" : "slider",
+			"UI_GROUP" : "Visual"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "A neon-soaked homage to computing history. The iconic red and white checkered Amiga sphere bounces within a glowing wireframe cosmos,    rendered in cutting-edge path tracing. Audio-reactive controls let you feel the music's pulse through bass-driven visualization and neon effects. Adjust camera rotations, reflections, and celestial elements to explore this reimagined Amiga universe. Retro computing heritage meets modern rendering.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGES" : 
+	[
+		{
+			"FILTER" : "mipmap",
+			"NAME" : "tex_amiga",
+			"PATH" : "assets/amiga-texture.png",
+			"WRAP" : "repeat"
+		}
+	],
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "passMain",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		},
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "passDenoise",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"bouncy",
+		"amiga",
+		"path_tracer",
+		"audio-reactive",
+		"retro",
+		"crt",
+		"neon",
+		"space",
+		"grid",
+		"sphere"
+	],
+	"TITLE" : "Constrained Bouncing Amiga Ball",
+	"WIDTH" : 1920
+}

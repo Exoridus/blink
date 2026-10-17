@@ -1,0 +1,180 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.anotherspheriodfractalthing",
+  "title": "AnotherSpheriodFractalThing",
+  "author": "by mojovideotech",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "range",
+      "label": "range",
+      "group": "ungrouped",
+      "type": "float",
+      "default": 0.230000004172325,
+      "min": 0.0500000007450581,
+      "max": 1
+    },
+    {
+      "name": "cycle",
+      "label": "cycle",
+      "group": "ungrouped",
+      "type": "float",
+      "default": -1.07000005245209,
+      "min": -3,
+      "max": 3
+    },
+    {
+      "name": "rate",
+      "label": "rate",
+      "group": "ungrouped",
+      "type": "float",
+      "default": 1.86000001430511,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "CX",
+      "label": "CX",
+      "group": "ungrouped",
+      "type": "float",
+      "default": -0.600000023841858,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "CY",
+      "label": "CY",
+      "group": "ungrouped",
+      "type": "float",
+      "default": -0.800000011920929,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "CZ",
+      "label": "CZ",
+      "group": "ungrouped",
+      "type": "float",
+      "default": 0.100000001490116,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "RX",
+      "label": "RX",
+      "description": "X rotate",
+      "group": "ungrouped",
+      "type": "float",
+      "default": -3.1415901184082,
+      "min": -6.28318548202515,
+      "max": 6.28318548202515
+    },
+    {
+      "name": "RY",
+      "label": "RY",
+      "description": "Y rotate",
+      "group": "ungrouped",
+      "type": "float",
+      "default": 1.570796251297,
+      "min": -6.28318548202515,
+      "max": 6.28318548202515
+    },
+    {
+      "name": "RZ",
+      "label": "RZ",
+      "description": "Z rotate",
+      "group": "ungrouped",
+      "type": "float",
+      "default": -1.570796251297,
+      "min": -6.28318548202515,
+      "max": 6.28318548202515
+    },
+    {
+      "name": "morph",
+      "label": "morph",
+      "group": "ungrouped",
+      "type": "float",
+      "default": 0.759999990463257,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "range": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "cycle": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "rate": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "CX": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "CY": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "CZ": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "RX": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "RY": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "RZ": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "morph": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

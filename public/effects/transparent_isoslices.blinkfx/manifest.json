@@ -1,0 +1,337 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.transparent_isoslices",
+  "title": "Transparent Isoslices",
+  "author": "Shane",
+  "description": "A transparent organic field partitioned horizontally into 2D isosurface slices.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "raymarching",
+    "tunnel",
+    "abstract",
+    "grayscale"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "colorize",
+      "label": "colorize",
+      "description": "Add in juicy colors.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "watery_tex",
+      "label": "watery tex",
+      "description": "Bright, watery caustics look.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "digital_tex",
+      "label": "digital tex",
+      "description": "Digital green/blue/yellow.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "camera_direction",
+      "label": "camera direction",
+      "description": "Turn the camera to look around.",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "always_sliced",
+      "label": "always sliced",
+      "description": "Horizontal slices. Turn OFF if using voxelate or beat slice.",
+      "group": "geometry",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "voxelate",
+      "label": "voxelate",
+      "description": "Split space into 3D pixels for a lo-fi glitchy look.",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "size_voxels",
+      "label": "size voxels",
+      "description": "Size of voxels when using 'voxelate'.",
+      "group": "geometry",
+      "type": "float",
+      "default": 50,
+      "min": 50,
+      "max": 50
+    },
+    {
+      "name": "beat_slice",
+      "label": "beat slice",
+      "description": "Turn ON for a reactive horizontal slicing effect. 'always sliced' must be OFF.",
+      "group": "reactivity",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "mids_color",
+      "label": "mids color",
+      "description": "Turn off for pure black/white. Turn up for mid-responsive color.",
+      "group": "reactivity",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "bass_morph",
+      "label": "bass morph",
+      "description": "Bass causes the geometry to morph. Turn up for more effect, off for none.",
+      "group": "reactivity",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "flashing",
+      "label": "flashing",
+      "description": "Adds extra flashing on high percussion.",
+      "group": "reactivity",
+      "type": "float",
+      "default": 0.4,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rate_in",
+      "label": "rate in",
+      "group": "time",
+      "type": "float",
+      "default": 0.01,
+      "min": -0.1,
+      "max": 0.1
+    },
+    {
+      "name": "bass_rate",
+      "label": "bass rate",
+      "group": "time",
+      "type": "float",
+      "default": 0,
+      "min": -0.1,
+      "max": 0.1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "texIn",
+      "type": "texture2d",
+      "path": "assets/img.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "texIn2",
+      "type": "texture2d",
+      "path": "assets/img2.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "asset.texIn",
+          "uniform": "texIn"
+        },
+        {
+          "source": "asset.texIn2",
+          "uniform": "texIn2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "colorize": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "watery_tex": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "digital_tex": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "camera_direction": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "always_sliced": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "voxelate": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "size_voxels": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "beat_slice": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "mids_color": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "bass_morph": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "flashing": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "rate_in": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "bass_rate": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      }
+    },
+    "scriptUniforms": {
+      "script_time": "float",
+      "morph_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

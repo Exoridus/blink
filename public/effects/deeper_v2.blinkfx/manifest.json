@@ -1,0 +1,482 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.deeper_v2",
+  "title": "Deeper V2",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "glow_amount",
+      "label": "glow amount",
+      "description": "How much the beams or dots glow.",
+      "group": "beams",
+      "type": "float",
+      "default": 0.6,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "beams_on",
+      "label": "beams on",
+      "description": "Turns on the beam geometry. The glow_amount affects whether they glow or not.",
+      "group": "beams",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "dot_field",
+      "label": "dot field",
+      "description": "Replaces the beams with a field of dots. ",
+      "group": "beams",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_groove",
+      "label": "auto groove",
+      "description": "Makes the beams or dots dance.",
+      "group": "beams",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "diameter",
+      "label": "diameter",
+      "description": "Diameter of the tunnel.",
+      "group": "tunnel",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 2
+    },
+    {
+      "name": "undulating",
+      "label": "undulating",
+      "description": "Makes the tunnel stretch in waves.",
+      "group": "tunnel",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rotating",
+      "label": "rotating",
+      "description": "Tunnel automatically rotates on bass.",
+      "group": "tunnel",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flatten",
+      "label": "flatten",
+      "description": "Toggle and the tunnel will slowly unwind until it is just two flat planes.",
+      "group": "tunnel",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "manual_rotate",
+      "label": "manual rotate",
+      "description": "Manually rotate the tunnel.",
+      "group": "tunnel",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "FOV",
+      "label": "FOV",
+      "group": "tunnel",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "colorful",
+      "label": "colorful",
+      "description": "Makes the overall lighting a more colorful orange/blue/green.",
+      "group": "lights",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "light_chaser",
+      "label": "light chaser",
+      "description": "Adds cycling lights that fly down the tunnel ahead of you.",
+      "group": "lights",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "lights_react",
+      "label": "lights react",
+      "description": "Makes the main light flash with the music.",
+      "group": "lights",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "main_light",
+      "label": "main light",
+      "description": "Brightness of the main light (that can be white or colorful) that lights the tunnel.",
+      "group": "lights",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fog_col",
+      "label": "fog col",
+      "description": "How much colorful fog there is in the distance.",
+      "group": "lights",
+      "type": "float",
+      "default": 0.4,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "texture_on",
+      "label": "texture on",
+      "description": "Adds more texture to the walls for light to catch.",
+      "group": "wall texture",
+      "type": "float",
+      "default": 0.5,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "spiral_ridges",
+      "label": "spiral ridges",
+      "description": "Adds deep spiral ridges to the overall tunnel.",
+      "group": "wall texture",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "undulate_up",
+      "label": "undulate up",
+      "description": "Sends a pulse down the tunnel. Combine vertical and horizontal for a good effect.",
+      "group": "pulses",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "undulate_down",
+      "label": "undulate down",
+      "description": "Sends a pulse down the tunnel. Combine vertical and horizontal for a good effect.",
+      "group": "pulses",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "undulate_left",
+      "label": "undulate left",
+      "description": "Sends a pulse down the tunnel. Combine vertical and horizontal for a good effect.",
+      "group": "pulses",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "undulate_right",
+      "label": "undulate right",
+      "description": "Sends a pulse down the tunnel. Combine vertical and horizontal for a good effect.",
+      "group": "pulses",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "bass_travel",
+      "label": "bass travel",
+      "description": "How fast you fly into or out of the tunnel with bass.",
+      "group": "travel",
+      "type": "float",
+      "default": 1,
+      "min": -2,
+      "max": 2
+    },
+    {
+      "name": "travel",
+      "label": "travel",
+      "description": "How fast you fly into or out of the tunnel at a constant speed. Can go in the opposite direction of bass travel for good effects.",
+      "group": "travel",
+      "type": "float",
+      "default": 0.5,
+      "min": -2,
+      "max": 2
+    },
+    {
+      "name": "jump_forward",
+      "label": "jump forward",
+      "description": "Manually trigger a jump forward.",
+      "group": "travel",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "glow_amount": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "beams_on": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "dot_field": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_groove": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "diameter": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "undulating": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "rotating": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "flatten": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0025
+      },
+      "manual_rotate": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "FOV": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "colorful": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "light_chaser": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "lights_react": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "main_light": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "fog_col": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "texture_on": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "spiral_ridges": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "undulate_up": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "undulate_down": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "undulate_left": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "undulate_right": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "bass_travel": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "travel": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "jump_forward": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.13
+      }
+    },
+    "scriptUniforms": {
+      "script_time": "float",
+      "script_bass_time": "float",
+      "fly_in_out_script": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

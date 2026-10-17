@@ -1,0 +1,77 @@
+{
+ "CREDIT": "Alex Rowe",
+ "TITLE":"Overload",
+ "IMAGE_PATH":"overload.jpg",
+ "CONTROLS": [
+   {
+     "DEFAULT": 1,
+     "DESCRIPTION": "When enabled, automatically randomizes when a music transition is detected.",
+     "NAME": "auto_cycle",
+     "TYPE": "toggle",
+     "UI_GROUP": "automation"
+   },
+   {
+     "DEFAULT": 0,
+     "DESCRIPTION": "Manually trigger dropdown randomization",
+     "NAME": "cycle",
+     "TYPE": "bang",
+     "UI_GROUP": "automation"
+   },
+   {
+     "DEFAULT": 1,
+     "DESCRIPTION": "Distortion effect: none, gritty, wavy, or disgusting  slimy mess",
+     "LABELS": ["None", "Gritty", "Wavy", "Melting"],
+     "NAME": "distortion_type",
+     "TYPE": "dropdown smooth",
+     "UI_GROUP": "aesthetic"
+   },
+   {
+     "DEFAULT": 1,
+     "DESCRIPTION": "Color scheme",
+     "LABELS": ["Default", "Green Mix", "Teal Mix", "Red Noise", "HSV Rainbow"],
+     "NAME": "color_scheme",
+     "TYPE": "dropdown smooth",
+     "UI_GROUP": "aesthetic"
+   },
+  {
+    "DEFAULT": 0,
+    "DESCRIPTION": "Enables a fuschia/cyan power punk pop palette",
+    "NAME": "weird_color",
+    "TYPE": "toggle",
+    "UI_GROUP": "aesthetic"
+  },{
+    "DEFAULT": 0,
+    "MIN": 0,
+    "MAX": 1,
+    "DESCRIPTION": "Tiles the media",
+    "NAME": "media_tile",
+    "TYPE": "toggle",
+    "UI_GROUP": "media"
+  },{
+    "DEFAULT": 0,
+    "MIN": 0,
+    "MAX": 1,
+    "DESCRIPTION": "Centers the media (ideal for logos)",
+    "NAME": "logo_center",
+    "TYPE": "toggle",
+    "UI_GROUP": "media"
+  },{
+    "DEFAULT": 0,
+    "MIN": 0,
+    "MAX": 1,
+    "DESCRIPTION": "When enabled, automatically randomizes all dropdowns on automatically detected musical transition.",
+    "NAME": "media_glitch",
+    "TYPE": "toggle",
+    "UI_GROUP": "media"
+  },
+{
+    "DEFAULT": 0,
+    "MIN": 0,
+    "MAX": 1,
+    "DESCRIPTION": "When enabled, automatically randomizes all dropdowns on automatically detected musical transition.",
+    "NAME": "the_ritual_has_begun",
+    "TYPE": "toggle",
+    "UI_GROUP": "action"
+  }
+ ]
+}

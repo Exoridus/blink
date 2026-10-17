@@ -1,0 +1,366 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.cosmic_dust",
+  "title": "Cosmic Dust",
+  "author": "Kali x Meebs",
+  "description": "Space. The final frontier.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "2D",
+    "peaceful",
+    "pretty",
+    "space",
+    "fractal"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "audio_brightness",
+      "label": "audio brightness",
+      "description": "If the scene appears dark because there is no audio, turn this off.",
+      "group": "action",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "starry_night",
+      "label": "starry night",
+      "description": "More or less of the white swirling stars.",
+      "group": "action",
+      "type": "float",
+      "default": 0.4,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "ripple_in_spacetime",
+      "label": "ripple in spacetime",
+      "description": "Sends a ripple effect through the scene.",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "star_dust_mix",
+      "label": "star dust mix",
+      "description": "Mix between seeing the colorful stars only, or the white shimmery dust only.",
+      "group": "aesthetic",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_split_mix",
+      "label": "media split mix",
+      "description": "This lets you split the two types of stars based on brightness in the media.",
+      "group": "aesthetic",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "purple_stars",
+      "label": "purple stars",
+      "description": "Alternate purple color palette. Good with Hue slider in meta controls.",
+      "group": "aesthetic",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "nebula_off",
+      "label": "nebula off",
+      "description": "Turns off the bubbly blue nebula in the background.",
+      "group": "aesthetic",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_mask",
+      "label": "media mask",
+      "description": "Turn on if you want media to hard-mask the background (can be good with logos).",
+      "group": "aesthetic",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "billions_and_billions",
+      "label": "billions and billions",
+      "description": "This changes the stars into a mix of stars and galaxies, adding many more entities to the sky.",
+      "group": "star_arrangement",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "patterns_in_the_stars",
+      "label": "patterns in the stars",
+      "description": "This makes stars appear in geometric patterns. Patterns that can't have formed naturally...",
+      "group": "star_arrangement",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "no_big_clumps",
+      "label": "no big clumps",
+      "description": "Occasionally a huge star can 'blow out' the image, and you can use this to reduce that occurrance. Keep it off to increase the number of stars generally, though.",
+      "group": "star_arrangement",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flatten_layers",
+      "label": "flatten layers",
+      "description": "Flattens the layers of stars down to a single surface. Interesting look with 'patterns in the stars' turned on as well.",
+      "group": "star_arrangement",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "base_img",
+      "type": "texture2d",
+      "path": "assets/nebula.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "dustPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.dustPass.previous",
+          "uniform": "dustPass"
+        },
+        {
+          "source": "target.backbuffer.previous",
+          "uniform": "backbuffer"
+        },
+        {
+          "source": "asset.base_img",
+          "uniform": "base_img"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "dustPass",
+        "width": 1536,
+        "height": 864,
+        "format": "rgba8",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "backbuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.dustPass",
+          "uniform": "dustPass"
+        },
+        {
+          "source": "target.backbuffer.previous",
+          "uniform": "backbuffer"
+        },
+        {
+          "source": "asset.base_img",
+          "uniform": "base_img"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "backbuffer",
+        "width": 1536,
+        "height": 864,
+        "format": "rgba8",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.dustPass",
+          "uniform": "dustPass"
+        },
+        {
+          "source": "target.backbuffer",
+          "uniform": "backbuffer"
+        },
+        {
+          "source": "asset.base_img",
+          "uniform": "base_img"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "audio_brightness": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "starry_night": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "ripple_in_spacetime": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "star_dust_mix": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "media_split_mix": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "purple_stars": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "nebula_off": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_mask": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "billions_and_billions": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "patterns_in_the_stars": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "no_big_clumps": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "flatten_layers": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

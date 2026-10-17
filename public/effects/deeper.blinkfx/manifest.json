@@ -1,0 +1,269 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.deeper",
+  "title": "Deeper",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "raymarching",
+    "3d",
+    "dark",
+    "grayscale",
+    "tunnel",
+    "infinite"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "fly_in_out",
+      "label": "fly in out",
+      "description": "Fly deeper quickly or go slowly backwards.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rotating",
+      "label": "rotating",
+      "description": "Constant rotation, spinning the scene.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "beams_on",
+      "label": "beams on",
+      "description": "Add in beams, and control their brightness with beam glow.",
+      "group": "beams",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "many_beams",
+      "label": "many beams",
+      "description": "A few thin beams, or many undulating beams.",
+      "group": "beams",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "beam_glow",
+      "label": "beam glow",
+      "description": "Controls how brightly the beams glow.",
+      "group": "beams",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.5
+    },
+    {
+      "name": "undulating",
+      "label": "undulating",
+      "description": "Rhythmic contractions of the cavern lining...",
+      "group": "cavern",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "wave_pulse",
+      "label": "wave pulse",
+      "description": "Send one smooth pulse outward from the camera.",
+      "group": "cavern",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "light_chaser",
+      "label": "light chaser",
+      "description": "A light that chases down the corridor in time with the music.",
+      "group": "lighting",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "lights_react",
+      "label": "lights react",
+      "description": "Flash the lights according to the music, instead of constant lights.",
+      "group": "lighting",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "colorful",
+      "label": "colorful",
+      "description": "Stuff gets colorful! Definitely experiment with walls texture while this is on.",
+      "group": "lighting",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "walls_texture",
+      "label": "walls texture",
+      "description": "Add spiral bumps to the surface of the corridor.",
+      "group": "lighting",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "passes": [
+    {
+      "name": "backbuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backbuffer.previous",
+          "uniform": "backbuffer"
+        }
+      ],
+      "target": {
+        "name": "backbuffer",
+        "width": 1024,
+        "height": 576,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backbuffer",
+          "uniform": "backbuffer"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "fly_in_out": {
+        "format": "ssf",
+        "type": "slider traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.15
+      },
+      "rotating": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "beams_on": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "many_beams": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "beam_glow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "undulating": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "wave_pulse": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "light_chaser": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "lights_react": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "colorful": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "walls_texture": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "script_time": "float",
+      "script_bass_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

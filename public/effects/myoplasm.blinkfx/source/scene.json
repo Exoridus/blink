@@ -1,0 +1,78 @@
+{
+"CREDIT":"Alex Rowe",
+"TITLE":"Myoplasm",
+"IMAGE_PATH":"myoplasm.png",
+"SMOOTH_TRANSITIONS":[{
+  "UNIFORMS":["r0","r1","r2","r3", "r4"]
+  },{
+  "UNIFORMS":["n0","n1","n2","n3"]
+  },{
+  "UNIFORMS":["c0","c1","c2","c3", "c4"]
+}],
+"GPU": 1,
+"TAGS" : 
+[
+ "groovy",
+ "particles",
+ "dark"
+],
+"CONTROLS":[{
+	"NAME": "levels",
+	"TYPE": "slider",
+	"MIN": 0.1,
+	"DEFAULT": 1.0,
+	"DESCRIPTION": "Reduces the color space, resulting contour lines instead of smooth shading. 100% is all colors, 0% is only 2 or 3.",
+  "UI_GROUP":"color"
+	},{
+	"NAME": "color_mode",
+	"TYPE": "toggle",
+	"DEFAULT": 0.0,
+	"MIN": 0.0,
+	"MAX": 1.0,
+	"DESCRIPTION": "OFF is normal. ON is grainy and inverse.",
+  "UI_GROUP":"color"
+	},{
+	"NAME": "zoom",
+	"TYPE": "slider smooth",
+	"DEFAULT": 1.0,
+	"MIN": 1.0,
+	"MAX": 12.0,
+	"PARAMS": 0.1,
+	"DESCRIPTION": "Zoom in and out.",
+  "UI_GROUP":"cells"
+	},{
+	"NAME": "arranged",
+	"TYPE": "toggle",
+	"DEFAULT": 0.0,
+	"MIN": 0.0,
+	"MAX": 1.0,
+	"DESCRIPTION": "Arrange the spheres randomly (OFF) or on a grid (ON).",
+  "UI_GROUP":"cells"
+	},{
+	"NAME": "rotation",
+	"TYPE": "knob traveler",
+	"DEFAULT": 0.5,
+	"MIN": -1.0,
+	"MAX": 1.0,
+	"PARAMS": 0.5,
+	"DESCRIPTION": "Define a rotation direction and amount.",
+  "UI_GROUP":"motion"
+	},{
+	"NAME": "xyPos",
+	"TYPE": "xy traveler",
+	"DEFAULT": 0.5,
+	"MIN": -1.0,
+	"MAX": 1.0,
+	"PARAMS": 0.5,
+	"DESCRIPTION": "Define a direction for the spheres to move.",
+  "UI_GROUP":"motion"
+	},{
+	"NAME": "feedback",
+	"TYPE": "slider",
+	"DEFAULT": 1.0,
+	"MIN": 1.0,
+	"MAX": 0.0,
+	"DESCRIPTION": "Add a motion blur effect. 100% will freeze the scene. 0% is no blur.",
+  "UI_GROUP":"feedback"
+	}]
+}

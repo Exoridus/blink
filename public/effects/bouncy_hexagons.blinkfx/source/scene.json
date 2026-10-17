@@ -1,0 +1,436 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 
+			[
+				0.45,
+				0.7
+			],
+			"DESCRIPTION" : "Threshold range for colored hexagons to appear",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bouncy_islands",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Hexagons"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.05,
+				0.2
+			],
+			"DESCRIPTION" : "Audio frequency range for black hexagons",
+			"MAX" : 
+			[
+				0.5,
+				0.5
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "black_freq",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Hexagons"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.25,
+				0.3
+			],
+			"DESCRIPTION" : "Audio frequency range for red hexagons",
+			"MAX" : 
+			[
+				0.5,
+				0.5
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "red_freq",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Hexagons"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.57735,
+				1
+			],
+			"DESCRIPTION" : "Hexagon grid scale and spacing",
+			"MAX" : 
+			[
+				2,
+				2
+			],
+			"MIN" : 
+			[
+				0.2,
+				0.2
+			],
+			"NAME" : "world_zoom",
+			"PARAMS" : 0.22401,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Hexagons"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "adjusts height of black and red bars that utilize syn spectrum texture",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "spect_bar_height",
+			"PARAMS" : 0.06301,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Hexagons"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "adjusts height of wave bars",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "wave_bar_height",
+			"PARAMS" : 0.06001,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Hexagons"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "wave_bar_speed",
+			"PARAMS" : 0.06101,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Hexagons"
+		},
+		{
+			"DEFAULT": 0,
+			"DESCRIPTION": "Simplify the color palette for bursts of color on pillar reveal.",
+			"MAX": 1,
+			"MIN": 0,
+			"NAME": "minimal_mode",
+			"TYPE": "toggle",
+			"UI_GROUP": "Main Color"
+		},
+		{
+			"DEFAULT": 0,
+			"DESCRIPTION": "Color the top of pillars vs the side of pillars when in minimal mode",
+			"MAX": 1,
+			"MIN": 0,
+			"NAME": "tops_vs_sides",
+			"TYPE": "toggle",
+			"UI_GROUP": "Main Color"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				0,
+				0
+			],
+			"DESCRIPTION" : "Color for red hexagons",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "red_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.001,
+				0.001,
+				0.001
+			],
+			"DESCRIPTION" : "Color for black hexagons",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "black_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				1,
+				1
+			],
+			"DESCRIPTION" : "Color for white hexagons and background fog",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "white_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.0,
+				1,
+				1
+			],
+			"DESCRIPTION" : "Main color (and hexagon 'border' color)",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "border_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Main Color"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0,
+				0
+			],
+			"DESCRIPTION" : "Color for fog background and sky",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "fog_col",
+			"TYPE" : "color",
+			"UI_GROUP" : "Color"
+		},
+
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Media opacity — fade visuals in or out",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_mode",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media multiplier — boost opacity for bold color effects",
+			"MAX" : 5,
+			"MIN" : 0,
+			"NAME" : "media_scale",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1.82,
+			"DESCRIPTION" : "Rotation angle of the light source",
+			"MAX" : 7,
+			"MIN" : 0,
+			"NAME" : "light_dir",
+			"PARAMS" : 0.2,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Amount of frame blending for motion trail effect",
+			"MAX" : 0.95,
+			"MIN" : 0,
+			"NAME" : "motion_blur",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Applies viginette effect",
+			"MAX" : 0.7,
+			"MIN" : 1.3,
+			"NAME" : "vignette",
+			"PARAMS" : 0.20101,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "automatically rotates light using sine wave and syn time",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "auto_light_dir",
+			"PARAMS" : 0.06401,
+			"TYPE" : "toggle smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Camera movement speed along z-axis",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "speed",
+			"PARAMS" : 0.07001,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Camera"
+		},
+		{
+			"DEFAULT" : 20,
+			"DESCRIPTION" : "Camera height above the hexagons",
+			"MAX" : 32,
+			"MIN" : 12,
+			"NAME" : "height",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Camera"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Rotation angle of the camera view",
+			"MAX" : 7,
+			"MIN" : 0,
+			"NAME" : "look_dir",
+			"PARAMS" : 0.01601,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Camera"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "offsets camera angle position",
+			"MAX" : 
+			[
+				0.5,
+				0.5
+			],
+			"MIN" : 
+			[
+				-0.75,
+				-0.75
+			],
+			"NAME" : "camera_tilt",
+			"PARAMS" : 0.01501,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Camera"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "increases field of view",
+			"MAX" : 1,
+			"MIN" : 0.3,
+			"NAME" : "fov",
+			"PARAMS" : 0.05601,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Camera"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "An infinite field of audio-reactive 3D hexagons that rise and fall with your music. Red and black hexagons respond to different frequency ranges, creating dynamic landscapes of sound. Fly through the geometric terrain with customizable colors, lighting, and camera controls for stunning live visuals.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGES" : 
+	[
+		{
+			"NAME" : "t_fbm",
+			"PATH" : "fbm.png"
+		}
+	],
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass0",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"bouncy",
+		"audio-reactive",
+		"hexagon",
+		"3D",
+		"raymarching",
+		"music-visualization",
+		"geometric",
+		"frequency",
+		"procedural",
+		"landscape",
+		"spectrum",
+		"grid",
+		"bass-reactive"
+	],
+	"TITLE" : "Bouncy Hexagons",
+	"WIDTH" : 1920
+}

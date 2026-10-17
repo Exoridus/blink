@@ -1,0 +1,127 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "trail",
+			"TYPE" : "slider",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.4,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "rotation",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				2,
+				1
+			],
+			"DESCRIPTION" : "",
+			"MAX" : 
+			[
+				7,
+				7
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "color_base",
+			"PARAMS" : 0.18701,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 2,
+			"DESCRIPTION" : "",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "opaque",
+			"PARAMS" : 0.19101,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "mix_mode",
+			"PARAMS" : 0.16101,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.1,
+				0.2
+			],
+			"DESCRIPTION" : "",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "mix_cutoff",
+			"PARAMS" : 0.18201,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Hyperspace",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass0",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"stars",
+		"hyperspace"
+	],
+	"TITLE" : "Hyperspace",
+	"WIDTH" : 1920
+}

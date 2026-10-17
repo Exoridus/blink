@@ -1,0 +1,561 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.electric_mandelbrot",
+  "title": "Electric mandelbrot",
+  "author": "mrange",
+  "description": "Experience the Electric Mandelbrot—a hypnotic fractal that spins and breathes with electric energy. Brilliant lightning spokes radiate from the spiraling core, creating a cosmic wheel of light that pulses and rotates to the music. The fractal morphs through vibrant color gradients while motion blur trails create an ethereal, dreamlike quality at the edges. Audio-reactive elements make every bass hit twist the geometry and intensify the glow, while the continuously evolving C parameter ensures the pattern never repeats exactly. Perfect for trance, psytrance, and ambient electronic music visualizations.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "mandelbrot",
+    "fractal",
+    "electric",
+    "lightning",
+    "audio-reactive",
+    "bass-reactive",
+    "spiral",
+    "psychedelic",
+    "rotation",
+    "glow",
+    "mathematical",
+    "hypnotic",
+    "trance"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Audio response strength (X: bass level, Y: bass hits)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.7,
+        0.7
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Audio response curve (higher = more intense reaction)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        2,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "twist_beat",
+      "label": "twist beat",
+      "description": "Rotation on beat (X: linear by distance, Y: quadratic by distance)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "zoom_beat",
+      "label": "zoom beat",
+      "description": "Zoom pulse on beat (X: linear by distance, Y: quadratic by distance)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "fade_beat",
+      "label": "fade beat",
+      "description": "Brightness boost on bass hits (0 = none, 1 = double)",
+      "group": "Audio",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "speed_control",
+      "label": "speed control",
+      "description": "Animation speed (X: time-based, Y: bass time-based)",
+      "group": "Speed",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.25
+      ],
+      "min": [
+        -2,
+        -1
+      ],
+      "max": [
+        2,
+        1
+      ]
+    },
+    {
+      "name": "rotation_speed",
+      "label": "rotation speed",
+      "description": "Continuous rotation speed of the fractal",
+      "group": "Speed",
+      "type": "float",
+      "default": 0.3,
+      "min": -3,
+      "max": 3
+    },
+    {
+      "name": "color_control",
+      "label": "color control",
+      "description": "Color phase offsets (shifts hue of lightning patterns)",
+      "group": "Color",
+      "type": "point2d",
+      "default": [
+        1,
+        2
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        7,
+        7
+      ]
+    },
+    {
+      "name": "invert_color",
+      "label": "invert color",
+      "description": "Color inversion amount (0 = normal, 1 = fully inverted)",
+      "group": "Color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "color_divider",
+      "label": "color divider",
+      "description": "Brightness divider (higher = darker overall output)",
+      "group": "Color",
+      "type": "float",
+      "default": 9,
+      "min": 1,
+      "max": 30
+    },
+    {
+      "name": "motion_blur_limits",
+      "label": "motion blur limits",
+      "description": "Motion blur distance range (X: start fade, Y: full blur)",
+      "group": "Blur",
+      "type": "point2d",
+      "default": [
+        0.5,
+        1.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        3,
+        3
+      ]
+    },
+    {
+      "name": "motion_blur_intensity",
+      "label": "motion blur intensity",
+      "description": "Motion blur strength (X: at center, Y: at edges)",
+      "group": "Blur",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.9
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "zoom_center",
+      "label": "zoom center",
+      "description": "Fractal viewport center (X: horizontal, Y: vertical offset)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0.5,
+        -0.05
+      ],
+      "min": [
+        -2,
+        -2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "zoom_factor",
+      "label": "zoom factor",
+      "description": "Zoom level (X: base magnification, Y: breathing pulse depth)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0.75,
+        0.125
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "initial_c",
+      "label": "initial c",
+      "description": "Mandelbrot C constant (real and imaginary components)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        -0.76,
+        0.15
+      ],
+      "min": [
+        -1.5,
+        -1.5
+      ],
+      "max": [
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "name": "rotation_c",
+      "label": "rotation c",
+      "description": "C parameter rotation (X: speed multiplier, Y: sine frequency)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.125
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "media_warp",
+      "label": "media warp",
+      "description": "Media distortion (X: warp strength, Y: frequency modulation)",
+      "group": "Media",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "media_multiplier",
+      "label": "media multiplier",
+      "description": "Media multiplier – boost opacity for bold color effects",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": -9,
+      "max": 9
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Media opacity – fade visuals in or out",
+      "group": "Media",
+      "type": "float",
+      "default": 0.707,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "twist_beat": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "zoom_beat": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "fade_beat": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "speed_control": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "rotation_speed": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "color_control": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "invert_color": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_divider": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "motion_blur_limits": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "motion_blur_intensity": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "zoom_center": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "zoom_factor": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "initial_c": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "rotation_c": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_warp": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_multiplier": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

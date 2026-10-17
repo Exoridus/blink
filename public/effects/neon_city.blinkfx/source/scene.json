@@ -1,0 +1,266 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 0.2,
+			"DESCRIPTION" : "Tower threshold – higher values reveal more neon buildings",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "tower_threshold",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Motion blur – smooth camera movement trails",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "motion_blur",
+			"TYPE" : "slider",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Audio reactivity – building heights respond to spectrum",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "audio_reactivity",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.0625,
+				0.75
+			],
+			"DESCRIPTION" : "Surface reflection – Fresnel min/max for building glass",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "reflection",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Audio threshold – filter out quiet audio values",
+			"MAX" : 0.9,
+			"MIN" : 0,
+			"NAME" : "audio_threshold",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				5,
+				2
+			],
+			"DESCRIPTION" : "Neon hue – color phase shifts for cyan/magenta tones",
+			"MAX" : 
+			[
+				7,
+				7
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "neon_color",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.8,
+			"DESCRIPTION" : "Glow persistence – retain bloom across frames",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "retain_glow",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Glow intensity – brighten neon light bloom",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "neon_glow",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Glass blend – media layer viewed through glow tint",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "glass_blend",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media opacity – fade visuals in or out",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media intensity – amplify blend (negative inverts)",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "media_intensity",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.25,
+				0.5
+			],
+			"DESCRIPTION" : "Media mask – luminance threshold for glass blend",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "media_mask",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Travel speed – camera movement through the city",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				0.33
+			],
+			"DESCRIPTION" : "Camera path – sine wave amplitude and frequency",
+			"MAX" : 
+			[
+				2,
+				0.5
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "path_wave",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" : 2,
+			"DESCRIPTION" : "Camera height – elevation above city streets",
+			"MAX" : 2.9,
+			"MIN" : 2.1,
+			"NAME" : "camera_height",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Movement"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Fly through an endless neon metropolis at night. Procedurally generated towers pulse with audio-reactive lighting, their glass facades reflecting cyan and magenta hues. The cityscape stretches infinitely ahead as you glide along a winding path through glowing streets. Features path-traced reflections, volumetric bloom, and glass refraction effects that interact beautifully with media layers.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"FILTER" : "nearest",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass0",
+			"WIDTH" : 1920,
+			"WRAP" : "clamp"
+		},
+		{
+			"FILTER" : "nearest",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass1",
+			"WIDTH" : 1920,
+			"WRAP" : "clamp"
+		},
+		{
+			"FILTER" : "nearest",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass2",
+			"WIDTH" : 1920,
+			"WRAP" : "clamp"
+		},
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass3",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"city",
+		"neon",
+		"night",
+		"synthwave",
+		"cyberpunk",
+		"path tracing",
+		"audio reactive",
+		"buildings",
+		"reflection",
+		"glow",
+		"motion blur",
+		"urban",
+		"fly through"
+	],
+	"TITLE" : "Neon City by Night",
+	"WIDTH" : 1920
+}

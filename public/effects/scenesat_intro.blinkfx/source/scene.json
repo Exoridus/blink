@@ -1,0 +1,52 @@
+{
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Scenesat Intro (https://scenesat.com/).",
+	"GPU" : 1,
+	"IMAGE_PATH" : "scenesat_intro.png",
+	"CONTROLS" :
+	[
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Commodore",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "show_commodore",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "Variants"
+		}
+	],
+	"IMAGES" :
+	[
+		{
+			"NAME" : "t_scenesat",
+			"PATH" : "dscenesat_expanded.png",
+			"FILTER" : "linear",
+			"WRAP" : "clamp"
+		},
+		{
+			"NAME" : "t_program",
+			"PATH" : "scenesat_program.png",
+			"FILTER" : "linear",
+			"WRAP" : "clamp"
+		}
+	],
+	"MEDIA" :
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "clamp"
+		}
+	],
+	"PASSES" :
+	[
+	],
+	"TAGS" :
+	[
+		"mrange",
+		"scenesat",
+		"intro"
+	],
+	"TITLE" : "Scenesat intro",
+	"HEIGHT" : 1080,
+	"WIDTH" : 1920
+}

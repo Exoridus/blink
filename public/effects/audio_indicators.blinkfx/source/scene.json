@@ -1,0 +1,25 @@
+{
+	"TITLE" : "AUDIO INDICATORS",
+	"CREDIT" : "Synesthesia",
+	"DESCRIPTION" : "",
+	"GPU" : 1,
+	"TAGS": ["utility", "audio", "fft"],
+	"IMAGE_PATH" : "audio_indicators.png",
+	"PASSES" : 
+	[
+		{
+			"TARGET" : "feedback",
+			"FLOAT" : true,
+			"WIDTH" : 1920,
+			"HEIGHT" : 1080
+		},
+		{
+			"TARGET" : "helper",
+			"WIDTH" : 1920,
+			"HEIGHT" : 1080,
+			"FLOAT" : true
+		}
+	],
+	"WIDTH" : 1920,
+	"HEIGHT" : 1080
+}

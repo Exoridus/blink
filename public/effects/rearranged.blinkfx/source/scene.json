@@ -1,0 +1,129 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Rearranged",
+ "IMAGE_PATH": "rearranged.png",
+ "GPU": 1,
+ "TAGS" : 
+ [
+ "2d",
+ "colorful",
+ "geometric"
+ ],
+ "HARD_TRANSITIONS": [
+        {
+            "UNIFORM": "shape_type_1", 
+            "VALUES":[0.0,1.0]
+        },{
+            "UNIFORM": "shape_type_2", 
+            "VALUES":[0.0,1.0]
+        },{
+            "UNIFORM": "shape_angle", 
+            "VALUES":[0.0,1.0]
+        },
+        {
+            "UNIFORM": "scanDirection", 
+            "VALUES":[0.0,1.0]
+        },
+        {
+            "UNIFORM": "colorMode", 
+            "VALUES":[0.0,1.0]
+        }
+    ],
+ "SMOOTH_TRANSITIONS": [
+    {"UNIFORMS":["cReg0", "cReg1", "cReg2"], 
+    "DURATION": 5}
+    ],
+  "CONTROLS": [
+        {
+            "NAME": "grid_1",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":1.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "When ON, the usually larger, static, colored grid of circles will be visible, when OFF, the circles won't appear.",
+            "UI_GROUP":"grid_1"
+        },{
+            "NAME": "pulser",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "When ON, pulses of rings will propagate through the main grid's circles. When OFF, no rings will appear.",
+            "UI_GROUP":"grid_1"
+        },{
+            "NAME": "resolution",
+            "MIN" : 0.0,
+            "MAX" : 6.0,
+            "DEFAULT":1.0,
+            "TYPE":"slider",
+            "DESCRIPTION": "Controls the number and size of the circles on the main grid. Also affects the size of the pulser and mask. Higher is more, smaller pieces.",
+            "UI_GROUP":"grid_1"
+        },{
+            "NAME": "grid_2",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "When ON, a grid of smaller dots that react to an underlying shape (or Media) will be visible. Turn OFF for a simpler scene featuring only the main grid.",
+            "UI_GROUP":"grid_2"
+        },{
+            "NAME": "resolution_2",
+            "MIN" : 0.0,
+            "MAX" : 7.0,
+            "DEFAULT":5.0,
+            "TYPE":"slider",
+            "DESCRIPTION": "grid 2 MUST BE ON. Controls the number and size of the active grid's circles.",
+            "UI_GROUP":"grid_2"
+        },{
+            "NAME": "intensity",
+            "MIN" : 0.0,
+            "MAX" : 3.0,
+            "DEFAULT":1.2,
+            "TYPE":"slider",
+            "DESCRIPTION": "grid 2 MUST BE ON. Controls the size and intensity of the action in the active grid's motion.",
+            "UI_GROUP":"grid_2"
+        },{
+            "NAME": "black_or_white",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":1.0,
+            "TYPE":"toggle",
+            "UI_GROUP": "grid_2",
+            "DESCRIPTION": "grid 2 MUST BE ON. Controls the color of the active grid's circles."
+        },{
+            "NAME": "invert",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "Make every color it's opposite, instead. Results in a nice blue color scheme when ON. Use alongside black or white to control color.",
+            "UI_GROUP":"effects"
+        },{
+            "NAME": "mask",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "Add some regular black shapes to the scene. The size and number are controlled by 'resolution'. The shape type is controlled by 'Transition'.",
+            "UI_GROUP":"effects"
+        },{
+            "NAME": "rotating",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "UI_GROUP":"effects",
+            "TYPE":"toggle",
+            "DESCRIPTION": "Turn ON to start the whole scene rotating, or OFF to keep it rectilinear."
+        }
+    ],
+    "PASSES": [
+    {
+        "TARGET":"firstBuff",
+        "FLOAT": true
+    },
+    {
+        "TARGET":"secondBuff",
+        "FLOAT": true
+    }
+    ]
+}

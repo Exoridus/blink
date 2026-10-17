@@ -1,0 +1,22 @@
+{
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Info scene",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "smallest.png",
+	"MEDIA" :
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" :
+	[
+		"mrange",
+		"info",
+		"example"
+	],
+	"TITLE" : "Info scene",
+	"WIDTH" : 1920
+}

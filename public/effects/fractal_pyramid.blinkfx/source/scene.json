@@ -1,0 +1,55 @@
+{
+   "CONTROLS" : [
+      {
+         "NAME": "bass_folding",
+         "MIN" : -0.1,
+         "MAX" : 0.1,
+         "DEFAULT":0.04
+      },{
+         "NAME": "bass_rotation",
+         "MIN" : -1,
+         "MAX" : 1,
+         "DEFAULT":1
+      },{
+         "NAME": "high_rotation",
+         "MIN" : -1,
+         "MAX" : 1,
+         "DEFAULT":-1
+      },{
+         "NAME": "map_iterations",
+         "MIN" : 0,
+         "MAX" : 16,
+         "DEFAULT":5
+      },{
+         "NAME": "bass_iterations",
+         "MIN" : -10.0,
+         "MAX" : 10.0,
+         "DEFAULT":0.0
+      },
+      {
+         "NAME": "randombeat_iterations",
+         "MIN" : -10.0,
+         "MAX" : 10.0,
+         "DEFAULT":0.0
+      },{
+         "NAME": "scale_factor",
+         "MIN" : -10.0,
+         "MAX" : 10.0,
+         "DEFAULT":3.0
+      }, {
+         "NAME": "color1",
+         "TYPE": "color",
+         "DEF_COLOR": [0.2,0.7,0.9]
+      },  {
+         "NAME": "color2",
+         "TYPE": "color",
+         "DEF_COLOR": [1.0,0.0,1.0]
+      }
+   ],
+   "CREDIT" : "bradjamesgrant",
+   "DESCRIPTION" : "Rotating purple fractal",
+   "HEIGHT" : 720,
+   "IMAGE_PATH" : "fractal_pyramid.png",
+   "TITLE" : "fractal pyramid",
+   "WIDTH" : 1280
+}

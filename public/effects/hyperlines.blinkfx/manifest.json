@@ -1,0 +1,227 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.hyperlines",
+  "title": "Hyperlines",
+  "author": "mrange",
+  "description": "A mesmerizing tunnel of glowing neon lines races toward a luminous heart at the center, each geometric segment pulsing to the audio spectrum. The viewport orbits through the tunnel in an endless Lissajous pattern while segments scroll and rotate, creating a hypnotic sense of motion. Perfect for trance-inducing, immersive audio visualization.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "hyperspace",
+    "audio-reactive",
+    "tunnel",
+    "neon",
+    "geometric",
+    "motion",
+    "retro",
+    "immersive",
+    "cyberpunk",
+    "trance",
+    "glowing"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "spectrum_boost",
+      "label": "spectrum boost",
+      "description": "Audio intensity – amplify spectrum in hyperspace",
+      "group": "Visual",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "speed",
+      "label": "speed",
+      "description": "Tunnel scroll speed – negative reverses direction",
+      "group": "Visual",
+      "type": "float",
+      "default": -3,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "sway",
+      "label": "sway",
+      "description": "Camera orbit amplitude – controls movement range",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.25,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "base_color",
+      "label": "base color",
+      "description": "Color offset – shifts hue across the tunnel",
+      "group": "Visual",
+      "type": "float",
+      "default": 6,
+      "min": 0,
+      "max": 7
+    },
+    {
+      "name": "rot_speed",
+      "label": "rot speed",
+      "description": "Rotation speed – negative spins counter-clockwise",
+      "group": "Visual",
+      "type": "float",
+      "default": -0.1,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "crt_effect",
+      "label": "crt effect",
+      "description": "CRT screen effect – adds vignette and scanlines",
+      "group": "Visual",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Media blend opacity – 0=hidden, 1=opaque",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_mix_mode",
+      "label": "media mix mode",
+      "description": "Media blend mode – 0=luminosity, 1=alpha",
+      "group": "Media",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "spectrum_boost": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "speed": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "sway": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20901
+      },
+      "base_color": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "rot_speed": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "crt_effect": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.18501
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19501
+      },
+      "media_mix_mode": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20501
+      }
+    },
+    "scriptUniforms": {
+      "bass_thump": "float",
+      "cam_RO": "vec3",
+      "cam_X": "vec3",
+      "cam_Y": "vec3",
+      "cam_Z": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

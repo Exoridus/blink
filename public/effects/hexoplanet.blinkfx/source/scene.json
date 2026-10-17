@@ -1,0 +1,139 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Splits the hexagons into triangles, diamonds, and trapezoids.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "alt_geometry",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "geometry"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Creates a flat plane of shapes instead of a sphere.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "flat_plane",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Sets how much the bumps extend from the surface.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "size_bumps",
+         "TYPE" : "slider",
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Number of hexagons fit onto the surface. Higher for more, smaller hexagons.",
+         "MAX" : 3,
+         "MIN" : 0,
+         "NAME" : "num_hexes",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 4.7,
+         "DESCRIPTION" : "Elevation of the camera.",
+         "MAX" : 10,
+         "MIN" : 3,
+         "NAME" : "elevation",
+         "TYPE" : "slider",
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "When on, the bumps will bounce more often, on any bass instead of the beat.",
+         "MAX" : 0,
+         "MIN" : 1,
+         "NAME" : "bass_bump",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "reactivity"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Lets see some moves.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "DISCO",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "reactivity"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "When DISCO is on, this sets the background flashing with hexagons as well.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "disco_bkg",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "reactivity"
+      },
+      {
+         "DEFAULT" : 0.2,
+         "DESCRIPTION" : "More dramatic, high contrast lighting.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "intense_lighting",
+         "PARAMS" : 0.2,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "lighting"
+      },
+      {
+         "DEFAULT" : 0.2,
+         "DESCRIPTION" : "Turns off the background coloration. Can be good when you're using media.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "bkg_off",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "lighting"
+      },
+      {
+         "DEFAULT" : 0.20000000298023224,
+         "DEF_COLOR" : [ 1, 1, 1 ],
+         "DESCRIPTION" : "The default, rainbow color scheme gets multiplied by this color. Set it off white to limit the color palette.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "mult_col",
+         "TYPE" : "color",
+         "UI_GROUP" : "lighting"
+      }
+   ],
+   "CREDIT" : "aiekick",
+   "DESCRIPTION" : "based on pattern from 104 shader https://www.shadertoy.com/view/ltlSW4  displaced on ball\nyou can comment line 4 il you want unlimited dispalce from 0 to 1.\nMouse Axis X =&gt; Grow Up/Down // Mouse Axis Y =&gt; Density from 0 to 100.",
+   "HARD_TRANSITIONS" : [
+      {
+         "UNIFORM" : "grouping_size",
+         "VALUES" : [ 1, 0.20000000298023224, 0.5, 1.5, 2 ]
+      }
+   ],
+   "HEIGHT" : 1080,
+   "IMAGES" : [
+      {
+         "NAME" : "skyTex",
+         "PATH" : "images/skytex.jpg"
+      }
+   ],
+   "IMAGE_PATH" : "hexoplanet.png",
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 576,
+         "TARGET" : "tunnelPass",
+         "WIDTH" : 1024
+      }
+   ],
+   "TITLE" : "HEXOplanet",
+   "WIDTH" : 1920,
+   "GPU": 2,
+   "TAGS" : 
+   [
+    "raymarching",
+    "groovy",
+    "retro",
+    "media"
+   ]
+}

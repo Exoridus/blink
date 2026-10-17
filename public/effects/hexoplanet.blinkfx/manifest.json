@@ -1,0 +1,295 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.hexoplanet",
+  "title": "HEXOplanet",
+  "author": "aiekick",
+  "description": "based on pattern from 104 shader https://www.shadertoy.com/view/ltlSW4  displaced on ball\nyou can comment line 4 il you want unlimited dispalce from 0 to 1.\nMouse Axis X =&gt; Grow Up/Down // Mouse Axis Y =&gt; Density from 0 to 100.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "raymarching",
+    "groovy",
+    "retro",
+    "media"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "alt_geometry",
+      "label": "alt geometry",
+      "description": "Splits the hexagons into triangles, diamonds, and trapezoids.",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flat_plane",
+      "label": "flat plane",
+      "description": "Creates a flat plane of shapes instead of a sphere.",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "size_bumps",
+      "label": "size bumps",
+      "description": "Sets how much the bumps extend from the surface.",
+      "group": "geometry",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "num_hexes",
+      "label": "num hexes",
+      "description": "Number of hexagons fit onto the surface. Higher for more, smaller hexagons.",
+      "group": "geometry",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "elevation",
+      "label": "elevation",
+      "description": "Elevation of the camera.",
+      "group": "geometry",
+      "type": "float",
+      "default": 4.7,
+      "min": 3,
+      "max": 10
+    },
+    {
+      "name": "bass_bump",
+      "label": "bass bump",
+      "description": "When on, the bumps will bounce more often, on any bass instead of the beat.",
+      "group": "reactivity",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "DISCO",
+      "label": "DISCO",
+      "description": "Lets see some moves.",
+      "group": "reactivity",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "disco_bkg",
+      "label": "disco bkg",
+      "description": "When DISCO is on, this sets the background flashing with hexagons as well.",
+      "group": "reactivity",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "intense_lighting",
+      "label": "intense lighting",
+      "description": "More dramatic, high contrast lighting.",
+      "group": "lighting",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "bkg_off",
+      "label": "bkg off",
+      "description": "Turns off the background coloration. Can be good when you're using media.",
+      "group": "lighting",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "mult_col",
+      "label": "mult col",
+      "description": "The default, rainbow color scheme gets multiplied by this color. Set it off white to limit the color palette.",
+      "group": "lighting",
+      "type": "color",
+      "default": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "grouping_size",
+      "label": "grouping size",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "skyTex",
+      "type": "texture2d",
+      "path": "assets/skytex.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "tunnelPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.tunnelPass.previous",
+          "uniform": "tunnelPass"
+        },
+        {
+          "source": "asset.skyTex",
+          "uniform": "skyTex"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "tunnelPass",
+        "width": 1024,
+        "height": 576,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.tunnelPass",
+          "uniform": "tunnelPass"
+        },
+        {
+          "source": "asset.skyTex",
+          "uniform": "skyTex"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "alt_geometry": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "flat_plane": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "size_bumps": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "num_hexes": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "elevation": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "bass_bump": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "DISCO": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "disco_bkg": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "intense_lighting": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bkg_off": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "mult_col": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

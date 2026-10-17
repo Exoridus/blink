@@ -1,0 +1,111 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Audio intensity – amplify spectrum in hyperspace",
+			"MAX" : 3,
+			"MIN" : 0,
+			"NAME" : "spectrum_boost",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : -3,
+			"DESCRIPTION" : "Tunnel scroll speed – negative reverses direction",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.25,
+			"DESCRIPTION" : "Camera orbit amplitude – controls movement range",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "sway",
+			"PARAMS" : 0.20901,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 6,
+			"DESCRIPTION" : "Color offset – shifts hue across the tunnel",
+			"MAX" : 7,
+			"MIN" : 0,
+			"NAME" : "base_color",
+			"TYPE" : "slider",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : -0.1,
+			"DESCRIPTION" : "Rotation speed – negative spins counter-clockwise",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "rot_speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "CRT screen effect – adds vignette and scanlines",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "crt_effect",
+			"PARAMS" : 0.18501,
+			"TYPE" : "toggle smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media blend opacity – 0=hidden, 1=opaque",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.19501,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Media blend mode – 0=luminosity, 1=alpha",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_mix_mode",
+			"PARAMS" : 0.20501,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "A mesmerizing tunnel of glowing neon lines races toward a luminous heart at the center, each geometric segment pulsing to the audio spectrum. The viewport orbits through the tunnel in an endless Lissajous pattern while segments scroll and rotate, creating a hypnotic sense of motion. Perfect for trance-inducing, immersive audio visualization.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" :
+	[
+		"mrange",
+		"hyperspace",
+		"audio-reactive",
+		"tunnel",
+		"neon",
+		"geometric",
+		"motion",
+		"retro",
+		"immersive",
+		"cyberpunk",
+		"trance",
+		"glowing"
+	],
+	"TITLE" : "Hyperlines",
+	"WIDTH" : 1920
+}

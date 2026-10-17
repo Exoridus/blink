@@ -1,0 +1,47 @@
+{
+ "CREDIT": "Meebs ft. Flexi",
+ "TITLE": "Biopsy",
+ "IMAGE_PATH": "biopsy.png",
+    "HARD_TRANSITIONS": [ {"UNIFORM":"inOrOut", "VALUES":[1.0,-1.0,0.0]},
+    {"UNIFORM":"mode", "VALUES":[1.0,-1.0,0.0]}
+    ],
+ "IMAGES": [{
+    "PATH": "images/colornoise.jpg",
+    "NAME": "colornoise"
+  }],
+ "PASSES": [
+ {"TARGET":"buffB", "WIDTH":1280, "HEIGHT":720, "FLOAT": true},
+ {"TARGET":"buffC", "WIDTH":1280, "HEIGHT":720, "FLOAT": true},
+ {"TARGET":"buffD", "WIDTH":1280, "HEIGHT":720, "FLOAT": true},
+ {"TARGET":"coloredSim", "WIDTH":1280, "HEIGHT":720, "FLOAT": true}  ],
+ "GPU": 3,
+ "TAGS" : 
+ [
+  "simulation",
+  "feedback",
+  "abstract",
+  "media",
+  "dark",
+  "reaction-diffusion"
+ ],
+  "CONTROLS":[
+  {"NAME": "paint_on", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle",
+  "UI_GROUP": "paint","DESCRIPTION": "Add a circular 'paint brush' to the scene. Other controls invert the brush, change the brush size, or change the position."},
+  {"NAME": "paint_invert", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle",
+  "UI_GROUP": "paint","DESCRIPTION": "paint on must be on. Inverts the paintbrush from 'cutting out' the simulation or painting where it is on."},
+  {"NAME": "paint_size", "DEFAULT":0.2, "MIN":-0.0, "MAX":0.5,
+  "UI_GROUP": "paint","DESCRIPTION": "paint on must be on. Brush size."},
+  {"NAME": "paint_pos", "DEFAULT":0.0, "MIN":-1.0, "MAX":1.0, "TYPE": "xy smooth", "PARAMS": 0.05,
+  "UI_GROUP": "paint","DESCRIPTION": "paint on must be on. Move to move the paintbrush."},
+  {"NAME": "auto_slice", "DEFAULT":1.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle",
+  "UI_GROUP": "slice","DESCRIPTION": "Slicing action will automatically happen on the beats in the music with this set to on. Otherwise, turn this off and manually slice with the slice_pos."},
+  {"NAME": "manual_slice", "DEFAULT":0.0, "MIN":-1.0, "MAX":1.0, "TYPE": "xy",
+  "UI_GROUP": "slice","DESCRIPTION": "auto slice must be OFF to see this action. Move to manually slice the simulation."},
+  {"NAME": "color_mix", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0,
+  "UI_GROUP":"color","DESCRIPTION": "Invert the color palette."},
+  {"NAME": "flashing", "DEFAULT":1.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle", "UI_GROUP": "color",
+  "DESCRIPTION": "Flash yellow on high hits."},
+  {"NAME": "drips", "TYPE": "toggle", "UI_GROUP":"mode",
+  "DESCRIPTION": "Changes the simulation to make it more drippy when on."}
+]
+ }

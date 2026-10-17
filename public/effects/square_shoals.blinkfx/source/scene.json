@@ -1,0 +1,86 @@
+{
+  "TITLE": "SquareShoals",
+  "CREDIT": "Alex Rowe",
+  "IMAGE_PATH": "square_shoals.jpg",
+  "PASSES": [
+  { "TARGET":"backbuffer", 
+    "HEIGHT":500, 
+    "WIDTH":888, 
+    "FLOAT":true
+  }],
+  "IMAGES": [],
+  "HARD_TRANSITIONS": [{
+  "UNIFORM": "config",
+  "VALUES": [1, 0, 2, 3, 4, 5]
+ },{
+  "UNIFORM": "bassconfig",
+  "VALUES": [0, 4, 3, 2, 1, 5]
+ },{
+  "UNIFORM": "colRegimeSelector",
+  "VALUES": [2, 1, 0, 3, 4]
+}],
+"GPU": 1,
+"TAGS" : 
+[
+"media",
+"feedback",
+"dark",
+"abstract"
+],
+  "CONTROLS":  [{
+    "NAME": "WAVE_SPEED",
+    "MIN": -0.2,
+    "MAX":  0.0,
+    "DEFAULT": 0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "When off, the waves will stand still. Could be toggled on the beat to add pulsing to the scene.",
+    "UI_GROUP":"motion"
+  },{
+    "NAME": "DISTORTION",
+    "MIN": 0,
+    "MAX": 1,
+    "DEFAULT": 0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Add some smooth distortion to the waves.",
+    "UI_GROUP":"motion"
+  },{
+    "NAME": "ROTATE",
+    "MIN": -0.15,
+    "MAX":  0.15,
+    "DEFAULT": 0,
+    "DESCRIPTION": "Add a rotational drift to the waves. Must be reset to perfectly center to get normal waves back.",
+    "UI_GROUP":"motion"
+  },{
+    "NAME": "DRIFT",
+    "MIN": -2,
+    "MAX":  2,
+    "DEFAULT": 0,
+    "DESCRIPTION": "Add a directional drift to the waves. Must be reset to perfectly center to get normal waves back.",
+    "UI_GROUP":"motion"
+  },{
+    "NAME": "auto_painter",
+    "MIN": 0,
+    "MAX": 1,
+    "DEFAULT": 1,
+    "TYPE": "toggle",
+    "DESCRIPTION": "When ON, cycles through many different shapes that disturb the wave simulation. When OFF, take manual control using paint position.",
+    "UI_GROUP":"painter"
+  },{
+    "NAME": "paint_position",
+    "MIN": -1.0,
+    "MAX":  1.0,
+    "DEFAULT": 0.0,
+    "TYPE": "xy smooth",
+    "PARAMS": 0.05,
+    "DESCRIPTION": "auto painter MUST BE OFF. Manually move a small, pulsing paintbrush around the scene, creating a wake as it travels.",
+    "UI_GROUP":"painter"
+  },{
+    "NAME": "logo_type",
+    "DEFAULT":1.0,
+    "MIN":1.0,
+    "MAX":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Media MUST BE SELECTED. This changes the way the scene treats a user defined image or video. Turn on for flashing, turn off for more subtle masking.",
+    "UI_GROUP":"media"
+  }]
+}

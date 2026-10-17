@@ -1,0 +1,190 @@
+float time = syn_Time*0.1;
+vec2 mouse = vec2(sin(syn_Time*0.07+syn_RandomOnBeat*0.5), cos(syn_Time*0.0729+syn_RandomOnBeat*0.7));
+vec2 resolution = RENDERSIZE.xy;
+
+float iGlobalTime;
+vec4 iMouse;
+vec3 iResolution;
+
+// by @301z
+
+// ****** SEXY HEXIES ******
+
+float npoly(float n, float theta) {
+  float u = mod(PI * time * 0.05 + theta / (2. * PI), 1.) * (n); 
+  //float u = theta / (PI * 2.) + 0.1;
+  float a = PI / n;
+  float b = a * (PI * floor(u) + 1.);
+  float c = 2. * u - 2. * floor(u) - 1.;
+  float x = cos(a) * cos(b) - c * sin(a) * sin(b);
+  float y = cos(a) * sin(b) + c * sin(a) * cos(b);
+  return length(vec2(x, y));
+}
+
+vec3 hexies(void) {
+  const int num = 4;
+  vec4 layers[5];
+  layers[0] = vec4( 2, 3.0, 0.49, 0.4);
+  layers[1] = vec4( 3, 7.0, 0.59, 0.7 );
+  layers[2] = vec4( 8, 18.0, 0.69, 0.9 );
+  layers[3] = vec4( 16, 50.0, 0.9, 2.3 );
+  // layers[4] = vec4( 3.0, 14.0, 0.89, 0.9 );
+  
+  vec2 center = (gl_FragCoord.xy - resolution * 0.5) / min(resolution.x, resolution.y);
+
+  vec3 mixed = vec3(1., 1., 1.);
+  for (int i = 0; i < num; ++i) {
+    // vec2 scroll = center + vec2(mouse.x * 0.1 * float(i+1) + time * 0.1 * float(i), time * 0.1 * layers[i].w);
+    vec2 scroll = center + direction*vec2(0.0, syn_CurvedTime*0.1*layers[i].w);
+  
+    vec2 p = mod((1. + scroll) * layers[i].y, layers[i].x) - 1.;
+    vec2 q = floor((scroll) * layers[i].y) /2. / layers[i].y;
+  
+    p*=(1.1-syn_HighLevel/layers[i].y);
+
+    float r = length(p);
+    float angle = atan(p.x, p.y);
+    vec4 col = vec4(0., 0., 0., 0.);
+  
+    if (r < npoly(sides, angle) * 0.70){
+      col = vec4(mix(1.0-color_1, 1.0-color_2, (fract(q.x*4.0)+fract(q.y*4.0))*0.5), layers[i].z);
+    }
+    
+    mixed = mix(mixed, col.rgb, col.a);
+  }
+   
+  mixed = clamp(pow(mixed,vec3(2.0))*2.0,0.0,1.0);
+  return mixed;
+}
+
+
+// ******** BOX *********
+const float pi = 3.14159;
+
+float rand(vec3 co){
+    return 0.9+0.1*fract(sin(co.z+dot(co.xy, vec2(12.9898,78.233))) * 43758.5453);
+}
+
+
+vec3 rotate(vec3 v,vec2 r) 
+{
+  mat3 rxmat = mat3(1,   0    ,    0    ,
+        0,cos(r.y),-sin(r.y),
+        0,sin(r.y), cos(r.y));
+  mat3 rymat = mat3(cos(r.x), 0,-sin(r.x),
+           0    , 1,    0    ,
+        sin(r.x), 0,cos(r.x));
+  
+  
+  return (v*rxmat)*rymat;
+  
+}
+
+vec3 norm(vec3 v)
+{
+  //box made of 6 planes
+  float tp = dot(v,vec3(0,-1,0))*3.;
+  float bt = dot(v,vec3(0,1,0))*3.;
+  float lf = dot(v,vec3(1,0,0))*3.;
+  float rt = dot(v,vec3(-1,0,0))*3.;
+  float fr = dot(v,vec3(0,0,1))*3.;
+  float bk = dot(v,vec3(0,0,-1))*3.;
+  
+  return v/min(min(min(min(min(tp,bt),lf),rt),fr),bk);
+}
+
+float grid(vec3 v)
+{
+  float g;
+  
+  g = (length(v));
+  g = (1.0-(g*g)*2.0)*2.0*rand(v);
+  return g*g-0.125*cos(fract(time)*pi*2.0);
+}
+
+vec3 boxPattern( void ) {
+
+  vec2 res = vec2(resolution.x/resolution.y,1.0);
+  vec2 p = ( gl_FragCoord.xy / resolution.y ) -(res/2.0);
+  
+  p = mix(p,p * (1.0-dot(p,p)*1.5),length(p)*1.5);
+  
+  vec2 m = (mouse-0.5)*pi*vec2(2.,1.);
+  
+  vec3 color = vec3(0.0);
+  
+  vec3 pos = norm(rotate(vec3(p,0.5),vec2(m)));
+  
+  float c = grid(pos);
+  return pos;
+}
+
+
+
+//******* DITHER and POSTERIZE ********
+
+// float LEVELS = pow(0.8*syn_FadeInOut+levels,3.0);
+float LEVELS = pow(0.01+dither_mod,3.0);
+
+
+float posterize(float thresholdIn, float value)
+{
+  float threshold = thresholdIn*pow(_uv.y+0.9-syn_HighPresence*0.5,6);
+  float retVal;
+  if (mod(value * LEVELS, 1.0) >= threshold){
+    retVal = floor(value * LEVELS + 1.0) / LEVELS;
+  } else {
+    retVal = floor(value * LEVELS) / LEVELS;
+  }
+  // retVal = value;
+  return retVal;
+}
+
+vec4 dither(vec2 posIn, vec4 color)
+{
+  vec2 pos = posIn;
+  vec2 polarPos = _toPolar(_uvc);
+  float posBump = fract(polarPos.x+0.25-syn_BPMTri2)*0.5;
+  posBump = pow(posBump, 3.0);
+  float thickness = 0.3;
+  float bumpDist = (smoothstep(0.0,thickness,posBump)-smoothstep(thickness,thickness+0.01,posBump))*pow((syn_BassLevel+syn_BassPresence),2.0)*0.75;
+  // float bumpDistWhite = smoothstep(0.0,thickness,posBump)-smoothstep(thickness,thickness+0.2,posBump);
+  pos -= normalize(_uvc)*bumpDist*10.0;
+	float threshold =
+		  mod(floor(pos.x) + floor(pos.y), 2.0) / 2.0
+		+ mod(floor(pos.x), 2.0) / 4.0
+		+ mod(floor(pos.x / 2.0) + floor(pos.y / 2.0), 2.0) / 8.0
+		+ mod(floor(pos.x / 2.0), 2.0) / 16.0
+		+ mod(floor(pos.x / 4.0) + floor(pos.y / 4.0), 2.0) / 32.0
+		+ mod(floor(pos.x / 4.0), 2.0) / 64.0
+		+ 1.0 / 128.0;
+	return vec4(posterize(threshold, color.x), posterize(threshold, color.y), posterize(threshold, color.z), color.w);
+	// return vec4(threshold);2
+}
+
+vec4 renderMain() {
+	
+  vec3 boxData = boxPattern();
+  vec3 hexyCol = 1.0-hexies();
+
+  vec3 pattern1 = hexyCol*2.0;
+  vec3 boxColor = mix(color_1, color_2, boxData.z*4.0)*2.0;
+  vec3 pattern2 = clamp(vec3(pow(length(boxData),10.0)*(0.6+syn_Presence*0.4)*80.0)*boxColor,0.0,1.0)*1.6;
+  vec3 mixCol = mix(pattern1, max(pattern1,pattern2), clamp(pattern_mixer*2.0,0.0,1.0));
+  mixCol = mix(mixCol, pattern2, clamp((pattern_mixer*2.0-1.0),0.0,1.0));
+  mixCol = clamp(mixCol, 0.0, 1.0);
+
+  vec4 finalCol;
+    
+  finalCol = vec4(mixCol, 1.0);
+
+  vec2 posPix = _uvc*RENDERSIZE.x;
+
+  if (_isMediaActive()){
+    finalCol += _loadMedia();
+  } 
+
+	finalCol = dither(posPix.xy/(pow(2.0,size)), finalCol);
+	// finalCol = vec4(posterize(s1, finalCol.x),posterize(0.5, finalCol.y), posterize(0.5, finalCol.z),1.0);
+	return finalCol;
+}

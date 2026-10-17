@@ -1,0 +1,448 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.biopsy",
+  "title": "Biopsy",
+  "author": "Meebs ft. Flexi",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "simulation",
+    "feedback",
+    "abstract",
+    "media",
+    "dark",
+    "reaction-diffusion"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "paint_on",
+      "label": "paint on",
+      "description": "Add a circular 'paint brush' to the scene. Other controls invert the brush, change the brush size, or change the position.",
+      "group": "paint",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "paint_invert",
+      "label": "paint invert",
+      "description": "paint on must be on. Inverts the paintbrush from 'cutting out' the simulation or painting where it is on.",
+      "group": "paint",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "paint_size",
+      "label": "paint size",
+      "description": "paint on must be on. Brush size.",
+      "group": "paint",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 0.5
+    },
+    {
+      "name": "paint_pos",
+      "label": "paint pos",
+      "description": "paint on must be on. Move to move the paintbrush.",
+      "group": "paint",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "auto_slice",
+      "label": "auto slice",
+      "description": "Slicing action will automatically happen on the beats in the music with this set to on. Otherwise, turn this off and manually slice with the slice_pos.",
+      "group": "slice",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "manual_slice",
+      "label": "manual slice",
+      "description": "auto slice must be OFF to see this action. Move to manually slice the simulation.",
+      "group": "slice",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "color_mix",
+      "label": "color mix",
+      "description": "Invert the color palette.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "flashing",
+      "label": "flashing",
+      "description": "Flash yellow on high hits.",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "drips",
+      "label": "drips",
+      "description": "Changes the simulation to make it more drippy when on.",
+      "group": "mode",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "inOrOut",
+      "label": "inOrOut",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    },
+    {
+      "name": "mode",
+      "label": "mode",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "colornoise",
+      "type": "texture2d",
+      "path": "assets/colornoise.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "buffB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB.previous",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffC.previous",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "target.coloredSim.previous",
+          "uniform": "coloredSim"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "buffB",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffC",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffC.previous",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "target.coloredSim.previous",
+          "uniform": "coloredSim"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "buffC",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffD",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffC",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "target.coloredSim.previous",
+          "uniform": "coloredSim"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "buffD",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "coloredSim",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffC",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD",
+          "uniform": "buffD"
+        },
+        {
+          "source": "target.coloredSim.previous",
+          "uniform": "coloredSim"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "coloredSim",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffC",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD",
+          "uniform": "buffD"
+        },
+        {
+          "source": "target.coloredSim",
+          "uniform": "coloredSim"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "paint_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "paint_invert": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "paint_size": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "paint_pos": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "auto_slice": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "manual_slice": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "color_mix": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "flashing": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "drips": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "slicerDirection": "vec2",
+      "slicerAngle": "float",
+      "slicerMotionAmt": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

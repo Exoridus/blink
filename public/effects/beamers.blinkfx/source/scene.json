@@ -1,0 +1,94 @@
+{
+  "TITLE": "Beamers",
+  "DESCRIPTION": "",
+  "CREDIT": "sheltron",
+  "IMAGE_PATH": "beamers.png",
+  "CATEGORIES": [
+    "Generator"
+  ],
+  "GPU": 1,
+	"TAGS" : 
+	[
+    "2d",
+    "media",
+    "dark",
+    "central"
+	],
+  "PASSES":[{"TARGET": "limitSize", "WIDTH":1200, "HEIGHT":720}],
+  "CONTROLS": [
+    {
+      "NAME": "num_beams",
+      "DESCRIPTION": "Number of beams. More beams means slower performance.",
+      "TYPE": "slider",
+      "MIN": 1,
+      "MAX": 30,
+      "DEFAULT": 21,
+      "UI_GROUP": "beams"
+    },
+    {
+      "NAME": "beam_width",
+      "TYPE": "slider",
+      "MIN": -0.1,
+      "MAX": 0.4,
+      "DEFAULT": 0.015,
+      "UI_GROUP": "beams"
+    },
+    {
+      "NAME": "wobble_on",
+      "LABEL": "Wobble Amount",
+      "TYPE": "toggle",
+      "MIN": 0,
+      "MAX": 0.4,
+      "DEFAULT": 0.00,
+      "UI_GROUP": "beams"
+    },
+    {
+      "NAME": "separation",
+      "DESCRIPTION": "Separation and speed of flight.",
+      "TYPE": "slider smooth",
+      "PARAMS": 0.1,
+      "MIN": -50.0,
+      "MAX": 50.0,
+      "DEFAULT": 10.0,
+      "UI_GROUP": "beams"
+    },
+    {
+      "NAME": "spiral",
+      "TYPE": "toggle smooth",
+      "PARAMS": 0.2,
+      "DEFAULT": 0,
+      "UI_GROUP": "motion"
+    },
+    {
+      "NAME": "direct_shot",
+      "TYPE": "toggle smooth",
+      "PARAMS": 0.2,
+      "DEFAULT": 0,
+      "UI_GROUP": "motion"
+    },
+    {
+      "NAME": "random",
+      "TYPE": "toggle smooth",
+      "PARAMS": 0.2,
+      "DEFAULT": 0,
+      "UI_GROUP": "motion"
+    },
+    {
+      "NAME": "monochrome",
+      "TYPE": "toggle",
+      "DEFAULT": 0,
+      "UI_GROUP": "monochrome"
+    },
+    {
+      "NAME": "monochrome_color",
+      "TYPE": "color",
+      "DEF_COLOR": [1.0,1.0,1.0],
+      "UI_GROUP": "monochrome"
+    },{
+      "NAME": "color_palette",
+      "TYPE": "bang counter",
+      "DEFAULT": 0,
+      "UI_GROUP": "color"
+    }
+  ]
+}

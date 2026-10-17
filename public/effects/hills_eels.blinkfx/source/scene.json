@@ -1,0 +1,232 @@
+{
+   "CONTROLS" : [
+       {
+          "DEFAULT" : 0.5,
+          "DESCRIPTION" : "feedback color intensity (12:00 is neutral)",
+          "MAX" : 1,
+          "MIN" : 0,
+          "NAME" : "saturate",
+          "TYPE" : "knob",
+          "UI_GROUP" : "color"
+       },
+      {
+         "DEFAULT" : 0.8,
+         "DESCRIPTION" : "strobing rate of zoetrope effect",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "rate",
+         "TYPE" : "slider",
+         "UI_GROUP" : "zoetrope"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "alternate color palette",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "palette",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "affects palette and 'density' behavior",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "dark",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "color-based displacement",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "warp",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.75,
+         "DESCRIPTION" : "hue range. no effect if 'media' maxed.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "hue_range",
+         "TYPE" : "slider",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "modulates spin rate of zoetrope effect",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "tune",
+         "TYPE" : "knob",
+         "UI_GROUP" : "zoetrope"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "how color behaves with extreme settings of 'lighten'",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "glitch",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "reverse spin (may not be visible with high 'density')",
+         "MAX" : -1,
+         "MIN" : 1,
+         "NAME" : "reverse",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "zoetrope"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "go upside-down",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "invert",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "zoetrope"
+      },
+      {
+         "DEFAULT" : 2,
+         "DESCRIPTION" : "modulates spin rate",
+         "MAX" : 2,
+         "MIN" : 1,
+         "NAME" : "spacing",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "zoetrope"
+      },
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "modulates spin rate (3-position)",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "wavelength",
+         "TYPE" : "knob",
+         "UI_GROUP" : "zoetrope"
+      },
+      {
+         "DEFAULT" : 0.667,
+         "DESCRIPTION" : "height of input curve",
+         "MAX" : 1,
+         "MIN" : 0.25,
+         "NAME" : "peak",
+         "TYPE" : "slider",
+         "UI_GROUP" : "shape, etc"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "long vertical push",
+         "MAX" : 1,
+         "MIN" : 0,
+         "PARAMS": 0.025,
+         "NAME" : "push",
+         "TYPE" : "bang smooth",
+         "UI_GROUP" : "shape, etc"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "blend copies offset according to spin rate (no effect if 'auto density' enabled)",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "density",
+         "TYPE" : "knob",
+         "UI_GROUP" : "shape, etc"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "audio modulates peak",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_peak",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "shape, etc"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "audio modulates vertical motion",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_push",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "shape, etc"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "audio modulates density",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_density",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "shape, etc"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "mix in media as color input",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media",
+         "TYPE" : "slider",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "gradually modulate 'tune'",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_tune",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "zoetrope"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "manually rotate zoetrope (invisible if 'rate' is high)",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "manual",
+         "TYPE" : "bang",
+         "UI_GROUP" : "zoetrope"
+      },
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "feedback color lighten/darken (12:00 is neutral)",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "lighten",
+         "TYPE" : "knob",
+         "UI_GROUP" : "color"
+      }
+   ],
+   "CREDIT" : "Victor S.",
+   "DESCRIPTION" : "",
+   "WIDTH" : 1920,
+   "HEIGHT" : 1080,
+   "GPU": 3,
+   "TAGS" : 
+   [
+    "feedback",
+    "media",
+    "2d",
+    "colorful",
+    "psychedelic"
+   ],
+   "IMAGE_PATH" : "thumb.png",
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1920,
+         "TARGET" : "fb0",
+         "WIDTH" : 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1920,
+         "TARGET" : "fb1",
+         "WIDTH" : 1920
+      }
+   ],
+   "TITLE" : "Hills, Eels"
+}

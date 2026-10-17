@@ -1,0 +1,148 @@
+{
+	"CONTROLS" : 
+	[{
+			"DEFAULT" : 1.0,
+			"DESCRIPTION" : "If the scene appears dark because there is no audio, turn this off.",
+			"MAX" : 1.0,
+			"MIN" : 0,
+			"NAME" : "audio_brightness",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "action"
+		},{
+			"DEFAULT" : 0.4,
+			"DESCRIPTION" : "More or less of the white swirling stars.",
+			"MAX" : 1.0,
+			"MIN" : 0,
+			"NAME" : "starry_night",
+			"TYPE" : "slider",
+			"UI_GROUP" : "action"
+		},{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Sends a ripple effect through the scene.",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "ripple_in_spacetime",
+			"PARAMS" : 0.01,
+			"TYPE" : "bang smooth",
+			"UI_GROUP" : "action"
+		},{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Mix between seeing the colorful stars only, or the white shimmery dust only.",
+			"MAX" : 1.0,
+			"MIN" : 0,
+			"NAME" : "star_dust_mix",
+			"TYPE" : "knob",
+			"UI_GROUP" : "aesthetic"
+		},{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "This lets you split the two types of stars based on brightness in the media.",
+			"MAX" : 1.0,
+			"MIN" : 0,
+			"NAME" : "media_split_mix",
+			"TYPE" : "knob",
+			"UI_GROUP" : "aesthetic"
+		},{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Alternate purple color palette. Good with Hue slider in meta controls.",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "purple_stars",
+			"PARAMS" : 0.01,
+			"TYPE" : "toggle",
+			"UI_GROUP" : "aesthetic"
+		},{
+			"DEFAULT" : 0.0,
+			"DESCRIPTION" : "Turns off the bubbly blue nebula in the background.",
+			"MAX" : 1.0,
+			"MIN" : 0,
+			"NAME" : "nebula_off",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "aesthetic"
+		},{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Turn on if you want media to hard-mask the background (can be good with logos).",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_mask",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "aesthetic"
+		},{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "This changes the stars into a mix of stars and galaxies, adding many more entities to the sky.",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "billions_and_billions",
+			"PARAMS" : 0.1,
+			"TYPE" : "toggle",
+			"UI_GROUP" : "star_arrangement"
+		},{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "This makes stars appear in geometric patterns. Patterns that can't have formed naturally...",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "patterns_in_the_stars",
+			"PARAMS" : 0.1,
+			"TYPE" : "toggle",
+			"UI_GROUP" : "star_arrangement"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Occasionally a huge star can 'blow out' the image, and you can use this to reduce that occurrance. Keep it off to increase the number of stars generally, though.",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "no_big_clumps",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "star_arrangement"
+		},{
+			"DEFAULT" : 0.0,
+			"DESCRIPTION" : "Flattens the layers of stars down to a single surface. Interesting look with 'patterns in the stars' turned on as well.",
+			"MAX" : 1.0,
+			"MIN" : 0,
+			"NAME" : "flatten_layers",
+			"TYPE" : "slider smooth",
+			"PARAMS":0.1,
+			"UI_GROUP" : "star_arrangement"
+		}
+	],
+	"CREDIT" : "Kali x Meebs",
+	"DESCRIPTION" : "Space. The final frontier.",
+	"GPU" : 0,
+	"HEIGHT" : 1080,
+	"IMAGES" : 
+	[
+		{
+			"NAME" : "base_img",
+			"PATH" : "images/nebula.jpg"
+		}
+	],
+	"IMAGE_PATH" : "dust.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "repeat"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"FILTER" : "linear",
+			"FLOAT" : false,
+			"HEIGHT" : 864,
+			"TARGET" : "dustPass",
+			"WIDTH" : 1536,
+			"WRAP" : "repeat"
+		},
+		{
+			"FILTER" : "linear",
+			"FLOAT" : false,
+			"HEIGHT" : 864,
+			"TARGET" : "backbuffer",
+			"WIDTH" : 1536,
+			"WRAP" : "repeat"
+		}
+	],
+	"TITLE" : "Cosmic Dust",
+	"TAGS":["2D","peaceful","pretty","space","fractal"],
+	"WIDTH" : 1920
+}

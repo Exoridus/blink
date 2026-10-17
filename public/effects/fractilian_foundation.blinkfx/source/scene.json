@@ -1,0 +1,133 @@
+{
+   "CONTROLS" : [
+     {
+        "DEFAULT" : 0.0,
+        "DESCRIPTION" : "adds basic feedback to the scene",
+        "MAX" : 1.0,
+        "MIN" : 0.0,
+        "NAME" : "feedback",
+        "PARAMS" : 0.05,
+        "TYPE" : "slider smooth",
+        "UI_GROUP" : "distortion"
+     },
+     {
+        "DEFAULT" : 0.0,
+        "DESCRIPTION" : "Distorts the fractal and adds a vignette",
+        "MAX" : 1.0,
+        "MIN" : 0.0,
+        "NAME" : "barrel_distortion",
+        "PARAMS" : 0.01,
+        "TYPE" : "slider smooth",
+        "UI_GROUP" : "distortion"
+     },
+      {
+         "DEFAULT" : 0.97,
+         "DESCRIPTION" : "This adds more variation to the fractal color. Turning it up all the way will create a lot of 'rings'",
+         "MAX" : 0.9999,
+         "MIN" : 0.9000,
+         "NAME" : "detail",
+         "PARAMS" : 0.01,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "fractal"
+      },
+      {
+         "DEFAULT" : 0.2,
+         "DESCRIPTION" : "Create a softer or harder edge with the fractal coloration",
+         "MAX" : 0.0,
+         "MIN" : 1.0,
+         "NAME" : "fractal_softness",
+         "PARAMS" : 0.05,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "fractal"
+      },
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Add manual rotation to the fractal. This is helpful if you want to control the intensity of the rotation",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "auto_rotate",
+         "PARAMS" : 0.01,
+         "TYPE" : "toggle",
+         "UI_GROUP" : "rotate"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Add manual rotation to the fractal. This is helpful if you want to control the intensity of the rotation",
+         "MAX" : 1.0,
+         "MIN" : -1.0,
+         "NAME" : "rotate",
+         "PARAMS" : 0.001,
+         "TYPE" : "knob traveler",
+         "UI_GROUP" : "rotate"
+      },
+      {
+         "DEFAULT" : 1.5,
+         "DESCRIPTION" : "Zoom in on the fractal",
+         "MAX" : 3,
+         "MIN" : 0.5,
+         "NAME" : "zoom",
+         "PARAMS" : 0.01,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Move the position of the fractal",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "camera_position",
+         "PARAMS" : 0.01,
+         "TYPE" : "xy smooth",
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Choose from one of 3 color palettes.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "color_regime",
+         "TYPE" : "slider",
+         "UI_GROUP" : "colorize"
+      },
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Flip the color scheme",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "colorModifier",
+         "PARAMS" : 0.01,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "colorize"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "pulses color to the beat.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "color_beat_pulse",
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "colorize"
+      }
+   ],
+   "PASSES" : [
+      {
+         "HEIGHT" : 1080,
+         "TARGET" : "BuffA",
+         "WIDTH" : 1920
+      }
+    ],
+    "GPU": 1,
+    "TAGS" : 
+    [
+     "fractal",
+     "kaleidoscope",
+     "feedback",
+     "psychedelic",
+     "groovy"
+    ],
+   "CREDIT" : "mojovideotech",
+   "DESCRIPTION" : "FractilianFoundation",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "fractilian_foundation.png",
+   "TITLE" : "Fractilian Foundation",
+   "WIDTH" : 1920
+}

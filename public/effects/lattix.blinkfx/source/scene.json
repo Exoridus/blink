@@ -1,0 +1,60 @@
+{
+ "CREDIT": "Anonymous",
+ "TITLE": "lattix",
+ "IMAGE_PATH": "lattix.png",
+ "IMAGES": [],
+ "PASSES": [{"TARGET":"firstBuffer"}],
+ "GPU": 3,
+ "TAGS" : 
+ [
+  "infinite",
+  "raymarching",
+  "3d",
+  "glitchy",
+  "tunnel"
+ ],
+ "CONTROLS": [{
+    "NAME": "fly_in_out",
+    "PARAMS": 0.05,
+    "TYPE": "slider traveler",
+    "UI_GROUP":"camera",
+    "DESCRIPTION": "Center for no flight. Up to fly forward, down to fly backwards."
+  },{
+    "NAME": "forward_on_beat",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "UI_GROUP":"camera",
+    "DESCRIPTION": "Turn off to stop the forward progress on the beat."
+  },{
+    "NAME": "twitch",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP":"camera"
+  },{
+    "NAME": "down_rot",
+    "TYPE": "bang counter",
+    "UI_GROUP":"rotate"
+  },{
+    "NAME": "right_rot",
+    "TYPE": "bang counter",
+    "UI_GROUP":"rotate"
+  },{
+    "NAME": "invert",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "color"
+  },{
+    "NAME": "aberration",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "color"
+  }]
+ }

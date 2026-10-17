@@ -1,0 +1,32 @@
+{
+ "CREDIT": "sheltron ft. Meebs",
+ "TITLE": "Sprinkles",
+ "IMAGE_PATH": "sprinkles.png",
+"IMAGES": [],
+  "GPU": 3,
+  "TAGS" : 
+  [
+  "media",
+  "simulation",
+  "reaction-diffusion",
+  "dark"
+  ],
+ "PASSES": [
+ {"TARGET":"buffA", "WIDTH":1920, "HEIGHT":1080, "FLOAT": true},
+ {"TARGET":"buffA2", "WIDTH":1920, "HEIGHT":1080, "FLOAT": true},
+ {"TARGET":"buffB", "WIDTH":1920, "HEIGHT":1080, "FLOAT": true},
+ {"TARGET":"buffB2", "WIDTH":1920, "HEIGHT":1080, "FLOAT": true}],
+
+"CONTROLS":[{"NAME": "scale", "MIN": -2.0, "MAX": 2.0, "DEFAULT": 0.0, "UI_GROUP":"simulation"},
+
+{"NAME":"pulse_out", "TYPE": "bang smooth", "UI_GROUP": "feed", "MAX": 1.0, "DEFAULT": 0.0},
+{"NAME":"auto_feed", "TYPE": "toggle", "UI_GROUP": "feed", "MAX": 1.0, "DEFAULT": 1.0},
+
+{"NAME":"black_pulse", "TYPE": "bang smooth", "UI_GROUP": "erase", "MAX": 1.0, "DEFAULT": 0.0},
+{"NAME":"full_erase", "TYPE": "bang smooth", "UI_GROUP": "erase", "MAX": 1.0, "DEFAULT": 0.0, "PARAMS":0.2},
+
+{"NAME":"grow", "TYPE": "bang smooth", "UI_GROUP": "twitch", "MAX": 1.0, "DEFAULT": 0.0, "PARAMS": 0.2},
+{"NAME":"pulse_ripple", "TYPE": "bang smooth", "UI_GROUP": "twitch", "MAX": 1.0, "DEFAULT": 0.0, "PARAMS": 0.2}
+
+  ]
+}

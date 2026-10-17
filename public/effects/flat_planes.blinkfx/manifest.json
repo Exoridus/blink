@@ -1,0 +1,523 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.flat_planes",
+  "title": "Flat planes",
+  "author": "mrange",
+  "description": "Flat planes scene",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "planes",
+    "flat"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "flash_color",
+      "label": "flash color",
+      "description": "Flash color",
+      "group": "Colors",
+      "type": "color",
+      "default": [
+        0.1,
+        0.00444,
+        0.02,
+        1
+      ]
+    },
+    {
+      "name": "color_mod",
+      "label": "color mod",
+      "description": "Color mod",
+      "group": "Colors",
+      "type": "point2d",
+      "default": [
+        0.3,
+        2
+      ],
+      "min": [
+        -1,
+        -5
+      ],
+      "max": [
+        1,
+        5
+      ]
+    },
+    {
+      "name": "color_xy",
+      "label": "color xy",
+      "description": "Color xy",
+      "group": "Colors",
+      "type": "point2d",
+      "default": [
+        0,
+        4
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        9,
+        9
+      ]
+    },
+    {
+      "name": "color_zw",
+      "label": "color zw",
+      "description": "Color ZW",
+      "group": "Colors",
+      "type": "point2d",
+      "default": [
+        2,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        9,
+        3
+      ]
+    },
+    {
+      "name": "fade",
+      "label": "fade",
+      "description": "fade",
+      "group": "Colors",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "warp_world",
+      "label": "warp world",
+      "description": "Ray distortion",
+      "group": "Distortion",
+      "type": "point2d",
+      "default": [
+        2,
+        0
+      ],
+      "min": [
+        -4,
+        -4
+      ],
+      "max": [
+        4,
+        4
+      ]
+    },
+    {
+      "name": "warp_limit",
+      "label": "warp limit",
+      "description": "Ray limits",
+      "group": "Distortion",
+      "type": "point2d",
+      "default": [
+        0.707,
+        1.414
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        3,
+        3
+      ]
+    },
+    {
+      "name": "warp_beat",
+      "label": "warp beat",
+      "description": "Ray beat",
+      "group": "Distortion",
+      "type": "point2d",
+      "default": [
+        0,
+        1
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "rep",
+      "label": "rep",
+      "description": "Repetitions",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        5,
+        25
+      ],
+      "min": [
+        3,
+        3
+      ],
+      "max": [
+        50,
+        50
+      ]
+    },
+    {
+      "name": "width",
+      "label": "width",
+      "description": "Widths",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0.03,
+        0.24
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        0.15,
+        0.4
+      ]
+    },
+    {
+      "name": "zoom",
+      "label": "zoom",
+      "description": "Zooms",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0.4,
+        2
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        4,
+        4
+      ]
+    },
+    {
+      "name": "path_a",
+      "label": "path a",
+      "description": "Path A",
+      "group": "Movement",
+      "type": "point2d",
+      "default": [
+        0.1111,
+        0.0786
+      ],
+      "min": [
+        -0.3,
+        -0.3
+      ],
+      "max": [
+        0.3,
+        0.3
+      ]
+    },
+    {
+      "name": "path_b",
+      "label": "path b",
+      "description": "Path B",
+      "group": "Movement",
+      "type": "point2d",
+      "default": [
+        3,
+        3
+      ],
+      "min": [
+        -6,
+        -6
+      ],
+      "max": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Bass mix",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.7,
+        0.7
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Bass power",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        3,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "bass_speed",
+      "label": "bass speed",
+      "description": "Bass speed",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.707,
+        0.5
+      ],
+      "min": [
+        -6,
+        -2
+      ],
+      "max": [
+        6,
+        2
+      ]
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Media opacity",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_multiplier",
+      "label": "media multiplier",
+      "description": "Media multiplier",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": -9,
+      "max": 9
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "flash_color": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "color_mod": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "color_xy": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "color_zw": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "fade": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "warp_world": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "warp_limit": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "warp_beat": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "rep": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "width": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "zoom": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "path_a": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "path_b": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_speed": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_multiplier": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

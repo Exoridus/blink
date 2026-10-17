@@ -1,0 +1,263 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.stained_glass",
+  "title": "Stained Glass",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "psychedelic",
+    "abstract"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "pattern",
+      "label": "pattern",
+      "description": "Choose from one of four different patterns for the scene.",
+      "group": "pattern",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "move_xy",
+      "label": "move xy",
+      "description": "Relocate the camera position to be off-center.",
+      "group": "motion",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -300,
+        -300
+      ],
+      "max": [
+        300,
+        300
+      ]
+    },
+    {
+      "name": "reverse",
+      "label": "reverse",
+      "description": "Reverse direction of zoom, to be traveling in or out.",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1,
+      "step": 2
+    },
+    {
+      "name": "zoom_speed",
+      "label": "zoom speed",
+      "description": "How fast to zoom in or out.",
+      "group": "motion",
+      "type": "float",
+      "default": 0.8,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "spin",
+      "label": "spin",
+      "description": "Really intense spin effect. Default: 50%.",
+      "group": "motion",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "distortion",
+      "label": "distortion",
+      "description": "Barrel distortion in or out.",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "stacked_layers",
+      "label": "stacked layers",
+      "description": "Number of axes of symmetry. Careful, increasing this can lower FPS.",
+      "group": "geometry",
+      "type": "float",
+      "default": 4,
+      "min": 0,
+      "max": 7
+    },
+    {
+      "name": "pearlescence",
+      "label": "pearlescence",
+      "group": "colorize",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "colorNoise",
+      "type": "texture2d",
+      "path": "assets/colornoise.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "firstBuff",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuff.previous",
+          "uniform": "firstBuff"
+        },
+        {
+          "source": "asset.colorNoise",
+          "uniform": "colorNoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "firstBuff",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuff",
+          "uniform": "firstBuff"
+        },
+        {
+          "source": "asset.colorNoise",
+          "uniform": "colorNoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "pattern": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "move_xy": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.04
+      },
+      "reverse": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "zoom_speed": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "spin": {
+        "format": "ssf",
+        "type": "slider traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.02
+      },
+      "distortion": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "stacked_layers": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "pearlescence": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      }
+    },
+    "scriptUniforms": {
+      "random_spot": "float",
+      "script_bass_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

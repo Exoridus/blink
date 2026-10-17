@@ -1,0 +1,338 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Camera travel speed through the tunnel (forward/reverse)",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "path_speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Motion"
+		},
+		{
+			"DEFAULT" : -2,
+			"DESCRIPTION" : "Animation speed of the triangular geometry sections",
+			"MAX" : 10,
+			"MIN" : -10,
+			"NAME" : "tri_speed",
+			"TYPE" : "slider",
+			"UI_GROUP" : "Motion"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Continuous rotation speed of the entire scene",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "rot_speed",
+			"TYPE" : "knob speed",
+			"UI_GROUP" : "Motion"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Fixed rotation angle for the scene orientation",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "rot_base",
+			"PARAMS" : 0.2,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Motion"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Scale of surface pattern tiles (higher = smaller, more transparent)",
+			"MAX" : 3,
+			"MIN" : 0,
+			"NAME" : "pattern_size",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effects"
+		},
+		{
+			"DEFAULT" : 
+			[
+				20,
+				2
+			],
+			"DESCRIPTION" : "Flash light intensity (X: on beat, Y: base intensity)",
+			"MAX" : 
+			[
+				50,
+				50
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "flash_control",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Effects"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Toggle visibility of animated glowing snake tubes",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "show_snakes",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "Effects"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "Hue offset for triangle surface colors",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "tri_hue",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.39,
+				0.1,
+				1
+			],
+			"DESCRIPTION" : "RGB color of the flashing light effect",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "flash_col",
+			"PARAMS" : 0.1,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 0.6,
+			"DESCRIPTION" : "Hue offset for the glowing snake elements",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "snake_hue",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.7,
+				0.7
+			],
+			"DESCRIPTION" : "Audio response strength (X: bass level, Y: bass hits)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				3,
+				1
+			],
+			"DESCRIPTION" : "Audio response curve (higher = more intense reaction)",
+			"MAX" : 6,
+			"MIN" : 0,
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Enable twisting deformation of geometry sections",
+			"LABELS" : 
+			[
+				"None",
+				"Some",
+				"All"
+			],
+			"MAX" : 2,
+			"MIN" : 0,
+			"NAME" : "twist_on",
+			"TYPE" : "dropdown",
+			"UI_GROUP" : "Shape",
+			"VALUES" : 
+			[
+				0,
+				1,
+				9
+			]
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Blend ratio between linear and sine wave twisting",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "twist_mix",
+			"PARAMS" : 0.02,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Amount of linear twist applied along depth axis",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "twist_straight",
+			"TYPE" : "knob",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.4,
+				0.5
+			],
+			"DESCRIPTION" : "Sine wave twist parameters (X: amplitude, Y: frequency)",
+			"MAX" : 
+			[
+				3,
+				3
+			],
+			"MIN" : 
+			[
+				-3,
+				-3
+			],
+			"NAME" : "twist_sine",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "Base tunnel warping (X: forward pull, Y: radial pull)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				-1,
+				-1
+			],
+			"NAME" : "warp_world",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "Additional warping applied on bass hits for pumping effect",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				-1,
+				-1
+			],
+			"NAME" : "warp_world_beat",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Opacity of media texture overlay on surfaces",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.19401,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Scale of media texture mapping (higher = zoomed in)",
+			"MAX" : 8,
+			"MIN" : 0.125,
+			"NAME" : "media_zoom",
+			"PARAMS" : 0.23001,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "Offset position of media texture (X: horizontal, Y: vertical)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "media_offset",
+			"PARAMS" : 0.24001,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Dive through an infinite synthwave tunnel of neon triangles and glowing geometry. This audio-reactive journey features cascading triangular patterns that pulse and twist with the music, creating a hypnotic path through electric blue and magenta space. Glowing snake-like tubes weave through the geometric landscape while reflective surfaces bounce light in mesmerizing patterns. Every bass hit transforms the tunnel with warping effects and intense flashes, making this the perfect centerpiece for live performances and VJ sets",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"neon",
+		"synthwave",
+		"triangle",
+		"tunnel",
+		"raymarch",
+		"audio-reactive",
+		"geometric",
+		"bass-reactive",
+		"reflections",
+		"cyberpunk",
+		"purple"
+	],
+	"TITLE" : "Neon Triangulator",
+	"WIDTH" : 1920
+}

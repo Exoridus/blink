@@ -1,0 +1,64 @@
+{
+   "CONTROLS" : [{
+      "NAME": "iterations",
+      "MIN" : 0,
+      "MAX" : 70,
+      "DEFAULT":20
+  },{
+   "NAME": "factor1",
+   "MIN" : -8,
+   "MAX" : 40,
+   "DEFAULT":8
+},{
+   "NAME": "factor2",
+   "MIN" : -4,
+   "MAX" : 20,
+   "DEFAULT":4
+},{
+   "NAME": "factor3",
+   "MIN" : 0,
+   "MAX" : 10,
+   "DEFAULT":2
+},{
+   "NAME": "factor4",
+   "MIN" : -1,
+   "MAX" : 2,
+   "DEFAULT":1
+},{
+   "NAME": "factor1_bass",
+   "MIN" : -2,
+   "MAX" : 2,
+   "DEFAULT":0
+},{
+   "NAME": "factor2_bass",
+   "MIN" : -2,
+   "MAX" : 2,
+   "DEFAULT":0
+},{
+   "NAME": "factor3_bass",
+   "MIN" : -2,
+   "MAX" : 2,
+   "DEFAULT":0
+},{
+   "NAME": "factor4_bass",
+   "MIN" : -2,
+   "MAX" : 2,
+   "DEFAULT":0
+},{
+   "NAME": "time_scroll",
+   "MIN" : -1,
+   "MAX" : 1,
+   "DEFAULT":0.1
+},{
+   "NAME": "bass_scroll",
+   "MIN" : -3,
+   "MAX" : 3,
+   "DEFAULT":1.0
+}],
+   "CREDIT" : "butadiene",
+   "DESCRIPTION" : "treasure https://www.shadertoy.com/view/3ltBD8",
+   "HEIGHT" : 720,
+   "IMAGE_PATH" : "treasure.png",
+   "TITLE" : "Treasure",
+   "WIDTH" : 1280
+}

@@ -1,0 +1,142 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Move camera to explore the fractal",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "navigate",
+         "TYPE" : "xy smooth",
+         "PARAMS":0.005,
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Camera will constantly be slowly rotating",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "constant_rotate",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Camera will automatically jump around on the beat",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_camera_jumps",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Manually do a random camera jump",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "random_camera",
+         "TYPE" : "bang",
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 1.4,
+         "DESCRIPTION" : "Zoom in or out of the fractal",
+         "MAX" : 10,
+         "MIN" : 0,
+         "NAME" : "zoom",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.02,
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Move the media around within the fractal",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "media_xy",
+         "TYPE" : "xy smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "media"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Media appears in flat layers or branching curves",
+         "MAX" : 0,
+         "MIN" : 1,
+         "NAME" : "media_style",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Subtract the grid pattern from the media",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "sub_pattern",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Affect the grid shape",
+         "MAX" : 3,
+         "MIN" : 0.001,
+         "NAME" : "grid",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "shape"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Subtle morphing of the fractal shape for extra action",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "bubbling",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "shape"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Remove the grid pattern and reflections",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "minimal",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "shape"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Send a smooth white pulse down",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "pulser",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "action"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Send a black/white pulse down",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "pulse2",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.01,
+         "UI_GROUP" : "action"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Flasher rising up in sync with the beat",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "flasher_on",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "action"
+      }
+   ],
+   "CREDIT" : "Shane",
+   "DESCRIPTION" : "Applying a simple pattern and coloring to a standard iterative Mandelbrot transformation.",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "mandelbrot_decoration.png",
+   "TITLE" : "Mandelbrot Decoration",
+   "WIDTH" : 1920,
+   "GPU": 3,
+   "TAGS" : 
+   [
+    "fractal",
+    "media",
+    "infinite",
+    "psychedelic"
+   ]
+}

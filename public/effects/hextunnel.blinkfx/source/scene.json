@@ -1,0 +1,102 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Use this scene with media!",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media_scale",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "USE MEDIA"
+      },
+      {
+         "DEFAULT" : 3.14,
+         "DESCRIPTION" : "Look around in the tunnel.",
+         "MAX" : 6.28,
+         "MIN" : 0,
+         "NAME" : "cam_Look",
+         "PARAMS" : 0.01,
+         "TYPE" : "xy smooth",
+         "UI_GROUP" : "tunnel"
+      },
+      {
+         "DEFAULT" : 0.6,
+         "DESCRIPTION" : "Radius of the tunnel. Too big and you may get noisy.",
+         "MAX" : 0.9,
+         "MIN" : 0.1,
+         "NAME" : "radius",
+         "PARAMS" : 0.2,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "tunnel"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Add a simple smooth ripple distortion to the scene.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "ripples",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "tunnel"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Add a simple smooth ripple distortion to the scene.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "Red",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Add a simple smooth ripple distortion to the scene.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "Green",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Add a simple smooth ripple distortion to the scene.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "Blue",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      }
+   ],
+   "CREDIT" : "sheltron",
+   "DESCRIPTION" : "raymarch hex tunnel day3",
+   "HEIGHT" : 1080,
+   "IMAGES" : [
+      {
+         "NAME" : "image30",
+         "PATH" : "images/30.png"
+      }
+   ],
+   "IMAGE_PATH" : "hextunnel.png",
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "BuffA",
+         "WIDTH" : 1920
+      }
+   ],
+   "TITLE" : "HexTunnel",
+   "WIDTH" : 1920,
+   "GPU": 2,
+   "TAGS" : 
+   [
+    "raymarching",
+    "tunnel",
+    "dark",
+    "media"
+   ]
+}

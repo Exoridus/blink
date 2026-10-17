@@ -1,0 +1,145 @@
+{
+  "CONTROLS" : [
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "invert lightness on beat. smooth, smoky, flashing",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "smoke",
+      "TYPE" : "toggle",
+      "UI_GROUP" : "color"
+    },
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "audio and color-based upward jump",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "jump",
+      "TYPE" : "toggle",
+      "UI_GROUP" : "motion"
+    },
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "horizontal sinusoidal twitch",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "twitch",
+      "TYPE" : "bang",
+      "UI_GROUP" : "motion"
+    },
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "swap center/sides",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "swap",
+      "TYPE" : "bang",
+      "UI_GROUP" : "motion"
+    },
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "draw colors from audio spectrum",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "spectral_color",
+      "TYPE" : "toggle",
+      "UI_GROUP" : "color"
+    },
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "alternate color postprocessing",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "bile",
+      "TYPE" : "toggle",
+      "UI_GROUP" : "color"
+    },
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "lower warp in center for concave appearance",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "pinch",
+      "TYPE" : "toggle",
+      "UI_GROUP" : "shape"
+    },
+    {
+      "DEFAULT" : 0.08,
+      "DESCRIPTION" : "color feed magnitude. zero in center",
+      "MAX" : 0.2,
+      "MIN" : -0.2,
+      "NAME" : "feed",
+      "TYPE" : "slider",
+      "UI_GROUP" : "color"
+    },
+    {
+      "DEFAULT" : 0.5,
+      "DESCRIPTION" : "overall scale of displacement",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "warp",
+      "TYPE" : "slider",
+      "UI_GROUP" : "motion"
+    },
+    {
+      "DEFAULT" : 0,
+      "DESCRIPTION" : "soft vertical mirror",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "mirror",
+      "TYPE" : "slider",
+      "UI_GROUP" : "shape"
+    },
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "invert color feed in central egg/eye",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "radius",
+      "TYPE" : "slider",
+      "UI_GROUP" : "color"
+    },
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "vertical drift. zero in center",
+      "MAX" : 8,
+      "MIN" : -8,
+      "NAME" : "drift",
+      "TYPE" : "slider",
+      "UI_GROUP" : "motion"
+    },
+    {
+      "DEFAULT" : 0.0,
+      "DESCRIPTION" : "media mix. no effect if media is all black",
+      "MAX" : 1,
+      "MIN" : 0,
+      "NAME" : "media_mix",
+      "TYPE" : "slider",
+      "UI_GROUP" : "media"
+    }
+  ],
+  "CREDIT" : "Victor S.",
+  "DESCRIPTION" : "",
+  "WIDTH" : 1920,
+  "HEIGHT" : 1080,
+  "IMAGE_PATH" : "thumb.png",
+  "PASSES" : [
+    {
+       "FLOAT" : true,
+       "TARGET" : "fb0"
+    },
+    {
+       "FLOAT" : true,
+       "TARGET" : "fb1"
+    }
+  ],
+  "GPU": 2,
+  "TAGS" : 
+  [
+   "feedback",
+   "media",
+   "intense",
+   "colorful"
+  ],
+  "TITLE" : "Milk, Honey, Smoke, Bile"
+}

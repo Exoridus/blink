@@ -1,0 +1,116 @@
+{
+  "CREDIT": "Synesthesia",
+  "TITLE": "Canvas",
+  "IMAGE_PATH": "canvas.png",
+  "GPU": 1,
+  "TAGS" : 
+  [
+   "grayscale",
+   "feedback",
+   "media",
+   "dark"
+  ],
+  "CONTROLS": [
+    {
+      "NAME": "pulser_on",
+      "DEFAULT":1.0,
+      "TYPE": "toggle",
+      "DESCRIPTION": "Creates pulses emanating from the center. Moves on BPM with the option bpm pulse, or manually with the button manual pulse.",
+      "UI_GROUP": "pulser"
+    },{
+      "NAME": "bpm_pulse",
+      "DEFAULT":1.0,
+      "TYPE": "toggle",
+      "DESCRIPTION": "Pulses every two beats, based on bpm.",
+      "UI_GROUP": "pulser"
+    },{
+      "NAME": "manual_pulse",
+      "DEFAULT":0.0,
+      "PARAMS": 0.05,
+      "TYPE": "bang smooth",
+      "DESCRIPTION": "bpm pulse should be set to OFF to use this. Manually create a pulse on press.",
+      "UI_GROUP": "pulser"
+    },{
+      "NAME": "beat_flasher_on",
+      "DEFAULT":1.0,
+      "TYPE": "toggle",
+      "DESCRIPTION": "Flashes the whole screen when a beat is detected if set to on.",
+      "UI_GROUP": "flasher"
+    },{
+      "NAME": "bpm_flasher_on",
+      "DEFAULT":0.0,
+      "TYPE": "toggle",
+      "DESCRIPTION": "Turns the screen into a BPM strobe effect when set to on.",
+      "UI_GROUP": "flasher"
+    },{
+      "NAME": "painter_on",
+      "DEFAULT":1.0,
+      "TYPE": "toggle",
+      "DESCRIPTION": "Turns the screen into a BPM strobe effect when set to on.",
+      "UI_GROUP": "painter"
+    },{
+      "NAME": "auto_painter",
+      "DEFAULT":1.0,
+      "TYPE": "toggle",
+      "DESCRIPTION": "When set to on, pushes the brush around the screen in time to the music. Disable this to manually control the painter.",
+      "UI_GROUP": "painter"
+    },{
+      "NAME": "paint_pulse",
+      "DEFAULT":0.0,
+      "PARAMS": 0.1,
+      "TYPE": "bang smooth",
+      "DESCRIPTION": "Pulse the size of the brush on button press.",
+      "UI_GROUP": "painter"
+    },{
+      "NAME": "manual_painter",
+      "MIN": -1.0,
+      "MAX":  1.0,
+      "DEFAULT": 0.0,
+      "TYPE": "xy smooth",
+      "PARAMS": 0.05,
+      "DESCRIPTION": "auto painter MUST BE SET TO OFF. Manually move the brush around the screen by using the pad.",
+      "UI_GROUP": "painter"
+    },{
+      "NAME": "brush_size",
+      "DEFAULT":0.44,
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "TYPE": "slider smooth",
+      "DESCRIPTION": "Change the size of the circular paintbrush by moving this slider.",
+      "UI_GROUP": "painter"
+    },{
+      "NAME": "feedback",
+      "DEFAULT":0.4,
+      "MAX": 0.99,
+      "TYPE": "slider smooth",
+      "PARAMS": 0.05,
+      "DESCRIPTION": "Add motion blur to everything in the scene. Higher is more blur.",
+      "UI_GROUP": "feedback"
+    },{
+      "NAME": "noise_on",
+      "DEFAULT":0.0,
+      "TYPE": "toggle",
+      "DESCRIPTION": "Add a white noise/grain effect to everything in the scene.",
+      "UI_GROUP": "general"
+    },{
+      "NAME": "invert",
+      "DEFAULT":0.0,
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "PARAMS":0.25,
+      "TYPE": "toggle smooth",
+      "DESCRIPTION": "Change from white on black to black on white.",
+      "UI_GROUP": "general"
+    },{
+      "NAME": "brightness",
+      "DEFAULT":1.0,
+      "MIN": 0.0,
+      "MAX": 3.0,
+      "PARAMS":0.25,
+      "TYPE": "slider smooth",
+      "DESCRIPTION": "Change brightness of the output. With feedback this can get overdriven to complete whiteout.",
+      "UI_GROUP": "general"
+    }
+
+  ]
+}

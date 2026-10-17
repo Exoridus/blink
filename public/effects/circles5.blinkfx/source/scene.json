@@ -1,0 +1,62 @@
+{
+ "CREDIT": "Keijiro Takahashi",
+ "TITLE": "Circles5",
+ "IMAGE_PATH": "circles5.png",
+ "IMAGES": [],
+ "GPU": 1,
+ "TAGS" : 
+ [
+  "2d",
+  "grayscale",
+  "feedback",
+  "media",
+  "dark"
+ ],
+ "PASSES": [{"TARGET":"firstBuffer"}],
+ "CONTROLS": [{
+    "NAME": "rain",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "effects"
+  },{
+    "NAME": "pop",
+    "MAX" : 0.2,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.08,
+    "TYPE": "bang smooth",
+    "UI_GROUP": "effects"
+  },{
+    "NAME": "feedback_on",
+    "MAX" : 0.9,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.08,
+    "TYPE": "toggle smooth",
+    "UI_GROUP": "feedback"
+  },{
+    "NAME": "feedback_warp",
+    "MAX" : 0.1,
+    "MIN" : 0.0,
+    "DEFAULT":0.05,
+    "PARAMS": 0.08,
+    "TYPE": "slider smooth",
+    "UI_GROUP": "feedback"
+  },{
+    "NAME": "speed_",
+    "MAX" : 1.5,
+    "MIN" : 0.0,
+    "DEFAULT":0.8,
+    "TYPE": "slider",
+    "UI_GROUP": "time"
+  },{
+    "NAME": "reverse",
+    "MAX" : -1.0,
+    "MIN" : 1.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "time"
+  }]
+ }

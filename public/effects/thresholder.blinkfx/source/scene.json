@@ -1,0 +1,207 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "up for more media, down for more feedback",
+         "MAX" : 1.1,
+         "MIN" : 0,
+         "NAME" : "THRESHOLD",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "feedback threshold"
+      },
+      {
+         "DEFAULT" : 0.2,
+         "DESCRIPTION" : "volume increases threshold",
+         "NAME" : "threshold_vol",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "feedback threshold"
+      },{
+         "DEF_COLOR" : [ 0.8, 0.1, 0.1 ],
+         "DESCRIPTION" : "this color will be the middle of the threshold range",
+         "NAME" : "keep_color",
+         "TYPE" : "color",
+         "UI_GROUP" : "feedback threshold"
+      },
+      {
+         "DESCRIPTION" : "randomize color",
+         "NAME" : "random_keep_color",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "feedback threshold"
+      },
+      {
+         "DEFAULT" : 0.004,
+         "DESCRIPTION" : "tone effects movements",
+         "MAX" : 0.01,
+         "MIN" : 0.0,
+         "NAME" : "tone_movement",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "feedback motion"
+      },{
+         "DEFAULT" : 0.003,
+         "DESCRIPTION" : "zoom on the beat",
+         "MAX" : 0.02,
+         "MIN" : 0,
+         "NAME" : "zoom_to_volume",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "feedback motion"
+      },
+      {
+         "DESCRIPTION" : "introduces literal glitches. great for prolonged feedback",
+         "NAME" : "bufferglitch",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "feedback motion"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "brightness/value adjustment",
+         "MAX" : 0.002,
+         "MIN" : -0.002,
+         "NAME" : "bright_adjust",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "feedback hsv"
+      },
+      {
+         "DEFAULT" : 0.005,
+         "DESCRIPTION" : "hue adjustment",
+         "MAX" : 0.03,
+         "MIN" : 0.001,
+         "NAME" : "color_spin",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "feedback hsv"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "saturation adjustment",
+         "MAX" : 0.002,
+         "MIN" : -0.002,
+         "NAME" : "saturate_adjust",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "feedback hsv"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "adjusts brightness based on current keep color. may strobe wildly",
+         "NAME" : "bright_adjust_auto",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "feedback hsv"
+      },{
+         "NAME": "palletize_after",
+         "TYPE": "toggle",
+         "DEFAULT": 1.0,
+         "UI_GROUP" : "palettes"
+      },{
+         "NAME": "palletize_before",
+         "TYPE": "toggle",
+         "UI_GROUP" : "palettes"
+      },{
+         "NAME" : "random_palette",
+         "TYPE" : "bang",
+         "UI_GROUP" : "palettes",
+         "DESCRIPTION" : "random"
+      },{
+         "NAME" : "palette1",
+         "TYPE" : "bang",
+         "UI_GROUP" : "palettes",
+         "DESCRIPTION" : "audioreactive 1. DEFAULT"
+      },{
+         "NAME" : "palette2",
+         "TYPE" : "bang",
+         "UI_GROUP" : "palettes",
+         "DESCRIPTION" : "audioreactive 2"
+      },{
+         "NAME" : "palette3",
+         "TYPE" : "bang",
+         "UI_GROUP" : "palettes",
+         "DESCRIPTION" : "+"
+      },{
+         "NAME" : "palette4",
+         "TYPE" : "bang",
+         "UI_GROUP" : "palettes",
+         "DESCRIPTION" : "color bands"
+      },{
+         "NAME" : "palette5",
+         "TYPE" : "bang",
+         "UI_GROUP" : "palettes",
+         "DESCRIPTION" : "rainbow blast. requires sound"
+      },{
+         "DESCRIPTION" : "snags a single frame of media or videosynth",
+         "NAME" : "get_frame",
+         "TYPE" : "bang",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "plays incoming media or videosynth",
+         "NAME" : "play_media",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "snags frames on the beat",
+         "NAME" : "auto_get_frame",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 0.25,
+         "DESCRIPTION" : "scale of video synth",
+         "NAME" : "synthScale",
+         "PARAMS" : 0.01,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "videosynth"
+      },
+      {
+         "DEFAULT" : 0.4,
+         "DESCRIPTION" : "scales the videosynths RGB channels",
+         "NAME" : "synthMacro",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "videosynth"
+      },
+      {
+         "DEFAULT" : 0.1,
+         "DESCRIPTION" : "synth speed",
+         "NAME" : "synthSpeed",
+         "PARAMS" : 0.1,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "videosynth"
+      }
+   ],
+   "HARD_TRANSITIONS":[{"UNIFORM":"movementDir", "VALUES":[-1.0,1.0]}],
+   "TITLE" : "Thresholder",
+   "CREDIT" : "Kyle Grover",
+   "DESCRIPTION" : "Behold the threshold on hold",
+   "GPU": 2,
+   "TAGS" : 
+   [
+   "media",
+   "colorful",
+   "pyschedelic",
+   "intense",
+   "glitchy"
+   ],
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "fkry",
+         "WIDTH" : 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "buffA",
+         "WIDTH" : 1920
+      }
+   ],
+   "HEIGHT" : 1080,
+   "WIDTH" : 1920,
+   "IMAGE_PATH" : "thresholder.png"
+}

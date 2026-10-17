@@ -1,0 +1,409 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.boreal",
+  "title": "Boreal",
+  "author": "Alex Rowe",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "auto_cycle",
+      "label": "auto cycle",
+      "description": "Automatically randomizes all dropdowns when musical transitions are detected",
+      "group": "automation",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "cycle",
+      "label": "cycle",
+      "description": "Manually trigger dropdown randomization",
+      "group": "automation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_warp",
+      "label": "media warp",
+      "description": "Warps media content using the same warp as the background effect",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "warp_type",
+      "label": "warp type",
+      "description": "Texture distortion effects: Waving (fluid noise motion), Still (no distortion), Still 2 (no distortion), Woozy (stretching and drippy distortion)",
+      "group": "motion",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3,
+      "step": 1
+    },
+    {
+      "name": "wind_movement",
+      "label": "wind movement",
+      "description": "Controls camera movement: Moves In (zoom toward center), Rotate Only (static), Moves Out (zoom away from center)",
+      "group": "motion",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2,
+      "step": 1
+    },
+    {
+      "name": "image_select",
+      "label": "image select",
+      "description": "Selects background texture that feeds the aurora. Choose your own media to replace the texture.",
+      "group": "appearance",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3,
+      "step": 1
+    },
+    {
+      "name": "extra_color_tint",
+      "label": "extra color tint",
+      "description": "Adds extra coloration if you want more saturated colors.",
+      "group": "color",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "scanline_thinness",
+      "label": "scanline thinness",
+      "description": "Controls thickness of the image scanning lines that feed the aurora",
+      "group": "scanning",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "static_scan",
+      "label": "static scan",
+      "description": "Static phase offset for the scanning pattern",
+      "group": "scanning",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "pulse_forward",
+      "label": "pulse forward",
+      "description": "Sends a pulse of scan through the media",
+      "group": "scanning",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "scanner_audio_rate",
+      "label": "scanner audio rate",
+      "description": "How fast the scanner will move when audio is present",
+      "group": "scanning",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "scanner_const_rate",
+      "label": "scanner const rate",
+      "description": "Base constant speed for the scanner animation, independent of audio input",
+      "group": "scanning",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "bubbles",
+      "type": "texture2d",
+      "path": "assets/boreal_bubbles.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "lines",
+      "type": "texture2d",
+      "path": "assets/boreal_lines.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "tears",
+      "type": "texture2d",
+      "path": "assets/boreal_tears.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "linework",
+      "type": "texture2d",
+      "path": "assets/pebbletex.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "backbuff",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backbuff.previous",
+          "uniform": "backbuff"
+        },
+        {
+          "source": "asset.bubbles",
+          "uniform": "bubbles"
+        },
+        {
+          "source": "asset.lines",
+          "uniform": "lines"
+        },
+        {
+          "source": "asset.tears",
+          "uniform": "tears"
+        },
+        {
+          "source": "asset.linework",
+          "uniform": "linework"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "backbuff",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backbuff",
+          "uniform": "backbuff"
+        },
+        {
+          "source": "asset.bubbles",
+          "uniform": "bubbles"
+        },
+        {
+          "source": "asset.lines",
+          "uniform": "lines"
+        },
+        {
+          "source": "asset.tears",
+          "uniform": "tears"
+        },
+        {
+          "source": "asset.linework",
+          "uniform": "linework"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "auto_cycle": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "cycle": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "media_warp": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "warp_type": {
+        "format": "ssf",
+        "type": "dropdown smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.04,
+        "labels": [
+          "Waving",
+          "Still",
+          "Still 2",
+          "Woozy"
+        ]
+      },
+      "wind_movement": {
+        "format": "ssf",
+        "type": "dropdown smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.04,
+        "labels": [
+          "Moves In",
+          "Rotate Only",
+          "Moves Out"
+        ]
+      },
+      "image_select": {
+        "format": "ssf",
+        "type": "dropdown smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.04,
+        "labels": [
+          "white_pebbles",
+          "white_feathers",
+          "color_tears",
+          "color_pebbles"
+        ]
+      },
+      "extra_color_tint": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "scanline_thinness": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "static_scan": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "pulse_forward": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.09
+      },
+      "scanner_audio_rate": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "scanner_const_rate": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "tScript": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

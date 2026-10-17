@@ -1,0 +1,499 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.dark_twister_2",
+  "title": "Dark twister",
+  "author": "mrange",
+  "description": "Plunge into the Dark Twister—a mesmerizing journey through a spiraling vortex of neon light and shadow. Recursive fractal geometry twists and folds through infinite space, creating a tunnel of electric blue and vibrant magenta beams that pulse and flash with the music. A glowing sphere of energy leads the way, casting dramatic reflections across the sleek, dark surfaces. The entire structure warps along a sinuous path while audio-reactive elements make every bass hit intensify the flash and twist the geometry deeper. Perfect for dark techno, bass music, and atmospheric sets where mysterious beauty meets raw energy.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "dark",
+    "twister",
+    "vortex",
+    "tunnel",
+    "audio-reactive",
+    "bass-reactive",
+    "neon",
+    "spiral",
+    "recursive",
+    "raymarch",
+    "mysterious"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Audio response strength (X: bass level, Y: bass hits)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.7,
+        0.7
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Audio response curve (higher = more intense reaction)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        3,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        5,
+        5
+      ]
+    },
+    {
+      "name": "flash_mix",
+      "label": "flash mix",
+      "description": "Flash brightness (X: off-beat intensity, Y: on-beat intensity)",
+      "group": "Effects",
+      "type": "point2d",
+      "default": [
+        0.5,
+        5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        9,
+        9
+      ]
+    },
+    {
+      "name": "flash_dist",
+      "label": "flash dist",
+      "description": "Distance of flash sphere from camera along the path",
+      "group": "Effects",
+      "type": "float",
+      "default": 5,
+      "min": 0.5,
+      "max": 10
+    },
+    {
+      "name": "flash_radius",
+      "label": "flash radius",
+      "description": "Flash sphere radius (X: off-beat size, Y: on-beat size)",
+      "group": "Effects",
+      "type": "point2d",
+      "default": [
+        1,
+        2
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        5,
+        5
+      ]
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Frame blending amount (0 = sharp, 1 = heavy trails)",
+      "group": "Effects",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "ref_focus",
+      "label": "ref focus",
+      "description": "Specular highlight sharpness (higher = tighter hotspot)",
+      "group": "Effects",
+      "type": "float",
+      "default": 190,
+      "min": 1,
+      "max": 300
+    },
+    {
+      "name": "ref_factor",
+      "label": "ref factor",
+      "description": "Specular reflection brightness multiplier",
+      "group": "Effects",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "time_mix",
+      "label": "time mix",
+      "description": "Animation speed (X: time-based, Y: bass time-based)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.25
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "path_b",
+      "label": "path b",
+      "description": "Path wave amplitude (X and Y control horizontal/vertical swing)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        6,
+        4
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        9,
+        9
+      ]
+    },
+    {
+      "name": "path_a",
+      "label": "path a",
+      "description": "Path wave frequency (X and Y control sine wave oscillation)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0.16667,
+        0.11785
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "flash_col_min",
+      "label": "flash col min",
+      "description": "RGB color of flash during off-beat moments",
+      "group": "Color",
+      "type": "color",
+      "default": [
+        0.1,
+        0.3,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "beam_hue",
+      "label": "beam hue",
+      "description": "Hue base for fractal beam glow (X: primary hue, Y: variation)",
+      "group": "Color",
+      "type": "point2d",
+      "default": [
+        0.6,
+        0.3
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "flash_col_max",
+      "label": "flash col max",
+      "description": "RGB color of flash during on-beat moments",
+      "group": "Color",
+      "type": "color",
+      "default": [
+        0.3,
+        0.66666,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "beam_lum",
+      "label": "beam lum",
+      "description": "Brightness multiplier for fractal beam glow",
+      "group": "Color",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_mult",
+      "label": "media mult",
+      "description": "Media multiplier – boost opacity for bold color effects",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "media_alpha",
+      "label": "media alpha",
+      "description": "Media opacity – fade visuals in or out",
+      "group": "Media",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_off",
+      "label": "media off",
+      "description": "Media texture offset position (X: horizontal, Y: vertical)",
+      "group": "Media",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -3,
+        -3
+      ],
+      "max": [
+        3,
+        3
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "flash_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "flash_dist": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "flash_radius": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "ref_focus": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "ref_factor": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "time_mix": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "path_b": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "path_a": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "flash_col_min": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "beam_hue": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "flash_col_max": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "beam_lum": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_mult": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_alpha": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_off": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.21401
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

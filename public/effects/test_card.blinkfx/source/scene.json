@@ -1,0 +1,11 @@
+{
+  "TITLE": "Test Card",
+  "DESCRIPTION": "",
+  "IMAGE_PATH": "test_card.png",
+  "CREDIT": "Keijiro Takahashi",
+  "GPU": 1,
+  "TAGS" : 
+  [
+  "utility"
+  ]
+}

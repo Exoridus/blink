@@ -1,0 +1,576 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.kali_galaxy",
+  "title": "Kali galaxy",
+  "author": "mrange",
+  "description": "Journey into the heart of a swirling Kali fractal galaxy where mathematics becomes cosmic art. This audio-reactive visualization features an intense, glowing core surrounded by spiraling clouds of blue ice and golden fire. The fractal morphs and rotates in response to bass, mids, and highs, creating a living nebula that pulses with every beat. Feedback trails leave ghostly echoes that zoom and spin, building layers of cosmic complexity. Perfect for deep electronic music and ambient sets, this shader transforms sound into an ever-evolving stellar phenomenon.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "kali",
+    "fractal",
+    "galaxy",
+    "audio-reactive",
+    "cosmic",
+    "nebula",
+    "glow",
+    "raymarch",
+    "feedback",
+    "bass-reactive",
+    "space",
+    "abstract"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Audio response strength (X: bass level, Y: bass hits)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.7,
+        0.7
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Audio response curve (higher = more intense reaction)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        3,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "bass_limit",
+      "label": "bass limit",
+      "description": "Bass threshold range (X: minimum level, Y: maximum level)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.5,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "shape_xy",
+      "label": "shape xy",
+      "description": "Fractal geometry (X: depth offset, Y: Z-axis stretch)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0.5,
+        2
+      ],
+      "min": [
+        -2,
+        0
+      ],
+      "max": [
+        2,
+        5
+      ]
+    },
+    {
+      "name": "flash_col",
+      "label": "flash col",
+      "description": "RGB color of flash effect on bass hits",
+      "group": "Colors",
+      "type": "color",
+      "default": [
+        0.3333,
+        0.6666,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "flash_xy",
+      "label": "flash xy",
+      "description": "Flash brightness (X: off-beat, Y: on-beat intensity)",
+      "group": "Colors",
+      "type": "point2d",
+      "default": [
+        0,
+        10
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "global_div",
+      "label": "global div",
+      "description": "Overall brightness divider (lower = brighter output)",
+      "group": "Colors",
+      "type": "float",
+      "default": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "name": "base_xy",
+      "label": "base xy",
+      "description": "Base color oscillation (X and Y frequency components)",
+      "group": "Colors",
+      "type": "point2d",
+      "default": [
+        2,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        9,
+        9
+      ]
+    },
+    {
+      "name": "base_zw",
+      "label": "base zw",
+      "description": "Base color oscillation (Z and W frequency components)",
+      "group": "Colors",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        9,
+        9
+      ]
+    },
+    {
+      "name": "base_mod",
+      "label": "base mod",
+      "description": "Color modulation (X: saturation multiplier, Y: phase offset)",
+      "group": "Colors",
+      "type": "point2d",
+      "default": [
+        0.7,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        3,
+        7
+      ]
+    },
+    {
+      "name": "feedback_strength",
+      "label": "feedback strength",
+      "description": "Feedback blend amount (X: off-beat, Y: on-beat trails)",
+      "group": "Feedback",
+      "type": "point2d",
+      "default": [
+        0.1,
+        0.4
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feedback_zoom",
+      "label": "feedback zoom",
+      "description": "Feedback scaling (X: off-beat zoom, Y: on-beat zoom)",
+      "group": "Feedback",
+      "type": "point2d",
+      "default": [
+        0.95,
+        0.9
+      ],
+      "min": [
+        0.5,
+        0.5
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "feedback_rot",
+      "label": "feedback rot",
+      "description": "Feedback rotation (X: off-beat spin, Y: on-beat spin)",
+      "group": "Feedback",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feedback_min",
+      "label": "feedback min",
+      "description": "RGB tint for feedback trails during off-beat moments",
+      "group": "Feedback",
+      "type": "color",
+      "default": [
+        0.55555,
+        0.11111,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feedback_max",
+      "label": "feedback max",
+      "description": "RGB tint for feedback trails during on-beat moments",
+      "group": "Feedback",
+      "type": "color",
+      "default": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Media opacity – fade visuals in or out",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_multiplier",
+      "label": "media multiplier",
+      "description": "Media multiplier – boost opacity for bold color effects",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": -9,
+      "max": 9
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "pass0",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0.previous",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1.previous",
+          "uniform": "pass1"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass0",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "pass1",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1.previous",
+          "uniform": "pass1"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass1",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1",
+          "uniform": "pass1"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_limit": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "shape_xy": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "flash_col": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "flash_xy": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "global_div": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "base_xy": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "base_zw": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "base_mod": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "feedback_strength": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "feedback_zoom": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.14701
+      },
+      "feedback_rot": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "feedback_min": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "feedback_max": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_multiplier": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      }
+    },
+    "scriptUniforms": {
+      "rotation_components_0": "vec4",
+      "rotation_components_1": "vec4",
+      "rotation_components_2": "vec4"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

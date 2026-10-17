@@ -1,0 +1,503 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.vein_melter",
+  "title": "Vein Melter",
+  "author": "cornusammonis",
+  "description": "A dendritic dynamical system. Click to paint.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "feedback",
+    "media",
+    "colorful",
+    "reaction-diffusion",
+    "fluid",
+    "simulation"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "pulse_out",
+      "label": "pulse out",
+      "description": "Sends a pulse outward from the center, leaving a dark hole in the middle of the screen after it passes.",
+      "group": "simulation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "full_pulse",
+      "label": "full pulse",
+      "description": "Sends a pulse through all the veins on screen at once, changing and rotating their shape.",
+      "group": "simulation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "retract",
+      "label": "retract",
+      "description": "When on, pulls all the veins backwards, making it much more minimal/amorphous.",
+      "group": "simulation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "devolve",
+      "label": "devolve",
+      "description": "When on, devolves into a sort of random chaos of ripples and bursts.",
+      "group": "simulation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "heartbeat_intensity",
+      "label": "heartbeat intensity",
+      "description": "Heartbeat, or breathing, that oscillates in and out every other bar. This affects the intensity.",
+      "group": "simulation",
+      "type": "float",
+      "default": 0.2,
+      "min": 0.1,
+      "max": 0.5
+    },
+    {
+      "name": "color_palette",
+      "label": "color palette",
+      "description": "Select from one of 5 color palettes. From bottom to top: Blood, Firey Orange/Blue, Green Forest, Blue Sky, Black/White.",
+      "group": "coloration",
+      "type": "float",
+      "default": 4,
+      "min": 4,
+      "max": 4
+    },
+    {
+      "name": "melt_up_or_down",
+      "label": "melt up or down",
+      "description": "50% is default: no melting up or down. Move up to melt up and in, down to melt down and out.",
+      "group": "distortion",
+      "type": "float",
+      "default": 0,
+      "min": -1.5,
+      "max": 1.5
+    },
+    {
+      "name": "zooming",
+      "label": "zooming",
+      "description": "50% is default no zooming. Move up to zoom in, down to zoom out.",
+      "group": "distortion",
+      "type": "float",
+      "default": 0,
+      "min": -1.5,
+      "max": 1.5
+    },
+    {
+      "name": "paint1_on",
+      "label": "paint1 on",
+      "description": "When ON, paint1 is enabled. Audio-reactive paintbrush that drips extra fluid onto the simulation.",
+      "group": "paint1",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "paint1XY",
+      "label": "paint1XY",
+      "description": "Mirrored painting for better effect.",
+      "group": "paint1",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "brush_size1",
+      "label": "brush size1",
+      "description": "Size & intensity of the effect for paint1.",
+      "group": "paint1",
+      "type": "float",
+      "default": 2,
+      "min": 2,
+      "max": 2
+    },
+    {
+      "name": "paint2_on",
+      "label": "paint2 on",
+      "description": "When ON, paint2 is enabled. Pulls around the simulation like a dipping your finger into liquid.",
+      "group": "paint2",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "paint2XY",
+      "label": "paint2XY",
+      "description": "Mirrored painting, but also TWO KINDS of brushes in one XY pad. On left half of the pad = a wide brush. Right half = more simple circular brush.",
+      "group": "paint2",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "grab_frame",
+      "label": "grab frame",
+      "description": "Grabs a frame from the underlying media and resets the simulation based on the brightness.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "opacity",
+      "label": "opacity",
+      "description": "100% is full opacity for the media effect, 0% is just the normal simulation, no media.",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "refraction",
+      "label": "refraction",
+      "description": "Affects how much the video is refracted by the simulation.",
+      "group": "media",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "combine_colors",
+      "label": "combine colors",
+      "description": "When off, ignores the underlying 'color palette' and just uses the media. When on, multiplies the two.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "reset_sim",
+      "label": "reset sim",
+      "description": "Resets the simulation back to its initial state. The panic button when you don't like what is going on.",
+      "group": "reset",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "image45",
+      "type": "texture2d",
+      "path": "assets/45.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "image16",
+      "type": "texture2d",
+      "path": "assets/16.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "BuffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA.previous",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffA2.previous",
+          "uniform": "BuffA2"
+        },
+        {
+          "source": "asset.image16",
+          "uniform": "image16"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffA",
+        "width": 768,
+        "height": 432,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffA2",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffA2.previous",
+          "uniform": "BuffA2"
+        },
+        {
+          "source": "asset.image16",
+          "uniform": "image16"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffA2",
+        "width": 768,
+        "height": 432,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffA2",
+          "uniform": "BuffA2"
+        },
+        {
+          "source": "asset.image16",
+          "uniform": "image16"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "pulse_out": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.005
+      },
+      "full_pulse": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "retract": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "devolve": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "heartbeat_intensity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_palette": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "melt_up_or_down": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "zooming": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "paint1_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "paint1XY": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.025
+      },
+      "brush_size1": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "paint2_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "paint2XY": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.025
+      },
+      "grab_frame": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "refraction": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "combine_colors": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "reset_sim": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "beat_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

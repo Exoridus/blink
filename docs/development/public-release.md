@@ -56,3 +56,11 @@ the future broker needs its own authenticated HTTPS/WSS host.
 The unused AWS buildspec has been removed from the intended publication tree,
 with its local recovery copy preserved. Typed VPS deployment tooling remains
 available for existing deployments and is not called by CI or Pages.
+
+## Community scene previews
+
+The Pages build also lists converted community scenes. Their manifests declare
+`"license": "Third-party preview: ..."`, keep the original author and the unmodified
+source under `source/`, and are not relicensed as MIT. They ship as a preview; the
+authors keep their rights, and a package is removed on request. Packages that fail
+validation with an error (texture-binding budget) are not shipped.

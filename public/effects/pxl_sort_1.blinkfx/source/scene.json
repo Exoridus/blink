@@ -1,0 +1,101 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "pxl_sort_1",
+ "IMAGE_PATH": "pxl_sort_1.png",
+ "PASSES": [{"TARGET": "backbuffer"}],
+ "GPU": 1,
+ "TAGS" : 
+ [
+ "feedback",
+ "media",
+ "morphing",
+ "displacement"
+ ],
+ "CONTROLS": [{
+    "NAME": "PICK_MEDIA",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "media",
+    "DESCRIPTION": "This scene only works if you have selected 'Media' below!"
+  },{
+    "NAME": "auto_refresh",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "refresh",
+    "DESCRIPTION": "Automatically refresh based on the music, rather than manually control."
+  },{
+    "NAME": "refresh",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,    
+    "PARAMS": 0.25,
+    "TYPE": "bang smooth",
+    "UI_GROUP": "refresh",
+    "DESCRIPTION": "Reset the pixel sort with a new frame from the media"
+  },{
+    "NAME": "scale_liquid",
+    "MAX" : 5.0,
+    "MIN" : 0.0,
+    "DEFAULT":3.1,
+    "TYPE": "slider",
+    "UI_GROUP": "liquid"
+  },{
+    "NAME": "auto_liquid",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "liquid",
+    "DESCRIPTION": "Automatically liquify based on the music, rather than manually control with the bang below."
+  },{
+    "NAME": "liquify",
+    "MAX" : 1.0,
+    "MIN" : 0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.55,
+    "TYPE": "bang smooth",
+    "UI_GROUP": "liquid"
+  },{
+    "NAME": "invert",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,    
+    "PARAMS": 0.25,
+    "TYPE": "bang smooth",
+    "UI_GROUP": "color",
+    "DESCRIPTION": "Reset simulation to underlying media."
+  },{
+    "NAME": "colorize",
+    "MAX" : 1.0,
+    "MIN" : 0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.05,
+    "TYPE": "bang",
+    "UI_GROUP": "color"
+  },{
+    "NAME": "reverse",
+    "MAX" : 1.0,
+    "MIN" : -1.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "sort"
+  },{
+    "NAME": "blend",
+    "MAX" : 1.0,
+    "MIN" : 0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "sort"
+  },{
+    "NAME": "speed",
+    "MAX" : 8.0,
+    "MIN" : 0.0,
+    "DEFAULT":2.0,
+    "TYPE": "slider",
+    "UI_GROUP": "sort"
+  }]
+ }

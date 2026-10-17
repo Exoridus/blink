@@ -1,0 +1,211 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.sinusoidal_warp",
+  "title": "Sinusoidal Warp",
+  "author": "Shady Headstash",
+  "description": "Sinusoidal warp.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "uv",
+    "distorted"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "rate",
+      "label": "rate",
+      "description": "Rate of the effect.",
+      "group": "effect",
+      "type": "float",
+      "default": 0.25,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "warp",
+      "label": "warp",
+      "description": "Warpiness of the effect.",
+      "group": "effect",
+      "type": "float",
+      "default": 4,
+      "min": 1,
+      "max": 8
+    },
+    {
+      "name": "intensity",
+      "label": "intensity",
+      "description": "How dramatically the effect modifies the input media.",
+      "group": "effect",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "direction",
+      "label": "direction",
+      "description": "Nudge effect in any direction.",
+      "group": "effect",
+      "type": "point2d",
+      "default": [
+        1,
+        1
+      ],
+      "min": [
+        1,
+        1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "media_xy",
+      "label": "media xy",
+      "description": "Pan input media in any direction.",
+      "group": "media",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "refraction",
+      "label": "refraction",
+      "description": "Amount of refraction of the input media.",
+      "group": "effect",
+      "type": "float",
+      "default": 0.25,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "brightness",
+      "label": "brightness",
+      "description": "Brightness of lighting and density of shadows.",
+      "group": "effect",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "rate": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "warp": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "intensity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "direction": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "media_xy": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "refraction": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "brightness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      }
+    },
+    "scriptUniforms": {
+      "bass_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

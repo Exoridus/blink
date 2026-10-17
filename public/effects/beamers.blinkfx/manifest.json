@@ -1,0 +1,262 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.beamers",
+  "title": "Beamers",
+  "author": "sheltron",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "2d",
+    "media",
+    "dark",
+    "central"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "num_beams",
+      "label": "num beams",
+      "description": "Number of beams. More beams means slower performance.",
+      "group": "beams",
+      "type": "float",
+      "default": 21,
+      "min": 1,
+      "max": 30
+    },
+    {
+      "name": "beam_width",
+      "label": "beam width",
+      "group": "beams",
+      "type": "float",
+      "default": 0.015,
+      "min": -0.1,
+      "max": 0.4
+    },
+    {
+      "name": "wobble_on",
+      "label": "Wobble Amount",
+      "group": "beams",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.4,
+      "step": 0.4
+    },
+    {
+      "name": "separation",
+      "label": "separation",
+      "description": "Separation and speed of flight.",
+      "group": "beams",
+      "type": "float",
+      "default": 10,
+      "min": -50,
+      "max": 50
+    },
+    {
+      "name": "spiral",
+      "label": "spiral",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "direct_shot",
+      "label": "direct shot",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "random",
+      "label": "random",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "monochrome",
+      "label": "monochrome",
+      "group": "monochrome",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "monochrome_color",
+      "label": "monochrome color",
+      "group": "monochrome",
+      "type": "color",
+      "default": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "color_palette",
+      "label": "color palette",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "limitSize",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.limitSize.previous",
+          "uniform": "limitSize"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "limitSize",
+        "width": 1200,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.limitSize",
+          "uniform": "limitSize"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "num_beams": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "beam_width": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "wobble_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "separation": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "spiral": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "direct_shot": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "random": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "monochrome": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "monochrome_color": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "color_palette": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

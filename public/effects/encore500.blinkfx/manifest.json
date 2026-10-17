@@ -1,0 +1,774 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.encore500",
+  "title": "Encore 500",
+  "author": "mrange",
+  "description": "Encore 500",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "encore500"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Bass mix",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.7,
+        0.7
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Bass power",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        2,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "vu_react",
+      "label": "vu react",
+      "description": "VU reactivity",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.25,
+        0.875
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "vu_fade",
+      "label": "vu fade",
+      "description": "fade vu meters",
+      "group": "Audio",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "wave_level",
+      "label": "wave level",
+      "description": "Wave level",
+      "group": "Audio",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "wave_glow_level",
+      "label": "wave glow level",
+      "description": "Wave glow level",
+      "group": "Audio",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "wave_fade",
+      "label": "wave fade",
+      "description": "Wave fade",
+      "group": "Audio",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "volume_control",
+      "label": "volume control",
+      "description": "Switch between volumate 1 and 2",
+      "group": "Effect",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "show_beat",
+      "label": "show beat",
+      "description": "Show heart beat",
+      "group": "Effect",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "beat_speed",
+      "label": "beat speed",
+      "description": "Beat speed",
+      "group": "Effect",
+      "type": "float",
+      "default": 60,
+      "min": 10,
+      "max": 120
+    },
+    {
+      "name": "box_level",
+      "label": "box level",
+      "description": "Box level",
+      "group": "Effect",
+      "type": "float",
+      "default": 0.6667,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "box_size",
+      "label": "box size",
+      "description": "Box size",
+      "group": "Effect",
+      "type": "float",
+      "default": 0.05,
+      "min": 0.01,
+      "max": 0.28
+    },
+    {
+      "name": "peter_clarke",
+      "label": "peter clarke",
+      "group": "Effect",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Motion blur",
+      "group": "Blur",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 0.99
+    },
+    {
+      "name": "blurriness",
+      "label": "blurriness",
+      "description": "Blurirness level",
+      "group": "Blur",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "color_distortion",
+      "label": "color distortion",
+      "description": "Color distortion",
+      "group": "Blur",
+      "type": "float",
+      "default": 0.2,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "glitch_level",
+      "label": "glitch level",
+      "description": "Glitch level",
+      "group": "Glitch",
+      "type": "float",
+      "default": 0.9,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "glitch_freq",
+      "label": "glitch freq",
+      "description": "Glitch frequency",
+      "group": "Glitch",
+      "type": "float",
+      "default": 0.9,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "glitch_variant",
+      "label": "glitch variant",
+      "description": "Glitch variant",
+      "group": "Glitch",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "glitch_size",
+      "label": "glitch size",
+      "description": "Glitch size",
+      "group": "Glitch",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.05
+      ],
+      "min": [
+        0.01,
+        0.01
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "pixel_size",
+      "label": "pixel size",
+      "description": "Pixel size",
+      "group": "Glitch",
+      "type": "point2d",
+      "default": [
+        0.02,
+        0.02
+      ],
+      "min": [
+        0.001,
+        0.001
+      ],
+      "max": [
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "media_fade",
+      "label": "media fade",
+      "description": "Media fade",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_zoom",
+      "label": "media zoom",
+      "description": "Media zoom",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0.125,
+      "max": 9
+    },
+    {
+      "name": "media_fadecol",
+      "label": "media fadecol",
+      "description": "Media fade col",
+      "group": "Media",
+      "type": "color",
+      "default": [
+        0.9,
+        1,
+        0.8,
+        1
+      ]
+    },
+    {
+      "name": "media_fadestrength",
+      "label": "media fadestrength",
+      "group": "Media",
+      "type": "float",
+      "default": 10,
+      "min": 1,
+      "max": 20
+    },
+    {
+      "name": "media_off",
+      "label": "media off",
+      "description": "Media offset",
+      "group": "Media",
+      "type": "point2d",
+      "default": [
+        0.9,
+        -0.139
+      ],
+      "min": [
+        -1.5,
+        -1.5
+      ],
+      "max": [
+        1.5,
+        1.5
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "t_peterclarke",
+      "type": "texture2d",
+      "path": "assets/peterclarke.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "passA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.passA.previous",
+          "uniform": "passA"
+        },
+        {
+          "source": "target.passB.previous",
+          "uniform": "passB"
+        },
+        {
+          "source": "target.passC.previous",
+          "uniform": "passC"
+        },
+        {
+          "source": "asset.t_peterclarke",
+          "uniform": "t_peterclarke"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "passA",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "clamp"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "passB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.passA",
+          "uniform": "passA"
+        },
+        {
+          "source": "target.passB.previous",
+          "uniform": "passB"
+        },
+        {
+          "source": "target.passC.previous",
+          "uniform": "passC"
+        },
+        {
+          "source": "asset.t_peterclarke",
+          "uniform": "t_peterclarke"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "passB",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "clamp"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "passC",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.passA",
+          "uniform": "passA"
+        },
+        {
+          "source": "target.passB",
+          "uniform": "passB"
+        },
+        {
+          "source": "target.passC.previous",
+          "uniform": "passC"
+        },
+        {
+          "source": "asset.t_peterclarke",
+          "uniform": "t_peterclarke"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "passC",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "clamp"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.passA",
+          "uniform": "passA"
+        },
+        {
+          "source": "target.passB",
+          "uniform": "passB"
+        },
+        {
+          "source": "target.passC",
+          "uniform": "passC"
+        },
+        {
+          "source": "asset.t_peterclarke",
+          "uniform": "t_peterclarke"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "vu_react": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "vu_fade": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "wave_level": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "wave_glow_level": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "wave_fade": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "volume_control": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "show_beat": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "beat_speed": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "box_level": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "box_size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.24301
+      },
+      "peter_clarke": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "blurriness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "color_distortion": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "glitch_level": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "glitch_freq": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "glitch_variant": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "glitch_size": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "pixel_size": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_fade": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_zoom": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_fadecol": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "media_fadestrength": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_off": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

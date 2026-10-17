@@ -1,0 +1,416 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.churning",
+  "title": "Churning",
+  "author": "Victor S.",
+  "tags": [
+    "rainbow",
+    "feedback",
+    "media",
+    "morphing",
+    "colorful",
+    "groovy",
+    "psychedelic"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "turbulence",
+      "label": "turbulence",
+      "description": "Adds more small swirling turbulence to the simulation when on.",
+      "group": "creative",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "plasma",
+      "label": "plasma",
+      "description": "Makes the simulation less like paint, more like overdriven plasma.",
+      "group": "creative",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0,
+      "step": 1
+    },
+    {
+      "name": "broad_strokes",
+      "label": "broad strokes",
+      "description": "If you want smaller strokes, more consistent texture, less big swatches of colors, turn this off.",
+      "group": "creative",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_phasing",
+      "label": "color phasing",
+      "description": "Causes the color palette to smoothly cycle in time.",
+      "group": "creative",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "lift",
+      "label": "lift",
+      "description": "Lifts certain parts of the simulation on press, causing vertical streaks.",
+      "group": "movement",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "swirl",
+      "label": "swirl",
+      "description": "Swirls the entire simulation about the center on press.",
+      "group": "movement",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "img_mix",
+      "label": "img mix",
+      "description": "How heavily or subtly do you want the underlying Media or Video to be mixed in? Turn up to snap an image into focus, turn down to have it fade into colors.",
+      "group": "general",
+      "type": "float",
+      "default": 0.05,
+      "min": 0,
+      "max": 0.3
+    },
+    {
+      "name": "blur_on_fps",
+      "label": "blur on fps",
+      "description": "Turn ON if you do not get any FPS lag and like the tilt-shift blur effect. Turn OFF to preserve FPS.",
+      "group": "general",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_push",
+      "label": "auto push",
+      "description": "Keep ON to have the simulation automatically swirl and push based on the music. Turn OFF to manually control with manual push.",
+      "group": "push",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "manual_push",
+      "label": "manual push",
+      "description": "auto push MUST BE SET TO OFF. Manually push the simulation forward and backward with this slider.",
+      "group": "push",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "dive_in",
+      "label": "dive in",
+      "description": "'Dive In' to the simulation. Best used by choosing a value and letting it sit, resulting in strange feedback fractals. Turn off your user image for a pure, clean look. Recommended to turn plasma ON.",
+      "group": "dive",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "direction",
+      "label": "direction",
+      "type": "float",
+      "default": 0.1,
+      "group": "Transitions"
+    },
+    {
+      "name": "colRegSel",
+      "label": "colRegSel",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "firstFB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstFB.previous",
+          "uniform": "firstFB"
+        },
+        {
+          "source": "target.secondFB.previous",
+          "uniform": "secondFB"
+        },
+        {
+          "source": "target.vertBlur.previous",
+          "uniform": "vertBlur"
+        },
+        {
+          "source": "target.horBlur.previous",
+          "uniform": "horBlur"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "firstFB",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "secondFB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstFB",
+          "uniform": "firstFB"
+        },
+        {
+          "source": "target.secondFB.previous",
+          "uniform": "secondFB"
+        },
+        {
+          "source": "target.vertBlur.previous",
+          "uniform": "vertBlur"
+        },
+        {
+          "source": "target.horBlur.previous",
+          "uniform": "horBlur"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "secondFB",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "vertBlur",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstFB",
+          "uniform": "firstFB"
+        },
+        {
+          "source": "target.secondFB",
+          "uniform": "secondFB"
+        },
+        {
+          "source": "target.vertBlur.previous",
+          "uniform": "vertBlur"
+        },
+        {
+          "source": "target.horBlur.previous",
+          "uniform": "horBlur"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "vertBlur",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "horBlur",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstFB",
+          "uniform": "firstFB"
+        },
+        {
+          "source": "target.secondFB",
+          "uniform": "secondFB"
+        },
+        {
+          "source": "target.vertBlur",
+          "uniform": "vertBlur"
+        },
+        {
+          "source": "target.horBlur.previous",
+          "uniform": "horBlur"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "horBlur",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstFB",
+          "uniform": "firstFB"
+        },
+        {
+          "source": "target.secondFB",
+          "uniform": "secondFB"
+        },
+        {
+          "source": "target.vertBlur",
+          "uniform": "vertBlur"
+        },
+        {
+          "source": "target.horBlur",
+          "uniform": "horBlur"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "turbulence": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "plasma": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "broad_strokes": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_phasing": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "lift": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "swirl": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "img_mix": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "blur_on_fps": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_push": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "manual_push": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "dive_in": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

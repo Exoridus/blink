@@ -1,0 +1,382 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.shrouded",
+  "title": "Shrouded",
+  "author": "Felix Woitzel ft. Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "feedback",
+    "simulation",
+    "media",
+    "reaction-diffusion"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "shimmer",
+      "label": "shimmer",
+      "description": "Send a colorful shimmer through the fluid. Careful, too much shimmering can kill the simulation.",
+      "group": "surface",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "shock",
+      "label": "shock",
+      "description": "Send a vertical shock through the fluid, pulsing the color as well. Careful, too many shocks can kill it.",
+      "group": "surface",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0,
+      "step": 1
+    },
+    {
+      "name": "reset_center",
+      "label": "reset center",
+      "description": "Feeds the center of the scene. Push if your simulation dies, or the screen is all black.",
+      "group": "surface",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.15,
+      "step": 0.15
+    },
+    {
+      "name": "bpm_oscillate",
+      "label": "bpm oscillate",
+      "description": "Change the motion of the fluid. When OFF, it will be more constant. When ON it will move back and forth with the BPM of the song.",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_color",
+      "label": "media color",
+      "description": "Media MUST BE SELECTED to see effects. Changes the paint color of the user selected texture.",
+      "group": "motion",
+      "type": "float",
+      "default": 2,
+      "min": 0,
+      "max": 2,
+      "step": 2
+    },
+    {
+      "name": "tunnel",
+      "label": "tunnel",
+      "description": "Bottom Left is OFF. Moving this causes a 'tunneling' effect. Can be great with bpm oscillate ON.",
+      "group": "motion",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "pyramid",
+      "label": "pyramid",
+      "description": "Apply some triangularly arranged mirrors to the scene.",
+      "group": "mirrors",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "mirror",
+      "label": "mirror",
+      "description": "Mirror the scene (including Media).",
+      "group": "mirrors",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "cReg0",
+      "label": "cReg0",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    },
+    {
+      "name": "cReg1",
+      "label": "cReg1",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "cReg2",
+      "label": "cReg2",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "cReg3",
+      "label": "cReg3",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "cReg4",
+      "label": "cReg4",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "colornoise",
+      "type": "texture2d",
+      "path": "assets/colornoise.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "buffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA.previous",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffC.previous",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "buffA",
+        "width": 1600,
+        "height": 800,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffC",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffC.previous",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "buffC",
+        "width": 1600,
+        "height": 800,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffD",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffC",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "buffD",
+        "width": 1600,
+        "height": 800,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffC",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "shimmer": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "shock": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "reset_center": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "bpm_oscillate": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_color": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "tunnel": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "pyramid": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "mirror": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

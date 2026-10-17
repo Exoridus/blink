@@ -1,0 +1,250 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.circuit_bending",
+  "title": "Circuit Bending",
+  "author": "mojovideotech",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "3d",
+    "raymarching",
+    "media",
+    "tunnel"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "perspective",
+      "label": "perspective",
+      "description": "Smoothly switch between normal perspective and Equirectangular coordinates. Best results with this slider at 0% or 100%.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "lookXY",
+      "label": "lookXY",
+      "description": "Just move the X-axis to spin about your main axis, or move the Y-axis to tilt forwards or backwards.",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "noise",
+      "label": "noise",
+      "description": "Modify the Menger fractal to give it a more complex look. Find an interesting spot and save it.",
+      "group": "structure",
+      "type": "float",
+      "default": 2,
+      "min": 2,
+      "max": 2
+    },
+    {
+      "name": "thin_structure",
+      "label": "thin structure",
+      "description": "Change from thick chunks of structure to thin bars and panels.",
+      "group": "structure",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.68,
+      "step": 0.68
+    },
+    {
+      "name": "fully_open",
+      "label": "fully open",
+      "description": "Goes further than 'thin structure' to fully open it up.",
+      "group": "structure",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rate",
+      "label": "rate",
+      "description": "Rate that you fly into or out of the structure. 50% is no motion, 100% is motion forward, 0% is motion backwards. But it automatically reverses if you change perspective.",
+      "group": "reactivity",
+      "type": "float",
+      "default": -0.35,
+      "min": -1.5,
+      "max": 1.5
+    },
+    {
+      "name": "media_scale",
+      "label": "media scale",
+      "description": "Change the size of the media in comparison with the struture.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_mult_or_add",
+      "label": "media mult or add",
+      "description": "Choose whether you want to add the real colors from the media or multiply the media colors in with the scene's natural colors.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "circuits",
+      "type": "texture2d",
+      "path": "assets/circuits.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "circuits2",
+      "type": "texture2d",
+      "path": "assets/circuits2.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "asset.circuits",
+          "uniform": "circuits"
+        },
+        {
+          "source": "asset.circuits2",
+          "uniform": "circuits2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "perspective": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "lookXY": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "noise": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "thin_structure": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "fully_open": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "rate": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "media_scale": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_mult_or_add": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    },
+    "scriptUniforms": {
+      "script_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

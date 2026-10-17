@@ -1,0 +1,36 @@
+{
+  "CREDIT": "Shane",
+  "TITLE": "Voronoi Geode",
+  "IMAGE_PATH": "voronoi_geode.png",
+  "IMAGES": [{"NAME": "agate2", "PATH":"images/agate2.jpg"},{"NAME": "agate1", "PATH":"images/agate1.jpg"}],
+  "WIDTH": 1280,
+  "HEIGHT":720,
+  "GPU":  4,
+  "TAGS" : 
+  [
+  "raymarching",
+  "realistic"
+  ],
+  "CONTROLS":[
+    {"NAME": "pulse", "TYPE": "bang smooth", "UI_GROUP": "reactivity", "PARAMS":0.01,
+    "DESCRIPTION":"Causes a bright pulse to emanate from the center."},
+    {"NAME": "speed_motion", "TYPE": "slider", "MIN": 0.0, "MAX": 5.0, "DEFAULT": 2.0, "UI_GROUP":"reactivity",
+    "DESCRIPTION":"Affects the speed of the crystal gyration."},
+    {"NAME": "grid_growth", "TYPE": "toggle", "DEFAULT": 1.0, "UI_GROUP": "reactivity",
+    "DESCRIPTION":""},
+    {"NAME": "highs_shimmer", "TYPE": "toggle", "DEFAULT": 1.0, "UI_GROUP": "reactivity",
+    "DESCRIPTION":""},
+    {"NAME": "elevation", "TYPE": "slider smooth", "MIN": -1.0, "MAX": 1.0, "DEFAULT": 0.0, "UI_GROUP": "camera", "PARAMS": 0.025,
+    "DESCRIPTION":"Zooms the camera in or out. Fully out causes it to take on a 'planetoid' look."},
+    {"NAME": "spinning", "TYPE": "toggle", "DEFAULT": 1.0, "UI_GROUP": "camera",
+    "DESCRIPTION":"Whether or not the camera is rotating."},
+    {"NAME": "alternate_crystals", "TYPE": "toggle", "UI_GROUP": "geometry",
+    "DESCRIPTION":"OFF: Standard, angular crystals. ON: Grid-like crystals using the manhattan distance."},
+    {"NAME": "rot_distort", "TYPE": "slider smooth", "UI_GROUP": "geometry", "MIN":-0.1, "DEFAULT": 0.0, "MAX":0.1, "PARAMS":0.1,
+    "DESCRIPTION":"Deforms the surface, distorting the edges in glitchy ways."},
+    {"NAME": "red_geode", "TYPE": "toggle", "UI_GROUP": "background", "DEFAULT": 1.0,
+    "DESCRIPTION":"Default, geode-looking red texture. TURN OFF to use other backgrounds."},
+    {"NAME": "green_circuits", "TYPE": "toggle", "UI_GROUP": "background", "DEFAULT": 1.0,
+    "DESCRIPTION":"Green, circuit-like texture. TURN OFF to use other backgrounds."}
+]
+}

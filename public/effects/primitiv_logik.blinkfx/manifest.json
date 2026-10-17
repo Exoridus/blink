@@ -1,0 +1,352 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.primitiv_logik",
+  "title": "PRIMITIV_logik",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "2d",
+    "geometric",
+    "retro"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "TOGGLE_ON_BEAT",
+      "label": "TOGGLE ON BEAT",
+      "description": "Toggle this on the beat to set the BPM of the animation",
+      "group": "BPM_TAP",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "bass_rotate",
+      "label": "bass rotate",
+      "description": "Rotates the dispersion direction with the Bass",
+      "group": "dispersion",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "extra_noise",
+      "label": "extra noise",
+      "description": "Adds an extra fuzz to the dispersion",
+      "group": "dispersion",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "dispersion_amount",
+      "label": "dispersion amount",
+      "description": "Power of the dispersion",
+      "group": "dispersion",
+      "type": "float",
+      "default": 0.2,
+      "min": -0.4,
+      "max": 0.4
+    },
+    {
+      "name": "dispersion_contrast",
+      "label": "dispersion contrast",
+      "description": "Contrast applied during the dispersion effect",
+      "group": "dispersion",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "extra_brightness",
+      "label": "extra brightness",
+      "description": "Adds in extra brightness if the scene is too dark",
+      "group": "dispersion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "bass_twitcher",
+      "label": "bass twitcher",
+      "description": "Adds some twitchy motion when the bass hits",
+      "group": "shape",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "stroke_thickness",
+      "label": "stroke thickness",
+      "description": "Thickness of the lines in the shape",
+      "group": "shape",
+      "type": "float",
+      "default": 0.4,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "radius",
+      "label": "radius",
+      "description": "Overall size of the shape",
+      "group": "shape",
+      "type": "float",
+      "default": 1.4,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "fuzz_shape",
+      "label": "fuzz shape",
+      "description": "Adds more fuzz to the shape",
+      "group": "fuzz",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fuzz_high_hits",
+      "label": "fuzz high hits",
+      "description": "Adds audio reactive fuzz to the shape",
+      "group": "fuzz",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_on",
+      "label": "media on",
+      "description": "Adds media color into the scene",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "mask_shape",
+      "label": "mask shape",
+      "description": "Allow the shape to mask the media",
+      "group": "media",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "shape_affect_media",
+      "label": "shape affect media",
+      "description": "Allow the shape to affect the media's dispersion",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_affect_dispersion",
+      "label": "media affect dispersion",
+      "description": "Allow the media to affect its own dispersion",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "mainRender",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainRender.previous",
+          "uniform": "mainRender"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "mainRender",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainRender",
+          "uniform": "mainRender"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "TOGGLE_ON_BEAT": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "bass_rotate": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "extra_noise": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "dispersion_amount": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "dispersion_contrast": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "extra_brightness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_twitcher": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "stroke_thickness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "radius": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "fuzz_shape": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "fuzz_high_hits": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "media_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "mask_shape": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "shape_affect_media": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_affect_dispersion": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "beatTime": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

@@ -1,0 +1,353 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 
+			[
+				0.7,
+				0.7
+			],
+			"DESCRIPTION" : "Audio response strength (X: bass level, Y: bass hits)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 3,
+			"DESCRIPTION" : "Audio response curve (higher = more intense reaction)",
+			"MAX" : 6,
+			"MIN" : 0,
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				5
+			],
+			"DESCRIPTION" : "Flash brightness (X: off-beat intensity, Y: on-beat intensity)",
+			"MAX" : 
+			[
+				9,
+				9
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "flash_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Effects"
+		},
+		{
+			"DEFAULT" : 5,
+			"DESCRIPTION" : "Distance of flash sphere from camera along the path",
+			"MAX" : 10,
+			"MIN" : 0.5,
+			"NAME" : "flash_dist",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effects"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				2
+			],
+			"DESCRIPTION" : "Flash sphere radius (X: off-beat size, Y: on-beat size)",
+			"MAX" : 
+			[
+				5,
+				5
+			],
+			"MIN" : 
+			[
+				0.001,
+				0.001
+			],
+			"NAME" : "flash_radius",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Effects"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Frame blending amount (0 = sharp, 1 = heavy trails)",
+			"MAX" : 0.88,
+			"MIN" : 0,
+			"NAME" : "motion_blur",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effects"
+		},
+		{
+			"DEFAULT" : 190,
+			"DESCRIPTION" : "Specular highlight sharpness (higher = tighter hotspot)",
+			"MAX" : 300,
+			"MIN" : 1,
+			"NAME" : "ref_focus",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effects"
+		},
+		{
+			"DEFAULT" : 0.1,
+			"DESCRIPTION" : "Specular reflection brightness multiplier",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "ref_factor",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effects"
+		},
+		{
+			"DEFAULT" : 
+			[
+				6,
+				4
+			],
+			"DESCRIPTION" : "Path wave amplitude (X and Y control horizontal/vertical swing)",
+			"MAX" : 
+			[
+				9,
+				9
+			],
+			"MIN" : 
+			[
+				-9,
+				-9
+			],
+			"NAME" : "camera_swing",
+			"PARAMS" : 0.00801,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 0.2,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "rotation_speed",
+			"PARAMS" : 0.05601,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 0.35,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "zoom_speed",
+			"TYPE" : "knob",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "warp_swing",
+			"PARAMS" : 0.01701,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Warp"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "warp_on",
+			"PARAMS" : 0.04401,
+			"TYPE" : "toggle smooth",
+			"UI_GROUP" : "Warp"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : 0.3,
+			"NAME" : "fov",
+			"PARAMS" : 0.04301,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.1,
+				0.3,
+				1
+			],
+			"DESCRIPTION" : "RGB color of flash during off-beat moments",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "flash_col_min",
+			"TYPE" : "color",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.6,
+				0.6
+			],
+			"DESCRIPTION" : "Hue base for fractal beam glow (X: primary hue, Y: variation)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "beam_hue",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.3,
+				0.66666,
+				1
+			],
+			"DESCRIPTION" : "RGB color of flash during on-beat moments",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "flash_col_max",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Brightness multiplier for fractal beam glow",
+			"MAX" : 3,
+			"MIN" : 0,
+			"NAME" : "beam_lum",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : -0.1,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "beam_rate",
+			"PARAMS" : 0.05601,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 0.4,
+			"DESCRIPTION" : "Media opacity – fade visuals in or out",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 0.35,
+			"DESCRIPTION" : "Limit media to nearby camera or allow full depth",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_depth",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Change how much media is displaced by geometry",
+			"MAX" : 2,
+			"MIN" : -2,
+			"NAME" : "media_displacement",
+			"PARAMS" : 0.05,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Plunge into the Dark Twister—a mesmerizing journey through a spiraling vortex of neon light and shadow. Recursive fractal geometry twists and folds through infinite space, creating a tunnel of electric blue and vibrant magenta beams that pulse and flash with the music. A glowing sphere of energy leads the way, casting dramatic reflections across the sleek, dark surfaces. The entire structure warps along a sinuous path while audio-reactive elements make every bass hit intensify the flash and twist the geometry deeper. Perfect for dark techno, bass music, and atmospheric sets where mysterious beauty meets raw energy.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"dark",
+		"twister",
+		"vortex",
+		"tunnel",
+		"audio-reactive",
+		"bass-reactive",
+		"neon",
+		"spiral",
+		"recursive",
+		"raymarch",
+		"mysterious"
+	],
+	"TITLE" : "Dark Twister",
+	"WIDTH" : 1920
+}

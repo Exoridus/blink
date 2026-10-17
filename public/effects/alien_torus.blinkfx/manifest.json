@@ -1,0 +1,754 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.alien_torus",
+  "title": "Alien Torus",
+  "author": "Psybernautics - Alex Tiemann",
+  "description": "Inverted Torus encircled by geometric satellites.",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "diffuse_strength",
+      "label": "diffuse strength",
+      "description": "Diffused light strength",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0.05,
+      "max": 1
+    },
+    {
+      "name": "brightness",
+      "label": "brightness",
+      "description": "How bright the scene is.",
+      "group": "color",
+      "type": "float",
+      "default": 100,
+      "min": 100,
+      "max": 100
+    },
+    {
+      "name": "base_color",
+      "label": "base color",
+      "description": "base color, this color's complement will be calculated automatically",
+      "group": "color",
+      "type": "color",
+      "default": [
+        0.12109375,
+        0.359375,
+        0.5859375,
+        1
+      ]
+    },
+    {
+      "name": "audio_edge",
+      "label": "audio edge",
+      "description": "edge detection on bass hits.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rainbow",
+      "label": "rainbow",
+      "description": "Mix in rainbow color",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rainbow_width",
+      "label": "rainbow width",
+      "description": "How wide the stripes in the rainbow are",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "edge_mix",
+      "label": "edge mix",
+      "description": "How much edge detection is present in the shader.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "reflectivity",
+      "label": "reflectivity",
+      "description": "How reflective the geometry is",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0.2,
+      "max": 1
+    },
+    {
+      "name": "lookXY",
+      "label": "lookXY",
+      "description": "Move the camera",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0.125,
+        0.125
+      ],
+      "min": [
+        0.125,
+        0.125
+      ],
+      "max": [
+        0.125,
+        0.125
+      ]
+    },
+    {
+      "name": "reactive_time",
+      "label": "reactive time",
+      "description": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rate_in",
+      "label": "rate in",
+      "description": "How fast the time variable grows, whether it is reactive time or constant time.",
+      "group": "camera",
+      "type": "float",
+      "default": 2.5,
+      "min": -10,
+      "max": 10
+    },
+    {
+      "name": "f_o_v",
+      "label": "f o v",
+      "description": "field of view from the perspective of the camera",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0.15,
+      "max": 2
+    },
+    {
+      "name": "media_color",
+      "label": "media color",
+      "description": "How much the media will appear directly painted on the objects",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_scale",
+      "label": "media scale",
+      "description": "Control the scale of the media",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "multiply_media",
+      "label": "multiply media",
+      "description": "Multiply the scene color with the media color",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "bass_mult",
+      "label": "bass mult",
+      "description": "Multiply the scene color with the media color according the bass presences in the audio",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "hor_mir_mix",
+      "label": "hor mir mix",
+      "description": "Smooth Horizontal Mirror Mix",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "vert_mir_mix",
+      "label": "vert mir mix",
+      "description": "Smooth Vertical Mirror Mix",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "geo_reactive_time",
+      "label": "geo reactive time",
+      "description": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "geo_rate",
+      "label": "geo rate",
+      "description": "How fast the time variable grows, whether it is reactive time or constant time.",
+      "group": "geometry",
+      "type": "float",
+      "default": 2,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "satellites",
+      "label": "satellites",
+      "description": "Number of satellite geometries encircling the torus cemter",
+      "group": "geometry",
+      "type": "float",
+      "default": 4,
+      "min": 0,
+      "max": 24
+    },
+    {
+      "name": "sat_scale",
+      "label": "sat scale",
+      "description": "Scale the size of the satellites",
+      "group": "geometry",
+      "type": "float",
+      "default": 1,
+      "min": 0.5,
+      "max": 1.5
+    },
+    {
+      "name": "gooey",
+      "label": "gooey",
+      "description": "How strong the satellites are unioned with the torus",
+      "group": "geometry",
+      "type": "float",
+      "default": 0.25,
+      "min": 0.1,
+      "max": 1
+    },
+    {
+      "name": "orbit_width",
+      "label": "orbit width",
+      "description": "Increase/Descrease the diameter of the satellites' orbit path.",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": -0.5,
+      "max": 1
+    },
+    {
+      "name": "random_geo",
+      "label": "random geo",
+      "description": "ON: choose random combination of cage and ring geometry geometry on beat.",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "ring_or_cage",
+      "label": "ring or cage",
+      "description": "Smoothly blend between ring and cage geometries",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "audio_twist",
+      "label": "audio twist",
+      "description": "Twist the torus according the geo time variable",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "twist_val",
+      "label": "twist val",
+      "description": "How much the torus is twisted",
+      "group": "geometry",
+      "type": "float",
+      "default": 0.355,
+      "min": -0.5,
+      "max": 0.5
+    },
+    {
+      "name": "displace_surface",
+      "label": "displace surface",
+      "description": "Displaces the surface of the torus",
+      "group": "geometry",
+      "type": "float",
+      "default": 3,
+      "min": 1,
+      "max": 10
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "mainPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainPass.previous",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "target.edgePass.previous",
+          "uniform": "edgePass"
+        },
+        {
+          "source": "target.horMirrPass.previous",
+          "uniform": "horMirrPass"
+        },
+        {
+          "source": "target.vertMirrPass.previous",
+          "uniform": "vertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "mainPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "edgePass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainPass",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "target.edgePass.previous",
+          "uniform": "edgePass"
+        },
+        {
+          "source": "target.horMirrPass.previous",
+          "uniform": "horMirrPass"
+        },
+        {
+          "source": "target.vertMirrPass.previous",
+          "uniform": "vertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "edgePass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "horMirrPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainPass",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "target.edgePass",
+          "uniform": "edgePass"
+        },
+        {
+          "source": "target.horMirrPass.previous",
+          "uniform": "horMirrPass"
+        },
+        {
+          "source": "target.vertMirrPass.previous",
+          "uniform": "vertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "horMirrPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "vertMirrPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainPass",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "target.edgePass",
+          "uniform": "edgePass"
+        },
+        {
+          "source": "target.horMirrPass",
+          "uniform": "horMirrPass"
+        },
+        {
+          "source": "target.vertMirrPass.previous",
+          "uniform": "vertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "vertMirrPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainPass",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "target.edgePass",
+          "uniform": "edgePass"
+        },
+        {
+          "source": "target.horMirrPass",
+          "uniform": "horMirrPass"
+        },
+        {
+          "source": "target.vertMirrPass",
+          "uniform": "vertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "diffuse_strength": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "brightness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "base_color": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "audio_edge": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "rainbow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "rainbow_width": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "edge_mix": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "reflectivity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "lookXY": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0119999993294477
+      },
+      "reactive_time": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "rate_in": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "f_o_v": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0099999993294477
+      },
+      "media_color": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "media_scale": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "multiply_media": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0500000001490116
+      },
+      "bass_mult": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "hor_mir_mix": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.09999993294477
+      },
+      "vert_mir_mix": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.09999993294477
+      },
+      "geo_reactive_time": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "geo_rate": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "satellites": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "sat_scale": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "gooey": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0299999993294477
+      },
+      "orbit_width": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0299999993294477
+      },
+      "random_geo": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "ring_or_cage": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "audio_twist": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "twist_val": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.00999999
+      },
+      "displace_surface": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.00999999
+      }
+    },
+    "scriptUniforms": {
+      "dynamic_time": "float",
+      "geo_dynamic_time": "float",
+      "geo_var": "float",
+      "edgeMix": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

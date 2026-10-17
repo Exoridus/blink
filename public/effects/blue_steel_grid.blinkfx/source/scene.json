@@ -1,0 +1,282 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 
+			[
+				0.0825,
+				0.1025
+			],
+			"DESCRIPTION" : "Path wave frequency (X and Y control sine wave oscillation)",
+			"MAX" : 
+			[
+				0.5,
+				0.5
+			],
+			"MIN" : 
+			[
+				-0.5,
+				-0.5
+			],
+			"NAME" : "path_a",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Path Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				8,
+				5.656
+			],
+			"DESCRIPTION" : "Path wave amplitude (X and Y set horizontal/vertical swing size)",
+			"MAX" : 
+			[
+				16,
+				16
+			],
+			"MIN" : 
+			[
+				-16,
+				-16
+			],
+			"NAME" : "path_b",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Path Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				1
+			],
+			"DESCRIPTION" : "Grid cell size in XY plane (smaller = denser grid)",
+			"MAX" : 
+			[
+				3,
+				3
+			],
+			"MIN" : 
+			[
+				0.25,
+				0.25
+			],
+			"NAME" : "grid_dim_xy",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Grid"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				0.03
+			],
+			"DESCRIPTION" : "Grid spacing (X: depth interval, Y: tube thickness)",
+			"MAX" : 
+			[
+				3,
+				0.4
+			],
+			"MIN" : 
+			[
+				0.25,
+				0.01
+			],
+			"NAME" : "grid_dim_zr",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Grid"
+		},
+		{
+			"DEFAULT" : 2,
+			"DESCRIPTION" : "Camera travel speed through the tunnel",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "path_speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Path Motion"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Continuous rotation speed of the entire tunnel",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "path_rot",
+			"TYPE" : "knob speed",
+			"UI_GROUP" : "Path Motion"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Spiral twist amount along the tunnel depth",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "path_twist",
+			"PARAMS" : 0.1,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Path Motion"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.7,
+				0.7
+			],
+			"DESCRIPTION" : "Audio response strength (X: bass level, Y: bass hits)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				3,
+				1
+			],
+			"DESCRIPTION" : "Audio response curve (higher = more intense reaction)",
+			"MAX" : 
+			[
+				6,
+				6
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media opacity – fade visuals in or out",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media multiplier – boost opacity for bold color effects",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "media_multiplier",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.2,
+				0.62,
+				1
+			],
+			"DESCRIPTION" : "RGB color of flash light effect on bass hits",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "flash_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.57,
+				0.15,
+				1
+			],
+			"DESCRIPTION" : "RGB color of animated snake particles in the grid",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "snake_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				2,
+				0.5
+			],
+			"DESCRIPTION" : "Camera perspective warp (X: forward pull, Y: radial pull)",
+			"MAX" : 
+			[
+				5,
+				5
+			],
+			"MIN" : 
+			[
+				-5,
+				-5
+			],
+			"NAME" : "warp_world",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Race through an infinite tunnel of chrome and neon in the Blue Steel Grid. This audio-reactive journey features a twisting, undulating grid structure with sleek metallic surfaces that gleam with icy blue reflections. Electric purple snake particles weave through the lattice while flash lights pulse with the bass, creating dramatic light rays that pierce through the geometry. The entire grid bends and warps along a sinuous path, offering an ever-shifting perspective through this cyberpunk corridor. Perfect for techno sets and futuristic visuals.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"grid",
+		"tunnel",
+		"chrome",
+		"metallic",
+		"raymarch",
+		"audio-reactive",
+		"blue",
+		"purple",
+		"geometric"
+	],
+	"TITLE" : "Blue Steel Grid",
+	"WIDTH" : 1920
+}

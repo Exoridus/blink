@@ -1,0 +1,383 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.submerged_spectral_shimmering_siphonophores",
+  "title": "Submerged Spectral Shimmering Siphonophores",
+  "author": "mrange",
+  "description": "Drift through an abyssal fractal ecosystem where bioluminescent organisms pulse and flow in 4D space. Apollonian structures bloom into delicate tendrils, their spectral glow shifting through color palettes as your camera orbits through gravity wells in this mesmerizing deep-sea dreamscape.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "bioluminescent",
+    "underwater",
+    "fractal",
+    "apollonian",
+    "organic",
+    "ethereal",
+    "4D",
+    "glow"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "gravity",
+      "label": "gravity",
+      "description": "Camera gravity – stronger values pull view toward center",
+      "group": "Movement",
+      "type": "float",
+      "default": 0.5,
+      "min": -10,
+      "max": 10
+    },
+    {
+      "name": "glow_radius",
+      "label": "glow radius",
+      "description": "Glow sphere radius – larger values expand central atmosphere",
+      "group": "Glow",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fractal_offset",
+      "label": "fractal offset",
+      "description": "Fractal offset – shifts 4D structure of apollonian pattern",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 0.25
+    },
+    {
+      "name": "color_base",
+      "label": "color base",
+      "description": "Color palette shift – adjusts base hue and tint",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        7,
+        2
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        7,
+        7
+      ]
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Media overlay opacity – blend loaded media into scene",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "bars_opacity",
+      "label": "bars opacity",
+      "description": "Spectrum bars opacity – visibility of audio visualization",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "pass0",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0.previous",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1.previous",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2.previous",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3.previous",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass0",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "pass1",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1.previous",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2.previous",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3.previous",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass1",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "pass2",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2.previous",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3.previous",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass2",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "pass3",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3.previous",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass3",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "gravity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "glow_radius": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "fractal_offset": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "color_base": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19001
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bars_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19601
+      }
+    },
+    "scriptUniforms": {
+      "pos": "vec3",
+      "dpos": "vec3",
+      "ddpos": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

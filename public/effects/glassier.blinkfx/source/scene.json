@@ -1,0 +1,47 @@
+{
+ "CREDIT": "Felix Woitzel",
+ "TITLE": "Glassier",
+ "IMAGE_PATH": "Glassier.jpg",
+"IMAGES": [],
+ "SMOOTH_TRANSITIONS":[{
+ "UNIFORMS":["cReg4", "cReg0", "cReg2", "cReg3", "cReg1"],
+ "DURATION": 5
+ }],
+ "GPU": 2,
+ "TAGS" : 
+ [
+  "simulation",
+  "dark",
+  "reaction-diffusion",
+  "media"
+ ],
+ "PASSES": [
+ {"TARGET":"buffA", "WIDTH":1600, "HEIGHT":900, "FLOAT": true},
+ {"TARGET":"buffB", "WIDTH":1600, "HEIGHT":900, "FLOAT": true},
+ {"TARGET":"buffC", "WIDTH":1600, "HEIGHT":900, "FLOAT": true} ],
+
+"CONTROLS":[
+  {"NAME": "shock_back", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE":"bang smooth", "PARAMS": 0.01,
+  "UI_GROUP":"shock","DESCRIPTION": "Click to pull the simulation backwards a bit, or click many times to completely black it out and let it pour forward at the right moment."},
+  {"NAME": "shock_forward", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE":"bang smooth", "PARAMS": 0.2,
+  "UI_GROUP":"shock","DESCRIPTION": "Push the simulation forward, dulling it out a bit in the process."},
+  {"NAME": "image_block", "DEFAULT":1.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle",
+  "UI_GROUP":"general","DESCRIPTION": "Choose whether the image should be a hard boundary in the simulation (ON) or have a subtle effect (OFF)."},
+	{"NAME": "color_inv", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE":"toggle",
+  "UI_GROUP":"general","DESCRIPTION": "ON Allows dark parts of the simulation to be filled in with inverted colors rather than just black."},
+  {"NAME": "auto_position", "DEFAULT":1.0, "MIN":0.0, "MAX":1.0, "TYPE":"toggle",
+  "UI_GROUP":"position","DESCRIPTION": "Let the stirrer move around the screen constantly, or turn off to take manual control."},
+  {"NAME": "manual_position", "DEFAULT":0.0, "MIN":-0.8, "MAX":0.8, "TYPE":"xy smooth", "PARAMS": 0.05,
+  "UI_GROUP":"position","DESCRIPTION": "auto position MUST BE SET TO OFF. Manually set the position of the 'stirrer'."},
+  {"NAME": "auto_impulse", "DEFAULT":1.0, "MIN":0.0, "MAX":1.0, "TYPE":"toggle",
+  "UI_GROUP":"impulse","DESCRIPTION": "Choose whether impulses should happen automatically (ON) or only on your manual command."},
+  {"NAME": "manual_impulse", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE":"bang smooth", "PARAMS": 0.095,
+  "UI_GROUP":"impulse","DESCRIPTION": "Manually cause the stirrer to receive an impulse. Depends on 'motion mode', 'manual position' and 'impulse power'."},
+  {"NAME": "impulse_power", "DEFAULT":1.0, "MIN":0.0, "MAX":2.0, "TYPE":"slider",
+  "UI_GROUP":"impulse","DESCRIPTION": "Choose how powerful the automatic and manual impulses are."},
+  {"NAME": "motion_mode", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle",
+  "UI_GROUP":"motion","DESCRIPTION": "Choose whether the stirrer creates vortices on high hits (OFF) or pushes the fluid up on bass hits (ON)."},
+  {"NAME": "in_out", "DEFAULT":0.0, "MIN":-5.0, "MAX":5.0, "TYPE":"slider",
+  "UI_GROUP":"motion","DESCRIPTION": "Cause the simulation to slowly move inwards or outwards based on the position of the slider. Centered is zero. Careful when maxing out upward, if there is no User Image feeding it, you could kill the simulation and you'd have to restart the scene."}
+]
+}

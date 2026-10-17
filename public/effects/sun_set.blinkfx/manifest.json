@@ -1,0 +1,317 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.sun_set",
+  "title": "Sun_Set",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "psychedelic",
+    "abstract"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "bright",
+      "label": "bright",
+      "description": "Send a bright pulse through the scene (inverted if invert is on).",
+      "group": "flash",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "dark",
+      "label": "dark",
+      "description": "Send a dark pulse through the scene (inverted if invert is on).",
+      "group": "flash",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "hue",
+      "label": "hue",
+      "description": "Change the hue of the entire scene.",
+      "group": "color",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "levels",
+      "label": "levels",
+      "description": "Reduces the color space, resulting in less saturated colors and more abstract shapes. 100% is all colors, 0% is only 2 or 3.",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0.09,
+      "max": 1
+    },
+    {
+      "name": "fire",
+      "label": "fire",
+      "description": "Amount of 'fire', or glow leaking up from the bottom.",
+      "group": "color",
+      "type": "float",
+      "default": 2,
+      "min": 2,
+      "max": 2
+    },
+    {
+      "name": "invert",
+      "label": "invert",
+      "description": "Change all colors to their opposite colors. Makes the scene much brighter.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "feedback",
+      "label": "feedback",
+      "description": "Feedback, or 'upward fading'. 0% is no blurring with very crisp lines. 100% will be no action, just upward scrolling.",
+      "group": "subtle",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "sun_pierce",
+      "label": "sun pierce",
+      "description": "On press, a sun-like orb appears in the center, and echoes through the scene.",
+      "group": "subtle",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "stutter",
+      "label": "stutter",
+      "description": "Low frame rate is responsible for a lot of the dramatic visual patterns in this scene. Make it stutter even more (lower frame rate) by moving this slider up. Or make it smoother and less dramatic by moving this down.",
+      "group": "subtle",
+      "type": "float",
+      "default": 10,
+      "min": 1,
+      "max": 25
+    },
+    {
+      "name": "auto_reset",
+      "label": "auto reset",
+      "description": "Reset the feedback by flashing 'mountains' on bass hits.",
+      "group": "feedback",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "manual_reset",
+      "label": "manual reset",
+      "description": "Manually reset the feedback by flashing to the 'mountains' screen.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "direction",
+      "label": "direction",
+      "type": "float",
+      "default": -1,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "firstBuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer.previous",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "target.secondBuffer.previous",
+          "uniform": "secondBuffer"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "firstBuffer",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "secondBuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "target.secondBuffer.previous",
+          "uniform": "secondBuffer"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "secondBuffer",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "target.secondBuffer",
+          "uniform": "secondBuffer"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "bright": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "dark": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "hue": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "levels": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "fire": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "invert": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "feedback": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "sun_pierce": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "stutter": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "auto_reset": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "manual_reset": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

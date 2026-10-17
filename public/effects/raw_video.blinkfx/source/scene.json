@@ -1,0 +1,12 @@
+{
+  "TITLE": "Raw Video",
+  "DESCRIPTION": "",
+  "IMAGE_PATH": "raw_video.png",
+  "CREDIT": "Synesthesia",
+  "GPU": 1,
+  "TAGS" : 
+  [
+  "media",
+  "utility"
+  ]
+}

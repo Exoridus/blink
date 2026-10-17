@@ -1,0 +1,207 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.equirectangular",
+  "title": "Equirectangular",
+  "author": "Shady Headstash",
+  "description": "Smoothly switch between 3D and 2D perspective using Equirectangular projection.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "utility",
+    "uv",
+    "2d"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "perspective",
+      "label": "perspective",
+      "description": "Smoothly switch between 3D and 2D perspective using Equirectangular projection.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "look_xy",
+      "label": "look xy",
+      "description": "Just move the X-axis to spin about your main axis, or move the Y-axis to tilt forwards or backwards.",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        1,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "zoom",
+      "label": "zoom",
+      "description": "Zoom in and out of the input media.",
+      "group": "media",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "position",
+      "label": "position",
+      "description": "Pan input media in any direction.",
+      "group": "media",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "velocity",
+      "label": "velocity",
+      "description": "Automatically pan input media in any direction.",
+      "group": "media",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -0.5,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "name": "mirror",
+      "label": "mirror",
+      "description": "Mirror input texture when tiling.",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "image1",
+      "type": "texture2d",
+      "path": "assets/1.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "asset.image1",
+          "uniform": "image1"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "perspective": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "look_xy": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "zoom": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "position": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "velocity": {
+        "format": "ssf",
+        "type": "xy traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.0025
+      },
+      "mirror": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

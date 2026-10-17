@@ -1,0 +1,273 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Jump one column right",
+         "IS_META" : false,
+         "MAX" : 10.0,
+         "MIN" : 0.0,
+         "NAME" : "move_right",
+         "TYPE" : "bang counter",
+         "UI_GROUP" : "fast_motion"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Jump one column left",
+         "IS_META" : false,
+         "MAX" : 10.0,
+         "MIN" : 0.0,
+         "NAME" : "move_left",
+         "TYPE" : "bang counter",
+         "UI_GROUP" : "fast_motion"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "edge detection on bass hits.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "audio_edge",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Mix in rainbow color",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "rainbow",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "How much edge detection is present in the shader.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "edge_mix",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 2.0,
+         "DESCRIPTION" : "Diffused light strength",
+         "IS_META" : false,
+         "MAX" : 2.0,
+         "MIN" : 0.1,
+         "NAME" : "diffuse_strength",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 9.0,
+         "DESCRIPTION" : "How bright the scene is.",
+         "IS_META" : false,
+         "MAX" : 3.5,
+         "MIN" : 10.0,
+         "NAME" : "brightness",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.200000002980232,
+         "DEF_COLOR" : [ 0.12109375, 0.359375, 0.5859375 ],
+         "DESCRIPTION" : "base color, this color's complement will be calculated automatically",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "base_color",
+         "TYPE" : "color",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "How much the media will appear directly painted on the objects",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "media_color",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "On: show bottom level objects, Off: hide bottom level objects",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "level1_geo",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "geo"
+      },
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "On: show middle level objects, Off: hide middle level objects",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "level2_geo",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "geo"
+      },
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "On: show top level objects, Off: hide top level objects",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "level3_geo",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "geo"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "geo_reactive_time",
+         "TYPE": "toggle",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 2.0,
+         "DESCRIPTION": "How fast the time variable grows, whether it is reactive time or constant time.",
+         "IS_META": false,
+         "MAX": 10.0,
+         "MIN": -10.0,
+         "NAME": "geo_rate",
+		   "PARAMS": 0.299999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Rounds Geometry at a rate of 25 percent of the song's BPM",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "bpm_round",
+         "TYPE": "toggle",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 0.1,
+         "DESCRIPTION": "Rounds the edges of the geometry",
+         "IS_META": false,
+         "MAX": 0.2,
+         "MIN": 0.05,
+         "NAME": "rounded_geo",
+		   "PARAMS": 0.299999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Field of View for the perspective of the camera",
+         "IS_META" : false,
+         "MAX" : 3.0,
+         "MIN" : 1.0,
+         "NAME" : "FOV",
+         "PARAMS" : 0.0350000001490116,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "On: Fixed Camera, Off: Rotating camera",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "alt_cam",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Toggles between the rotating and fixed (alt) cameras based on syn_ToggleOnBeat",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "alt_cam_onBeat",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "reactive_time",
+         "TYPE": "toggle",
+         "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT": 2.0,
+         "DESCRIPTION": "How fast the time variable grows, whether it is reactive time or constant time.",
+         "IS_META": false,
+         "MAX": 10.0,
+         "MIN": -10.0,
+         "NAME": "rate_in",
+		   "PARAMS": 0.299999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Smooth Horizontal Mirror Mix",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "hor_mir_mix",
+		   "PARAMS": 0.09999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "mirror"
+      }
+      ,
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Smooth Vertical Mirror Mix",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "vert_mir_mix",
+		   "PARAMS": 0.09999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "mirror"
+      }
+   ],
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "buffA",
+         "WIDTH" : 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "edgePass",
+         "WIDTH" : 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "horMirrPass",
+         "WIDTH" : 1920
+      }
+   ],
+   "CREDIT" : "Psybernautics - Alex Tiemann",
+   "DESCRIPTION" : "Where rainbows are made.",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "rainbow_factory.PNG",
+   "TITLE" : "Rainbow Factory",
+   "WIDTH" : 1920
+}

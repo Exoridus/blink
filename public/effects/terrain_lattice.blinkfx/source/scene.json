@@ -1,0 +1,195 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 1,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "hori_sg",
+         "DESCRIPTION":"Turn horizontal segments on or off.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "tubes"
+      },
+      {
+         "DEFAULT" : 0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "vert_sg",
+         "DESCRIPTION":"Turn vertical segments on or off.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "tubes"
+      },
+      {
+         "DEFAULT" : 0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "diag_sg",
+         "DESCRIPTION":"Turn diagonal segments on or off.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "tubes"
+      },
+      {
+         "DEFAULT" : 1,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "stick_sg",
+         "DESCRIPTION":"Turn stick segments on or off.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "tubes"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "sphere_sg",
+         "DESCRIPTION":"Turn sphere segments on or off.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "tubes"
+      },{
+         "DEFAULT" : 1.0,
+         "MAX" : 1.0,
+         "MIN" : 0,
+         "NAME" : "auto_thickness",
+         "DESCRIPTION":"When this is ON, the tubes will bump with drum hits, when OFF, they'll keep a constant thickness.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "tubes"
+      },{
+         "DEFAULT" : 0.25,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "thickness",
+         "DESCRIPTION":"Thickness of the tubes and spheres. Default 25%.",
+         "TYPE" : "slider",
+         "UI_GROUP" : "tubes"
+      },{
+         "DEFAULT" : 1.0,
+         "MAX" : 4.0,
+         "MIN" : 0.0,
+         "NAME" : "perturbation",
+         "TYPE" : "slider smooth",
+         "DESCRIPTION":"0% is fully flat. 100% is high pointed peaks. Default is 25%.",
+         "PARAMS":0.2,
+         "UI_GROUP" : "floor"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "auto_perturb",
+         "DESCRIPTION":"Floor will automatically change from flat to perturbed slowly as the music energy rises and falls.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "floor"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "blinking_floor",
+         "DESCRIPTION":"Turn ON for audio-reactive blinking floor. You'll need to choose a floor color that is non-black as well.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "floor"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 0.2,
+         "MIN" : 0.0,
+         "NAME" : "overblown",
+         "TYPE" : "toggle",
+         "DESCRIPTION":"ON to make the 3D lighting overblown and sharp.",
+         "UI_GROUP" : "floor"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 0.8,
+         "MIN" : 0.0,
+         "NAME" : "flat_blurred",
+         "TYPE" : "toggle",
+         "DESCRIPTION":"ON make the 3D lighting flat and blurred.",
+         "UI_GROUP" : "floor"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "glossy",
+         "DESCRIPTION":"ON for a smooth, glossy floor, or OFF for the low-poly triangle floor.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "floor"
+      },{
+         "DEFAULT" : 1.0,
+         "MAX" : 2.0,
+         "MIN" : 0,
+         "NAME" : "media_scale",
+         "TYPE" : "slider",
+         "DESCRIPTION":"How much of the floor the media covers. Default 50%, up to make it small and tiled, down to make it huge.",
+         "UI_GROUP" : "look"
+      },{
+         "DEFAULT" : 1.5,
+         "MAX" : 4.0,
+         "MIN" : 0,
+         "NAME" : "zoom",
+         "DESCRIPTION":"Defines the scale of the space. Down to zoom in, up to zoom out. Best to just click a new spot, not use smoothly.",
+         "TYPE" : "slider",
+         "UI_GROUP" : "look"
+      },{
+         "NAME" : "pipe_col",
+         "TYPE" : "color",
+         "DEF_COLOR":[1.0,1.0,1.0],
+         "DESCRIPTION":"Color of the pipes.",
+         "UI_GROUP" : "look"
+      },{
+         "NAME" : "floor_col",
+         "TYPE" : "color",
+         "DEF_COLOR":[0.0,0.0,0.0],
+         "DESCRIPTION":"The color of the floor. Make this non-black to use the blinking floor effect. If you have media selected, this is ignored.",
+         "UI_GROUP" : "look"
+      },{
+         "DEFAULT" : 1.0,
+         "MAX" : 1.0,
+         "MIN" : 0,
+         "NAME" : "auto_split",
+         "DESCRIPTION":"Turn ON for red/cyan split when the bass hits, or OFF for a constant split controlled by the slider.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "redcyan_split"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "incl_original",
+         "DESCRIPTION":"Turn ON to splits the red and cyan color channels, but also keep the unchanged original colors, or OFF for just red/cyan.",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "redcyan_split"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 1.0,
+         "MIN" : 0,
+         "NAME" : "noisy_split",
+         "TYPE" : "toggle",
+         "DESCRIPTION":"Turn ON for a noisier split efect, or off for the standard split.",
+         "UI_GROUP" : "redcyan_split"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 2.0,
+         "MIN" : 0,
+         "NAME" : "split_amt",
+         "TYPE" : "slider",
+         "DESCRIPTION":"Default: 0%, meaning split effect is off. Turn up to increase the intensity of the red/cyan split effect.",
+         "UI_GROUP" : "redcyan_split"
+      }
+   ],
+   "CREDIT" : "Shane",
+   "DESCRIPTION" : "A hybrid point-lit, flat-shaded terrain with a mesh structure on it.",
+   "PASSES":[{"TARGET":"meshPass", "HEIGHT":432, "WIDTH":768}],
+   "HEIGHT" : 1080,
+   "IMAGES" : [
+      {
+         "NAME" : "image3",
+         "PATH" : "images/3.jpg"
+      }
+   ],
+   "IMAGE_PATH" : "terrain_lattice.png",
+   "TITLE" : "Terrain Lattice",
+   "WIDTH" : 1920,
+   "GPU": 3,
+   "TAGS" : 
+   [
+   "3d",
+   "realistic",
+   "raymarching",
+   "media"
+   ]
+}

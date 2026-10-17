@@ -1,0 +1,129 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Make the sauce twitch rhythmically",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "synced_twitcher",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "time"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Hue rotate the main color palette",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "hue_adjust",
+         "TYPE" : "slider",
+         "UI_GROUP" : "coloration"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Monochrome flash on beat",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "mode_2",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "coloration"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Degenerate the sauce into pixel garbage",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "pixel_garbage",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "coloration"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Amount of feedback the sauce has",
+         "MAX" : 2.0,
+         "MIN" : 0.01,
+         "NAME" : "feedback_amt",
+         "TYPE" : "slider",
+         "UI_GROUP" : "feedback"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Number of iterations of the sauce",
+         "MAX" : 1,
+         "MIN" : 0.005,
+         "NAME" : "iterations",
+         "TYPE" : "slider",
+         "UI_GROUP" : "feedback"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "How big or small is the sauce",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "scale",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "feedback"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Thickness of the lines that feed the sauce",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "feed_thickness",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.8,
+         "UI_GROUP" : "feedback"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Add the media to the feedback",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media_feeder",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Mask the feedback with the media",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media_mask",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "media"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Change feedback based on brightness of media",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media_refract",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "media"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Add the media colors into the sauce",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media_color",
+         "TYPE" : "slider",
+         "UI_GROUP" : "media"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Subtract the media from the sauce",
+         "MAX" : 2,
+         "MIN" : 0,
+         "NAME" : "media_subtract",
+         "TYPE" : "slider",
+         "UI_GROUP" : "media"
+      }
+   ],
+   "GPU": 3,
+   "TAGS" : 
+   [
+    "feedback",
+    "media",
+    "groovy",
+    "colorful"
+   ],
+   "PASSES":[{"TARGET":"feedback", "TYPE":"float", "WIDTH":2176, "HEIGHT":1224}, {"TARGET":"finalPass", "TYPE":"float"}],
+   "CREDIT" : "Keijiro Takahashi x Meebs",
+   "DESCRIPTION" : "",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "lost_in_the_sauce.png",
+   "TITLE" : "Lost in the Sauce",
+   "WIDTH" : 1920
+}

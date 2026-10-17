@@ -1,0 +1,129 @@
+{
+	"CONTROLS" :
+	[
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Media blend mode – 0=brightness, 1=alpha",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "mix_mode",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media opacity – controls overlay blend strength",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opaque",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" :
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "Ray distortion – warps and bends the scene",
+			"MAX" :
+			[
+				1,
+				1
+			],
+			"MIN" :
+			[
+				-1,
+				-1
+			],
+			"NAME" : "distortion",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.123,
+			"DESCRIPTION" : "Primary rotation – spins geometry on first axis",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "rotation_speed_0",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.234,
+			"DESCRIPTION" : "Secondary rotation – spins geometry on second axis",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "rotation_speed_1",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 4,
+			"DESCRIPTION" : "Camera distance – controls zoom from reflections",
+			"MAX" : 7,
+			"MIN" : 2,
+			"NAME" : "distance_z",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" :
+			[
+				1,
+				1
+			],
+			"DESCRIPTION" : "Rotation modulation – adds wave motion to rotations",
+			"MAX" :
+			[
+				1,
+				1
+			],
+			"MIN" :
+			[
+				0,
+				0
+			],
+			"NAME" : "motion_mod",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Bass reactivity – camera pulses with bass audio",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "bass_mod_z",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Hypnotic geometric reflections that pulse and rotate with your music.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" :
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" :
+	[
+		"mrange",
+		"reflections",
+		"audio-reactive",
+		"geometric",
+		"interactive"
+	],
+	"TITLE" : "Pretty ok reflections",
+	"WIDTH" : 1920
+}

@@ -1,0 +1,837 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.midi_mapping",
+  "title": "MIDI_MAPPING",
+  "author": "Synesthesia",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "utility",
+    "developer",
+    "visualizer"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "TOGGLE_0",
+      "label": "TOGGLE 0",
+      "description": "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+      "group": "toggle",
+      "type": "float",
+      "default": 0.05,
+      "min": 0.05,
+      "max": 0.9,
+      "step": 0.85
+    },
+    {
+      "name": "TOGGLE_1",
+      "label": "TOGGLE 1",
+      "description": "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+      "group": "toggle",
+      "type": "float",
+      "default": 0.9,
+      "min": 0.05,
+      "max": 0.9,
+      "step": 0.85
+    },
+    {
+      "name": "TOGGLE_2",
+      "label": "TOGGLE 2",
+      "description": "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+      "group": "toggle",
+      "type": "float",
+      "default": 0.05,
+      "min": 0.05,
+      "max": 0.9,
+      "step": 0.85
+    },
+    {
+      "name": "TOGGLE_3",
+      "label": "TOGGLE 3",
+      "description": "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+      "group": "toggle",
+      "type": "float",
+      "default": 0.9,
+      "min": 0.05,
+      "max": 0.9,
+      "step": 0.85
+    },
+    {
+      "name": "TOGGLE_4",
+      "label": "TOGGLE 4",
+      "description": "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+      "group": "toggle",
+      "type": "float",
+      "default": 0.05,
+      "min": 0.05,
+      "max": 0.9,
+      "step": 0.85
+    },
+    {
+      "name": "TOGGLE_5",
+      "label": "TOGGLE 5",
+      "description": "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+      "group": "toggle",
+      "type": "float",
+      "default": 0.9,
+      "min": 0.05,
+      "max": 0.9,
+      "step": 0.85
+    },
+    {
+      "name": "TOGGLE_6",
+      "label": "TOGGLE 6",
+      "description": "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+      "group": "toggle",
+      "type": "float",
+      "default": 0.05,
+      "min": 0.05,
+      "max": 0.9,
+      "step": 0.85
+    },
+    {
+      "name": "TOGGLE_7",
+      "label": "TOGGLE 7",
+      "description": "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+      "group": "toggle",
+      "type": "float",
+      "default": 0.9,
+      "min": 0.05,
+      "max": 0.9,
+      "step": 0.85
+    },
+    {
+      "name": "SLIDER_0",
+      "label": "SLIDER 0",
+      "description": "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+      "group": "slider",
+      "type": "float",
+      "default": 0.125,
+      "min": 0.05,
+      "max": 0.95
+    },
+    {
+      "name": "SLIDER_1",
+      "label": "SLIDER 1",
+      "description": "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+      "group": "slider",
+      "type": "float",
+      "default": 0.25,
+      "min": 0.05,
+      "max": 0.95
+    },
+    {
+      "name": "SLIDER_2",
+      "label": "SLIDER 2",
+      "description": "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+      "group": "slider",
+      "type": "float",
+      "default": 0.375,
+      "min": 0.05,
+      "max": 0.95
+    },
+    {
+      "name": "SLIDER_3",
+      "label": "SLIDER 3",
+      "description": "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+      "group": "slider",
+      "type": "float",
+      "default": 0.5,
+      "min": 0.05,
+      "max": 0.95
+    },
+    {
+      "name": "SLIDER_4",
+      "label": "SLIDER 4",
+      "description": "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+      "group": "slider",
+      "type": "float",
+      "default": 0.625,
+      "min": 0.05,
+      "max": 0.95
+    },
+    {
+      "name": "SLIDER_5",
+      "label": "SLIDER 5",
+      "description": "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+      "group": "slider",
+      "type": "float",
+      "default": 0.75,
+      "min": 0.05,
+      "max": 0.95
+    },
+    {
+      "name": "SLIDER_6",
+      "label": "SLIDER 6",
+      "description": "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+      "group": "slider",
+      "type": "float",
+      "default": 0.875,
+      "min": 0.05,
+      "max": 0.95
+    },
+    {
+      "name": "SLIDER_7",
+      "label": "SLIDER 7",
+      "description": "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+      "group": "slider",
+      "type": "float",
+      "default": 0.95,
+      "min": 0.05,
+      "max": 0.95
+    },
+    {
+      "name": "BANG_0",
+      "label": "BANG 0",
+      "description": "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+      "group": "bang",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "BANG_1",
+      "label": "BANG 1",
+      "description": "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+      "group": "bang",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "BANG_2",
+      "label": "BANG 2",
+      "description": "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+      "group": "bang",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "BANG_3",
+      "label": "BANG 3",
+      "description": "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+      "group": "bang",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "BANG_4",
+      "label": "BANG 4",
+      "description": "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+      "group": "bang",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "BANG_5",
+      "label": "BANG 5",
+      "description": "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+      "group": "bang",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "BANG_6",
+      "label": "BANG 6",
+      "description": "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+      "group": "bang",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "BANG_7",
+      "label": "BANG 7",
+      "description": "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+      "group": "bang",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "KNOB_0",
+      "label": "KNOB 0",
+      "description": "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+      "group": "knob",
+      "type": "float",
+      "default": 0.125,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "KNOB_1",
+      "label": "KNOB 1",
+      "description": "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+      "group": "knob",
+      "type": "float",
+      "default": 0.25,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "KNOB_2",
+      "label": "KNOB 2",
+      "description": "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+      "group": "knob",
+      "type": "float",
+      "default": 0.375,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "KNOB_3",
+      "label": "KNOB 3",
+      "description": "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+      "group": "knob",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "KNOB_4",
+      "label": "KNOB 4",
+      "description": "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+      "group": "knob",
+      "type": "float",
+      "default": 0.625,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "KNOB_5",
+      "label": "KNOB 5",
+      "description": "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+      "group": "knob",
+      "type": "float",
+      "default": 0.75,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "KNOB_6",
+      "label": "KNOB 6",
+      "description": "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+      "group": "knob",
+      "type": "float",
+      "default": 0.875,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "KNOB_7",
+      "label": "KNOB 7",
+      "description": "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+      "group": "knob",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "XY_0",
+      "label": "XY 0",
+      "description": "XY pads can be thought of as two independent sliders in one control. If you have an XY pad on your MIDI controller, map that! Otherwise, you can just map two adjacent knobs or faders, one for each axis.",
+      "group": "xy",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "XY_1",
+      "label": "XY 1",
+      "description": "XY pads can be thought of as two independent sliders in one control. If you have an XY pad on your MIDI controller, map that! Otherwise, you can just map two adjacent knobs or faders, one for each axis.",
+      "group": "xy",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "XY_2",
+      "label": "XY 2",
+      "description": "XY pads can be thought of as two independent sliders in one control. If you have an XY pad on your MIDI controller, map that! Otherwise, you can just map two adjacent knobs or faders, one for each axis.",
+      "group": "xy",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "XY_3",
+      "label": "XY 3",
+      "description": "XY pads can be thought of as two independent sliders in one control. If you have an XY pad on your MIDI controller, map that! Otherwise, you can just map two adjacent knobs or faders, one for each axis.",
+      "group": "xy",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "DROPDOWN_0",
+      "label": "DROPDOWN 0",
+      "description": "Dropdowns work best with CC messages. The CC value between 0 and 127 will be interpolated as an index to select one of the dropdown options.",
+      "group": "dropdown",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "name": "DROPDOWN_1",
+      "label": "DROPDOWN 1",
+      "description": "Dropdowns work best with CC messages. The CC value between 0 and 127 will be interpolated as an index to select one of the dropdown options.",
+      "group": "dropdown",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "name": "DROPDOWN_2",
+      "label": "DROPDOWN 2",
+      "description": "Dropdowns work best with CC messages. The CC value between 0 and 127 will be interpolated as an index to select one of the dropdown options.",
+      "group": "dropdown",
+      "type": "float",
+      "default": 4,
+      "min": 0,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "name": "DROPDOWN_3",
+      "label": "DROPDOWN 3",
+      "description": "Dropdowns work best with CC messages. The CC value between 0 and 127 will be interpolated as an index to select one of the dropdown options.",
+      "group": "dropdown",
+      "type": "float",
+      "default": 5,
+      "min": 0,
+      "max": 5,
+      "step": 1
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "TOGGLE_0": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "TOGGLE_1": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "TOGGLE_2": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "TOGGLE_3": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "TOGGLE_4": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "TOGGLE_5": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "TOGGLE_6": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "TOGGLE_7": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "SLIDER_0": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "SLIDER_1": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "SLIDER_2": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "SLIDER_3": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "SLIDER_4": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "SLIDER_5": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "SLIDER_6": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "SLIDER_7": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "BANG_0": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "BANG_1": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "BANG_2": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "BANG_3": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "BANG_4": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "BANG_5": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "BANG_6": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "BANG_7": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "KNOB_0": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "KNOB_1": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "KNOB_2": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "KNOB_3": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "KNOB_4": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "KNOB_5": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "KNOB_6": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "KNOB_7": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "XY_0": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.3
+      },
+      "XY_1": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.3
+      },
+      "XY_2": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.3
+      },
+      "XY_3": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.3
+      },
+      "DROPDOWN_0": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "DROPDOWN_1": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "DROPDOWN_2": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "DROPDOWN_3": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

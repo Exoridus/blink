@@ -1,0 +1,345 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.sprinkles",
+  "title": "Sprinkles",
+  "author": "sheltron ft. Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "simulation",
+    "reaction-diffusion",
+    "dark"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "scale",
+      "label": "scale",
+      "group": "simulation",
+      "type": "float",
+      "default": 0,
+      "min": -2,
+      "max": 2
+    },
+    {
+      "name": "pulse_out",
+      "label": "pulse out",
+      "group": "feed",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_feed",
+      "label": "auto feed",
+      "group": "feed",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "black_pulse",
+      "label": "black pulse",
+      "group": "erase",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "full_erase",
+      "label": "full erase",
+      "group": "erase",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "grow",
+      "label": "grow",
+      "group": "twitch",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "pulse_ripple",
+      "label": "pulse ripple",
+      "group": "twitch",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "buffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA.previous",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffA2.previous",
+          "uniform": "buffA2"
+        },
+        {
+          "source": "target.buffB.previous",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2.previous",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffA",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffA2",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffA2.previous",
+          "uniform": "buffA2"
+        },
+        {
+          "source": "target.buffB.previous",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2.previous",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffA2",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffA2",
+          "uniform": "buffA2"
+        },
+        {
+          "source": "target.buffB.previous",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2.previous",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffB",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffB2",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffA2",
+          "uniform": "buffA2"
+        },
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2.previous",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffB2",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffA2",
+          "uniform": "buffA2"
+        },
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "scale": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "pulse_out": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "auto_feed": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "black_pulse": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "full_erase": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "grow": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "pulse_ripple": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

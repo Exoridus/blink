@@ -1,0 +1,413 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.redrum",
+  "title": "REDRUM",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "2d",
+    "dark",
+    "horror"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "manual_splatter",
+      "label": "manual splatter",
+      "description": "Turn OFF auto splatter and use this button to trigger splatters instead. Every time you click, another one dies. You monster.",
+      "group": "splatter",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_splatter",
+      "label": "auto splatter",
+      "description": "Turn ON for automatic blood splatters on the beat, turn off if you want to use the manual splatter button.",
+      "group": "splatter",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "extra_drips",
+      "label": "extra drips",
+      "description": "Choose whether the extra, slow drips are included in each splatter.",
+      "group": "splatter",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_slicer",
+      "label": "auto slicer",
+      "description": "Turn ON for automatic slices on the beat, turn off you want to use the manual slice button.",
+      "group": "slicer",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "constrast_slices",
+      "label": "constrast slices",
+      "description": "Turn ON for high-contrast slices instead of red.",
+      "group": "slicer",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "manual_slice",
+      "label": "manual slice",
+      "description": "Turn OFF auto slicer and use this button to trigger slices instead. Splatter wasn't enough? Do you have an insatiable thirst for blood?",
+      "group": "slicer",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "shake",
+      "label": "shake",
+      "description": "Intensity of the shake effect.",
+      "group": "effects",
+      "type": "float",
+      "default": 0.35,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "highs_glitch",
+      "label": "highs glitch",
+      "description": "Turn ON for a glitch effect when the highs hit.",
+      "group": "effects",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "more_blood",
+      "label": "more blood",
+      "description": "Turn this up to increase the intensity of the blood.",
+      "group": "blood",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "less_blood",
+      "label": "less blood",
+      "description": "Turn this up to decrease the intensity of the blood.",
+      "group": "blood",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "punch_out",
+      "label": "punch out",
+      "description": "Hit this to push the blood out radially.",
+      "group": "puncher",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "punch_in",
+      "label": "punch in",
+      "description": "Hit this to pull the blood in towards the center.",
+      "group": "puncher",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "intensity_punch",
+      "label": "intensity punch",
+      "description": "Turn this up to make the punch effect of the two buttons more intense. High values can turn the scene into a sort of tunnel.",
+      "group": "puncher",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "wall1Tex",
+      "type": "texture2d",
+      "path": "assets/wall1.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "wall2Tex",
+      "type": "texture2d",
+      "path": "assets/wall2.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "wall3Tex",
+      "type": "texture2d",
+      "path": "assets/wall3.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "dataPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.dataPass.previous",
+          "uniform": "dataPass"
+        },
+        {
+          "source": "target.simPass.previous",
+          "uniform": "simPass"
+        },
+        {
+          "source": "asset.wall1Tex",
+          "uniform": "wall1Tex"
+        },
+        {
+          "source": "asset.wall2Tex",
+          "uniform": "wall2Tex"
+        },
+        {
+          "source": "asset.wall3Tex",
+          "uniform": "wall3Tex"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "dataPass",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "simPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.dataPass",
+          "uniform": "dataPass"
+        },
+        {
+          "source": "target.simPass.previous",
+          "uniform": "simPass"
+        },
+        {
+          "source": "asset.wall1Tex",
+          "uniform": "wall1Tex"
+        },
+        {
+          "source": "asset.wall2Tex",
+          "uniform": "wall2Tex"
+        },
+        {
+          "source": "asset.wall3Tex",
+          "uniform": "wall3Tex"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "simPass",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.dataPass",
+          "uniform": "dataPass"
+        },
+        {
+          "source": "target.simPass",
+          "uniform": "simPass"
+        },
+        {
+          "source": "asset.wall1Tex",
+          "uniform": "wall1Tex"
+        },
+        {
+          "source": "asset.wall2Tex",
+          "uniform": "wall2Tex"
+        },
+        {
+          "source": "asset.wall3Tex",
+          "uniform": "wall3Tex"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "manual_splatter": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      },
+      "auto_splatter": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "extra_drips": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_slicer": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "constrast_slices": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "manual_slice": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "shake": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "highs_glitch": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "more_blood": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "less_blood": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "punch_out": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.6
+      },
+      "punch_in": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.6
+      },
+      "intensity_punch": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "manslice_scr": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

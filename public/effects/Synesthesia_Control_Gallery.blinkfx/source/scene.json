@@ -1,0 +1,569 @@
+{
+  "TITLE": "Control Matrix — Complete SSF Control Gallery",
+  "CREDIT": "OpenAI / SSF Reference Fixture",
+  "DESCRIPTION": "Interaktive Test- und Vergleichsszene: alle 7 aktuellen SSF-Control-Familien, 19 dokumentierte Varianten und 42 Controls mit unterschiedlichen Initialwerten und Wertebereichen. Die Preview visualisiert alle 42 Uniforms in Echtzeit. Kein Audioeingang erforderlich.",
+  "IMAGE_PATH": "thumbnail.png",
+  "WIDTH": 1920,
+  "HEIGHT": 1080,
+  "CONTROLS": [
+    {
+      "TYPE": "slider",
+      "NAME": "Slider_Min",
+      "DEFAULT": 0.0,
+      "UI_GROUP": "01 Sliders",
+      "DESCRIPTION": "Normaler Slider, initial am Minimum (0).",
+      "MIN": 0.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "slider",
+      "NAME": "Slider_Mid",
+      "DEFAULT": 0.5,
+      "UI_GROUP": "01 Sliders",
+      "DESCRIPTION": "Normaler Slider, initial in der Mitte (0.5).",
+      "MIN": 0.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "slider",
+      "NAME": "Slider_Max",
+      "DEFAULT": 1.0,
+      "UI_GROUP": "01 Sliders",
+      "DESCRIPTION": "Normaler Slider, initial am Maximum (1).",
+      "MIN": 0.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "slider",
+      "NAME": "Slider_Bipolar",
+      "DEFAULT": -0.65,
+      "UI_GROUP": "01 Sliders",
+      "DESCRIPTION": "Bipolarer Slider mit negativen und positiven Werten.",
+      "MIN": -1.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "slider smooth",
+      "NAME": "Slider_Smooth_Fast",
+      "DEFAULT": 0.8,
+      "UI_GROUP": "01 Sliders",
+      "DESCRIPTION": "Schnelle geglaettete Aenderungen (PARAMS 0.35).",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "PARAMS": 0.35
+    },
+    {
+      "TYPE": "slider smooth",
+      "NAME": "Slider_Smooth_Slow",
+      "DEFAULT": 0.2,
+      "UI_GROUP": "01 Sliders",
+      "DESCRIPTION": "Langsame geglaettete Aenderungen (PARAMS 0.04).",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "PARAMS": 0.04
+    },
+    {
+      "TYPE": "slider speed",
+      "NAME": "Slider_Speed_Plus",
+      "DEFAULT": 0.22,
+      "UI_GROUP": "01 Sliders",
+      "DESCRIPTION": "Positive Geschwindigkeit; Shader-Wert veraendert sich pro Sekunde.",
+      "MIN": -1.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "slider speed",
+      "NAME": "Slider_Speed_Minus",
+      "DEFAULT": -0.19,
+      "UI_GROUP": "01 Sliders",
+      "DESCRIPTION": "Negative Geschwindigkeit; Shader-Wert veraendert sich pro Sekunde.",
+      "MIN": -1.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "knob",
+      "NAME": "Knob_Min",
+      "DEFAULT": 0.0,
+      "UI_GROUP": "02 Knobs",
+      "DESCRIPTION": "Demo: knob / MINIMUM.",
+      "MIN": 0.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "knob",
+      "NAME": "Knob_Mid",
+      "DEFAULT": 0.5,
+      "UI_GROUP": "02 Knobs",
+      "DESCRIPTION": "Demo: knob / MIDDLE.",
+      "MIN": 0.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "knob",
+      "NAME": "Knob_Max",
+      "DEFAULT": 1.0,
+      "UI_GROUP": "02 Knobs",
+      "DESCRIPTION": "Demo: knob / MAXIMUM.",
+      "MIN": 0.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "knob smooth",
+      "NAME": "Knob_Smooth",
+      "DEFAULT": 0.7,
+      "UI_GROUP": "02 Knobs",
+      "DESCRIPTION": "Demo: knob smooth / SMOOTH.",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "PARAMS": 0.12
+    },
+    {
+      "TYPE": "knob speed",
+      "NAME": "Knob_Speed_Plus",
+      "DEFAULT": 0.25,
+      "UI_GROUP": "02 Knobs",
+      "DESCRIPTION": "Demo: knob speed / SPEED / +.",
+      "MIN": -1.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "knob speed",
+      "NAME": "Knob_Speed_Minus",
+      "DEFAULT": -0.25,
+      "UI_GROUP": "02 Knobs",
+      "DESCRIPTION": "Demo: knob speed / SPEED / -.",
+      "MIN": -1.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "toggle",
+      "NAME": "Toggle_Off",
+      "DEFAULT": 0.0,
+      "UI_GROUP": "03 Toggles",
+      "DESCRIPTION": "Toggle initial ausgeschaltet.",
+      "MIN": 0.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "toggle",
+      "NAME": "Toggle_On",
+      "DEFAULT": 1.0,
+      "UI_GROUP": "03 Toggles",
+      "DESCRIPTION": "Toggle initial eingeschaltet.",
+      "MIN": 0.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "toggle smooth",
+      "NAME": "Toggle_Smooth_Off",
+      "DEFAULT": 0.0,
+      "UI_GROUP": "03 Toggles",
+      "DESCRIPTION": "Glaettendes Toggle initial aus.",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "PARAMS": 0.1
+    },
+    {
+      "TYPE": "toggle smooth",
+      "NAME": "Toggle_Smooth_On",
+      "DEFAULT": 1.0,
+      "UI_GROUP": "03 Toggles",
+      "DESCRIPTION": "Glaettendes Toggle initial an.",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "PARAMS": 0.1
+    },
+    {
+      "TYPE": "toggle",
+      "NAME": "Toggle_Bipolar",
+      "DEFAULT": 1.0,
+      "UI_GROUP": "03 Toggles",
+      "DESCRIPTION": "Toggle mit Werten -1 und +1 statt 0 und 1.",
+      "MIN": -1.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "bang",
+      "NAME": "Bang_Trigger",
+      "DEFAULT": 0.0,
+      "UI_GROUP": "04 Bangs",
+      "DESCRIPTION": "Ein-Frame-Impuls beim Druecken. Im Shader kurz sichtbar.",
+      "MIN": 0.0,
+      "MAX": 1.0
+    },
+    {
+      "TYPE": "bang smooth",
+      "NAME": "Bang_Envelope_Fast",
+      "DEFAULT": 0.0,
+      "UI_GROUP": "04 Bangs",
+      "DESCRIPTION": "Bang-Huellkurve: schneller Zerfall nach Druck.",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "PARAMS": 0.5
+    },
+    {
+      "TYPE": "bang smooth",
+      "NAME": "Bang_Envelope_Slow",
+      "DEFAULT": 0.0,
+      "UI_GROUP": "04 Bangs",
+      "DESCRIPTION": "Bang-Huellkurve: langsamer Zerfall nach Druck.",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "PARAMS": 0.08
+    },
+    {
+      "TYPE": "bang counter",
+      "NAME": "Bang_Counter",
+      "DEFAULT": 0.0,
+      "UI_GROUP": "04 Bangs",
+      "DESCRIPTION": "Jeder Klick erhoeht den Zaehler um 1.",
+      "MIN": 0.0,
+      "MAX": 64.0
+    },
+    {
+      "TYPE": "bang counter smooth",
+      "NAME": "Bang_Counter_Smooth",
+      "DEFAULT": 0.0,
+      "UI_GROUP": "04 Bangs",
+      "DESCRIPTION": "Glaettender Zaehler: Inkrement pro Klick.",
+      "MIN": 0.0,
+      "MAX": 64.0,
+      "PARAMS": 0.18
+    },
+    {
+      "TYPE": "xy",
+      "NAME": "XY_Center",
+      "DEFAULT": [
+        0.5,
+        0.5
+      ],
+      "UI_GROUP": "05 XY Pads",
+      "DESCRIPTION": "Demo: xy / CENTER.",
+      "MIN": [
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "xy",
+      "NAME": "XY_Origin",
+      "DEFAULT": [
+        0.0,
+        0.0
+      ],
+      "UI_GROUP": "05 XY Pads",
+      "DESCRIPTION": "Demo: xy / ORIGIN.",
+      "MIN": [
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "xy",
+      "NAME": "XY_Corner",
+      "DEFAULT": [
+        1.0,
+        1.0
+      ],
+      "UI_GROUP": "05 XY Pads",
+      "DESCRIPTION": "Demo: xy / FAR CORNER.",
+      "MIN": [
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "xy",
+      "NAME": "XY_Asymmetric",
+      "DEFAULT": [
+        0.7,
+        -0.8
+      ],
+      "UI_GROUP": "05 XY Pads",
+      "DESCRIPTION": "XY mit unabhaengigen X/Y-Grenzen.",
+      "MIN": [
+        -1.0,
+        -2.0
+      ],
+      "MAX": [
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "TYPE": "xy smooth",
+      "NAME": "XY_Smooth",
+      "DEFAULT": [
+        0.2,
+        0.8
+      ],
+      "UI_GROUP": "05 XY Pads",
+      "DESCRIPTION": "Demo: xy smooth / SMOOTH.",
+      "MIN": [
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0
+      ],
+      "PARAMS": 0.12
+    },
+    {
+      "TYPE": "xy speed",
+      "NAME": "XY_Speed",
+      "DEFAULT": [
+        0.15,
+        -0.13
+      ],
+      "UI_GROUP": "05 XY Pads",
+      "DESCRIPTION": "Kontinuierliche X/Y-Bewegung durch Geschwindigkeitswerte.",
+      "MIN": [
+        -1.0,
+        -1.0
+      ],
+      "MAX": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "color",
+      "NAME": "Color_Black",
+      "DEFAULT": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "UI_GROUP": "06 Colors",
+      "DESCRIPTION": "Demo: color / BLACK.",
+      "MIN": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "color",
+      "NAME": "Color_White",
+      "DEFAULT": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "UI_GROUP": "06 Colors",
+      "DESCRIPTION": "Demo: color / WHITE.",
+      "MIN": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "color",
+      "NAME": "Color_Red",
+      "DEFAULT": [
+        1.0,
+        0.14,
+        0.21
+      ],
+      "UI_GROUP": "06 Colors",
+      "DESCRIPTION": "Demo: color / RED.",
+      "MIN": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "color",
+      "NAME": "Color_Green",
+      "DEFAULT": [
+        0.09,
+        0.98,
+        0.54
+      ],
+      "UI_GROUP": "06 Colors",
+      "DESCRIPTION": "Demo: color / GREEN.",
+      "MIN": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "color",
+      "NAME": "Color_Blue",
+      "DEFAULT": [
+        0.16,
+        0.4,
+        1.0
+      ],
+      "UI_GROUP": "06 Colors",
+      "DESCRIPTION": "Demo: color / BLUE.",
+      "MIN": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "color",
+      "NAME": "Color_Dim",
+      "DEFAULT": [
+        0.08,
+        0.12,
+        0.19
+      ],
+      "UI_GROUP": "06 Colors",
+      "DESCRIPTION": "Demo: color / LOW RGB.",
+      "MIN": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "color smooth",
+      "NAME": "Color_Smooth",
+      "DEFAULT": [
+        0.93,
+        0.45,
+        0.85
+      ],
+      "UI_GROUP": "06 Colors",
+      "DESCRIPTION": "Demo: color smooth / SMOOTH.",
+      "MIN": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "MAX": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "PARAMS": 0.12
+    },
+    {
+      "TYPE": "dropdown",
+      "NAME": "Drop_First",
+      "DEFAULT": 0,
+      "UI_GROUP": "07 Dropdowns",
+      "DESCRIPTION": "Dropdown mit LABELS-only: Werte sind automatisch Indizes 0,1,2.",
+      "LABELS": [
+        "First",
+        "Second",
+        "Third"
+      ]
+    },
+    {
+      "TYPE": "dropdown",
+      "NAME": "Drop_Last",
+      "DEFAULT": 2,
+      "UI_GROUP": "07 Dropdowns",
+      "DESCRIPTION": "Dropdown mit letzter Option als Standardwert.",
+      "LABELS": [
+        "First",
+        "Second",
+        "Third"
+      ]
+    },
+    {
+      "TYPE": "dropdown",
+      "NAME": "Drop_Values_Only",
+      "DEFAULT": 1,
+      "UI_GROUP": "07 Dropdowns",
+      "DESCRIPTION": "Dropdown mit VALUES-only: Labels werden automatisch erzeugt.",
+      "VALUES": [
+        0.0,
+        0.3,
+        0.6,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "dropdown",
+      "NAME": "Drop_Named_Values",
+      "DEFAULT": 1,
+      "UI_GROUP": "07 Dropdowns",
+      "DESCRIPTION": "Dropdown mit eigenen LABELS und VALUES.",
+      "LABELS": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "VALUES": [
+        0.1,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "TYPE": "dropdown smooth",
+      "NAME": "Drop_Smooth",
+      "DEFAULT": 2,
+      "UI_GROUP": "07 Dropdowns",
+      "DESCRIPTION": "Dropdown smooth mit interpolierten Werten.",
+      "PARAMS": 0.1,
+      "LABELS": [
+        "Cold",
+        "Neutral",
+        "Warm"
+      ],
+      "VALUES": [
+        0.0,
+        0.5,
+        1.0
+      ]
+    }
+  ],
+  "IMAGES": [
+    {
+      "NAME": "controlGuide",
+      "PATH": "images/dashboard_base.png"
+    }
+  ]
+}

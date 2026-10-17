@@ -1,0 +1,85 @@
+{
+  "TITLE": "Book of Shaders - Color Exercises",
+  "CREDIT": "Broken",
+  "CONTROLS": [
+      {
+         "DEFAULT" : 0,
+         "DEF_COLOR" : [ 0.38, 0.46, 0.64 ],
+         "DESCRIPTION" : "Sky color",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "sky_color",
+         "TYPE" : "color",
+         "UI_GROUP" : "Colors"
+      },
+      {
+         "DEFAULT" : 0,
+         "DEF_COLOR" : [ 0.88, 0.42, 0.22 ],
+         "DESCRIPTION" : "Sunset color",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "sun_color",
+         "TYPE" : "color",
+         "UI_GROUP" : "Colors"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Rainbow Mask",
+         "IS_META" : false,
+         "MAX" : 0.5,
+         "MIN" : 0,
+         "NAME" : "rainbow_mask",
+         "UI_GROUP" : "Colors"
+      },
+      {
+         "DEFAULT" : 0.3,
+         "DESCRIPTION" : "Horizon Position",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "horizon",
+         "UI_GROUP" : "layout"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Show German flag",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "show_german_flag",
+         "TYPE": "toggle",
+         "UI_GROUP" : "layout"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Show Pride flag",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "show_pride_flag",
+         "TYPE": "toggle",
+         "UI_GROUP" : "layout"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Passing of time?",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "animate",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "animation"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Animation speed",
+         "IS_META" : false,
+         "MAX" : 5,
+         "MIN" : 0.1,
+         "NAME" : "animation_speed",
+         "UI_GROUP" : "animation"
+      }
+  ]
+}

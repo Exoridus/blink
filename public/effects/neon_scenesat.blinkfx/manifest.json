@@ -1,0 +1,434 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.neon_scenesat",
+  "title": "Neon Scenesat",
+  "author": "mrange",
+  "description": "A retro-futuristic satellite orbits a neon dreamscape, its antenna responding to the audio beat. A glowing pink triangle floats above an infinite grid of electric blue, reflecting the cosmic sunset beyond. Media content bleeds through as the satellite rotates, while CRT scan lines flicker across the screen. The entire scene pulses with 80s synthwave energy. Created for SceneSat (https://www.scenesat.com/). Font: Cyber Brush by burhanafif (https://hanscostudio.com/), licensed as Non-Commercial.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "neon",
+    "scenesat",
+    "satellite",
+    "antenna",
+    "audio-reactive",
+    "crt",
+    "retro",
+    "synthwave",
+    "reflection",
+    "grid",
+    "atmospheric"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "z_dist",
+      "label": "z dist",
+      "description": "Reflection plane depth – adjust Z distance to the Scenesat triangle",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.25,
+      "min": -0.25,
+      "max": 4
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Motion blur – blend with previous frame, can reduce noise",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "tri_transparency",
+      "label": "tri transparency",
+      "description": "Triangle fade – center opaque to edge transparency",
+      "group": "Visual",
+      "type": "float",
+      "default": 2,
+      "min": 0,
+      "max": 5
+    },
+    {
+      "name": "crt_effect",
+      "label": "crt effect",
+      "description": "CRT effect – screen distortion, vignette, scanlines",
+      "group": "Visual",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "bouncing_bars",
+      "label": "bouncing bars",
+      "description": "Bouncing bars – antenna respond to audio hits",
+      "group": "Visual",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "denoise",
+      "label": "denoise",
+      "description": "Denoising passes – higher quality, more samples",
+      "group": "Visual",
+      "type": "float",
+      "default": 5,
+      "min": 1,
+      "max": 7
+    },
+    {
+      "name": "base_col",
+      "label": "base col",
+      "description": "Base color hue – shifts antenna animation color",
+      "group": "Visual",
+      "type": "float",
+      "default": 5.6,
+      "min": 0,
+      "max": 7
+    },
+    {
+      "name": "grid_speed",
+      "label": "grid speed",
+      "description": "Neon grid animation speed – reflection plane movement",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.3,
+      "min": -3,
+      "max": 3
+    },
+    {
+      "name": "sun_height",
+      "label": "sun height",
+      "description": "Sun vertical position – sun height over the mountains",
+      "group": "Visual",
+      "type": "float",
+      "default": -0.2,
+      "min": -1,
+      "max": 2
+    },
+    {
+      "name": "media_leak",
+      "label": "media leak",
+      "description": "Media transparency – video bleeds through the SceneSat triangle",
+      "group": "Media",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_zoom",
+      "label": "media zoom",
+      "description": "Media texture zoom level – scale media size",
+      "group": "Media",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 2
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "t_scenesat",
+      "type": "texture2d",
+      "path": "assets/t_scenesat.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "pass_sunset",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass_sunset.previous",
+          "uniform": "pass_sunset"
+        },
+        {
+          "source": "target.pass_scenesat.previous",
+          "uniform": "pass_scenesat"
+        },
+        {
+          "source": "target.pass_reflection.previous",
+          "uniform": "pass_reflection"
+        },
+        {
+          "source": "asset.t_scenesat",
+          "uniform": "t_scenesat"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass_sunset",
+        "width": 1920,
+        "height": 540,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "clamp"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "pass_scenesat",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass_sunset",
+          "uniform": "pass_sunset"
+        },
+        {
+          "source": "target.pass_scenesat.previous",
+          "uniform": "pass_scenesat"
+        },
+        {
+          "source": "target.pass_reflection.previous",
+          "uniform": "pass_reflection"
+        },
+        {
+          "source": "asset.t_scenesat",
+          "uniform": "t_scenesat"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass_scenesat",
+        "width": 800,
+        "height": 800,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "clamp"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "pass_reflection",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass_sunset",
+          "uniform": "pass_sunset"
+        },
+        {
+          "source": "target.pass_scenesat",
+          "uniform": "pass_scenesat"
+        },
+        {
+          "source": "target.pass_reflection.previous",
+          "uniform": "pass_reflection"
+        },
+        {
+          "source": "asset.t_scenesat",
+          "uniform": "t_scenesat"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass_reflection",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "clamp"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass_sunset",
+          "uniform": "pass_sunset"
+        },
+        {
+          "source": "target.pass_scenesat",
+          "uniform": "pass_scenesat"
+        },
+        {
+          "source": "target.pass_reflection",
+          "uniform": "pass_reflection"
+        },
+        {
+          "source": "asset.t_scenesat",
+          "uniform": "t_scenesat"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "z_dist": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "tri_transparency": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "crt_effect": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bouncing_bars": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "denoise": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "base_col": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "grid_speed": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "sun_height": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_leak": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_zoom": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    },
+    "scriptUniforms": {
+      "rot_x": "vec3",
+      "rot_y": "vec3",
+      "rot_z": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

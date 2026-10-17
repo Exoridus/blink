@@ -1,0 +1,124 @@
+{
+  "TITLE": "Dispersion",
+  "CREDIT": "cornusammonis",
+  "IMAGE_PATH": "dispersion.png",
+  "HEIGHT":1080,
+  "WIDTH":1920,
+  "PASSES": [{
+    "TARGET": "BuffA",
+    "WIDTH": 1024,
+    "HEIGHT": 576,
+    "FLOAT": true
+  },{
+    "TARGET": "BuffB",
+    "WIDTH": 1024,
+    "HEIGHT": 576,
+    "FLOAT": true
+  }
+  ],
+  "GPU": 3,
+  "TAGS" : 
+  [
+   "feedback",
+   "media",
+   "colorful",
+   "reaction-diffusion",
+   "displacement"
+  ],
+  "CONTROLS": [{
+         "MAX" : 1.2,
+         "MIN" : -1.2,
+         "NAME" : "aberration_amount",
+         "TYPE" : "slider smooth",
+         "DEFAULT":0.7,
+         "PARAMS":0.2,
+         "DESCRIPTION":"The most important slider. 50% is zero aberration. 100% is full, 0% is negative full. Be careful very far from 0, your FPS may drop.",
+         "UI_GROUP" : "Media"
+      },{
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "switch_direction",
+         "TYPE" : "toggle smooth",
+         "DESCRIPTION":"If aberration_amount isn't set to zero, this will switch between negative and positive aberration.",
+         "DEFAULT":0.0,
+         "PARAMS":0.05,
+         "UI_GROUP" : "Media"
+      },{
+    "NAME": "clouds",
+    "TYPE": "toggle",
+    "DEFAULT":1.0,
+    "DESCRIPTION":"Generally, just keep one of these four regime toggles selected at a time.",
+    "UI_GROUP":"regimes"
+  },{
+    "NAME": "snakes",
+    "TYPE": "toggle",
+    "DEFAULT":0.0,
+    "DESCRIPTION":"Generally, just keep one of these four regime toggles selected at a time.",
+    "UI_GROUP":"regimes"
+  },
+  {"NAME": "backwards_ripples", "DEFAULT": 1.0, "MAX":0.0,"MIN":1.0, "UI_GROUP":"regimes", "TYPE":"toggle",  
+     "DESCRIPTION":"Generally, just keep one of these four regime toggles selected at a time."},  
+  {"NAME": "smooth_glass", "DEFAULT": 0.99, "MIN":0.99, "MAX":1.0, "UI_GROUP":"regimes", "TYPE":"toggle",   
+     "DESCRIPTION":"Generally, just keep one of these four regime toggles selected at a time."}, 
+  {
+    "NAME": "reset_sim",
+    "TYPE":"bang",
+    "DESCRIPTION":"If you get lost, go back to 'clouds' and click this button to restart the simulation.", 
+    "UI_GROUP":"regimes"
+  },
+  {"NAME": "drum_flow", "DEFAULT": 0.0, "MAX":1.0, "MIN":0.0, "UI_GROUP":"reactivity", "TYPE":"toggle",
+      "DESCRIPTION":"Modifies the flow of the scene so that every time a drum hits, it will bounce backward."},
+  {
+    "NAME": "media_hits",
+    "TYPE": "toggle",
+    "DEFAULT":0.0,
+    "UI_GROUP":"reactivity",
+    "DESCRIPTION":"With media selected, this will use your media as a flow source on audio hits."
+  },{
+    "NAME": "auto_distortion",
+    "TYPE": "toggle",
+    "MIN":0.0,
+    "DEFAULT":0.0,
+    "DESCRIPTION":"Set this to automatically have audio-reactive extra distortion, or use the slider to manually control.",
+    "UI_GROUP":"extra_distortion"
+  },{
+    "NAME": "distortion",
+    "TYPE": "slider",
+    "MIN":0.0,
+    "DEFAULT":0.0,
+    "DESCRIPTION":"Add an extra level of distortion to the scene, or just use the auto toggle to have the distortion on drum hits.",
+    "UI_GROUP":"extra_distortion"
+  },{
+    "NAME": "xyPaint1",
+    "TYPE": "xy smooth",
+    "PARAMS": 0.1,
+    "DESCRIPTION":"XY Position of the brush.",
+    "UI_GROUP":"brush1"
+  },{
+    "NAME": "paint1_on",
+    "TYPE": "toggle",
+    "DESCRIPTION":"When the simulation is looking a little dead, paint some new flow into it by toggling this brush on.",
+    "UI_GROUP":"brush1"
+  },{
+    "DEFAULT" : 0,
+    "MAX" : 1,
+    "MIN" : 0,
+    "NAME" : "paint2_on",
+    "DESCRIPTION":"A different, smoother style of painting that will leave streaks instead of forming ripples.",
+    "TYPE" : "toggle",
+    "UI_GROUP" : "brush2"
+  },{
+    "DEFAULT" : 0,
+    "MAX" : 1,
+    "MIN" : -1,
+    "NAME" : "xyPaint2",
+    "TYPE" : "xy smooth",
+    "DESCRIPTION":"XY Position of the brush.",
+    "PARAMS":0.05,
+    "UI_GROUP" : "brush2"
+  }
+
+
+
+]
+}

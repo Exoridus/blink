@@ -1,0 +1,88 @@
+{
+    "CONTROLS": [
+        {
+            "DEFAULT": 0.25,
+            "DESCRIPTION": "Rate of the effect.",
+            "IS_META": false,
+            "MAX": 1.0,
+            "MIN": 0.0,
+            "NAME": "rate",
+            "TYPE": "knob",
+            "UI_GROUP": "effect"
+        },
+        {
+            "DEFAULT": 4.0,
+            "DESCRIPTION": "Warpiness of the effect.",
+            "IS_META": false,
+            "MAX": 8.0,
+            "MIN": 1.0,
+            "NAME": "warp",
+            "TYPE": "slider smooth",
+            "UI_GROUP": "effect"
+        },
+        {
+            "DEFAULT": 1.0,
+            "DESCRIPTION": "How dramatically the effect modifies the input media.",
+            "IS_META": false,
+            "MAX": 1,
+            "MIN": 0,
+            "NAME": "intensity",
+            "TYPE": "slider smooth",
+            "UI_GROUP": "effect"
+        },
+        {
+            "DEFAULT": 0.0,
+            "DESCRIPTION": "Nudge effect in any direction.",
+            "IS_META": false,
+            "MAX": -1.0,
+            "MIN": 1.0,
+            "NAME": "direction",
+            "TYPE": "xy smooth",
+            "UI_GROUP": "effect"
+        },
+        {
+            "DEFAULT": 0,
+            "DESCRIPTION": "Pan input media in any direction.",
+            "IS_META": false,
+            "MAX": 1,
+            "MIN": -1.0,
+            "NAME": "media_xy",
+            "TYPE": "xy smooth",
+            "UI_GROUP": "media"
+        },
+        {
+            "DEFAULT": 0.25,
+            "DESCRIPTION": "Amount of refraction of the input media.",
+            "IS_META": false,
+            "MAX": 1.0,
+            "MIN": 0,
+            "NAME": "refraction",
+            "TYPE": "slider smooth",
+            "PARAMS":0.1,
+            "UI_GROUP": "effect"
+        },
+        {
+            "DEFAULT": 0.5,
+            "DESCRIPTION": "Brightness of lighting and density of shadows.",
+            "IS_META": false,
+            "MAX": 1.0,
+            "MIN": 0.0,
+            "NAME": "brightness",
+            "TYPE": "slider smooth",
+            "UI_GROUP": "effect"
+        }
+    ],
+    "CREDIT": "Shady Headstash",
+    "DESCRIPTION": "Sinusoidal warp.",
+    "HEIGHT": 1080,
+    "IMAGE_PATH": "sinusoidal_warp.png",
+    "TITLE": "Sinusoidal Warp",
+    "WIDTH": 1920,
+    "GPU": 1,
+    "TAGS" : 
+    [
+    "media",
+    "uv",
+    "distorted"
+    ]
+}

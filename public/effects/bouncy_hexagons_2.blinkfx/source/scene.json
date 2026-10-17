@@ -1,0 +1,373 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 
+			[
+				0.65,
+				0.8
+			],
+			"DESCRIPTION" : "Threshold range for colored hexagons to appear",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bouncy_islands",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.05,
+				0.4
+			],
+			"DESCRIPTION" : "Audio frequency range for black hexagons",
+			"MAX" : 
+			[
+				0.5,
+				0.5
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "black_freq",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.25,
+				0.3
+			],
+			"DESCRIPTION" : "Audio frequency range for red hexagons",
+			"MAX" : 
+			[
+				0.5,
+				0.5
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "red_freq",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				0,
+				0
+			],
+			"DESCRIPTION" : "Color for red hexagons",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "red_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.001,
+				0.001,
+				0.001
+			],
+			"DESCRIPTION" : "Color for black hexagons",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "black_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				1,
+				1
+			],
+			"DESCRIPTION" : "Color for white hexagons and background fog",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "white_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Camera movement speed along z-axis",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 20,
+			"DESCRIPTION" : "Camera height above the hexagons",
+			"MAX" : 32,
+			"MIN" : 8,
+			"NAME" : "height",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Rotation angle of the light source",
+			"MAX" : 7,
+			"MIN" : 0,
+			"NAME" : "light_dir",
+			"PARAMS" : 0.2,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Rotation angle of the camera view",
+			"MAX" : 7,
+			"MIN" : 0,
+			"NAME" : "look_dir",
+			"PARAMS" : 0.2,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				11,
+				3.5
+			],
+			"DESCRIPTION" : "Noise texture amplitude and audio bar multiplier",
+			"MAX" : 
+			[
+				13,
+				8
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bar_height",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.7,
+				0.7,
+				0.7
+			],
+			"DESCRIPTION" : "Color for hexagon edge borders",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "border_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Amount of frame blending for motion trail effect",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "motion_blur",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.57735,
+				1
+			],
+			"DESCRIPTION" : "Hexagon grid scale and spacing",
+			"MAX" : 
+			[
+				2,
+				2
+			],
+			"MIN" : 
+			[
+				0.2,
+				0.2
+			],
+			"NAME" : "world_zoom",
+			"PARAMS" : 0.22401,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Applies viginette effect",
+			"MAX" : 1.3,
+			"MIN" : 0.7,
+			"NAME" : "viginette",
+			"PARAMS" : 0.20101,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "bar_level",
+			"PARAMS" : 0.21101,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				0
+			],
+			"DESCRIPTION" : "",
+			"MAX" : 
+			[
+				4,
+				1
+			],
+			"MIN" : 
+			[
+				-4,
+				-1
+			],
+			"NAME" : "speed_control",
+			"PARAMS" : 0.21301,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "Media opacity — fade visuals in or out",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media multiplier — boost opacity for bold color effects",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "media_multiplier",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "An infinite field of audio-reactive 3D hexagons that rise and fall with your music. Red and black hexagons respond to different frequency ranges, creating dynamic landscapes of sound. Fly through the geometric terrain with customizable colors, lighting, and camera controls for stunning live visuals.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGES" : 
+	[
+		{
+			"NAME" : "t_fbm",
+			"PATH" : "fbm.png"
+		}
+	],
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass0",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"bouncy",
+		"audio-reactive",
+		"hexagon",
+		"3D",
+		"raymarching",
+		"music-visualization",
+		"geometric",
+		"frequency",
+		"procedural",
+		"landscape",
+		"spectrum",
+		"grid",
+		"bass-reactive"
+	],
+	"TITLE" : "bouncy hexagons",
+	"WIDTH" : 1920
+}

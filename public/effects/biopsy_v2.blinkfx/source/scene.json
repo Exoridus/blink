@@ -1,0 +1,61 @@
+{
+ "CREDIT": "Meebs ft. Flexi",
+ "TITLE": "Biopsy_V2",
+ "IMAGE_PATH": "biopsy_v2.png",
+    "HARD_TRANSITIONS": [ {"UNIFORM":"inOrOut", "VALUES":[1.0,-1.0,0.0]},
+    {"UNIFORM":"mode", "VALUES":[1.0,-1.0,0.0]}
+    ],
+ "IMAGES": [{
+    "PATH": "images/colornoise.jpg",
+    "NAME": "colornoise"
+  }],
+ "PASSES": [{"TARGET":"buffB", "WIDTH":1280, "HEIGHT":720, "FLOAT": true},
+ {"TARGET":"buffB2", "WIDTH":1280, "HEIGHT":720, "FLOAT": true},
+ {"TARGET":"buffC", "WIDTH":1280, "HEIGHT":720, "FLOAT": true},
+ {"TARGET":"buffD", "WIDTH":1280, "HEIGHT":720, "FLOAT": true}
+ ],
+ "GPU": 2,
+ "TAGS" : 
+ [
+  "simulation",
+  "feedback",
+  "abstract",
+  "media",
+  "reaction-diffusion"
+ ],
+  "CONTROLS":[
+  {"NAME": "drips", "TYPE": "toggle", "UI_GROUP":"motion",
+  "DESCRIPTION": "Changes the simulation to make it more drippy."},
+  {"NAME": "slicing", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle",
+  "UI_GROUP": "motion","DESCRIPTION": "Automatically slice the simulation on the beats in the music."},
+  {"NAME": "stretching", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "PARAMS": 0.1, "TYPE": "toggle", "UI_GROUP": "motion",
+  "DESCRIPTION": "Vertical and horizontal stretching in time with the music."},
+  {"NAME": "distort", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle smooth", "UI_GROUP": "motion", "DESCRIPTION":"Adds a slow lens distortion. Add vertical or horizontal mirrors for best effect."},
+  {"NAME": "in_or_out", "DEFAULT":0.00, "MIN":1.0, "MAX":-1.0, "TYPE": "slider",
+  "UI_GROUP": "motion"},
+  {"NAME": "circle_on", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle",
+  "UI_GROUP": "circle","DESCRIPTION": "If on, only center circle will be 'fiery'."},
+  {"NAME": "circle_size", "DEFAULT":0.0, "MIN":-0.3, "MAX":1.0, "TYPE": "slider smooth", "PARAMS": 0.01,
+  "UI_GROUP": "circle","DESCRIPTION": "Size of center circle."},
+  {"NAME": "color_palette", "DEFAULT":1.0, "MIN":0.0, "MAX":2.0,
+  "UI_GROUP":"color","DESCRIPTION": "Choose from one of three color palettes."},
+  {"NAME": "flashing", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle", "UI_GROUP": "color",
+  "DESCRIPTION": "Flash yellow on high hits."},{
+    "NAME": "no_shading",
+    "MAX" : 1.0,
+    "MIN" : 0.00,
+    "DEFAULT":0.1,
+    "TYPE": "slider",
+    "UI_GROUP": "color",
+    "DESCRIPTION":"Default scene has a darker, subtly audio reactive shading. Turn this up to use full-color, no shading."
+  },
+  {"NAME": "down_sweep", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "PARAMS": 0.01, "TYPE": "bang smooth", "UI_GROUP": "sweep",
+  "DESCRIPTION": "Send a sweep through the simulation."},
+  {"NAME": "up_sweep", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "PARAMS": 0.01, "TYPE": "bang smooth", "UI_GROUP": "sweep",
+  "DESCRIPTION": "Send a sweep through the simulation."},
+  {"NAME": "left_sweep", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "PARAMS": 0.01, "TYPE": "bang smooth", "UI_GROUP": "sweep",
+  "DESCRIPTION": "Send a sweep through the simulation."},
+  {"NAME": "right_sweep", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "PARAMS": 0.01, "TYPE": "bang smooth", "UI_GROUP": "sweep",
+  "DESCRIPTION": "Send a sweep through the simulation."}
+]
+ }

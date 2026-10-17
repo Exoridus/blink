@@ -1,0 +1,79 @@
+{
+ "CREDIT": "Meebs ft. Flexi",
+ "TITLE": "Molten",
+ "IMAGE_PATH": "molten.png",
+ "IMAGES": [{
+    "PATH": "images/colornoise.jpg",
+    "NAME": "colornoise"
+  }],
+  "GPU": 3,
+  "TAGS" : 
+  [
+   "realistic",
+   "3d",
+   "dark"
+  ],
+  "CONTROLS": [{
+			"NAME": "racer",
+			"MAX" : 1.0,
+			"MIN" : 0.0,
+			"DEFAULT":0.0,
+			"TYPE": "toggle",
+			"DESCRIPTION": "Race over the surface of the planet when on. Otherwise, dance around the surface based on the music.",
+      "UI_GROUP":"camera"
+		},{
+			"NAME": "zoom_out",
+			"MAX" : 1.0,
+			"MIN" : 0.0,
+			"DEFAULT":0.0,
+			"TYPE": "toggle smooth",
+			"PARAMS": 0.025,
+			"DESCRIPTION": "OFF to stay close to the surface. ON to zoom out and view the whole planet.",
+      "UI_GROUP":"camera"
+		},{
+			"NAME": "racer_look",
+			"MAX" : 6.28,
+			"MIN" : 0.0,
+			"DEFAULT":0.5,
+			"TYPE": "slider smooth",
+			"PARAMS": 0.05,
+			"DESCRIPTION": "racer MUST BE ON. Change the angle of the camera while in 'racer' mode. Careful, you can point the camera to places that are entirely black if zoomed out.",
+      "UI_GROUP":"camera"
+		},{
+			"NAME": "racer_speed",
+			"MAX" : 0.05,
+			"MIN" : 0.0,
+			"DEFAULT":0.03,
+			"TYPE": "slider smooth",
+			"PARAMS": 0.05,
+			"DESCRIPTION": "racer MUST BE ON. Adjust how fast the 'racer' camera moves over the surface.",
+      "UI_GROUP":"camera"
+		},{
+			"NAME": "inside_out",
+			"MAX" : 1.0,
+			"MIN" : -0.5,
+			"DEFAULT":0.8,
+			"TYPE": "slider smooth",
+			"DESCRIPTION": "Change from small cracks in the surface to magenta protrusions. Default is to look like 'lava' towards the top.",
+      "UI_GROUP":"color"
+		},{
+			"NAME": "invert",
+			"MAX" : 1.0,
+			"MIN" : 0.0,
+			"DEFAULT":0.00,
+			"TYPE": "toggle",
+			"DESCRIPTION": "Change color scheme to a more alien looking world with lighter colors.",
+      "UI_GROUP":"color"
+		},{
+			"NAME": "Mirror",
+			"MAX" : 1.0,
+			"MIN" : 0.0,
+			"DEFAULT":0.00,
+			"TYPE": "toggle",
+			"DESCRIPTION": "Turn on to insert a mirror that *does not* mirror the Media, so you can preserve your image.",
+      "UI_GROUP":"mirror"
+		}],
+ "PASSES": [ {"TARGET":"buffA", "WIDTH":889, "HEIGHT":500, "FLOAT": true},
+ {"TARGET":"buffC", "WIDTH":889, "HEIGHT":500, "FLOAT": true},
+ {"TARGET":"buffD", "WIDTH":889, "HEIGHT":500, "FLOAT": true} ]
+ }

@@ -1,0 +1,259 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.filter_blown",
+  "title": "Filter Blown",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "2d",
+    "dark",
+    "media",
+    "retro"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "MODE_1_OR_2",
+      "label": "MODE 1 OR 2",
+      "description": "You must pick a video from your media. DOWN applies a motion blur effect to the video, UP uses an edge detector.",
+      "group": "VIDEO",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_palette",
+      "label": "color palette",
+      "description": "Choose from one of 10 color palettes.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "invert_regime",
+      "label": "invert regime",
+      "description": "Stay in the same color space, but switch the direction of the palette from dark to light.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_oscillator",
+      "label": "color oscillator",
+      "description": "When on, color palette will slowly oscillate vertically on the screen. ",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Adjusts the level of motion blur. If in MODE 2 (UP), then it adjusts edge thickness.",
+      "group": "effects",
+      "type": "float",
+      "default": 0.99,
+      "min": 0.99,
+      "max": 0.99
+    },
+    {
+      "name": "contrast",
+      "label": "contrast",
+      "description": "Adjusts the contrast of the underlying image or video.",
+      "group": "effects",
+      "type": "float",
+      "default": 3,
+      "min": 3,
+      "max": 3
+    },
+    {
+      "name": "animation_style",
+      "label": "animation style",
+      "description": "Only works in MODE 1, changes animation style. Set to bottom for none. Set to middle for diamonds. Set to top for waves.",
+      "group": "animation",
+      "type": "float",
+      "default": 1.1,
+      "min": 0,
+      "max": 2.9
+    },
+    {
+      "name": "manual_animation",
+      "label": "manual animation",
+      "description": "Hit to create an animation pulse.",
+      "group": "animation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "direction",
+      "label": "direction",
+      "type": "float",
+      "default": -1,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "firstBuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer.previous",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "target.secondBuffer.previous",
+          "uniform": "secondBuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "firstBuffer",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "secondBuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "target.secondBuffer.previous",
+          "uniform": "secondBuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "secondBuffer",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "target.secondBuffer",
+          "uniform": "secondBuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "MODE_1_OR_2": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_palette": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "invert_regime": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_oscillator": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "contrast": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "animation_style": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "manual_animation": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

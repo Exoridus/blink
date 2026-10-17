@@ -1,0 +1,381 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 
+			[
+				0.7,
+				0.7
+			],
+			"DESCRIPTION" : "Audio response strength (X: bass level, Y: bass hits)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				2,
+				1
+			],
+			"DESCRIPTION" : "Audio response curve (higher = more intense reaction)",
+			"MAX" : 
+			[
+				6,
+				6
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "Rotation on beat (X: linear by distance, Y: quadratic by distance)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				-1,
+				-1
+			],
+			"NAME" : "twist_beat",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0.5
+			],
+			"DESCRIPTION" : "Zoom pulse on beat (X: linear by distance, Y: quadratic by distance)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "zoom_beat",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Brightness boost on bass hits (0 = none, 1 = double)",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "fade_beat",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				0.25
+			],
+			"DESCRIPTION" : "Animation speed (X: time-based, Y: bass time-based)",
+			"MAX" : 
+			[
+				2,
+				1
+			],
+			"MIN" : 
+			[
+				-2,
+				-1
+			],
+			"NAME" : "speed_control",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Speed"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Continuous rotation speed of the fractal",
+			"MAX" : 3,
+			"MIN" : -3,
+			"NAME" : "rotation_speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Speed"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				2
+			],
+			"DESCRIPTION" : "Color phase offsets (shifts hue of lightning patterns)",
+			"MAX" : 
+			[
+				7,
+				7
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "color_control",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Color inversion amount (0 = normal, 1 = fully inverted)",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "invert_color",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 9,
+			"DESCRIPTION" : "Brightness divider (higher = darker overall output)",
+			"MAX" : 30,
+			"MIN" : 1,
+			"NAME" : "color_divider",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				1.5
+			],
+			"DESCRIPTION" : "Motion blur distance range (X: start fade, Y: full blur)",
+			"MAX" : 
+			[
+				3,
+				3
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "motion_blur_limits",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Blur"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				0.9
+			],
+			"DESCRIPTION" : "Motion blur strength (X: at center, Y: at edges)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "motion_blur_intensity",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Blur"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				-0.05
+			],
+			"DESCRIPTION" : "Fractal viewport center (X: horizontal, Y: vertical offset)",
+			"MAX" : 
+			[
+				2,
+				2
+			],
+			"MIN" : 
+			[
+				-2,
+				-2
+			],
+			"NAME" : "zoom_center",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.75,
+				0.125
+			],
+			"DESCRIPTION" : "Zoom level (X: base magnification, Y: breathing pulse depth)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "zoom_factor",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				-0.76,
+				0.15
+			],
+			"DESCRIPTION" : "Mandelbrot C constant (real and imaginary components)",
+			"MAX" : 
+			[
+				1.5,
+				1.5
+			],
+			"MIN" : 
+			[
+				-1.5,
+				-1.5
+			],
+			"NAME" : "initial_c",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				0.125
+			],
+			"DESCRIPTION" : "C parameter rotation (X: speed multiplier, Y: sine frequency)",
+			"MAX" : 
+			[
+				6,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "rotation_c",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "Media distortion (X: warp strength, Y: frequency modulation)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				-1,
+				-1
+			],
+			"NAME" : "media_warp",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media multiplier – boost opacity for bold color effects",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "media_multiplier",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 0.707,
+			"DESCRIPTION" : "Media opacity – fade visuals in or out",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Experience the Electric Mandelbrot—a hypnotic fractal that spins and breathes with electric energy. Brilliant lightning spokes radiate from the spiraling core, creating a cosmic wheel of light that pulses and rotates to the music. The fractal morphs through vibrant color gradients while motion blur trails create an ethereal, dreamlike quality at the edges. Audio-reactive elements make every bass hit twist the geometry and intensify the glow, while the continuously evolving C parameter ensures the pattern never repeats exactly. Perfect for trance, psytrance, and ambient electronic music visualizations.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"mandelbrot",
+		"fractal",
+		"electric",
+		"lightning",
+		"audio-reactive",
+		"bass-reactive",
+		"spiral",
+		"psychedelic",
+		"rotation",
+		"glow",
+		"mathematical",
+		"hypnotic",
+		"trance"
+	],
+	"TITLE" : "Electric mandelbrot",
+	"WIDTH" : 1920
+}

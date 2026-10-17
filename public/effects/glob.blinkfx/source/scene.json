@@ -1,0 +1,31 @@
+{
+  "CREDIT": "Nimitz",
+  "TITLE": "Glob",
+  "IMAGE_PATH": "glob.png",
+  "SMOOTH_TRANSITIONS":[
+    {"UNIFORMS":["c0","c1","c2","c3"]},
+    {"UNIFORMS":["b0","b1","b2","b3"]}
+  ],
+  "GPU": 2,
+  "TAGS" : 
+  [
+   "3d",
+   "raymarching",
+   "dark",
+   "glitchy",
+   "morphing"
+  ],
+  "CONTROLS":[
+  {"UI_GROUP":"lighting","NAME": "fade_to_color", "DEFAULT":1.0, "MIN":0.0, "MAX":1.0, "TYPE": "slider smooth", "PARAMS": 0.05},
+  {"UI_GROUP":"lighting","NAME": "shading", "DEFAULT":1.0, "MIN":-1.0, "MAX":1.0, "TYPE": "toggle smooth", "PARAMS": 0.25, "VALUES": [0.0, 1.0, -1.0], "LABELS": ["flat", "back", "front"]},
+  {"UI_GROUP":"lighting","NAME": "fog", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle"},
+  {"UI_GROUP":"effects","NAME": "fuzz", "DEFAULT":0.0, "MIN":0.0, "MAX":-5.0, "TYPE": "toggle smooth", "PARAMS": 0.125},
+  {"UI_GROUP":"effects","NAME": "autofuzz", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle"},
+  {"UI_GROUP":"effects","NAME": "electrify", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle"},
+  {"NAME": "scratch", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "toggle", "UI_GROUP": "effects"},
+  {"UI_GROUP":"beat","NAME": "bump_up", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "bang smooth", "PARAMS": 0.2},
+  {"UI_GROUP":"object","NAME": "size", "DEFAULT":1.0, "MIN":2.0, "MAX":0.0, "TYPE": "slider smooth", "PARAMS": 0.01},
+  {"UI_GROUP":"object","NAME": "simplify", "DEFAULT":0.0, "MIN":0.0, "MAX":1.0, "TYPE": "slider smooth", "PARAMS": 0.1}
+
+]
+}

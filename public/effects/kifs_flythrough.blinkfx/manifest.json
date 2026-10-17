@@ -1,0 +1,386 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.kifs_flythrough",
+  "title": "KIFS Flythrough",
+  "author": "Shane",
+  "description": "Constructing a basic fractal object with Knighty's Kaleidoscopic IFS procedure.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "geometric",
+    "raymarching",
+    "3d",
+    "fractal",
+    "dark"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "unfolding",
+      "label": "unfolding",
+      "description": "Applies extra constant rotational motion to the fractal.",
+      "group": "fractal",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "x_param",
+      "label": "x param",
+      "description": "X, Y, and Z params control the shape of the fractal.",
+      "group": "fractal",
+      "type": "float",
+      "default": 1,
+      "min": 0.5,
+      "max": 1.5
+    },
+    {
+      "name": "y_param",
+      "label": "y param",
+      "description": "X, Y, and Z params control the shape of the fractal.",
+      "group": "fractal",
+      "type": "float",
+      "default": 1,
+      "min": 0.5,
+      "max": 1.5
+    },
+    {
+      "name": "z_param",
+      "label": "z param",
+      "description": "X, Y, and Z params control the shape of the fractal.",
+      "group": "fractal",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "size",
+      "label": "size",
+      "description": "This controls the size of the blocks that form the fractal.",
+      "group": "fractal",
+      "type": "float",
+      "default": 0.05,
+      "min": 0.05,
+      "max": 0.05
+    },
+    {
+      "name": "lookXY",
+      "label": "lookXY",
+      "description": "Move the X-axis to spin about your main axis, or move the Y-axis to tilt forwards or backwards.",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "reactive_time",
+      "label": "reactive time",
+      "description": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rate_in",
+      "label": "rate in",
+      "description": "How fast the time variable grows, whether it is reactive time or constant time.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": -4,
+      "max": 4
+    },
+    {
+      "name": "standard_lighting",
+      "label": "standard lighting",
+      "description": "Blue, reflective lighting. Turn down to use more alternate lighting.",
+      "group": "lighting",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "alternate_lighting",
+      "label": "alternate lighting",
+      "description": "Alternate lighting pattern, using built-in texture or user selected media. Scan it in and out with 'scan alt light'.",
+      "group": "lighting",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "scan_alt_light",
+      "label": "scan alt light",
+      "description": "Moves the 'alternate lighting' source further from the camera.",
+      "group": "lighting",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "liquify",
+      "label": "liquify",
+      "description": "A rendering glitch that causes a strange liquifying effect near hard edges.",
+      "group": "render glitches",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "far_wall",
+      "label": "far wall",
+      "description": "Brings in the far wall, resulting in very interesting patterns when brought up close.",
+      "group": "render glitches",
+      "type": "float",
+      "default": 1,
+      "min": 0.01,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "image3",
+      "type": "texture2d",
+      "path": "assets/3.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "image10",
+      "type": "texture2d",
+      "path": "assets/10.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "geom",
+      "type": "texture2d",
+      "path": "assets/geo.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "fractalPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.fractalPass.previous",
+          "uniform": "fractalPass"
+        },
+        {
+          "source": "asset.image3",
+          "uniform": "image3"
+        },
+        {
+          "source": "asset.image10",
+          "uniform": "image10"
+        },
+        {
+          "source": "asset.geom",
+          "uniform": "geom"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "fractalPass",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.fractalPass",
+          "uniform": "fractalPass"
+        },
+        {
+          "source": "asset.image3",
+          "uniform": "image3"
+        },
+        {
+          "source": "asset.image10",
+          "uniform": "image10"
+        },
+        {
+          "source": "asset.geom",
+          "uniform": "geom"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "unfolding": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "x_param": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "y_param": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "z_param": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "lookXY": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.03
+      },
+      "reactive_time": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "rate_in": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "standard_lighting": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "alternate_lighting": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "scan_alt_light": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "liquify": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "far_wall": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "script_time": "float",
+      "bass_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

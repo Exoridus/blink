@@ -1,0 +1,401 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 
+			[
+				0.7,
+				0.7
+			],
+			"DESCRIPTION" : "Audio response strength (X: bass level, Y: bass hits)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				3,
+				1
+			],
+			"DESCRIPTION" : "Audio response curve (higher = more intense reaction)",
+			"MAX" : 
+			[
+				6,
+				6
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				1
+			],
+			"DESCRIPTION" : "Bass threshold range (X: minimum level, Y: maximum level)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_limit",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				2
+			],
+			"DESCRIPTION" : "Fractal geometry (X: depth offset, Y: Z-axis stretch)",
+			"MAX" : 
+			[
+				2,
+				5
+			],
+			"MIN" : 
+			[
+				-2,
+				0
+			],
+			"NAME" : "shape_xy",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.3333,
+				0.6666,
+				1
+			],
+			"DESCRIPTION" : "RGB color of flash effect on bass hits",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "flash_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				10
+			],
+			"DESCRIPTION" : "Flash brightness (X: off-beat, Y: on-beat intensity)",
+			"MAX" : 
+			[
+				40,
+				40
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "flash_xy",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 3,
+			"DESCRIPTION" : "Overall brightness divider (lower = brighter output)",
+			"MAX" : 10,
+			"MIN" : 1,
+			"NAME" : "global_div",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				2,
+				1
+			],
+			"DESCRIPTION" : "Base color oscillation (X and Y frequency components)",
+			"MAX" : 
+			[
+				9,
+				9
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "base_xy",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "Base color oscillation (Z and W frequency components)",
+			"MAX" : 
+			[
+				9,
+				9
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "base_zw",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.7,
+				1
+			],
+			"DESCRIPTION" : "Color modulation (X: saturation multiplier, Y: phase offset)",
+			"MAX" : 
+			[
+				3,
+				7
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "base_mod",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.1,
+				0.4
+			],
+			"DESCRIPTION" : "Feedback blend amount (X: off-beat, Y: on-beat trails)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "feedback_strength",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Feedback"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.95,
+				0.9
+			],
+			"DESCRIPTION" : "Feedback scaling (X: off-beat zoom, Y: on-beat zoom)",
+			"MAX" : 
+			[
+				2,
+				2
+			],
+			"MIN" : 
+			[
+				0.5,
+				0.5
+			],
+			"NAME" : "feedback_zoom",
+			"PARAMS" : 0.14701,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Feedback"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				0
+			],
+			"DESCRIPTION" : "Feedback rotation (X: off-beat spin, Y: on-beat spin)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				-1,
+				-1
+			],
+			"NAME" : "feedback_rot",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Feedback"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.55555,
+				0.11111,
+				1
+			],
+			"DESCRIPTION" : "RGB tint for feedback trails during off-beat moments",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "feedback_min",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Feedback"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				1,
+				1
+			],
+			"DESCRIPTION" : "RGB tint for feedback trails during on-beat moments",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "feedback_max",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Feedback"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media opacity – fade visuals in or out",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media multiplier – boost opacity for bold color effects",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "media_multiplier",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Journey into the heart of a swirling Kali fractal galaxy where mathematics becomes cosmic art. This audio-reactive visualization features an intense, glowing core surrounded by spiraling clouds of blue ice and golden fire. The fractal morphs and rotates in response to bass, mids, and highs, creating a living nebula that pulses with every beat. Feedback trails leave ghostly echoes that zoom and spin, building layers of cosmic complexity. Perfect for deep electronic music and ambient sets, this shader transforms sound into an ever-evolving stellar phenomenon.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass0",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		},
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass1",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"kali",
+		"fractal",
+		"galaxy",
+		"audio-reactive",
+		"cosmic",
+		"nebula",
+		"glow",
+		"raymarch",
+		"feedback",
+		"bass-reactive",
+		"space",
+		"abstract"
+	],
+	"TITLE" : "Kali galaxy",
+	"WIDTH" : 1920
+}

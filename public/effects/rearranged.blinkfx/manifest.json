@@ -1,0 +1,310 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.rearranged",
+  "title": "Rearranged",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "2d",
+    "colorful",
+    "geometric"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "grid_1",
+      "label": "grid 1",
+      "description": "When ON, the usually larger, static, colored grid of circles will be visible, when OFF, the circles won't appear.",
+      "group": "grid_1",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "pulser",
+      "label": "pulser",
+      "description": "When ON, pulses of rings will propagate through the main grid's circles. When OFF, no rings will appear.",
+      "group": "grid_1",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "resolution",
+      "label": "resolution",
+      "description": "Controls the number and size of the circles on the main grid. Also affects the size of the pulser and mask. Higher is more, smaller pieces.",
+      "group": "grid_1",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 6
+    },
+    {
+      "name": "grid_2",
+      "label": "grid 2",
+      "description": "When ON, a grid of smaller dots that react to an underlying shape (or Media) will be visible. Turn OFF for a simpler scene featuring only the main grid.",
+      "group": "grid_2",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "resolution_2",
+      "label": "resolution 2",
+      "description": "grid 2 MUST BE ON. Controls the number and size of the active grid's circles.",
+      "group": "grid_2",
+      "type": "float",
+      "default": 5,
+      "min": 0,
+      "max": 7
+    },
+    {
+      "name": "intensity",
+      "label": "intensity",
+      "description": "grid 2 MUST BE ON. Controls the size and intensity of the action in the active grid's motion.",
+      "group": "grid_2",
+      "type": "float",
+      "default": 1.2,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "black_or_white",
+      "label": "black or white",
+      "description": "grid 2 MUST BE ON. Controls the color of the active grid's circles.",
+      "group": "grid_2",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "invert",
+      "label": "invert",
+      "description": "Make every color it's opposite, instead. Results in a nice blue color scheme when ON. Use alongside black or white to control color.",
+      "group": "effects",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "mask",
+      "label": "mask",
+      "description": "Add some regular black shapes to the scene. The size and number are controlled by 'resolution'. The shape type is controlled by 'Transition'.",
+      "group": "effects",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rotating",
+      "label": "rotating",
+      "description": "Turn ON to start the whole scene rotating, or OFF to keep it rectilinear.",
+      "group": "effects",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "shape_type_1",
+      "label": "shape type 1",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "shape_type_2",
+      "label": "shape type 2",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "shape_angle",
+      "label": "shape angle",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "scanDirection",
+      "label": "scanDirection",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "colorMode",
+      "label": "colorMode",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "cReg0",
+      "label": "cReg0",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    },
+    {
+      "name": "cReg1",
+      "label": "cReg1",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "cReg2",
+      "label": "cReg2",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "firstBuff",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "firstBuff",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "secondBuff",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "secondBuff",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "grid_1": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "pulser": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "resolution": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "grid_2": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "resolution_2": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "intensity": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "black_or_white": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "invert": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "mask": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "rotating": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

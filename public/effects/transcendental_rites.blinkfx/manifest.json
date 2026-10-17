@@ -1,0 +1,665 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.transcendental_rites",
+  "title": "Transcendental Rites",
+  "author": "Psybernautics - Alex Tiemann",
+  "description": "We've come to worship.",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "media_color",
+      "label": "media color",
+      "description": "How much the media will appear.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rainbow",
+      "label": "rainbow",
+      "description": "Mix in rainbow color",
+      "group": "color",
+      "type": "float",
+      "default": 0.45,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "specular_strength",
+      "label": "specular strength",
+      "description": "How strong the specular light is.\nThe specular light color is the complement of the object's color.",
+      "group": "color",
+      "type": "float",
+      "default": 100,
+      "min": 1,
+      "max": 100
+    },
+    {
+      "name": "base_color",
+      "label": "base color",
+      "description": "base color, this color's complement will be calculated automatically",
+      "group": "color",
+      "type": "color",
+      "default": [
+        0.02109375,
+        0.359375,
+        0.9859375,
+        1
+      ]
+    },
+    {
+      "name": "beat_stripe",
+      "label": "beat stripe",
+      "description": "ON: Apply black stripes to the scene color that move on drum beat.\nOFF: No stripes for you.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_uv_or_3d",
+      "label": "media uv or 3d",
+      "description": "Toggle media coloring mode.\nOFF: Media is mapped to the uv coordinates of the screen. The geometry revels the media.\nON: Media is mapped to surface of the geomerty/",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "l_vert_mirr_mix",
+      "label": "l vert mirr mix",
+      "description": "Smoothly apply a left vertical mirror.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "hor_mirr_mix",
+      "label": "hor mirr mix",
+      "description": "Smoothly apply a horizontal mirror.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "audio_mir",
+      "label": "audio mir",
+      "description": "Smoothly ix between Left and Right vertical mirrors on beat detected.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "feedback_on",
+      "label": "feedback on",
+      "description": "turn on feedback",
+      "group": "feedback",
+      "type": "float",
+      "default": 0.97,
+      "min": 0.3,
+      "max": 0.97,
+      "step": 0.6699999999999999
+    },
+    {
+      "name": "bass_zoom",
+      "label": "bass zoom",
+      "description": "zoom on beat",
+      "group": "feedback",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "zoom_direction",
+      "label": "zoom direction",
+      "description": "direction that the feedback zooms.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0.05,
+      "min": -0.0999999995529652,
+      "max": 0.0999999995529652
+    },
+    {
+      "name": "fb_fade",
+      "label": "fb fade",
+      "description": "How much the feedback fades. Lower values retain feedback for longer.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0.05,
+      "min": 0,
+      "max": 0.2
+    },
+    {
+      "name": "spire_count",
+      "label": "spire count",
+      "description": "Number of spires present.",
+      "group": "geo",
+      "type": "float",
+      "default": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "name": "rand_spire_count",
+      "label": "rand spire count",
+      "description": "Randomize the amount of spires on beat detected.",
+      "group": "geo",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "geo_reactive_time",
+      "label": "geo reactive time",
+      "description": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+      "group": "geo",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "geo_rate",
+      "label": "geo rate",
+      "description": "How fast the time variable for the geometry grows, whether it is reactive time or constant time.",
+      "group": "geo",
+      "type": "float",
+      "default": 2,
+      "min": -10,
+      "max": 10
+    },
+    {
+      "name": "FOV",
+      "label": "FOV",
+      "description": "Field of View for the perspective of the camera",
+      "group": "camera",
+      "type": "float",
+      "default": 1.5,
+      "min": 0.03125,
+      "max": 3
+    },
+    {
+      "name": "cam_morph",
+      "label": "cam morph",
+      "description": "Smoothly distort the camera.",
+      "group": "camera",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 0.1,
+      "step": 0.1
+    },
+    {
+      "name": "in_da_tube",
+      "label": "in da tube",
+      "description": "Place the camera in the helix tube.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 39,
+      "step": 39
+    },
+    {
+      "name": "rand_mode",
+      "label": "rand mode",
+      "description": "Switch between in da tube and out da tube on beat detected.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "reactive_time",
+      "label": "reactive time",
+      "description": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "spin_rate",
+      "label": "spin rate",
+      "description": "How fast the time variable grows, whether it is reactive time or constant time.",
+      "group": "camera",
+      "type": "float",
+      "default": -3,
+      "min": -10,
+      "max": 10
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "buffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA.previous",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.postFXPass.previous",
+          "uniform": "postFXPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "buffA",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "postFXPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.postFXPass.previous",
+          "uniform": "postFXPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "postFXPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "rVertMirrPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.postFXPass",
+          "uniform": "postFXPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "rVertMirrPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.postFXPass",
+          "uniform": "postFXPass"
+        },
+        {
+          "source": "target.rVertMirrPass",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "media_color": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "rainbow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "specular_strength": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "base_color": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "beat_stripe": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.200000002980232
+      },
+      "media_uv_or_3d": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.200000002980232
+      },
+      "l_vert_mirr_mix": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01999999
+      },
+      "hor_mirr_mix": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01999999
+      },
+      "audio_mir": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01999999
+      },
+      "feedback_on": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.200000002980232
+      },
+      "bass_zoom": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.091490116
+      },
+      "zoom_direction": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "fb_fade": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "spire_count": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "rand_spire_count": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "geo_reactive_time": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "geo_rate": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "FOV": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0350000001490116
+      },
+      "cam_morph": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "in_da_tube": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0900000001490116
+      },
+      "rand_mode": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "reactive_time": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "spin_rate": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      }
+    },
+    "scriptUniforms": {
+      "beatStripe": "float",
+      "script_time": "float",
+      "bass_time": "float",
+      "dynamic_time": "float",
+      "geo_dynamic_time": "float",
+      "pBass": "float",
+      "pMid": "float",
+      "pMidHigh": "float",
+      "traceMix": "float",
+      "inTube": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

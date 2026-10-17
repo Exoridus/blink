@@ -1,0 +1,332 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.molten",
+  "title": "Molten",
+  "author": "Meebs ft. Flexi",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "realistic",
+    "3d",
+    "dark"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "racer",
+      "label": "racer",
+      "description": "Race over the surface of the planet when on. Otherwise, dance around the surface based on the music.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "zoom_out",
+      "label": "zoom out",
+      "description": "OFF to stay close to the surface. ON to zoom out and view the whole planet.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "racer_look",
+      "label": "racer look",
+      "description": "racer MUST BE ON. Change the angle of the camera while in 'racer' mode. Careful, you can point the camera to places that are entirely black if zoomed out.",
+      "group": "camera",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 6.28
+    },
+    {
+      "name": "racer_speed",
+      "label": "racer speed",
+      "description": "racer MUST BE ON. Adjust how fast the 'racer' camera moves over the surface.",
+      "group": "camera",
+      "type": "float",
+      "default": 0.03,
+      "min": 0,
+      "max": 0.05
+    },
+    {
+      "name": "inside_out",
+      "label": "inside out",
+      "description": "Change from small cracks in the surface to magenta protrusions. Default is to look like 'lava' towards the top.",
+      "group": "color",
+      "type": "float",
+      "default": 0.8,
+      "min": -0.5,
+      "max": 1
+    },
+    {
+      "name": "invert",
+      "label": "invert",
+      "description": "Change color scheme to a more alien looking world with lighter colors.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "Mirror",
+      "label": "Mirror",
+      "description": "Turn on to insert a mirror that *does not* mirror the Media, so you can preserve your image.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "colornoise",
+      "type": "texture2d",
+      "path": "assets/colornoise.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "buffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA.previous",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffC.previous",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffA",
+        "width": 889,
+        "height": 500,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffC",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffC.previous",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffC",
+        "width": 889,
+        "height": 500,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffD",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffC",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffD",
+        "width": 889,
+        "height": 500,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.buffC",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "racer": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "zoom_out": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.025
+      },
+      "racer_look": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "racer_speed": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "inside_out": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "invert": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "Mirror": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "camera": "vec3",
+      "camLookAtJS": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

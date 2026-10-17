@@ -1,4 +1,4 @@
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
@@ -12,7 +12,14 @@ import { validatePackage } from '../validatePackage';
 import { ManifestWriteError, writeBlinkFxManifest } from '../writeManifest';
 
 const EFFECTS = join(process.cwd(), 'public', 'effects');
-const packages = existsSync(EFFECTS) ? readdirSync(EFFECTS).filter(name => name.endsWith('.blinkfx')) : [];
+/** Converted community scenes are previews; the strict native-package checks do not apply to them. */
+const isCommunityPreview = (name: string): boolean =>
+    (
+        JSON.parse(readFileSync(join(EFFECTS, name, 'manifest.json'), 'utf8')) as { license?: string }
+    ).license?.startsWith('Third-party preview:') === true;
+const packages = existsSync(EFFECTS)
+    ? readdirSync(EFFECTS).filter(name => name.endsWith('.blinkfx') && !isCommunityPreview(name))
+    : [];
 
 const BASE = 'effects/sample.blinkfx';
 

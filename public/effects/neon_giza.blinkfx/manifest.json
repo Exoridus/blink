@@ -1,0 +1,356 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.neon_giza",
+  "title": "Neon giza",
+  "author": "mrange",
+  "description": "Dive into an infinite neon tunnel as you travel toward the legendary Pyramid of Giza, reimagined in a synthwave dimension. Glowing purple and pink arcs spiral through space, pulsing with audio-reactive energy. The scene responds dynamically to bass frequencies, transforming every beat into a hypnotic journey through this retro-futuristic desert dreamscape.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "synthwave",
+    "pyramid",
+    "giza",
+    "neon",
+    "raymarching",
+    "audio-reactive",
+    "purple",
+    "infinite",
+    "hypnotic",
+    "bass-reactive"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Audio response strength (X: bass level, Y: bass hits)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.7,
+        0.7
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Audio response curve (higher = more intense reaction)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        3,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Media opacity – fade visuals in or out",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_multiplier",
+      "label": "media multiplier",
+      "description": "Media multiplier – boost opacity for bold color effects",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": -9,
+      "max": 9
+    },
+    {
+      "name": "media_opacity_off",
+      "label": "media opacity off",
+      "group": "Media",
+      "type": "point2d",
+      "default": [
+        0,
+        0.66
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Frame blending amount (0 = sharp, 1 = heavy trails)",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "travel_speed",
+      "label": "travel speed",
+      "description": "Camera movement speed (X: linear time, Y: bass time)",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        5,
+        0
+      ],
+      "min": [
+        -9,
+        -3
+      ],
+      "max": [
+        9,
+        3
+      ]
+    },
+    {
+      "name": "bar_visibility",
+      "label": "bar visibility",
+      "description": "Intensity of spectrum bars at horizon (0 = hidden, 1 = full)",
+      "group": "Visual",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "hue_offset",
+      "label": "hue offset",
+      "description": "Overall color scheme rotation (shifts entire palette hue)",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.725,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "bar_height",
+      "label": "bar height",
+      "description": "Vertical position of spectrum bars on horizon",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.125,
+      "min": 0,
+      "max": 0.25
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "pass0",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0.previous",
+          "uniform": "pass0"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "pass0",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_multiplier": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_opacity_off": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.18501
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "travel_speed": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "bar_visibility": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "hue_offset": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bar_height": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    },
+    "scriptUniforms": {
+      "sunColor": "vec3",
+      "topColor": "vec3",
+      "glowColor0": "vec3",
+      "glowColor2": "vec3",
+      "diffColor": "vec3",
+      "glowCol1": "vec3",
+      "barCol": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

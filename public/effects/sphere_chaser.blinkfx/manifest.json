@@ -1,0 +1,692 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.sphere_chaser",
+  "title": "Sphere Chaser",
+  "author": "Psybernautics - Alex Tiemann",
+  "description": "Drink the water",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "brightness",
+      "label": "brightness",
+      "description": "How bright the scene is.",
+      "group": "color",
+      "type": "float",
+      "default": 100,
+      "min": 30,
+      "max": 100
+    },
+    {
+      "name": "color_1",
+      "label": "color 1",
+      "description": "Base color, complement is automatically applied",
+      "group": "color",
+      "type": "color",
+      "default": [
+        0.007843,
+        0.796078,
+        0.729411,
+        1
+      ]
+    },
+    {
+      "name": "rainbow",
+      "label": "rainbow",
+      "description": "Mix in rainbow color",
+      "group": "color",
+      "type": "float",
+      "default": 0.15,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "one_color",
+      "label": "one color",
+      "description": "Make all objects the same color",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_uv",
+      "label": "media uv",
+      "description": "Revel the media as if the objects were a window to a screen.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_mult",
+      "label": "media mult",
+      "description": "How much of the media will be multiplied by the color.",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "bass_mult",
+      "label": "bass mult",
+      "description": "Multiply media on bass hits.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "l_vert_mirr_mix",
+      "label": "l vert mirr mix",
+      "description": "Smoothly apply a left vertical mirror.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "r_vert_mirr_mix",
+      "label": "r vert mirr mix",
+      "description": "Smoothly apply a right vertical mirror.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "audio_mir",
+      "label": "audio mir",
+      "description": "Mix between Left and Right vertical mirrors on beat detected.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "FOV",
+      "label": "FOV",
+      "description": "Field of View for the perspective of the camera",
+      "group": "camera",
+      "type": "float",
+      "default": 1.5,
+      "min": 0.75,
+      "max": 3
+    },
+    {
+      "name": "auto_roll",
+      "label": "auto roll",
+      "description": "Automatically spin the camera. (like a barrel roll).",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "gooey",
+      "label": "gooey",
+      "description": "Controls how much the objects melt together.",
+      "group": "geo",
+      "type": "float",
+      "default": 5,
+      "min": 0.1,
+      "max": 10
+    },
+    {
+      "name": "rate",
+      "label": "rate",
+      "description": "Time variable growth rate. This control the speed of the simulation.",
+      "group": "geo",
+      "type": "float",
+      "default": 2,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "sphere_space",
+      "label": "sphere space",
+      "description": "how far apart the objects are spaced.",
+      "group": "geo",
+      "type": "float",
+      "default": 15,
+      "min": 2,
+      "max": 30
+    },
+    {
+      "name": "sphere_scale",
+      "label": "sphere scale",
+      "description": "scale the geomerty",
+      "group": "geo",
+      "type": "float",
+      "default": 2,
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "sphere_or_cube",
+      "label": "sphere or cube",
+      "description": "Morph between spheres and cubes",
+      "group": "geo",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rand_geo",
+      "label": "rand geo",
+      "description": "Randomize geometry based on syn_RandomOnBeat.",
+      "group": "geo",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "feedback_on",
+      "label": "feedback on",
+      "description": "Toggle on/off the feedback.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0.99,
+      "min": 0,
+      "max": 0.99,
+      "step": 0.99
+    },
+    {
+      "name": "bass_zoom",
+      "label": "bass zoom",
+      "description": "Audio reactive zoom for feedback.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_disrupt",
+      "label": "color disrupt",
+      "description": "Disrupts the feedback color with colorful breaks.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "zoom_direction",
+      "label": "zoom direction",
+      "description": "Which direction the feedback zooms. Positive values are inward, negative values are outward.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0.0199999995529652,
+      "min": -0.0499999995529652,
+      "max": 0.0499999995529652
+    },
+    {
+      "name": "fb_fade",
+      "label": "fb fade",
+      "description": "How much the feedback fades. Lower values retain feedback for longer.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0.05,
+      "min": 0,
+      "max": 0.2
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "firstPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstPass.previous",
+          "uniform": "firstPass"
+        },
+        {
+          "source": "target.postFXPass.previous",
+          "uniform": "postFXPass"
+        },
+        {
+          "source": "target.secondPass.previous",
+          "uniform": "secondPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "firstPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "postFXPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstPass",
+          "uniform": "firstPass"
+        },
+        {
+          "source": "target.postFXPass.previous",
+          "uniform": "postFXPass"
+        },
+        {
+          "source": "target.secondPass.previous",
+          "uniform": "secondPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "postFXPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "secondPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstPass",
+          "uniform": "firstPass"
+        },
+        {
+          "source": "target.postFXPass",
+          "uniform": "postFXPass"
+        },
+        {
+          "source": "target.secondPass.previous",
+          "uniform": "secondPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "secondPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "rVertMirrPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstPass",
+          "uniform": "firstPass"
+        },
+        {
+          "source": "target.postFXPass",
+          "uniform": "postFXPass"
+        },
+        {
+          "source": "target.secondPass",
+          "uniform": "secondPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "rVertMirrPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstPass",
+          "uniform": "firstPass"
+        },
+        {
+          "source": "target.postFXPass",
+          "uniform": "postFXPass"
+        },
+        {
+          "source": "target.secondPass",
+          "uniform": "secondPass"
+        },
+        {
+          "source": "target.rVertMirrPass",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "brightness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "color_1": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "rainbow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "one_color": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_uv": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "media_mult": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "bass_mult": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "l_vert_mirr_mix": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01999999
+      },
+      "r_vert_mirr_mix": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01999999
+      },
+      "audio_mir": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01999999
+      },
+      "FOV": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.00950000001490116
+      },
+      "auto_roll": {
+        "format": "ssf",
+        "type": "knob traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.0100000001490116
+      },
+      "gooey": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "rate": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "sphere_space": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "sphere_scale": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "sphere_or_cube": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "rand_geo": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "feedback_on": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0200000002980232
+      },
+      "bass_zoom": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0200000002980232
+      },
+      "color_disrupt": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.09999993294477
+      },
+      "zoom_direction": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "fb_fade": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      }
+    },
+    "scriptUniforms": {
+      "bass_time": "float",
+      "sinBTime": "float",
+      "cosBTime": "float",
+      "mid_time": "float",
+      "midHigh_time": "float",
+      "mediaMult": "float",
+      "traceMix": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

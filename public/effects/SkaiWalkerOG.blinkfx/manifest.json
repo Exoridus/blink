@@ -1,0 +1,392 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.skaiwalkerog",
+  "title": "Skaiwalker OG",
+  "author": "Psybernautics",
+  "description": "Inspired by Laia.",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "auto_overlay",
+      "label": "auto overlay",
+      "description": "Toggle automatic application of the glyph overlay",
+      "group": "fb",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "overlay_glyphs",
+      "label": "overlay glyphs",
+      "description": "Blend amount for overlaying glyph/media onto the scene",
+      "group": "fb",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "color_seed",
+      "label": "color seed",
+      "description": "Base seed color used by the scene palette. TIP: Checkout the grayer areas of each color",
+      "group": "color",
+      "type": "color",
+      "default": [
+        0.57,
+        0.85,
+        0.95,
+        1
+      ]
+    },
+    {
+      "name": "show_media",
+      "label": "show media",
+      "description": "Amount of media texture blended onto scene surfaces",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "time_rate",
+      "label": "time rate",
+      "description": "Global time-rate multiplier (currently unused in shader)",
+      "group": "time",
+      "type": "float",
+      "default": 0.5,
+      "min": 0.2,
+      "max": 1
+    },
+    {
+      "name": "single_room",
+      "label": "single room",
+      "description": "Toggle single-room view (disable repeated tiling/cutouts)",
+      "group": "geo",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_flip",
+      "label": "auto flip",
+      "description": "Toggle automatic post-process flip driven by bass presence",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flip",
+      "label": "flip",
+      "description": "Manual blend amount for the post-process mirror/flip effect",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "bubble_cam",
+      "label": "bubble cam",
+      "description": "Camera FOV / bubble distortion amount used in view-ray mixing",
+      "group": "bubble",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "auto_bubble",
+      "label": "auto bubble",
+      "description": "Toggle automatic FOV/bubble driven by bass presence",
+      "group": "bubble",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "square_bubble",
+      "label": "square bubble",
+      "description": "Use square (box-like) bubble distortion instead of circular",
+      "group": "bubble",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "perspective",
+      "label": "perspective",
+      "description": "Perspective morph amount (mixes view towards spherical/warped projection)",
+      "group": "morph",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.95
+    },
+    {
+      "name": "auto_morph",
+      "label": "auto morph",
+      "description": "Toggle automatic morphing driven by audio presence",
+      "group": "morph",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    },
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "glyphPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.glyphPass.previous",
+          "uniform": "glyphPass"
+        },
+        {
+          "source": "target.mainPass.previous",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "glyphPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "mainPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.glyphPass",
+          "uniform": "glyphPass"
+        },
+        {
+          "source": "target.mainPass.previous",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "mainPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.glyphPass",
+          "uniform": "glyphPass"
+        },
+        {
+          "source": "target.mainPass",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "auto_overlay": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "overlay_glyphs": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.3
+      },
+      "color_seed": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "show_media": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "time_rate": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "single_room": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_flip": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "flip": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bubble_cam": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "auto_bubble": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "square_bubble": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "perspective": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "auto_morph": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      }
+    },
+    "scriptUniforms": {
+      "bass_count": "float",
+      "script_time": "float",
+      "dynamic_time": "float",
+      "spin_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

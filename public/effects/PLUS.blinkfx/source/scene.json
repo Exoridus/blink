@@ -1,0 +1,40 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "PLUS",
+ "IMAGE_PATH": "PLUS.png",
+ "HARD_TRANSITIONS": [
+ {"UNIFORM": "type", "VALUES":[0.0, 1.0, 2.0]},
+ {"UNIFORM": "resoMod", "VALUES":[0.0,10.0,20.0,30.0]}],
+ "IMAGES": [],
+ "PASSES": [],
+ "GPU": 2,
+ "TAGS" : 
+ [
+ "2d",
+ "grayscale",
+ "media"
+ ],
+ "CONTROLS": [{
+    "NAME": "x_mod",
+    "MAX" : 3.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "slider",
+    "UI_GROUP": "xy"
+  },{
+    "NAME": "y_mod",
+    "MAX" : 3.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "slider",
+    "UI_GROUP": "xy"
+  },{
+    "NAME": "pop",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.2,
+    "TYPE": "bang smooth",
+    "UI_GROUP": "action"
+  }]
+ }

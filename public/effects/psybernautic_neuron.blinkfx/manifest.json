@@ -1,0 +1,576 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.psybernautic_neuron",
+  "title": "Psybernautic Neuron",
+  "author": "Psybernautics - Alex Tiemann",
+  "description": "An inside look at your synapses on a heavy dose of psybernautics.",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "cube_rate",
+      "label": "cube rate",
+      "description": "Cube time variable",
+      "group": "geo",
+      "type": "float",
+      "default": 1.9,
+      "min": -4,
+      "max": 4
+    },
+    {
+      "name": "no_cube",
+      "label": "no cube",
+      "description": "Toggle the cube on and off.",
+      "group": "geo",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "cube_shift",
+      "label": "cube shift",
+      "description": "Turn on to make cubes jump in and out of each other.",
+      "group": "geo",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "cube_scale",
+      "label": "cube scale",
+      "description": "Scale the cube.",
+      "group": "geo",
+      "type": "float",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 1
+    },
+    {
+      "name": "tube_size",
+      "label": "tube size",
+      "description": "How thicc or thin the tubes are.",
+      "group": "geo",
+      "type": "float",
+      "default": 0.15,
+      "min": 0.05,
+      "max": 0.25
+    },
+    {
+      "name": "tunnel_density",
+      "label": "tunnel density",
+      "description": "scale the density of the tunnel structure.",
+      "group": "geo",
+      "type": "float",
+      "default": 4,
+      "min": 1,
+      "max": 8
+    },
+    {
+      "name": "base_color",
+      "label": "base color",
+      "description": "base color, this color's complement will be calculated automatically",
+      "group": "lighting",
+      "type": "color",
+      "default": [
+        0.12109375,
+        0.359375,
+        0.7859375,
+        1
+      ]
+    },
+    {
+      "name": "media_col",
+      "label": "media col",
+      "description": "Mix in media.",
+      "group": "lighting",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rainbow",
+      "label": "rainbow",
+      "description": "Mix in rainbow color",
+      "group": "lighting",
+      "type": "float",
+      "default": 0.25,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "caustic_presence",
+      "label": "caustic presence",
+      "description": "Determines how much the scene is only lit via the caustic lighting.\n1.0 = Only Caustic Lighting, scene will fade to black as the audio fades.\n0.0 = No Caustic Lighting",
+      "group": "lighting",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "center_cam",
+      "label": "center cam",
+      "description": "Quickly snap auto_roll/turn/flip camera values to 0.0",
+      "group": "camera reset",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "hold_center_cam",
+      "label": "hold center cam",
+      "description": "ON: Cetner camera, LookXY set to (0.0), auto_roll/turn/flip set to 0.0. Userful for resetting controls manually. \nOFF: Return camera values to the values of their respective control panel values. ",
+      "group": "camera reset",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "reactive_time",
+      "label": "reactive time",
+      "description": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_roll",
+      "label": "auto roll",
+      "description": "Automatically rotate the camera like a barrel roll.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": -4,
+      "max": 4
+    },
+    {
+      "name": "auto_turn",
+      "label": "auto turn",
+      "description": "Automatically turn the camera left or right from the origin.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": -4,
+      "max": 4
+    },
+    {
+      "name": "auto_flip",
+      "label": "auto flip",
+      "description": "Automatically flip the camera up or down from the origin.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": -4,
+      "max": 4
+    },
+    {
+      "name": "LookXY",
+      "label": "LookXY",
+      "description": "Move the X-axis to spin about your main axis, or move the Y-axis to tilt forwards or backwards.\nmoving all the way to any corner will look as if the camera is back at center.",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "f_o_v",
+      "label": "f o v",
+      "description": "Field of View from the perspective of the camera.",
+      "group": "camera",
+      "type": "float",
+      "default": 0.75,
+      "min": 0.15,
+      "max": 2
+    },
+    {
+      "name": "rate_in",
+      "label": "rate in",
+      "description": "Flythrough Speed",
+      "group": "camera",
+      "type": "float",
+      "default": 1.1,
+      "min": -4,
+      "max": 4
+    },
+    {
+      "name": "l_vert_mirr_mix",
+      "label": "l vert mirr mix",
+      "description": "Smoothly apply a left vertical mirror.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "hor_mirr_mix",
+      "label": "hor mirr mix",
+      "description": "Smoothly apply a horizontal mirror.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "audio_mir",
+      "label": "audio mir",
+      "description": "Smoothly ix between Left and Right vertical mirrors on beat detected.",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "mainPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainPass.previous",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "target.secondPass.previous",
+          "uniform": "secondPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "mainPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "secondPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainPass",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "target.secondPass.previous",
+          "uniform": "secondPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "secondPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "rVertMirrPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainPass",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "target.secondPass",
+          "uniform": "secondPass"
+        },
+        {
+          "source": "target.rVertMirrPass.previous",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "rVertMirrPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.mainPass",
+          "uniform": "mainPass"
+        },
+        {
+          "source": "target.secondPass",
+          "uniform": "secondPass"
+        },
+        {
+          "source": "target.rVertMirrPass",
+          "uniform": "rVertMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "cube_rate": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "no_cube": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.009
+      },
+      "cube_shift": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "cube_scale": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "tube_size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "tunnel_density": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "base_color": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "media_col": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0299999993294477
+      },
+      "rainbow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.019999993294477
+      },
+      "caustic_presence": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0550000001490116
+      },
+      "center_cam": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "hold_center_cam": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "reactive_time": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_roll": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "auto_turn": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "auto_flip": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "LookXY": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0099999993294477
+      },
+      "f_o_v": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0299999993294477
+      },
+      "rate_in": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "l_vert_mirr_mix": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01999999
+      },
+      "hor_mirr_mix": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01999999
+      },
+      "audio_mir": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01999999
+      }
+    },
+    "scriptUniforms": {
+      "bass_time": "float",
+      "geo_time": "float",
+      "dynamic_time": "float",
+      "roll": "float",
+      "turn": "float",
+      "flip": "float",
+      "lookY": "float",
+      "lookX": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

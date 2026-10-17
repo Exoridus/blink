@@ -1,0 +1,194 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : -0.2,
+         "DESCRIPTION" : "XY Position of the light source",
+         "MAX" : 1.0,
+         "MIN" : -1.0,
+         "NAME" : "light_pos",
+         "TYPE" : "xy smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "light"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Z-axis position of the light source",
+         "MAX" : 3.0,
+         "MIN" : -5.0,
+         "NAME" : "light_z",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "light"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Jump one column right",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "move_right",
+         "TYPE" : "bang counter",
+         "UI_GROUP" : "fast_motion"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Jump one row up",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "move_up",
+         "TYPE" : "bang counter",
+         "UI_GROUP" : "fast_motion"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Rotate the camera view to the right",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "rotate_right",
+         "TYPE" : "bang counter",
+         "UI_GROUP" : "fast_motion"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Rotate the camera view upwards",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "rotate_up",
+         "TYPE" : "bang counter",
+         "UI_GROUP" : "fast_motion"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Smoothly blend between hyper cube, cube (at 0.0), or sphere",
+         "MAX" : 1.0,
+         "MIN" : -1.0,
+         "NAME" : "cube_sphere",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "geometry"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "A pulse that blends all the cubes together for a moment",
+         "MAX" : -1.0,
+         "MIN" : 1.0,
+         "NAME" : "pulse_pillars",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.075,
+         "UI_GROUP" : "geometry"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Stretch or squash the objects along the Z-axis",
+         "MAX" : 2.0,
+         "MIN" : 0.0,
+         "NAME" : "z_stretch",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "geometry"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Move each object within its cell some random direction",
+         "MAX" : 1.0,
+         "MIN" : -1.0,
+         "NAME" : "irregularity",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "geometry"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Size of cuboids",
+         "MAX" : 2.0,
+         "MIN" : 0.0,
+         "NAME" : "cube_size",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "geometry"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Adds in a warm orange/pink glow",
+         "MAX" : 2.0,
+         "MIN" : 0.0,
+         "NAME" : "glow_amt",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "color"
+      },{
+         "DEFAULT" : 0.35,
+         "DESCRIPTION" : "How reflective the cuboids are",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "reflectivity",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "color"
+      },{
+         "DEFAULT" : 0.3,
+         "DESCRIPTION" : "Adds a dark black fog, good with glow",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "fog_amt",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "color"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "How much the media will appear in the reflections",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "media_reflect",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "media"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "How much the media will appear directly painted on the objects",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "media_color",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "media"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Move the camera around in XY",
+         "MAX" : 1.0,
+         "MIN" : -1.0,
+         "NAME" : "camera",
+         "TYPE" : "xy smooth",
+         "PARAMS":0.005,
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Field of View for the perspective of the camera",
+         "MAX" : 0.0,
+         "MIN" : 1.0,
+         "NAME" : "FOV",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.035,
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Weird lensing effect that goes positive and negative",
+         "MAX" : 1.0,
+         "MIN" : -1.0,
+         "NAME" : "fisheye",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Turn this up if for 4x anti-aliasing, but only if you've got a really good GPU!",
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "anti_aliasing_fps",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "fps_warning"
+      }
+   ],
+   "CREDIT" : "Shane",
+   "DESCRIPTION" : "A very basic demonstration of raymarching a distance field with reflections and shadows. Definitely not cutting edge, but hopefully, interesting to anyone who isn't quite familiar with the process.",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "raymarched_reflections.png",
+   "TITLE" : "Raymarched Reflections",
+   "WIDTH" : 1920,
+   "GPU": 5,
+   "TAGS" : 
+   [
+   "3d",
+   "raymarching",
+   "realistic",
+   "infinite"
+   ]
+}

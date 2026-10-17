@@ -1,0 +1,304 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.tunnel_beauty_6",
+  "title": "Tunnel Beauty 6",
+  "author": "aiekick",
+  "description": "i have the limit of the float after a certain time, and some noise appears :)\nyou can increase the iteration at line 86 to have better shape but more slow too :) ",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "3d",
+    "raymarching",
+    "tunnel",
+    "colorful",
+    "central"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "diameter",
+      "label": "diameter",
+      "description": "Diameter of the tunnel. Default: 35%.",
+      "group": "transforms",
+      "type": "float",
+      "default": 0.35,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "flatten",
+      "label": "flatten",
+      "description": "Change from a spiral to a flat cave.",
+      "group": "transforms",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "simplify",
+      "label": "simplify",
+      "description": "Fewer ridges. Also clears up noise when tunnel diameter is widest.",
+      "group": "transforms",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "churner",
+      "label": "churner",
+      "description": "Modifies the rotation ridges, can give you noise if you aren't careful.",
+      "group": "transforms",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fov_in",
+      "label": "fov in",
+      "description": "Field of View for the camera, a sort of zoom. Default 20%.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": -0.9,
+      "max": 2.7
+    },
+    {
+      "name": "xyOffset",
+      "label": "xyOffset",
+      "description": "XY Position in the tunnel for the camera.",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "xyLook",
+      "label": "xyLook",
+      "description": "Change direction the camera looks in a hemisphere. To look all the way backwards, you have to use 'look back' toggle.",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "look_back",
+      "label": "look back",
+      "description": "Smoothly change to looking backwards. Make sure you move xyLook away from center before using this toggle, or it will be jerky!",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "col_presence",
+      "label": "col presence",
+      "description": "Scene fully lit up, or fully dark and flashing.",
+      "group": "color",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "deeper_colors",
+      "label": "deeper colors",
+      "description": "Earthy color scheme, or move up for deeper, more complex colors.",
+      "group": "color",
+      "type": "float",
+      "default": 0.001,
+      "min": 0.001,
+      "max": 2
+    },
+    {
+      "name": "media_width",
+      "label": "media width",
+      "description": "Media must be on! Defines how much of the tunnel the media covers.",
+      "group": "color",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "toFilter",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.toFilter.previous",
+          "uniform": "toFilter"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "toFilter",
+        "width": 640,
+        "height": 360,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.toFilter",
+          "uniform": "toFilter"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "diameter": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "flatten": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "simplify": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "churner": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "fov_in": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "xyOffset": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "xyLook": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "look_back": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "col_presence": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "deeper_colors": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "media_width": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

@@ -1,0 +1,324 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.milk_honey_smoke_bile",
+  "title": "Milk, Honey, Smoke, Bile",
+  "author": "Victor S.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "feedback",
+    "media",
+    "intense",
+    "colorful"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "smoke",
+      "label": "smoke",
+      "description": "invert lightness on beat. smooth, smoky, flashing",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "jump",
+      "label": "jump",
+      "description": "audio and color-based upward jump",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "twitch",
+      "label": "twitch",
+      "description": "horizontal sinusoidal twitch",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "swap",
+      "label": "swap",
+      "description": "swap center/sides",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "spectral_color",
+      "label": "spectral color",
+      "description": "draw colors from audio spectrum",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "bile",
+      "label": "bile",
+      "description": "alternate color postprocessing",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "pinch",
+      "label": "pinch",
+      "description": "lower warp in center for concave appearance",
+      "group": "shape",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "feed",
+      "label": "feed",
+      "description": "color feed magnitude. zero in center",
+      "group": "color",
+      "type": "float",
+      "default": 0.08,
+      "min": -0.2,
+      "max": 0.2
+    },
+    {
+      "name": "warp",
+      "label": "warp",
+      "description": "overall scale of displacement",
+      "group": "motion",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "mirror",
+      "label": "mirror",
+      "description": "soft vertical mirror",
+      "group": "shape",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "radius",
+      "label": "radius",
+      "description": "invert color feed in central egg/eye",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "drift",
+      "label": "drift",
+      "description": "vertical drift. zero in center",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": -8,
+      "max": 8
+    },
+    {
+      "name": "media_mix",
+      "label": "media mix",
+      "description": "media mix. no effect if media is all black",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "fb0",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.fb0.previous",
+          "uniform": "fb0"
+        },
+        {
+          "source": "target.fb1.previous",
+          "uniform": "fb1"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "fb0",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "fb1",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.fb0",
+          "uniform": "fb0"
+        },
+        {
+          "source": "target.fb1.previous",
+          "uniform": "fb1"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "fb1",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.fb0",
+          "uniform": "fb0"
+        },
+        {
+          "source": "target.fb1",
+          "uniform": "fb1"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "smoke": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "jump": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "twitch": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "swap": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "spectral_color": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "bile": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "pinch": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "feed": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "warp": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "mirror": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "radius": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "drift": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "media_mix": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

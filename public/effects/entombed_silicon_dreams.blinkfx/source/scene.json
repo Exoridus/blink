@@ -1,0 +1,321 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "How much to blend media with scene",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "How strongly the media is displaced by the scene's color",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_displace",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 4,
+			"DESCRIPTION" : "Forward flight speed, negative reverses direction",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" : 
+			[
+				-0.5,
+				0.1
+			],
+			"DESCRIPTION" : "Camera aim offset (X: left/right tilt, Y: up/down tilt)",
+			"MAX" :
+			[
+				2,
+				2
+			],
+			"MIN" :
+			[
+				-2,
+				-2
+			],
+			"NAME" : "camera_direction",
+			"PARAMS" : 0.02,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" : 
+			[
+				25,
+				3.3
+			],
+			"DESCRIPTION" : "Camera position offset",
+			"MAX" :
+			[
+				35,
+				9
+			],
+			"MIN" :
+			[
+				15,
+				1
+			],
+			"NAME" : "camera_pos",
+			"PARAMS" : 0.04,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "Master hue shift for the entire scene palette",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "base_hue",
+			"PARAMS" : 0.1,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "Hue of the vignette burn applied at the screen edges",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "color_burn_hue",
+			"PARAMS" : 0.1,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "Saturation of the vignette burn color",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "color_burn_saturation",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 0.2,
+			"DESCRIPTION" : "Strength of the vignette burn at screen edges",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "color_burn_intensity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Color"
+		},{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Bloom intensity",
+			"MAX" : 8,
+			"MIN" : 0,
+			"NAME" : "bloom_amount",
+			"PARAMS" : 0.1,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Color"
+		},
+		{
+			"DEFAULT" : 0.33,
+			"DESCRIPTION" : "Density of pyramid tombs in the field — higher fills more grid slots",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "tomb_probability",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				-0.2,
+				-1.1
+			],
+			"DESCRIPTION" : "Tilt of the planetary ring plane (X/Y adjust the surface normal)",
+			"MAX" :
+			[
+				2,
+				2
+			],
+			"MIN" :
+			[
+				-2,
+				-2
+			],
+			"NAME" : "ring_direction",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				-0.5
+			],
+			"DESCRIPTION" : "Direction of the main light (affects shading on sphere and ring)",
+			"MAX" :
+			[
+				2,
+				2
+			],
+			"MIN" :
+			[
+				-2,
+				-2
+			],
+			"NAME" : "light_direction",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 
+			[
+				-700,
+				300
+			],
+			"DESCRIPTION" : "World-space position of the gas giant (X: left/right, Y: up/down)",
+			"MAX" :
+			[
+				300,
+				500
+			],
+			"MIN" :
+			[
+				-900,
+				-300
+			],
+			"NAME" : "gas_giant_position",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.05,
+			"DESCRIPTION" : "Blend of previous frame — creates motion trails and temporal smoothing",
+			"MAX" : 0.992,
+			"MIN" : 0,
+			"NAME" : "motion_blur",
+			"PARAMS" : 0.10601,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 2,
+			"DESCRIPTION" : "Field of view — lower is more zoomed, higher is wider and more immersive",
+			"MAX" : 4,
+			"MIN" : 1,
+			"NAME" : "fov",
+			"PARAMS" : 0.10001,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},{
+			"DEFAULT" : 0.4,
+			"DESCRIPTION" : "Minimum spectrum intensity to show on the ring, raise to reduce noise, lower to show more detail",
+			"MAX" : 1.01,
+			"MIN" : -0.125,
+			"NAME" : "fft_limit",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.1,
+				0.3
+			],
+			"DESCRIPTION" : "Audio response strength (X: bass level, Y: bass hits)",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 4.5,
+			"DESCRIPTION" : "Audio response curve (higher = more intense reaction)",
+			"MAX" : 6,
+			"MIN" : 0,
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Entombed Silicon Dreams",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "mipmap",
+			"FLOAT" : false,
+			"HEIGHT" : 1080,
+			"TARGET" : "BuffA",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		},
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "mipmap",
+			"FLOAT" : false,
+			"HEIGHT" : 1080,
+			"TARGET" : "BuffB",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		},
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "mipmap",
+			"FLOAT" : false,
+			"HEIGHT" : 1080,
+			"TARGET" : "BuffC",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		},
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "mipmap",
+			"FLOAT" : false,
+			"HEIGHT" : 1080,
+			"TARGET" : "BuffD",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange"
+	],
+	"TITLE" : "Entombed Silicon Dreams",
+	"WIDTH" : 1920
+}

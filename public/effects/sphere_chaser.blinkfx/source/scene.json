@@ -1,0 +1,286 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 100.0,
+         "DESCRIPTION" : "How bright the scene is.",
+         "IS_META" : false,
+         "MAX" : 100.0,
+         "MIN" : 30.0,
+         "NAME" : "brightness",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.200000002980232,
+         "DEF_COLOR" : [ 0.007843, 0.796078, 0.729411 ],
+         "DESCRIPTION" : "Base color, complement is automatically applied",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "color_1",
+         "TYPE" : "color",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT": 0.15,
+         "DESCRIPTION": "Mix in rainbow color",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "rainbow",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "color"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Make all objects the same color",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "one_color",
+         "TYPE": "toggle",
+         "UI_GROUP": "color"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Revel the media as if the objects were a window to a screen.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "media_uv",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "How much of the media will be multiplied by the color.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "media_mult",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Multiply media on bass hits.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "bass_mult",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Smoothly apply a left vertical mirror.",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "PARAMS": 0.01999999,
+         "NAME" : "l_vert_mirr_mix",
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "mirror"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Smoothly apply a right vertical mirror.",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "PARAMS": 0.01999999,
+         "NAME" : "r_vert_mirr_mix",
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "mirror"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Mix between Left and Right vertical mirrors on beat detected.",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "PARAMS": 0.01999999,
+         "NAME" : "audio_mir",
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "mirror"
+      },
+      {
+         "DEFAULT" : 1.5,
+         "DESCRIPTION" : "Field of View for the perspective of the camera",
+         "IS_META" : false,
+         "MAX" : 3.0,
+         "MIN" : 0.75,
+         "NAME" : "FOV",
+         "PARAMS" : 0.00950000001490116,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Automatically spin the camera. (like a barrel roll).",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : -1.0,
+         "NAME" : "auto_roll",
+         "PARAMS" : 0.0100000001490116,
+         "TYPE" : "knob traveler",
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT": 5.0,
+         "DESCRIPTION": "Controls how much the objects melt together.",
+         "IS_META": false,
+         "MAX": 10.0,
+         "MIN": 0.1,
+         "NAME": "gooey",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 2.0,
+         "DESCRIPTION": "Time variable growth rate. This control the speed of the simulation.",
+         "IS_META": false,
+         "MAX": 5.0,
+         "MIN": -5.0,
+         "NAME": "rate",
+		   "PARAMS": 0.299999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 15.0,
+         "DESCRIPTION": "how far apart the objects are spaced.",
+         "IS_META": false,
+         "MAX": 30.0,
+         "MIN": 2.0,
+         "NAME": "sphere_space",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 2.0,
+         "DESCRIPTION": "scale the geomerty",
+         "IS_META": false,
+         "MAX": 3.0,
+         "MIN": 1.0,
+         "NAME": "sphere_scale",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Morph between spheres and cubes",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "sphere_or_cube",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Randomize geometry based on syn_RandomOnBeat.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "rand_geo",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "toggle smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Toggle on/off the feedback.",
+         "IS_META" : false,
+         "MAX" : 0.99,
+         "MIN" : 0.0,
+         "NAME" : "feedback_on",
+         "PARAMS" : 0.0200000002980232,
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "feedback"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Audio reactive zoom for feedback.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "bass_zoom",
+         "PARAMS" : 0.0200000002980232,
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "feedback"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Disrupts the feedback color with colorful breaks.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "color_disrupt",
+		   "PARAMS": 0.09999993294477,
+         "TYPE": "toggle smooth",
+         "UI_GROUP": "feedback"
+      },
+      {
+         "DEFAULT" : 0.0199999995529652,
+         "DESCRIPTION" : "Which direction the feedback zooms. Positive values are inward, negative values are outward.",
+         "IS_META" : false,
+         "MAX" : 0.0499999995529652,
+         "MIN" : -0.0499999995529652,
+         "NAME" : "zoom_direction",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "feedback"
+      },
+      {
+         "DEFAULT" : 0.05,
+         "DESCRIPTION" : "How much the feedback fades. Lower values retain feedback for longer.",
+         "IS_META" : false,
+         "MAX" : 0.2,
+         "MIN" : 0.0,
+         "NAME" : "fb_fade",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "feedback"
+      }
+   ],
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "firstPass",
+         "WIDTH" : 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "postFXPass",
+         "WIDTH" : 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "secondPass",
+         "WIDTH" : 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "rVertMirrPass",
+         "WIDTH" : 1920
+      }
+   ],
+   "CREDIT" : "Psybernautics - Alex Tiemann",
+   "DESCRIPTION" : "Drink the water",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "sphere_chaser_1.PNG",
+   "TITLE" : "Sphere Chaser",
+   "WIDTH" : 1920
+}

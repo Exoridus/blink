@@ -1,0 +1,86 @@
+{
+  "TITLE": "Cloud Ten",
+  "CREDIT": "nimitz",
+  "IMAGE_PATH": "cloudten.png",
+  "IMAGES": [{
+    "PATH": "./images/colornoise.jpg",
+    "NAME": "colornoise"
+  }],
+  "GPU": 3,
+  "TAGS" : 
+  [
+   "3d",
+   "raymarching",
+   "realistic"
+  ],
+  "PASSES": [{
+    "TARGET": "buffer1",
+    "WIDTH": 640,
+    "HEIGHT": 360
+    },{
+    "TARGET": "cityClouds",
+    "WIDTH": 1920,
+    "HEIGHT": 1280
+    }],
+  "CONTROLS": [
+  {
+    "NAME": "auto_height",
+    "TYPE": "toggle",
+    "DEFAULT": 1.0,
+    "DESCRIPTION": "Automatically rise above and fall below the cloud layer based on the rise and fall of action in the music.",
+    "UI_GROUP":"height"
+  },{
+    "NAME": "manual_height",
+    "TYPE": "slider smooth",
+    "MIN": 0.0,
+    "MAX": 1.0,
+    "DEFAULT": 0.0,
+    "PARAMS": 0.05,
+    "DESCRIPTION": "auto height MUST BE SET TO OFF. Manually control the height of the camera in the scene.",
+    "UI_GROUP":"height"
+  },{
+    "NAME": "flip_side",
+    "TYPE": "toggle",
+    "MIN": 0.0,
+    "MAX": 1.0,
+    "DEFAULT": 0.0,
+    "DESCRIPTION": "Flip entire scene over, turning it from a city to a starry sky, and from a flying over clouds to under water.",
+    "UI_GROUP":"motion"
+  },{
+    "NAME": "horizontal_motion",
+    "TYPE": "knob smooth",
+    "MIN": 0.0,
+    "MAX": 1.0,
+    "DEFAULT": 0.5,
+    "PARAMS": 0.05,
+    "DESCRIPTION": "Strafe camera back and forth by turning knob.",
+    "UI_GROUP":"motion"
+  },{
+    "NAME": "sun_position",
+    "TYPE": "slider smooth",
+    "MIN": 0.0,
+    "MAX": 1.0,
+    "DEFAULT": 0.5,
+    "PARAMS": 0.05,
+    "UI_GROUP":"motion",
+    "DESCRIPTION": "Change sun height in sky, resulting in deeper red sunset or white light from a high sun position."
+  },{
+    "NAME": "speed",
+    "TYPE": "slider smooth",
+    "MIN": 0.0,
+    "MAX": 1.5,
+    "DEFAULT": 0.3,
+    "PARAMS": 0.05,
+    "UI_GROUP":"motion",
+    "DESCRIPTION": "Change how fast you fly through the clouds. Higher is faster, lower is slower."
+  },{
+    "NAME": "city_fps",
+    "TYPE": "toggle smooth",
+    "MIN": 0.0,
+    "MAX": 1.0,
+    "DEFAULT": 1.0,
+    "PARAMS": 0.05,
+    "DESCRIPTION": "Turn OFF to stop the generation of the city/stars and preserve FPS.",
+    "UI_GROUP":"fps"
+  }]
+}

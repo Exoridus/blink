@@ -1,0 +1,154 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Add in juicy colors.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "colorize",
+         "PARAMS" : 0.2,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Bright, watery caustics look.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "watery_tex",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Digital green/blue/yellow.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "digital_tex",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Turn the camera to look around.",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "camera_direction",
+         "TYPE" : "xy smooth",
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Horizontal slices. Turn OFF if using voxelate or beat slice.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "always_sliced",
+         "PARAMS" : 0.5,
+         "TYPE" : "toggle",
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Split space into 3D pixels for a lo-fi glitchy look.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "voxelate",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 10,
+         "DESCRIPTION" : "Size of voxels when using 'voxelate'.",
+         "MAX" : 0.1,
+         "MIN" : 50,
+         "NAME" : "size_voxels",
+         "PARAMS" : 0.2,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Turn ON for a reactive horizontal slicing effect. 'always sliced' must be OFF.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "beat_slice",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "reactivity"
+      },
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Turn off for pure black/white. Turn up for mid-responsive color.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "mids_color",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "reactivity"
+      },
+      {
+         "DEFAULT" : 0.2,
+         "DESCRIPTION" : "Bass causes the geometry to morph. Turn up for more effect, off for none.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "bass_morph",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "reactivity"
+      },{
+         "DEFAULT" : 0.4,
+         "DESCRIPTION" : "Adds extra flashing on high percussion.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "flashing",
+         "PARAMS" : 0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "reactivity"
+      },
+      {
+         "DEFAULT" : 0.01,
+         "DESCRIPTION" : "",
+         "MAX" : 0.1,
+         "MIN" : -0.1,
+         "NAME" : "rate_in",
+         "PARAMS" : 0.5,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "time"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "",
+         "MAX" : 0.1,
+         "MIN" : -0.1,
+         "NAME" : "bass_rate",
+         "PARAMS" : 0.5,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "time"
+      }
+   ],
+   "CREDIT" : "Shane",
+   "DESCRIPTION" : "A transparent organic field partitioned horizontally into 2D isosurface slices.",
+   "HEIGHT" : 1080,
+   "IMAGES" : [
+      {
+         "NAME" : "texIn",
+         "PATH" : "images/img.jpg"
+      },
+      {
+         "NAME" : "texIn2",
+         "PATH" : "images/img2.jpg"
+      }
+   ],
+   "IMAGE_PATH" : "transparent_isoslices.png",
+   "TITLE" : "Transparent Isoslices",
+   "WIDTH" : 1920,
+   "GPU": 4,
+   "TAGS" : 
+   [
+   "raymarching",
+   "tunnel",
+   "abstract",
+   "grayscale"
+   ]
+}

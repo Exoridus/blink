@@ -1,0 +1,87 @@
+{
+ "CREDIT": "Meebs ft. WAHa_06x36",
+ "DESCRIPTION": "",
+ "TITLE": "EXOplanet",
+ "IMAGE_PATH": "exoplanet.jpg",
+ "HARD_TRANSITIONS":[
+ ],
+ "PASSES": [ {"TARGET":"sunTexIn", "WIDTH":3000, "HEIGHT":1500, "FLOAT": true},
+              {"TARGET":"forMirroring", "FLOAT":false, "WIDTH":1280, "HEIGHT":720},
+              {"TARGET":"forRGBSplit", "FLOAT":false}
+ ],
+ "GPU": 2,
+ "TAGS" : 
+ [
+  "raymarching",
+  "dark",
+  "displacement"
+ ],
+ "CONTROLS":[
+  {
+    "NAME": "mirror_on",
+    "TYPE": "toggle",
+    "DEFAULT": 1.0,
+    "MIN": 0.0,
+    "MAX": 1.0,
+    "DESCRIPTION": "Mirror the scene across an axis for a symmetrical look.",
+    "UI_GROUP":"mirror"
+  },{
+    "NAME": "mirror_change",
+    "TYPE": "bang counter",
+    "DESCRIPTION": "mirror on MUST BE SET TO ON. Change the mirror location on every press to get different kinds of symmetry.",
+    "UI_GROUP":"mirror"
+  },{ 
+    "NAME": "refract_type",
+    "TYPE": "slider",
+    "DEFAULT": 1.0,
+    "MIN": 0.0,
+    "MAX": 2.0,
+    "DESCRIPTION": "Refract the scene through one of two surfaces. 1/3 up selects an 'X' surface. 2/3 up selects a diamond surface. All the way down for None. Both move on the beat.",
+    "UI_GROUP":"refractor"
+  },{
+    "NAME": "RGB_Split",
+    "TYPE": "toggle",
+    "DEFAULT": 0.0,
+    "MIN": 0.0,
+    "MAX": 1.0,
+    "DESCRIPTION": "Turn on an RGB Split effect that splits more when the bass hits.",
+    "UI_GROUP":"effects"
+  },{
+    "NAME": "intns_atmos",
+    "TYPE": "slider",
+    "DEFAULT": 1.0,
+    "MIN": 0.0,
+    "MAX": 2.0,
+    "UI_GROUP": "effects",
+    "DESCRIPTION": "Intensity of the atmosphere's glow. "
+  },{
+    "NAME": "intns_planet",
+    "TYPE": "slider",
+    "DEFAULT": 1.0,
+    "MIN": 0.0,
+    "MAX": 2.0,
+    "UI_GROUP": "effects",
+    "DESCRIPTION": "Intensity of the planet's glow."
+  },{
+    "NAME": "color_scheme",
+    "TYPE": "toggle",
+    "DEFAULT": 1.0,
+    "MIN": 0.0,
+    "MAX": 1.0,
+    "DESCRIPTION": "Choose between your two selected colors or a full spectrum color scheme.",
+    "UI_GROUP":"color"
+  },{
+    "NAME": "color_low",
+    "TYPE": "color",
+    "DEF_COLOR": [0.785,0.26,0.0],
+    "DESCRIPTION": "color scheme MUST BE SET TO ON. Color of planet surface.",
+    "UI_GROUP":"color"
+  },{
+    "NAME": "color_high",
+    "TYPE": "color",
+    "DEF_COLOR": [0.7,0.6,0.1],
+    "DESCRIPTION": "color scheme MUST BE SET TO ON. Color of atmosphere.",
+    "UI_GROUP":"color"
+  }]
+}
+

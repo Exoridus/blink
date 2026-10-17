@@ -1,0 +1,679 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.bouncy_hexagons",
+  "title": "Bouncy Hexagons",
+  "author": "mrange",
+  "description": "An infinite field of audio-reactive 3D hexagons that rise and fall with your music. Red and black hexagons respond to different frequency ranges, creating dynamic landscapes of sound. Fly through the geometric terrain with customizable colors, lighting, and camera controls for stunning live visuals.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "bouncy",
+    "audio-reactive",
+    "hexagon",
+    "3D",
+    "raymarching",
+    "music-visualization",
+    "geometric",
+    "frequency",
+    "procedural",
+    "landscape",
+    "spectrum",
+    "grid",
+    "bass-reactive"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "bouncy_islands",
+      "label": "bouncy islands",
+      "description": "Threshold range for colored hexagons to appear",
+      "group": "Hexagons",
+      "type": "point2d",
+      "default": [
+        0.45,
+        0.7
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "black_freq",
+      "label": "black freq",
+      "description": "Audio frequency range for black hexagons",
+      "group": "Hexagons",
+      "type": "point2d",
+      "default": [
+        0.05,
+        0.2
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "name": "red_freq",
+      "label": "red freq",
+      "description": "Audio frequency range for red hexagons",
+      "group": "Hexagons",
+      "type": "point2d",
+      "default": [
+        0.25,
+        0.3
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "name": "world_zoom",
+      "label": "world zoom",
+      "description": "Hexagon grid scale and spacing",
+      "group": "Hexagons",
+      "type": "point2d",
+      "default": [
+        0.57735,
+        1
+      ],
+      "min": [
+        0.2,
+        0.2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "spect_bar_height",
+      "label": "spect bar height",
+      "description": "adjusts height of black and red bars that utilize syn spectrum texture",
+      "group": "Hexagons",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "wave_bar_height",
+      "label": "wave bar height",
+      "description": "adjusts height of wave bars",
+      "group": "Hexagons",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "wave_bar_speed",
+      "label": "wave bar speed",
+      "group": "Hexagons",
+      "type": "float",
+      "default": 1,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "minimal_mode",
+      "label": "minimal mode",
+      "description": "Simplify the color palette for bursts of color on pillar reveal.",
+      "group": "Main Color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "tops_vs_sides",
+      "label": "tops vs sides",
+      "description": "Color the top of pillars vs the side of pillars when in minimal mode",
+      "group": "Main Color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "red_col",
+      "label": "red col",
+      "description": "Color for red hexagons",
+      "group": "Color",
+      "type": "color",
+      "default": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "black_col",
+      "label": "black col",
+      "description": "Color for black hexagons",
+      "group": "Color",
+      "type": "color",
+      "default": [
+        0.001,
+        0.001,
+        0.001,
+        1
+      ]
+    },
+    {
+      "name": "white_col",
+      "label": "white col",
+      "description": "Color for white hexagons and background fog",
+      "group": "Color",
+      "type": "color",
+      "default": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "border_col",
+      "label": "border col",
+      "description": "Main color (and hexagon 'border' color)",
+      "group": "Main Color",
+      "type": "color",
+      "default": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "fog_col",
+      "label": "fog col",
+      "description": "Color for fog background and sky",
+      "group": "Color",
+      "type": "color",
+      "default": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "media_mode",
+      "label": "media mode",
+      "description": "Media opacity — fade visuals in or out",
+      "group": "Media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_scale",
+      "label": "media scale",
+      "description": "Media multiplier — boost opacity for bold color effects",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 5
+    },
+    {
+      "name": "light_dir",
+      "label": "light dir",
+      "description": "Rotation angle of the light source",
+      "group": "Visual",
+      "type": "float",
+      "default": 1.82,
+      "min": 0,
+      "max": 7
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Amount of frame blending for motion trail effect",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 0.95
+    },
+    {
+      "name": "vignette",
+      "label": "vignette",
+      "description": "Applies viginette effect",
+      "group": "Visual",
+      "type": "float",
+      "default": 1.3,
+      "min": 1.3,
+      "max": 1.3
+    },
+    {
+      "name": "auto_light_dir",
+      "label": "auto light dir",
+      "description": "automatically rotates light using sine wave and syn time",
+      "group": "Visual",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "speed",
+      "label": "speed",
+      "description": "Camera movement speed along z-axis",
+      "group": "Camera",
+      "type": "float",
+      "default": 1,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "height",
+      "label": "height",
+      "description": "Camera height above the hexagons",
+      "group": "Camera",
+      "type": "float",
+      "default": 20,
+      "min": 12,
+      "max": 32
+    },
+    {
+      "name": "look_dir",
+      "label": "look dir",
+      "description": "Rotation angle of the camera view",
+      "group": "Camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 7
+    },
+    {
+      "name": "camera_tilt",
+      "label": "camera tilt",
+      "description": "offsets camera angle position",
+      "group": "Camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -0.75,
+        -0.75
+      ],
+      "max": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "name": "fov",
+      "label": "fov",
+      "description": "increases field of view",
+      "group": "Camera",
+      "type": "float",
+      "default": 1,
+      "min": 0.3,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    },
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "t_fbm",
+      "type": "texture2d",
+      "path": "assets/fbm.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "pass0",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0.previous",
+          "uniform": "pass0"
+        },
+        {
+          "source": "asset.t_fbm",
+          "uniform": "t_fbm"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "pass0",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "asset.t_fbm",
+          "uniform": "t_fbm"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "bouncy_islands": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "black_freq": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "red_freq": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "world_zoom": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.22401
+      },
+      "spect_bar_height": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.06301
+      },
+      "wave_bar_height": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.06001
+      },
+      "wave_bar_speed": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.06101
+      },
+      "minimal_mode": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "tops_vs_sides": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "red_col": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "black_col": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "white_col": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "border_col": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "fog_col": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "media_mode": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_scale": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "light_dir": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "vignette": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20101
+      },
+      "auto_light_dir": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.06401
+      },
+      "speed": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.07001
+      },
+      "height": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "look_dir": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01601
+      },
+      "camera_tilt": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01501
+      },
+      "fov": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05601
+      }
+    },
+    "scriptUniforms": {
+      "cam_speed": "float",
+      "wave_speed": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

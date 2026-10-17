@@ -1,0 +1,112 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Sun_Set",
+ "IMAGE_PATH": "sun_set.png",
+ "HARD_TRANSITIONS": [
+ {
+ "UNIFORM": "direction",
+ "VALUES":[-1.0,1.0]
+ }],
+ "GPU": 2,
+ "TAGS" : 
+ [
+ "media",
+ "psychedelic",
+ "abstract"
+ ],
+ "IMAGES": [],
+ "PASSES": [{"TARGET": "firstBuffer"},{"TARGET": "secondBuffer"}],
+ "CONTROLS": [{
+    "NAME": "bright",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "bang smooth",
+    "PARAMS": 0.05,
+    "UI_GROUP": "flash",
+    "DESCRIPTION": "Send a bright pulse through the scene (inverted if invert is on)."
+  },{
+    "NAME": "dark",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "bang smooth",
+    "PARAMS": 0.05,
+    "UI_GROUP": "flash",
+    "DESCRIPTION": "Send a dark pulse through the scene (inverted if invert is on)."
+  },{
+    "NAME": "hue",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.1,
+    "UI_GROUP": "color",
+    "DESCRIPTION": "Change the hue of the entire scene."
+  },{
+    "NAME": "levels",
+    "MAX" : 1.0,
+    "MIN" : 0.09,
+    "DEFAULT":1.0,
+    "TYPE": "slider smooth",
+    "PARAMS": 0.25,
+    "UI_GROUP": "color",
+    "DESCRIPTION": "Reduces the color space, resulting in less saturated colors and more abstract shapes. 100% is all colors, 0% is only 2 or 3."
+  },{
+    "NAME": "fire",
+    "MAX" : -1.0,
+    "MIN" : 2.0,
+    "DEFAULT":1.0,
+    "UI_GROUP": "color",
+    "DESCRIPTION": "Amount of 'fire', or glow leaking up from the bottom."
+  },{
+    "NAME": "invert",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "color",
+    "DESCRIPTION": "Change all colors to their opposite colors. Makes the scene much brighter."
+  },{
+    "NAME": "feedback",
+    "MAX" : 0.0,
+    "MIN" : 1.0,
+    "DEFAULT":0.7,
+    "TYPE": "slider smooth",
+    "PARAMS": 0.05,
+    "UI_GROUP": "subtle",
+    "DESCRIPTION": "Feedback, or 'upward fading'. 0% is no blurring with very crisp lines. 100% will be no action, just upward scrolling."
+  },{
+    "NAME": "sun_pierce",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "bang smooth",
+    "PARAMS":0.1,
+    "UI_GROUP": "subtle",
+    "DESCRIPTION": "On press, a sun-like orb appears in the center, and echoes through the scene."
+  },{
+    "NAME": "stutter",
+    "MAX" : 25.0,
+    "MIN" : 1.0,
+    "DEFAULT":10.0,
+    "TYPE": "slider",
+    "UI_GROUP": "subtle",
+    "DESCRIPTION": "Low frame rate is responsible for a lot of the dramatic visual patterns in this scene. Make it stutter even more (lower frame rate) by moving this slider up. Or make it smoother and less dramatic by moving this down."
+  },{
+    "NAME": "auto_reset",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "feedback",
+    "DESCRIPTION": "Reset the feedback by flashing 'mountains' on bass hits."
+  },{
+    "NAME": "manual_reset",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.2,
+    "TYPE": "bang smooth",
+    "UI_GROUP": "feedback",
+    "DESCRIPTION": "Manually reset the feedback by flashing to the 'mountains' screen."
+  }]
+ }
