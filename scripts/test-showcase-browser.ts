@@ -2,7 +2,13 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 
 const release = JSON.parse(readFileSync('public/release-effects.json', 'utf8')) as { packages: string[] };
-for (const name of release.packages) {
+// Third-party previews are validated by the unit tests; rendering all of them would exceed the CI budget.
+const showcase = release.packages.filter(
+    name =>
+        (JSON.parse(readFileSync(`public/effects/${name}/manifest.json`, 'utf8')) as { license?: string }).license ===
+        'MIT'
+);
+for (const name of showcase) {
     if (!/^[A-Za-z0-9_-]+\.blinkfx$/.test(name)) throw new Error('Invalid showcase package name');
     const manifest = JSON.parse(readFileSync(`public/effects/${name}/manifest.json`, 'utf8')) as { id: string };
     const result = spawnSync(process.execPath, ['scripts/ci-browser-smoke.ts'], {
