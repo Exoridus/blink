@@ -216,6 +216,7 @@ describe('Application as a ShellHost', () => {
             controlValues: {},
             compatibility: null,
             faults: [],
+            media: { inputs: [], kind: 'none', label: '' },
         });
     });
 
@@ -242,6 +243,7 @@ describe('Application as a ShellHost', () => {
             controlValues: {},
             compatibility: null,
             faults: [],
+            media: { inputs: [], kind: 'none', label: '' },
         });
     });
 

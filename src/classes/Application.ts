@@ -7,6 +7,7 @@ import { fetchPackageFile } from '../runtime/package';
 import type { OutputSettings } from '../runtime/render/outputSettings';
 import type { BlinkFxPackageList, BlinkFxPackageListItem, BlinkFxService } from '../services/BlinkFxService';
 import type { EnvService } from '../services/EnvService';
+import { MediaInputService } from '../services/MediaInputService';
 import type { RenderService } from '../services/RenderService';
 import type { ShellDiagnosticsEvent, ShellHost, ShellRuntimeState, Unsubscribe } from '../ui/shell/ShellHost';
 import { rememberEffect } from '../ui/startSelection';
@@ -30,6 +31,7 @@ export class Application implements ShellHost {
     private readonly envService: EnvService;
     private readonly renderService: RenderService;
     private readonly blinkFxService: BlinkFxService;
+    private readonly mediaInput = new MediaInputService();
     private readonly statistics: Statistics | null = null;
     private readonly stateListeners = new Set<(state: ShellRuntimeState) => void>();
     private readonly diagnosticsListeners = new Set<(event: ShellDiagnosticsEvent) => void>();
@@ -47,6 +49,7 @@ export class Application implements ShellHost {
         this.renderService = renderService;
         this.blinkFxService = blinkFxService;
         this.renderService.onHealthChange.add(this.handleHealthChange);
+        this.mediaInput.onChange.add(this.handleMediaChange);
 
         if (this.envService.isDevelopmentBuild) {
             this.statistics = new Statistics(this.renderService);
@@ -95,6 +98,7 @@ export class Application implements ShellHost {
         // holding a half-destroyed runtime.
         try {
             this.renderService.onHealthChange.remove(this.handleHealthChange);
+            this.mediaInput.dispose();
             this.stateListeners.clear();
             this.diagnosticsListeners.clear();
             if (this.diagnosticsPumpRunning) {
@@ -217,6 +221,7 @@ export class Application implements ShellHost {
                 : { controlSources: this.activeEffect.compatibility.controls }),
             compatibility: this.renderService.compatibilityReport(),
             faults: this.renderService.faults(),
+            media: { inputs: this.mediaInputNames(), ...this.mediaInput.state },
         };
     }
 
@@ -253,6 +258,32 @@ export class Application implements ShellHost {
     private readonly handleHealthChange = (): void => {
         this.emitState();
     };
+
+    private readonly handleMediaChange = (): void => {
+        this.attachMedia();
+        this.emitState();
+    };
+
+    private mediaInputNames(): readonly string[] {
+        return (this.activeEffect?.hostInputs ?? []).filter(input => input.type === 'image').map(input => input.name);
+    }
+
+    /** Binds the current media texture to every image input of the running effect; null clears them. */
+    private attachMedia(): void {
+        for (const name of this.mediaInputNames()) this.renderService.setHostImageSource(name, this.mediaInput.texture);
+    }
+
+    public useMediaCamera(): Promise<void> {
+        return this.mediaInput.useCamera();
+    }
+
+    public useMediaFile(file: File): Promise<void> {
+        return this.mediaInput.useFile(file);
+    }
+
+    public clearMedia(): void {
+        this.mediaInput.clear();
+    }
 
     private readonly handleDiagnosticsFrame = (): void => {
         const now = Date.now();
@@ -325,6 +356,7 @@ export class Application implements ShellHost {
         this.activePackageId = packageId;
         this.activeEffect = ir;
         rememberEffect(packageId);
+        this.attachMedia();
         // Only now that the new effect is committed: until then the old one still loads from its mount.
         if (previousId !== null && previousId !== packageId) {
             this.blinkFxService.releasePackage(previousId);
