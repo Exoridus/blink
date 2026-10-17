@@ -1,0 +1,32 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.bos_easing_functions",
+  "title": "Book of Shaders - Easing Functions",
+  "author": "Broken",
+  "tags": [],
+  "kind": "generator",
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1"
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

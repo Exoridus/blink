@@ -1,0 +1,47 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.smallest",
+  "title": "Smallest scene",
+  "author": "mrange",
+  "description": "Smallest scene",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "smallest",
+    "example"
+  ],
+  "kind": "generator",
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1"
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

@@ -1,0 +1,319 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.hue_review",
+  "title": "Hue Review",
+  "author": "Meebs",
+  "tags": [
+    "feedback",
+    "media",
+    "dark",
+    "psychedelic"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "feedback",
+      "label": "feedback",
+      "description": "Take frame from media or let video feedback run unchecked.",
+      "group": "main_parameters",
+      "type": "float",
+      "default": 0.4,
+      "min": 0.4,
+      "max": 0.4
+    },
+    {
+      "name": "ripple_amt",
+      "label": "ripple amt",
+      "description": "Find the sweet spot where ripple patterns exist.",
+      "group": "main_parameters",
+      "type": "float",
+      "default": 0.02,
+      "min": 0,
+      "max": 0.1
+    },
+    {
+      "name": "sat_amt",
+      "label": "sat amt",
+      "description": "Generally keep near 0, but turn up for a different look.",
+      "group": "main_parameters",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.05
+    },
+    {
+      "name": "brighter",
+      "label": "brighter",
+      "description": "Simple mods for when it is too bright or dark.",
+      "group": "brightness",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "darker",
+      "label": "darker",
+      "description": "Simple mods for when it is too bright or dark.",
+      "group": "brightness",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fire_pulse",
+      "label": "fire pulse",
+      "description": "Boom.",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "glitchdown",
+      "label": "glitchdown",
+      "description": "Becomes pixelated and glitches out on the beats. Modified by glitchdown_speed.",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "glitchdown_speed",
+      "label": "glitchdown speed",
+      "description": "Rate of downward flow during glitchdown.",
+      "group": "action",
+      "type": "float",
+      "default": 0.6,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "zoom",
+      "label": "zoom",
+      "description": "Flying inward or outward.",
+      "group": "flow_style",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "rays",
+      "label": "rays",
+      "description": "Rays radiating outward.",
+      "group": "flow_style",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "digital_mode",
+      "label": "digital mode",
+      "description": "Less liquid, more pixelated.",
+      "group": "flow_style",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_palette",
+      "label": "color palette",
+      "description": "Pick from one of 5 color palettes.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 4
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "backbuff",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backbuff.previous",
+          "uniform": "backbuff"
+        },
+        {
+          "source": "target.backbuff2.previous",
+          "uniform": "backbuff2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "backbuff",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "backbuff2",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backbuff",
+          "uniform": "backbuff"
+        },
+        {
+          "source": "target.backbuff2.previous",
+          "uniform": "backbuff2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "backbuff2",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backbuff",
+          "uniform": "backbuff"
+        },
+        {
+          "source": "target.backbuff2",
+          "uniform": "backbuff2"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "feedback": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "ripple_amt": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "sat_amt": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "brighter": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "darker": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "fire_pulse": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "glitchdown": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "glitchdown_speed": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "zoom": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "rays": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "digital_mode": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_palette": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "fire_pulse_scr": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

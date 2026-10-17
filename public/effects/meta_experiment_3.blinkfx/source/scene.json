@@ -1,0 +1,132 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 1.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "TURN_ME_DOWN",
+         "DESCRIPTION":"Only at 100% will you see all the plots. Otherwise, turn this down to select a plot. The XY pad will change your selection.",
+         "TYPE" : "slider",
+         "UI_GROUP" : "graph_select"
+      },
+      {
+         "DEFAULT" : 0.13,
+         "MAX" : 1.0,
+         "MIN" : 0,
+         "NAME" : "GRAPH_SELECT",
+         "DESCRIPTION":"12 different interference patterns. Use this XY pad to select which one you want. You can view all 12 and your cursor only when 'TURN ME DOWN' is at 100%.",
+         "TYPE" : "xy",
+         "UI_GROUP" : "graph_select"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Invert the color, black space becomes white space.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "invert",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "color"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Like a smooth invert, morphs black into white.",
+         "MAX" : 2,
+         "MIN" : 0,
+         "NAME" : "color_mod",
+         "PARAMS" : 0.10000000149011612,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Higher to make the white lines thicker, lower for thinner.",
+         "MAX" : 0,
+         "MIN" : 2,
+         "NAME" : "thickness",
+         "PARAMS" : 0.20000000298023224,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "shape"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Sort of like a zoom level. Higher for more, smaller details. Lower for fewer larger details.",
+         "MAX" : 2,
+         "MIN" : 0,
+         "NAME" : "frequency",
+         "PARAMS" : 0.05000000074505806,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "shape"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Adjusts the spatial parameters of each plot slightly differently.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "xy_modifier",
+         "PARAMS" : 0.1,
+         "TYPE" : "xy smooth",
+         "UI_GROUP" : "shape"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Time moving forwards or backwards.",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "time_direction",
+         "PARAMS" : 0.20000000298023224,
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "reactive time"
+      },{
+         "DEFAULT" : 0.40000000596046448,
+         "DESCRIPTION" : "Constant time element. Turn down for more reactive contribution.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "constant_mix",
+         "PARAMS" : 0.20000000298023224,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "reactive time"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Audio reactive time contribution from the highs.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "highs_mix",
+         "PARAMS" : 0.20000000298023224,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "reactive time"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Audio reactive time contribution from the lows.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "bass_mix",
+         "PARAMS" : 0.2,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "reactive time"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Auto smooth zooming in and out with the energy of the music.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_zoom",
+         "PARAMS" : 0.1,
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "reactive time"
+      }
+   ],
+   "CREDIT" : "aiekick",
+   "DESCRIPTION" : "Each cells is a similar 2d metaball code\nClick on cell and keep down to see in full size",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "meta_experiment_3.png",
+   "TITLE" : "Meta Experiment 3",
+   "WIDTH" : 1920,
+   "GPU": 1,
+   "TAGS" : 
+   [
+    "2d",
+    "media",
+    "grayscale"
+   ]
+}

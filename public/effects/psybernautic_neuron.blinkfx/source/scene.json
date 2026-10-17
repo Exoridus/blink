@@ -1,0 +1,264 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 1.9,
+         "DESCRIPTION" : "Cube time variable",
+         "IS_META" : false,
+         "MAX" : 4.0,
+         "MIN" : -4.0,
+         "NAME" : "cube_rate",
+         "TYPE" : "knob",
+         "UI_GROUP" : "geo"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Toggle the cube on and off.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "no_cube",
+         "TYPE" : "toggle smooth",
+         "PARAMS" : 0.009,
+         "UI_GROUP" : "geo"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Turn on to make cubes jump in and out of each other.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "cube_shift",
+         "TYPE" : "toggle smooth",
+         "PARAMS" : 0.1,
+         "UI_GROUP" : "geo"
+      },
+      {
+         "DEFAULT": 0.5,
+         "DESCRIPTION": "Scale the cube.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.1,
+         "NAME": "cube_scale",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 0.15,
+         "DESCRIPTION": "How thicc or thin the tubes are.",
+         "IS_META": false,
+         "MAX": 0.25,
+         "MIN": 0.05,
+         "NAME": "tube_size",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT": 4.0,
+         "DESCRIPTION": "scale the density of the tunnel structure.",
+         "IS_META": false,
+         "MAX": 8.0,
+         "MIN": 1.0,
+         "NAME": "tunnel_density",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "geo"
+      },
+      {
+         "DEFAULT" : 0.200000002980232,
+         "DEF_COLOR" : [ 0.12109375, 0.359375, 0.7859375 ],
+         "DESCRIPTION" : "base color, this color's complement will be calculated automatically",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "base_color",
+         "TYPE" : "color",
+         "UI_GROUP" : "lighting"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Mix in media.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "media_col",
+         "PARAMS": 0.0299999993294477,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "lighting"
+      },
+      {
+         "DEFAULT": 0.25,
+         "DESCRIPTION": "Mix in rainbow color",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "rainbow",
+		   "PARAMS": 0.019999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "lighting"
+      },
+      {
+         "DEFAULT" : 0.1,
+         "DESCRIPTION" : "Determines how much the scene is only lit via the caustic lighting.\n1.0 = Only Caustic Lighting, scene will fade to black as the audio fades.\n0.0 = No Caustic Lighting",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "caustic_presence",
+         "PARAMS" : 0.0550000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "lighting"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Quickly snap auto_roll/turn/flip camera values to 0.0",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "center_cam",
+         "TYPE": "bang",
+         "UI_GROUP": "camera reset"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "ON: Cetner camera, LookXY set to (0.0), auto_roll/turn/flip set to 0.0. Userful for resetting controls manually. \nOFF: Return camera values to the values of their respective control panel values. ",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "hold_center_cam",
+         "TYPE": "toggle",
+         "UI_GROUP": "camera reset"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "reactive_time",
+         "TYPE": "toggle",
+         "UI_GROUP": "camera"
+      },
+      {
+      "DEFAULT": 0.0,
+         "DESCRIPTION": "Automatically rotate the camera like a barrel roll.",
+         "IS_META": false,
+         "MAX": 4.0,
+         "MIN": -4.0,
+         "NAME": "auto_roll",
+         "TYPE": "knob",
+         "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT": 0.0,
+            "DESCRIPTION": "Automatically turn the camera left or right from the origin.",
+            "IS_META": false,
+            "MAX": 4.0,
+            "MIN": -4.0,
+            "NAME": "auto_turn",
+            "TYPE": "knob",
+            "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT": 0.0,
+            "DESCRIPTION": "Automatically flip the camera up or down from the origin.",
+            "IS_META": false,
+            "MAX": 4.0,
+            "MIN": -4.0,
+            "NAME": "auto_flip",
+            "TYPE": "knob",
+            "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT": 0,
+         "DESCRIPTION": "Move the X-axis to spin about your main axis, or move the Y-axis to tilt forwards or backwards.\nmoving all the way to any corner will look as if the camera is back at center.",
+         "IS_META": false,
+         "MAX": 1,
+         "MIN": -1,
+         "NAME": "LookXY",
+         "PARAMS": 0.0099999993294477,
+         "TYPE": "xy smooth",
+         "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT" : 0.75,
+         "DESCRIPTION" : "Field of View from the perspective of the camera.",
+         "IS_META" : false,
+         "MAX" : 2.0,
+         "MIN" : 0.15,
+         "NAME" : "f_o_v",
+         "TYPE" : "knob smooth",
+         "PARAMS": 0.0299999993294477,
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 1.1,
+         "DESCRIPTION" : "Flythrough Speed",
+         "IS_META" : false,
+         "MAX" : 4.0,
+         "MIN" : -4.0,
+         "NAME" : "rate_in",
+         "TYPE" : "knob",
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Smoothly apply a left vertical mirror.",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "PARAMS": 0.01999999,
+         "NAME" : "l_vert_mirr_mix",
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "mirror"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Smoothly apply a horizontal mirror.",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "PARAMS": 0.01999999,
+         "NAME" : "hor_mirr_mix",
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "mirror"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Smoothly ix between Left and Right vertical mirrors on beat detected.",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "PARAMS": 0.01999999,
+         "NAME" : "audio_mir",
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "mirror"
+      }
+   ],
+   "PASSES": [
+      {
+         "FLOAT": true,
+         "HEIGHT": 1080,
+         "TARGET": "mainPass",
+         "WIDTH": 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "secondPass",
+         "WIDTH" : 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "rVertMirrPass",
+         "WIDTH" : 1920
+      }
+   ],
+   "CREDIT" : "Psybernautics - Alex Tiemann",
+   "DESCRIPTION" : "An inside look at your synapses on a heavy dose of psybernautics.",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "psybernautic_neuron.PNG",
+   "TITLE" : "Psybernautic Neuron",
+   "WIDTH" : 1920
+}

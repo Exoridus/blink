@@ -1,0 +1,193 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Replicate the entire system at different zoom levels",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "multiplexer_on",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "multiplexer"
+      },{
+         "DEFAULT" : 5,
+         "DESCRIPTION" : "Number of layers in the multiplexer",
+         "MAX" : 8,
+         "MIN" : 2,
+         "NAME" : "multiplexer_layers",
+         "TYPE" : "slider",
+         "UI_GROUP" : "multiplexer"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Randomize each layer so they don't align",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "randomize_layers",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "multiplexer"
+      },
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Amount of zoom between each layer",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "zoom_power",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "multiplexer"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "How fast the layers zoom - negative reverses the direction",
+         "MAX" : 3,
+         "MIN" : -3,
+         "NAME" : "rate_zoom",
+         "TYPE" : "knob",
+         "UI_GROUP" : "multiplexer"
+      },{
+         "DEFAULT" : 0.075,
+         "DESCRIPTION" : "Overall speed of particles",
+         "MAX" : 0.2,
+         "MIN" : 0.0,
+         "NAME" : "particle_speed",
+         "TYPE" : "slider",
+         "UI_GROUP" : "motion"
+      },{
+         "DEFAULT" : 0.00,
+         "DESCRIPTION" : "Particles get new direction to travel every beat hit",
+         "MAX" : 1,
+         "MIN" : 0.0,
+         "NAME" : "beat_randomizer",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "motion"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Speed controlled by audio or constant",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "audio_motion",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "motion"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Turn up to add in flow",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "flow_amount",
+         "PARAMS":0.5,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "flow"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Flow direction, up or down",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "vertical_flow",
+         "TYPE" : "knob",
+         "UI_GROUP" : "flow"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Flow zooming in or out",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "flow_in_out",
+         "TYPE" : "knob",
+         "UI_GROUP" : "flow"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Audio reactive flow or constant",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "reactive_flow",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "flow"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Use media to choose particle colors",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "particle_col",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Use media in a simple multiply blend",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "simple_multiply",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Use media as a mask for the flow effect",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "feedback_mask",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Audio reactive flashing of the lines between particles",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "flashing_lines",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "modes"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Totally different look, monochrome thin connections between all particles",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "minimal_mode",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "modes"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "TURN THIS ON TO FIX BAD FPS - Reduces particle number which can also give unique looks",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "FPS_fewer_particles",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "fps_fix"
+      }
+   ],
+   "CREDIT" : "patu x Meebs",
+   "DESCRIPTION" : "",
+   "HEIGHT" : 1080,
+   "GPU": 5,
+   "TAGS" : 
+   [
+   "groovy",
+   "particles",
+   "dark",
+   "media",
+   "simulation"
+   ],
+   "IMAGE_PATH" : "neuron_proximitors.png",
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 512,
+         "TARGET" : "BuffA",
+         "WIDTH" : 5
+      },{
+         "FLOAT" : true,
+         "TARGET" : "BuffB",
+         "WIDTH" : 1920,
+         "HEIGHT" : 1080
+      },{
+         "FLOAT" : true,
+         "TARGET" : "BuffC",
+         "WIDTH" : 1920,
+         "HEIGHT" : 1080
+      }
+   ],
+   "TITLE" : "Neuron Proximitors",
+   "WIDTH" : 1920
+}

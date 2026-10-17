@@ -1,0 +1,270 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.fire_tunnel",
+  "title": "Fire Tunnel",
+  "author": "aiekick",
+  "description": "Fire Tunnel",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "raymarching",
+    "dark",
+    "3d",
+    "realistic"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "sharpness",
+      "label": "sharpness",
+      "description": "Turn down for softer look, up for crisper edges. Default: 50%.",
+      "group": "tunnel",
+      "type": "float",
+      "default": 0.5,
+      "min": 0.5,
+      "max": 0.5
+    },
+    {
+      "name": "constriction",
+      "label": "constriction",
+      "description": "Turn up to decrease diameter of tunnel, constricting it, or turn down to make it wider. Default: 50%.",
+      "group": "tunnel",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "noise",
+      "label": "noise",
+      "description": "Turn up for noisier tunnel, or all the way down for just the smooth geometric tunnel, no cloud-like noise.",
+      "group": "tunnel",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "planes_only",
+      "label": "planes only",
+      "description": "Turn up to change it from a tunnel to just two planes. Once it is planes, try playing with the 'twist' slider.",
+      "group": "tunnel",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "auto_in",
+      "label": "auto in",
+      "description": "Determines how much the bass will make you travel forward. Default: 25%.",
+      "group": "speed",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 0.8
+    },
+    {
+      "name": "const_speed",
+      "label": "const speed",
+      "description": "Additional, constant motion forward or backwards. Turn auto_in all the way down and just use this slider for full manual control.",
+      "group": "speed",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fov",
+      "label": "fov",
+      "description": "Field of view. Default: 50%.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0.03,
+      "max": 2
+    },
+    {
+      "name": "twist",
+      "label": "twist",
+      "description": "Add a twist to the tunnel's geometry.",
+      "group": "rotation",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "spin",
+      "label": "spin",
+      "description": "Add a spin to the camera, forward for clockwise. Default: 50%.",
+      "group": "rotation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "image30",
+      "type": "texture2d",
+      "path": "assets/30.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "tunnelPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.tunnelPass.previous",
+          "uniform": "tunnelPass"
+        },
+        {
+          "source": "asset.image30",
+          "uniform": "image30"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "tunnelPass",
+        "width": 640,
+        "height": 360,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.tunnelPass",
+          "uniform": "tunnelPass"
+        },
+        {
+          "source": "asset.image30",
+          "uniform": "image30"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "sharpness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "constriction": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "noise": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "planes_only": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "auto_in": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "const_speed": {
+        "format": "ssf",
+        "type": "slider traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.12
+      },
+      "fov": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "twist": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "spin": {
+        "format": "ssf",
+        "type": "slider traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.01
+      }
+    },
+    "scriptUniforms": {
+      "script_bass_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

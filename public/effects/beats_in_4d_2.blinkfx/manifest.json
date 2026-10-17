@@ -1,0 +1,399 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.beats_in_4d_2",
+  "title": "Beats in 4D",
+  "author": "mrange",
+  "description": "Journey through the fourth dimension with Beats in 4D—a mind-bending fractal visualization that slices through impossible geometry. Glowing orbs and luminous beams radiate from a brilliant core, creating an explosive network of light that shifts between warm golden yellows and cool electric blues. The entire structure rotates through multiple dimensional planes simultaneously, revealing cross-sections of 4D space that would be invisible in our three-dimensional world. Audio-reactive pulses make every bass hit intensify the flash and warp the dimensional fabric with sine distortions. Perfect for progressive house, trance, and experimental electronic music where mathematical beauty meets pure energy.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "4D",
+    "fractal",
+    "fourth-dimension",
+    "audio-reactive",
+    "bass-reactive",
+    "mathematical",
+    "abstract",
+    "geometric",
+    "particles",
+    "explosion",
+    "colorful",
+    "psychedelic",
+    "trance"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Audio response strength (X: bass level, Y: bass hits)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Audio response curve (higher = more intense reaction)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        4,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "speed_control",
+      "label": "speed control",
+      "description": "Animation speed (X: time-based, Y: bass time-based)",
+      "group": "Speed",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        -2,
+        -1
+      ],
+      "max": [
+        2,
+        1
+      ]
+    },
+    {
+      "name": "translation_speed",
+      "label": "translation speed",
+      "description": "Translation speed through the 4D fractal space",
+      "group": "Speed",
+      "type": "float",
+      "default": 0.5,
+      "min": -2,
+      "max": 2
+    },
+    {
+      "name": "rotation_speed",
+      "label": "rotation speed",
+      "description": "Rotation speeds around different 4D planes (X and Y axes)",
+      "group": "Speed",
+      "type": "point2d",
+      "default": [
+        1,
+        1
+      ],
+      "min": [
+        -9,
+        -9
+      ],
+      "max": [
+        9,
+        9
+      ]
+    },
+    {
+      "name": "media_transparency",
+      "label": "media transparency",
+      "description": "Media opacity – fade visuals in or out",
+      "group": "Media",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_multiplier",
+      "label": "media multiplier",
+      "description": "Media multiplier – boost opacity for bold color effects",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "visual_mix",
+      "label": "visual mix",
+      "description": "Visual blend (X: flash intensity, Y: fractal color strength)",
+      "group": "Color",
+      "type": "point2d",
+      "default": [
+        1,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "effect_base0",
+      "label": "effect base0",
+      "description": "Color phase offsets (first pair for sine wave modulation)",
+      "group": "Color",
+      "type": "point2d",
+      "default": [
+        0,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        7,
+        7
+      ]
+    },
+    {
+      "name": "effect_base1",
+      "label": "effect base1",
+      "description": "Color phase offsets (second pair for sine wave modulation)",
+      "group": "Color",
+      "type": "point2d",
+      "default": [
+        2,
+        0
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        7,
+        7
+      ]
+    },
+    {
+      "name": "flash_color",
+      "label": "flash color",
+      "description": "RGB color of bass-reactive flash pulses",
+      "group": "Color",
+      "type": "color",
+      "default": [
+        0.3333,
+        0.6666,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "zoom_factor",
+      "label": "zoom factor",
+      "description": "Fractal zoom level (higher = deeper into 4D structure)",
+      "group": "Visual",
+      "type": "float",
+      "default": 9,
+      "min": 3,
+      "max": 20
+    },
+    {
+      "name": "wcut",
+      "label": "wcut",
+      "description": "4D slice position through the W-axis (fourth dimension)",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.2,
+      "min": -4,
+      "max": 4
+    },
+    {
+      "name": "sine_distortion",
+      "label": "sine distortion",
+      "description": "Sine distortion (X: wave frequency, Y: bass hit intensity)",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        29,
+        0
+      ],
+      "min": [
+        1,
+        0
+      ],
+      "max": [
+        49,
+        0.5
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "speed_control": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "translation_speed": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "rotation_speed": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_transparency": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_multiplier": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "visual_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "effect_base0": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "effect_base1": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "flash_color": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "zoom_factor": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "wcut": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "sine_distortion": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

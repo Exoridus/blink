@@ -1,0 +1,93 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Swarm",
+ "IMAGE_PATH": "swarm.png",
+ "HARD_TRANSITIONS": [
+ {"UNIFORM": "twitcherType", "VALUES":[0.0,1.0,2.0]},
+ {"UNIFORM": "twitchForceSupplier", "VALUES":[0.0,1.0]}],
+ "IMAGES": [],
+ "GPU": 2,
+ "TAGS" : 
+ [
+ "media",
+ "particles",
+ "colorful",
+ "retro"
+ ],
+ "PASSES": [ {"TARGET": "firstBuffer", "HEIGHT":2, "WIDTH": 100, "FLOAT": true},{"TARGET": "secondBuffer", "HEIGHT":720, "WIDTH": 1200}],
+ "CONTROLS": [{
+    "NAME": "run_away",
+    "MAX" : 1.2,
+    "MIN" : 0.00,
+    "DEFAULT":0.0,
+    "TYPE": "xy",
+    "UI_GROUP": "fear",
+    "DESCRIPTION": "The point they'll run from, if fear is set to ON."
+  },{
+    "NAME": "fear_on",
+    "MAX" : 2.0,
+    "MIN" : 0.00,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "fear"
+  },{
+    "NAME": "frantic",
+    "MAX" : 1.0,
+    "MIN" : 0.00,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "motion"
+  },{
+    "NAME": "energize_center",
+    "MAX" : 1.0,
+    "MIN" : 0.00,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "motion"
+  },{
+    "NAME": "calm_collect",
+    "MAX" : 1.0,
+    "MIN" : 0.00,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "motion"
+  },{
+    "NAME": "excitement",
+    "MAX" : 3.0,
+    "MIN" : 0.00,
+    "DEFAULT":0.0,
+    "PARAMS":0.1,
+    "TYPE": "slider smooth",
+    "UI_GROUP": "motion",
+    "DESCRIPTION": "Higher excitement just means more exaggerated motion."
+  },{
+    "NAME": "color_pop",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.5,
+    "TYPE": "bang smooth",
+    "UI_GROUP": "color"
+  },{
+    "NAME": "color_palette",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "bang counter",
+    "UI_GROUP": "color"
+  },{
+    "NAME": "invert_col",
+    "MAX" : 1.0,
+    "MIN" : 0.00,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "UI_GROUP": "color"
+  },{
+    "NAME": "size",
+    "MAX" : 3.0,
+    "MIN" : 0.00,
+    "DEFAULT":0.6,
+    "TYPE": "slider",
+    "UI_GROUP": "color"
+  }]
+ }

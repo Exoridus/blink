@@ -1,0 +1,298 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.meta_experiment_3",
+  "title": "Meta Experiment 3",
+  "author": "aiekick",
+  "description": "Each cells is a similar 2d metaball code\nClick on cell and keep down to see in full size",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "2d",
+    "media",
+    "grayscale"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "TURN_ME_DOWN",
+      "label": "TURN ME DOWN",
+      "description": "Only at 100% will you see all the plots. Otherwise, turn this down to select a plot. The XY pad will change your selection.",
+      "group": "graph_select",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "GRAPH_SELECT",
+      "label": "GRAPH SELECT",
+      "description": "12 different interference patterns. Use this XY pad to select which one you want. You can view all 12 and your cursor only when 'TURN ME DOWN' is at 100%.",
+      "group": "graph_select",
+      "type": "point2d",
+      "default": [
+        0.13,
+        0.13
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "invert",
+      "label": "invert",
+      "description": "Invert the color, black space becomes white space.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_mod",
+      "label": "color mod",
+      "description": "Like a smooth invert, morphs black into white.",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "thickness",
+      "label": "thickness",
+      "description": "Higher to make the white lines thicker, lower for thinner.",
+      "group": "shape",
+      "type": "float",
+      "default": 2,
+      "min": 2,
+      "max": 2
+    },
+    {
+      "name": "frequency",
+      "label": "frequency",
+      "description": "Sort of like a zoom level. Higher for more, smaller details. Lower for fewer larger details.",
+      "group": "shape",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "xy_modifier",
+      "label": "xy modifier",
+      "description": "Adjusts the spatial parameters of each plot slightly differently.",
+      "group": "shape",
+      "type": "point2d",
+      "default": [
+        1,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "time_direction",
+      "label": "time direction",
+      "description": "Time moving forwards or backwards.",
+      "group": "reactive time",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1,
+      "step": 2
+    },
+    {
+      "name": "constant_mix",
+      "label": "constant mix",
+      "description": "Constant time element. Turn down for more reactive contribution.",
+      "group": "reactive time",
+      "type": "float",
+      "default": 0.4000000059604645,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "highs_mix",
+      "label": "highs mix",
+      "description": "Audio reactive time contribution from the highs.",
+      "group": "reactive time",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Audio reactive time contribution from the lows.",
+      "group": "reactive time",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "auto_zoom",
+      "label": "auto zoom",
+      "description": "Auto smooth zooming in and out with the energy of the music.",
+      "group": "reactive time",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "TURN_ME_DOWN": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "GRAPH_SELECT": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "invert": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_mod": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.10000000149011612
+      },
+      "thickness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20000000298023224
+      },
+      "frequency": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05000000074505806
+      },
+      "xy_modifier": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "time_direction": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20000000298023224
+      },
+      "constant_mix": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20000000298023224
+      },
+      "highs_mix": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20000000298023224
+      },
+      "bass_mix": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "auto_zoom": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      }
+    },
+    "scriptUniforms": {
+      "script_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

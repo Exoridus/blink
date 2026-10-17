@@ -1,0 +1,275 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.scaffold_fractal",
+  "title": "Scaffold Fractal",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "fractal",
+    "raymarching",
+    "dark",
+    "infinite"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "rot_on",
+      "label": "rot on",
+      "description": "Rotate the fractal along the Z axis, turning it into a goopy mess.",
+      "group": "psych",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rot_direction",
+      "label": "rot direction",
+      "description": "Rotate to the right or left.",
+      "group": "psych",
+      "type": "float",
+      "default": 1,
+      "min": -1,
+      "max": 1,
+      "step": 2
+    },
+    {
+      "name": "perspective",
+      "label": "perspective",
+      "description": "Changes from a short to long lens perspective.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 10
+    },
+    {
+      "name": "z_depth",
+      "label": "z depth",
+      "description": "Multiplier on the z-axis. Similar, but different from perspective.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1.5
+    },
+    {
+      "name": "down_rot",
+      "label": "down rot",
+      "description": "Rotate the camera downwards by 90 degrees.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "right_rot",
+      "label": "right rot",
+      "description": "Rotate the camera rightwards by 90 degrees.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "iters",
+      "label": "iters",
+      "description": "Changes the number of iterations that create the scaffold. Only 4 options here. Heavily modifies how the rotation in psych behaves as well.",
+      "group": "fractal",
+      "type": "float",
+      "default": 4.3,
+      "min": 1.01,
+      "max": 4.3
+    },
+    {
+      "name": "scale_xy",
+      "label": "scale xy",
+      "description": "Stretches and distorts the fractal. Default is 50/50 right in the middle.",
+      "group": "fractal",
+      "type": "point2d",
+      "default": [
+        1,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "col1",
+      "label": "col1",
+      "group": "color",
+      "type": "color",
+      "default": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "col2",
+      "label": "col2",
+      "group": "color",
+      "type": "color",
+      "default": [
+        0,
+        0.8,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "col3",
+      "label": "col3",
+      "group": "color",
+      "type": "color",
+      "default": [
+        1,
+        0.4,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "bar_on",
+      "label": "bar on",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "rot_on": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "rot_direction": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "perspective": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.025
+      },
+      "z_depth": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "down_rot": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "right_rot": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "iters": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "scale_xy": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "col1": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "col2": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "col3": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "bar_on": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      }
+    },
+    "scriptUniforms": {
+      "down_rot_scr": "float",
+      "right_rot_scr": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

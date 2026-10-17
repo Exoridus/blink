@@ -1,0 +1,322 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.kaleidowhoa_man",
+  "title": "KaleidoWHOA, MAN",
+  "author": "Meebs",
+  "description": "kalidescopes whoa",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "kaleidoscope",
+    "media",
+    "2d",
+    "central",
+    "psychedelic",
+    "colorful"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "rate_color",
+      "label": "rate color",
+      "group": "speed",
+      "type": "float",
+      "default": 0.25,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "rate_forward",
+      "label": "rate forward",
+      "group": "speed",
+      "type": "float",
+      "default": 0.25,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "beat_reaction",
+      "label": "beat reaction",
+      "group": "speed",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "smooth_rotate",
+      "label": "smooth rotate",
+      "group": "rotate",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "jump_rotate",
+      "label": "jump rotate",
+      "group": "rotate",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_selector",
+      "label": "color selector",
+      "group": "color",
+      "type": "float",
+      "default": 3,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "media_distort",
+      "label": "media distort",
+      "group": "color",
+      "type": "float",
+      "default": 0.05,
+      "min": 0,
+      "max": 0.5
+    },
+    {
+      "name": "sunset",
+      "label": "sunset",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "two_color_minimal",
+      "label": "two color minimal",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "col1",
+      "label": "col1",
+      "group": "color",
+      "type": "color",
+      "default": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "col2",
+      "label": "col2",
+      "group": "color",
+      "type": "color",
+      "default": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "square",
+      "label": "square",
+      "group": "shape",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "octagon",
+      "label": "octagon",
+      "group": "shape",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "complexity",
+      "label": "complexity",
+      "group": "shape",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "backTex",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backTex.previous",
+          "uniform": "backTex"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "backTex",
+        "width": 1408,
+        "height": 792,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backTex",
+          "uniform": "backTex"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "rate_color": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "rate_forward": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "beat_reaction": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "smooth_rotate": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "jump_rotate": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_selector": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "media_distort": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "sunset": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "two_color_minimal": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "col1": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "col2": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "square": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "octagon": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "complexity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      }
+    },
+    "scriptUniforms": {
+      "time_forward": "float",
+      "time_color": "float",
+      "time_bass": "float",
+      "time_highs": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

@@ -1,0 +1,94 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Quicksand",
+ "IMAGE_PATH": "quicksand.png",
+ "GPU": 2,
+ "TAGS" : 
+ [
+ "feedback",
+ "media",
+ "glitchy",
+ "fluid"
+ ],
+ "HARD_TRANSITIONS": [
+        {
+            "UNIFORM": "shape_type", 
+            "VALUES":[1.0,0.0,2.0]
+        },
+        {
+            "UNIFORM": "scanDirection", 
+            "VALUES":[0.0,1.0]
+        },
+        {
+            "UNIFORM": "colorMode", 
+            "VALUES":[0.0,1.0]
+        }
+    ],
+ "SMOOTH_TRANSITIONS": [
+    {"UNIFORMS":["cReg0", "cReg1", "cReg2"], 
+    "DURATION": 5}
+    ],
+  "CONTROLS": [
+        {
+            "NAME": "pusher",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "When ON, Percussive hits will cause the the simulation to 'burst'.",
+            "UI_GROUP":"action"
+        },{
+            "NAME": "scroller",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "When ON, the actiion is replaced with diagonal scrolling, oscillating on the beat. Leads to interesting contour lines and more 'echoes'.",
+            "UI_GROUP":"action"
+        },{
+            "NAME": "soften",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "Removes hard edges, resulting on a softer 'smokey' look.",
+            "UI_GROUP":"effects"
+        },{
+            "NAME": "monochrome",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle smooth",
+            "PARAMS": 0.02,
+            "DESCRIPTION": "Turn on for a vertically scrolling stark black and white scene. Good for dramatic parts of the music. Try turning soften and scroller on and off while monochrome is ON.",
+            "UI_GROUP":"effects"
+        },
+        {
+            "NAME": "vert_speed",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "Move the simulation twice as fast vertically when ON. Very subtle effect.",
+            "UI_GROUP":"speed"
+        },{
+            "NAME": "hor_speed",
+            "MIN" : 0.0,
+            "MAX" : 1.0,
+            "DEFAULT":0.0,
+            "TYPE":"toggle",
+            "DESCRIPTION": "Move the simulation twice as fast horizontally when ON. Very subtle effect.",
+            "UI_GROUP":"speed"
+        }
+    ],
+    "PASSES": [
+    {
+        "TARGET":"firstBuff",
+        "FLOAT": true
+    },
+    {
+        "TARGET":"secondBuff",
+        "FLOAT": true
+    }
+    ]
+}

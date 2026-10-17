@@ -1,0 +1,856 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.synesthesia_control_gallery",
+  "title": "Control Matrix — Complete SSF Control Gallery",
+  "author": "OpenAI / SSF Reference Fixture",
+  "description": "Interaktive Test- und Vergleichsszene: alle 7 aktuellen SSF-Control-Familien, 19 dokumentierte Varianten und 42 Controls mit unterschiedlichen Initialwerten und Wertebereichen. Die Preview visualisiert alle 42 Uniforms in Echtzeit. Kein Audioeingang erforderlich.",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "Slider_Min",
+      "label": "Slider Min",
+      "description": "Normaler Slider, initial am Minimum (0).",
+      "group": "01 Sliders",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Slider_Mid",
+      "label": "Slider Mid",
+      "description": "Normaler Slider, initial in der Mitte (0.5).",
+      "group": "01 Sliders",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Slider_Max",
+      "label": "Slider Max",
+      "description": "Normaler Slider, initial am Maximum (1).",
+      "group": "01 Sliders",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Slider_Bipolar",
+      "label": "Slider Bipolar",
+      "description": "Bipolarer Slider mit negativen und positiven Werten.",
+      "group": "01 Sliders",
+      "type": "float",
+      "default": -0.65,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "Slider_Smooth_Fast",
+      "label": "Slider Smooth Fast",
+      "description": "Schnelle geglaettete Aenderungen (PARAMS 0.35).",
+      "group": "01 Sliders",
+      "type": "float",
+      "default": 0.8,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Slider_Smooth_Slow",
+      "label": "Slider Smooth Slow",
+      "description": "Langsame geglaettete Aenderungen (PARAMS 0.04).",
+      "group": "01 Sliders",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Slider_Speed_Plus",
+      "label": "Slider Speed Plus",
+      "description": "Positive Geschwindigkeit; Shader-Wert veraendert sich pro Sekunde.",
+      "group": "01 Sliders",
+      "type": "float",
+      "default": 0.22,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "Slider_Speed_Minus",
+      "label": "Slider Speed Minus",
+      "description": "Negative Geschwindigkeit; Shader-Wert veraendert sich pro Sekunde.",
+      "group": "01 Sliders",
+      "type": "float",
+      "default": -0.19,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "Knob_Min",
+      "label": "Knob Min",
+      "description": "Demo: knob / MINIMUM.",
+      "group": "02 Knobs",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Knob_Mid",
+      "label": "Knob Mid",
+      "description": "Demo: knob / MIDDLE.",
+      "group": "02 Knobs",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Knob_Max",
+      "label": "Knob Max",
+      "description": "Demo: knob / MAXIMUM.",
+      "group": "02 Knobs",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Knob_Smooth",
+      "label": "Knob Smooth",
+      "description": "Demo: knob smooth / SMOOTH.",
+      "group": "02 Knobs",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Knob_Speed_Plus",
+      "label": "Knob Speed Plus",
+      "description": "Demo: knob speed / SPEED / +.",
+      "group": "02 Knobs",
+      "type": "float",
+      "default": 0.25,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "Knob_Speed_Minus",
+      "label": "Knob Speed Minus",
+      "description": "Demo: knob speed / SPEED / -.",
+      "group": "02 Knobs",
+      "type": "float",
+      "default": -0.25,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "Toggle_Off",
+      "label": "Toggle Off",
+      "description": "Toggle initial ausgeschaltet.",
+      "group": "03 Toggles",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "Toggle_On",
+      "label": "Toggle On",
+      "description": "Toggle initial eingeschaltet.",
+      "group": "03 Toggles",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "Toggle_Smooth_Off",
+      "label": "Toggle Smooth Off",
+      "description": "Glaettendes Toggle initial aus.",
+      "group": "03 Toggles",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "Toggle_Smooth_On",
+      "label": "Toggle Smooth On",
+      "description": "Glaettendes Toggle initial an.",
+      "group": "03 Toggles",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "Toggle_Bipolar",
+      "label": "Toggle Bipolar",
+      "description": "Toggle mit Werten -1 und +1 statt 0 und 1.",
+      "group": "03 Toggles",
+      "type": "float",
+      "default": 1,
+      "min": -1,
+      "max": 1,
+      "step": 2
+    },
+    {
+      "name": "Bang_Trigger",
+      "label": "Bang Trigger",
+      "description": "Ein-Frame-Impuls beim Druecken. Im Shader kurz sichtbar.",
+      "group": "04 Bangs",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "Bang_Envelope_Fast",
+      "label": "Bang Envelope Fast",
+      "description": "Bang-Huellkurve: schneller Zerfall nach Druck.",
+      "group": "04 Bangs",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "Bang_Envelope_Slow",
+      "label": "Bang Envelope Slow",
+      "description": "Bang-Huellkurve: langsamer Zerfall nach Druck.",
+      "group": "04 Bangs",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "Bang_Counter",
+      "label": "Bang Counter",
+      "description": "Jeder Klick erhoeht den Zaehler um 1.",
+      "group": "04 Bangs",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 64,
+      "step": 64
+    },
+    {
+      "name": "Bang_Counter_Smooth",
+      "label": "Bang Counter Smooth",
+      "description": "Glaettender Zaehler: Inkrement pro Klick.",
+      "group": "04 Bangs",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 64,
+      "step": 64
+    },
+    {
+      "name": "XY_Center",
+      "label": "XY Center",
+      "description": "Demo: xy / CENTER.",
+      "group": "05 XY Pads",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "XY_Origin",
+      "label": "XY Origin",
+      "description": "Demo: xy / ORIGIN.",
+      "group": "05 XY Pads",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "XY_Corner",
+      "label": "XY Corner",
+      "description": "Demo: xy / FAR CORNER.",
+      "group": "05 XY Pads",
+      "type": "point2d",
+      "default": [
+        1,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "XY_Asymmetric",
+      "label": "XY Asymmetric",
+      "description": "XY mit unabhaengigen X/Y-Grenzen.",
+      "group": "05 XY Pads",
+      "type": "point2d",
+      "default": [
+        0.7,
+        -0.8
+      ],
+      "min": [
+        -1,
+        -2
+      ],
+      "max": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "XY_Smooth",
+      "label": "XY Smooth",
+      "description": "Demo: xy smooth / SMOOTH.",
+      "group": "05 XY Pads",
+      "type": "point2d",
+      "default": [
+        0.2,
+        0.8
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "XY_Speed",
+      "label": "XY Speed",
+      "description": "Kontinuierliche X/Y-Bewegung durch Geschwindigkeitswerte.",
+      "group": "05 XY Pads",
+      "type": "point2d",
+      "default": [
+        0.15,
+        -0.13
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "Color_Black",
+      "label": "Color Black",
+      "description": "Demo: color / BLACK.",
+      "group": "06 Colors",
+      "type": "color",
+      "default": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "Color_White",
+      "label": "Color White",
+      "description": "Demo: color / WHITE.",
+      "group": "06 Colors",
+      "type": "color",
+      "default": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "Color_Red",
+      "label": "Color Red",
+      "description": "Demo: color / RED.",
+      "group": "06 Colors",
+      "type": "color",
+      "default": [
+        1,
+        0.14,
+        0.21,
+        1
+      ]
+    },
+    {
+      "name": "Color_Green",
+      "label": "Color Green",
+      "description": "Demo: color / GREEN.",
+      "group": "06 Colors",
+      "type": "color",
+      "default": [
+        0.09,
+        0.98,
+        0.54,
+        1
+      ]
+    },
+    {
+      "name": "Color_Blue",
+      "label": "Color Blue",
+      "description": "Demo: color / BLUE.",
+      "group": "06 Colors",
+      "type": "color",
+      "default": [
+        0.16,
+        0.4,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "Color_Dim",
+      "label": "Color Dim",
+      "description": "Demo: color / LOW RGB.",
+      "group": "06 Colors",
+      "type": "color",
+      "default": [
+        0.08,
+        0.12,
+        0.19,
+        1
+      ]
+    },
+    {
+      "name": "Color_Smooth",
+      "label": "Color Smooth",
+      "description": "Demo: color smooth / SMOOTH.",
+      "group": "06 Colors",
+      "type": "color",
+      "default": [
+        0.93,
+        0.45,
+        0.85,
+        1
+      ]
+    },
+    {
+      "name": "Drop_First",
+      "label": "Drop First",
+      "description": "Dropdown mit LABELS-only: Werte sind automatisch Indizes 0,1,2.",
+      "group": "07 Dropdowns",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 2,
+      "step": 1
+    },
+    {
+      "name": "Drop_Last",
+      "label": "Drop Last",
+      "description": "Dropdown mit letzter Option als Standardwert.",
+      "group": "07 Dropdowns",
+      "type": "float",
+      "default": 2,
+      "min": 0,
+      "max": 2,
+      "step": 1
+    },
+    {
+      "name": "Drop_Values_Only",
+      "label": "Drop Values Only",
+      "description": "Dropdown mit VALUES-only: Labels werden automatisch erzeugt.",
+      "group": "07 Dropdowns",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3,
+      "step": 1
+    },
+    {
+      "name": "Drop_Named_Values",
+      "label": "Drop Named Values",
+      "description": "Dropdown mit eigenen LABELS und VALUES.",
+      "group": "07 Dropdowns",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2,
+      "step": 1
+    },
+    {
+      "name": "Drop_Smooth",
+      "label": "Drop Smooth",
+      "description": "Dropdown smooth mit interpolierten Werten.",
+      "group": "07 Dropdowns",
+      "type": "float",
+      "default": 2,
+      "min": 0,
+      "max": 2,
+      "step": 1
+    }
+  ],
+  "assets": [
+    {
+      "name": "controlGuide",
+      "type": "texture2d",
+      "path": "assets/dashboard_base.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "asset.controlGuide",
+          "uniform": "controlGuide"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "Slider_Min": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "Slider_Mid": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "Slider_Max": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "Slider_Bipolar": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "Slider_Smooth_Fast": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.35
+      },
+      "Slider_Smooth_Slow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.04
+      },
+      "Slider_Speed_Plus": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "Slider_Speed_Minus": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "Knob_Min": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "Knob_Mid": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "Knob_Max": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "Knob_Smooth": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.12
+      },
+      "Knob_Speed_Plus": {
+        "format": "ssf",
+        "type": "knob speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "Knob_Speed_Minus": {
+        "format": "ssf",
+        "type": "knob speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "Toggle_Off": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "Toggle_On": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "Toggle_Smooth_Off": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "Toggle_Smooth_On": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "Toggle_Bipolar": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "Bang_Trigger": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "Bang_Envelope_Fast": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "Bang_Envelope_Slow": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.08
+      },
+      "Bang_Counter": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "Bang_Counter_Smooth": {
+        "format": "ssf",
+        "type": "bang counter smooth",
+        "modifiers": [
+          "counter",
+          "smooth"
+        ],
+        "params": 0.18
+      },
+      "XY_Center": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "XY_Origin": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "XY_Corner": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "XY_Asymmetric": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "XY_Smooth": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.12
+      },
+      "XY_Speed": {
+        "format": "ssf",
+        "type": "xy speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "Color_Black": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "Color_White": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "Color_Red": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "Color_Green": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "Color_Blue": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "Color_Dim": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "Color_Smooth": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.12
+      },
+      "Drop_First": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "labels": [
+          "First",
+          "Second",
+          "Third"
+        ]
+      },
+      "Drop_Last": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "labels": [
+          "First",
+          "Second",
+          "Third"
+        ]
+      },
+      "Drop_Values_Only": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "values": [
+          0,
+          0.3,
+          0.6,
+          1
+        ]
+      },
+      "Drop_Named_Values": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "labels": [
+          "Low",
+          "Medium",
+          "High"
+        ],
+        "values": [
+          0.1,
+          0.5,
+          1
+        ]
+      },
+      "Drop_Smooth": {
+        "format": "ssf",
+        "type": "dropdown smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1,
+        "labels": [
+          "Cold",
+          "Neutral",
+          "Warm"
+        ],
+        "values": [
+          0,
+          0.5,
+          1
+        ]
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

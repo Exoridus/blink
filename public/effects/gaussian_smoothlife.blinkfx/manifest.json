@@ -1,0 +1,472 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.gaussian_smoothlife",
+  "title": "Gaussian SmoothLife",
+  "author": "cornusammonis",
+  "description": "A variant of Stephan Rafler's SmoothLife that uses a separable Gaussian kernel to compute inner and outer fullness. The improvement in performance over full 2D convolution makes it possible to use a much larger kernel in realtime, without using FFT.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "glitchy",
+    "simulation",
+    "groovy",
+    "reaction-diffusion",
+    "media"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "regime_toggle",
+      "label": "regime toggle",
+      "description": "OFF for quick splitting cells or ON for slow moving worms.",
+      "group": "regime",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "cycling_rings",
+      "label": "cycling rings",
+      "description": "Concentric circles feed or poison the simulation.",
+      "group": "regime",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "audio_reactivity",
+      "label": "audio reactivity",
+      "description": "Extra pulsing and shimmering with the music. Turn off to let it naturally progress.",
+      "group": "regime",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "no_blur",
+      "label": "no blur",
+      "description": "Removes the blur effect.",
+      "group": "colorize",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_regime",
+      "label": "color regime",
+      "description": "Choose from one of 7 color palettes.",
+      "group": "colorize",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 6.5
+    },
+    {
+      "name": "greyscale",
+      "label": "greyscale",
+      "description": "Mix to greyscale for a more minimal look.",
+      "group": "colorize",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "scale",
+      "label": "scale",
+      "description": "Lower for a lot of smaller cells. Higher for fewer, big cells.",
+      "group": "parameters",
+      "type": "float",
+      "default": 1.3,
+      "min": 0.2,
+      "max": 2
+    },
+    {
+      "name": "flow_resistance",
+      "label": "flow resistance",
+      "description": "Affects how fast it naturally travels.",
+      "group": "parameters",
+      "type": "float",
+      "default": 1,
+      "min": 0.8,
+      "max": 3
+    },
+    {
+      "name": "space_filling",
+      "label": "space filling",
+      "description": "Affects how eagerly it occupies empty space.",
+      "group": "parameters",
+      "type": "float",
+      "default": 1,
+      "min": 0.8,
+      "max": 3
+    },
+    {
+      "name": "contrast",
+      "label": "contrast",
+      "description": "Contrast of the feeding media.",
+      "group": "media",
+      "type": "float",
+      "default": 1.5,
+      "min": 0.5,
+      "max": 4
+    },
+    {
+      "name": "birth_lower",
+      "label": "birth lower",
+      "description": "Lower bound for the birth parameter.",
+      "group": "advanced",
+      "type": "float",
+      "default": 1,
+      "min": 0.8,
+      "max": 2
+    },
+    {
+      "name": "birth_upper",
+      "label": "birth upper",
+      "description": "Higher bound for the birth parameter (more important).",
+      "group": "advanced",
+      "type": "float",
+      "default": 1,
+      "min": 0.8,
+      "max": 2
+    },
+    {
+      "name": "survival_lower",
+      "label": "survival lower",
+      "description": "Lower bound for the survival parameter.",
+      "group": "advanced",
+      "type": "float",
+      "default": 0.7,
+      "min": 0.2,
+      "max": 3
+    },
+    {
+      "name": "survival_upper",
+      "label": "survival upper",
+      "description": "Higher bound for the survival parameter. (Turn this up if you're getting frequent black outs).",
+      "group": "advanced",
+      "type": "float",
+      "default": 0.7,
+      "min": 0.2,
+      "max": 3
+    },
+    {
+      "name": "timestep",
+      "label": "timestep",
+      "description": "Timestep. Turn this up for faster, glitchier action.",
+      "group": "advanced",
+      "type": "float",
+      "default": 1,
+      "min": 0.8,
+      "max": 3
+    },
+    {
+      "name": "xy_flow",
+      "label": "xy flow",
+      "description": "This applies a flow direction to the simulation. This interacts in complex ways with the other parameters. Try to search for different stable flow regimes.",
+      "group": "advanced",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "reset_sim",
+      "label": "reset sim",
+      "description": "If the simulation dies, return to default parameters and press this button.",
+      "group": "utility",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "image47",
+      "type": "texture2d",
+      "path": "assets/47.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "BuffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA.previous",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC.previous",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "asset.image47",
+          "uniform": "image47"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffA",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC.previous",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "asset.image47",
+          "uniform": "image47"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffB",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffC",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC.previous",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "asset.image47",
+          "uniform": "image47"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffC",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "asset.image47",
+          "uniform": "image47"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "regime_toggle": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "cycling_rings": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "audio_reactivity": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "no_blur": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_regime": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "greyscale": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "scale": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "flow_resistance": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "space_filling": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "contrast": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "birth_lower": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "birth_upper": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "survival_lower": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "survival_upper": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "timestep": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "xy_flow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "reset_sim": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

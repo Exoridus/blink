@@ -1,0 +1,289 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.min_max_hex",
+  "title": "Min Max Hex",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "feedback",
+    "grayscale",
+    "2d",
+    "geometric"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "flashing_mode",
+      "label": "flashing mode",
+      "description": "Turn ON for a brighter flashing effect, instead of the contour lines.",
+      "group": "mode",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "triangle_mode",
+      "label": "triangle mode",
+      "description": "Turn ON for shimmering triangles instead of flashing or contour lines.",
+      "group": "mode",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "circular_mode",
+      "label": "circular mode",
+      "description": "Turn ON while other modes are OFF for circular contours instead of angular contours.",
+      "group": "mode",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "center_pulse",
+      "label": "center pulse",
+      "description": "A bright pulse of light that comes out from the center.",
+      "group": "effects",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "noise",
+      "label": "noise",
+      "description": "Change how noisy the scene is.",
+      "group": "effects",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fragment_media",
+      "label": "fragment media",
+      "description": "Cut the media source into a mosaic of triangles, if a media source is selected.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_pulse",
+      "label": "media pulse",
+      "description": "Zoom out and fly back in on the media, if media is selected.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "speed",
+      "label": "speed",
+      "description": "Speed of the white painting action.",
+      "group": "speed",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 0.25
+    },
+    {
+      "name": "EXPLODE",
+      "label": "EXPLODE",
+      "description": "Rapidly cycle through triangles and hexagons. BOOM.",
+      "group": "boom",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "mask_type",
+      "label": "mask type",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "firstBuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer.previous",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "target.secondBuffer.previous",
+          "uniform": "secondBuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "firstBuffer",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "secondBuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "target.secondBuffer.previous",
+          "uniform": "secondBuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "secondBuffer",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "target.secondBuffer",
+          "uniform": "secondBuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "flashing_mode": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "triangle_mode": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "circular_mode": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "center_pulse": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "noise": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "fragment_media": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_pulse": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "speed": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "EXPLODE": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "script_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

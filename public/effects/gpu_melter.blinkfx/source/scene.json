@@ -1,0 +1,76 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "GPU_Melter",
+ "IMAGE_PATH": "gpu_melter.jpg",
+ "GPU": 2,
+ "TAGS" : 
+ [
+  "3d",
+  "raymarching",
+  "dark",
+  "glitchy",
+  "media"
+ ],
+ "HARD_TRANSITIONS": [{
+   "UNIFORM": "bkgColSel",
+   "VALUES":[0.0, 0.1, 0.2, 0.3]
+  },{
+   "UNIFORM": "faceZoom",
+   "VALUES":[0.2, 0.1, 1.0]
+  }],
+ "CONTROLS": [{
+    "NAME": "flashing",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Turn ON to cause the scene to flash on high percussive hits.",
+    "UI_GROUP":"color"
+  },{
+    "NAME": "monochrome",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Turn ON to force the scene to monochrome, which also effects the visual feedback. Try with a Media (and try inverting the image).",
+    "UI_GROUP":"color"
+  },{
+   "NAME": "extra_cols",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Turn ON to add in extra colors to any of the color palettes. Results in more saturated, noisy colors.",
+    "UI_GROUP":"color"
+  },{
+    "NAME": "pixelation",
+    "MAX" : 4.0,
+    "MIN" : 500.0,
+    "DEFAULT":500.0,
+    "TYPE": "slider",
+    "DESCRIPTION": "Default is none. Increase this slider for a pixelation effect.",
+    "UI_GROUP":"feedback"
+  },{
+    "NAME": "feedback",
+    "MAX" : 3.0,
+    "MIN" : 0.5,
+    "DEFAULT":1.0,
+    "TYPE": "slider",
+    "DESCRIPTION": "Turn up to increase the 'overload' feedback moments. Turn down to turn off overloaded feedback entirely.",
+    "UI_GROUP":"feedback"
+  },{
+    "NAME": "auto_blocks",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Turn ON to automatically have large blocky pixels change on beat.",
+    "UI_GROUP":"background"
+  },{
+    "NAME": "fresh_blocks",
+    "TYPE": "bang counter",
+    "DESCRIPTION": "Manually force blocks to change on press.",
+    "UI_GROUP":"background"
+  }],
+ "PASSES": [ {"TARGET": "face", "FLOAT":false}, {"TARGET": "forBlur", "FLOAT":true} ]
+ }

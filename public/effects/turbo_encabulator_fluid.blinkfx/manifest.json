@@ -1,0 +1,538 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.turbo_encabulator_fluid",
+  "title": "Turbo Encabulator Fluid",
+  "author": "cornusammonis",
+  "description": "Fake fluid dynamical system that creates viscous-fingering-like flow patterns, and suturing patterns along boundaries. Original by cornusammonis from shadertoy",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "feedback",
+    "media",
+    "colorful",
+    "reaction-diffusion",
+    "fluid",
+    "simulation"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "auto_growth",
+      "label": "auto growth",
+      "description": "Toggle off for manual control of the fluid growth.",
+      "group": "rate",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "manual_growth",
+      "label": "manual growth",
+      "description": "Manually control rate of growth",
+      "group": "rate",
+      "type": "float",
+      "default": 0.9,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "reset",
+      "label": "reset",
+      "description": "Reset simulation",
+      "group": "field",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "disrupt_field",
+      "label": "disrupt field",
+      "description": "Enable flashing arc pattern to chop up simulation.",
+      "group": "field",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_palette",
+      "label": "color palette",
+      "description": "Select from 3 color palettes",
+      "group": "coloring",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "color_rotate",
+      "label": "color rotate",
+      "description": "Turn on for auto-rotating color palette",
+      "group": "coloring",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "light_pos",
+      "label": "light pos",
+      "description": "When on, automatically pulses the logo/media",
+      "group": "coloring",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "media_color_mix",
+      "label": "media color mix",
+      "description": "100% is full opacity for the media effect, 0% is just the normal simulation, no media.",
+      "group": "media_color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_refraction",
+      "label": "media refraction",
+      "description": "Affects how much the video is refracted by the simulation.",
+      "group": "media_color",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_multiply",
+      "label": "media multiply",
+      "description": "When off, ignores the underlying 'color palette' and just uses the media. When on, multiplies the two.",
+      "group": "media_color",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "run_twice_fps",
+      "label": "run twice fps",
+      "description": "This runs the simulation twice per frame. Turn it off for a slower simulation that is easier on your GPU.",
+      "group": "field",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "meltyDetail",
+      "label": "meltyDetail",
+      "description": "Shifts the simulation between a smoke effect and finger like patterns",
+      "group": "field",
+      "type": "float",
+      "default": -1.6,
+      "min": -3,
+      "max": 3
+    },
+    {
+      "name": "scatter",
+      "label": "scatter",
+      "description": "Scatter the simulation to add extra turbulence.",
+      "group": "field",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 2,
+      "step": 2
+    },
+    {
+      "name": "size_modifier",
+      "label": "size modifier",
+      "description": "Increases the texture size, resulting in faster movement.",
+      "group": "field",
+      "type": "float",
+      "default": 1,
+      "min": 0.05,
+      "max": 5
+    },
+    {
+      "name": "curl_scale",
+      "label": "curl scale",
+      "description": "Increase to add smaller details to the scene, decrease to make larger details.",
+      "group": "field",
+      "type": "float",
+      "default": -0.1,
+      "min": -0.1,
+      "max": -0.1
+    },
+    {
+      "name": "zooming",
+      "label": "zooming",
+      "description": "50% is default no zooming. Move up to zoom in, down to zoom out.",
+      "group": "field",
+      "type": "float",
+      "default": 0,
+      "min": -1.5,
+      "max": 1.5
+    },
+    {
+      "name": "media_pulse",
+      "label": "media pulse",
+      "description": "Pulse the media to add it to the feedback field",
+      "group": "media_feedback",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_pulse_auto",
+      "label": "media pulse auto",
+      "description": "When on, automatically pulses the logo/media",
+      "group": "media_feedback",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_hint",
+      "label": "media hint",
+      "description": "Add the media to the field in a different, more subtle way",
+      "group": "media_feedback",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "Tracers_on",
+      "label": "Tracers on",
+      "description": "Toggle to add audio reactive tracers that dart around the scene.",
+      "group": "tracers",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "tracer_intensity",
+      "label": "tracer intensity",
+      "description": "Affects the speed of tracers when enabled.",
+      "group": "tracers",
+      "type": "float",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 1
+    },
+    {
+      "name": "tracer_size",
+      "label": "tracer size",
+      "description": "Affects the size of tracers when enabled.",
+      "group": "tracers",
+      "type": "float",
+      "default": 25,
+      "min": 10,
+      "max": 50
+    },
+    {
+      "name": "tracer_control",
+      "label": "tracer control",
+      "description": "Affects the position of tracers when enabled.",
+      "group": "tracers",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "BuffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA.previous",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffA",
+        "width": 1600,
+        "height": 900,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffB",
+        "width": 1600,
+        "height": 900,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "auto_growth": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "manual_growth": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "reset": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "disrupt_field": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_palette": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_rotate": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "light_pos": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_color_mix": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_refraction": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.065
+      },
+      "media_multiply": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "run_twice_fps": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "meltyDetail": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "scatter": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "size_modifier": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "curl_scale": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "zooming": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.00999999977648258
+      },
+      "media_pulse": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "media_pulse_auto": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_hint": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "Tracers_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "tracer_intensity": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "tracer_size": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "tracer_control": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

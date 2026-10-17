@@ -1,0 +1,403 @@
+{
+	"CONTROLS" :
+	[
+		{
+			"DEFAULT" :
+			[
+				0.7,
+				0.7
+			],
+			"DESCRIPTION" : "Bass mix",
+			"MAX" :
+			[
+				1,
+				1
+			],
+			"MIN" :
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" :
+			[
+				2,
+				1
+			],
+			"DESCRIPTION" : "Bass power",
+			"MAX" :
+			[
+				6,
+				6
+			],
+			"MIN" :
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" :
+			[
+				0.25,
+				0.875
+			],
+			"DESCRIPTION" : "VU reactivity",
+			"MAX" :
+			[
+				1,
+				1
+			],
+			"MIN" :
+			[
+				0,
+				0
+			],
+			"NAME" : "vu_react",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "fade vu meters",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "vu_fade",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0.1,
+			"DESCRIPTION" : "Wave level",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "wave_level",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Wave glow level",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "wave_glow_level",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Wave fade",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "wave_fade",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Switch between volumate 1 and 2",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "volume_control",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effect"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Show heart beat",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "show_beat",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effect"
+		},
+		{
+			"DEFAULT" : 60,
+			"DESCRIPTION" : "Beat speed",
+			"MAX" : 120,
+			"MIN" : 10,
+			"NAME" : "beat_speed",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effect"
+		},
+		{
+			"DEFAULT" : 0.6667,
+			"DESCRIPTION" : "Box level",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "box_level",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effect"
+		},
+		{
+			"DEFAULT" : 0.05,
+			"DESCRIPTION" : "Box size",
+			"MAX" : 0.28,
+			"MIN" : 0.01,
+			"NAME" : "box_size",
+			"PARAMS" : 0.24301,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effect"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "peter_clarke",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Effect"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Motion blur",
+			"MAX" : 0.99,
+			"MIN" : 0,
+			"NAME" : "motion_blur",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Blur"
+		},
+		{
+			"DEFAULT" : 0.2,
+			"DESCRIPTION" : "Blurirness level",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "blurriness",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Blur"
+		},
+		{
+			"DEFAULT" : 0.2,
+			"DESCRIPTION" : "Color distortion",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "color_distortion",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Blur"
+		},
+		{
+			"DEFAULT" : 0.9,
+			"DESCRIPTION" : "Glitch level",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "glitch_level",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Glitch"
+		},
+		{
+			"DEFAULT" : 0.9,
+			"DESCRIPTION" : "Glitch frequency",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "glitch_freq",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Glitch"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Glitch variant",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "glitch_variant",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "Glitch"
+		},
+		{
+			"DEFAULT" :
+			[
+				0.5,
+				0.05
+			],
+			"DESCRIPTION" : "Glitch size",
+			"MAX" :
+			[
+				1,
+				1
+			],
+			"MIN" :
+			[
+				0.01,
+				0.01
+			],
+			"NAME" : "glitch_size",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Glitch"
+		},
+		{
+			"DEFAULT" :
+			[
+				0.02,
+				0.02
+			],
+			"DESCRIPTION" : "Pixel size",
+			"MAX" :
+			[
+				0.1,
+				0.1
+			],
+			"MIN" :
+			[
+				0.001,
+				0.001
+			],
+			"NAME" : "pixel_size",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Glitch"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media fade",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_fade",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media zoom",
+			"MAX" : 9,
+			"MIN" : 0.125,
+			"NAME" : "media_zoom",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" :
+			[
+				0.9,
+				1,
+				0.8
+			],
+			"DESCRIPTION" : "Media fade col",
+			"MAX" :
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" :
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "media_fadecol",
+			"TYPE" : "color",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 10,
+			"DESCRIPTION" : "",
+			"MAX" : 20,
+			"MIN" : 1,
+			"NAME" : "media_fadestrength",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" :
+			[
+				0.9,
+				-0.139
+			],
+			"DESCRIPTION" : "Media offset",
+			"MAX" :
+			[
+				1.5,
+				1.5
+			],
+			"MIN" :
+			[
+				-1.5,
+				-1.5
+			],
+			"NAME" : "media_off",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Encore 500",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGES" :
+	[
+		{
+			"NAME" : "t_peterclarke",
+			"PATH" : "peterclarke.png"
+		}
+	],
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" :
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" :
+	[
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "passA",
+			"WIDTH" : 1920,
+			"WRAP" : "clamp"
+		},
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "passB",
+			"WIDTH" : 1920,
+			"WRAP" : "clamp"
+		},
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "passC",
+			"WIDTH" : 1920,
+			"WRAP" : "clamp"
+		}
+	],
+	"TAGS" :
+	[
+		"mrange",
+		"encore500"
+	],
+	"TITLE" : "Encore 500",
+	"WIDTH" : 1920
+}

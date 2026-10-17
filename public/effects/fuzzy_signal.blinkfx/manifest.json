@@ -1,0 +1,388 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.fuzzy_signal",
+  "title": "Fuzzy Signal",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "glitchy",
+    "feedback",
+    "colorful",
+    "groovy"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "rgb_vs_cmyk",
+      "label": "rgb vs cmyk",
+      "description": "RGB or CMYK for glitch colors",
+      "group": "glitch",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "glitch_flashes",
+      "label": "glitch flashes",
+      "description": "Audio-reactive glitch flashes",
+      "group": "glitch",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "glitch_constant",
+      "label": "glitch constant",
+      "description": "Constant glitch effect (non-reactive)",
+      "group": "glitch",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "glitch_scale",
+      "label": "glitch scale",
+      "description": "How far the glitch extends outward",
+      "group": "glitch",
+      "type": "float",
+      "default": 0.85,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "fuzz_flashes",
+      "label": "fuzz flashes",
+      "description": "Audio-reactive fuzz flashes",
+      "group": "fuzz",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fuzz_constant",
+      "label": "fuzz constant",
+      "description": "Constant fuzz effect (non-reactive)",
+      "group": "fuzz",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fuzz_scale",
+      "label": "fuzz scale",
+      "description": "How far the fuzz extends outward",
+      "group": "fuzz",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "feedback_amt",
+      "label": "feedback amt",
+      "description": "Amount of feedback",
+      "group": "feedback",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "feedback_scale",
+      "label": "feedback scale",
+      "group": "feedback",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "feedback_style",
+      "label": "feedback style",
+      "group": "feedback",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "anger_shake",
+      "label": "anger shake",
+      "description": "Shake the screen",
+      "group": "fx",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "ripple_snap",
+      "label": "ripple snap",
+      "description": "Send a ripple outward",
+      "group": "fx",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "save_fps",
+      "label": "save fps",
+      "description": "Switches from main pattern to simple lines to save FPS on older computers",
+      "group": "pattern",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "mix_type",
+      "label": "mix type",
+      "description": "Switches to a subtractive pattern instead of additive",
+      "group": "pattern",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "pattern_media_multiply",
+      "label": "pattern media multiply",
+      "description": "Multiplies the pattern into the media",
+      "group": "pattern",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "beat_jump",
+      "label": "beat jump",
+      "description": "Makes the pattern jump on the beat for when you need maximum tactical glitch",
+      "group": "pattern",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_glitch",
+      "label": "media glitch",
+      "description": "Mixes the media into the pattern",
+      "group": "media_glitch",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "vignette",
+      "label": "vignette",
+      "description": "Makes all the other effects only happen towards the edges of the screen",
+      "group": "vignette",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "vignette_invert",
+      "label": "vignette invert",
+      "description": "Inverts the vignette so all effects only happen towards the center",
+      "group": "vignette",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "feedback",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.feedback.previous",
+          "uniform": "feedback"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "feedback",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.feedback",
+          "uniform": "feedback"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "rgb_vs_cmyk": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "glitch_flashes": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "glitch_constant": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "glitch_scale": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "fuzz_flashes": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "fuzz_constant": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "fuzz_scale": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "feedback_amt": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "feedback_scale": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "feedback_style": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "anger_shake": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "ripple_snap": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "save_fps": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "mix_type": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "pattern_media_multiply": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "beat_jump": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_glitch": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "vignette": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "vignette_invert": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

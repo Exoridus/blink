@@ -1,0 +1,127 @@
+{
+   "CONTROLS" : 
+   [
+      {
+         "NAME":"diameter",
+         "UI_GROUP":"transforms",
+         "TYPE":"slider smooth",
+         "DESCRIPTION":"Diameter of the tunnel. Default: 35%.",
+         "MIN":0.0,
+         "MAX":1.0,
+         "PARAMS":0.1,
+         "DEFAULT":0.35
+      },{
+         "NAME":"flatten",
+         "TYPE":"slider smooth",
+         "DEFAULT":1.0,
+         "MAX":0.0,
+         "MIN":1.0,
+         "PARAMS":0.01,
+         "DESCRIPTION":"Change from a spiral to a flat cave.",
+         "UI_GROUP":"transforms"
+      },{
+         "NAME":"simplify",
+         "UI_GROUP":"transforms",
+         "TYPE":"slider smooth",
+         "MAX":0.0,
+         "DEFAULT":1.0,
+         "DESCRIPTION":"Fewer ridges. Also clears up noise when tunnel diameter is widest.",
+         "MIN":1.0
+      },{
+         "NAME":"churner",
+         "TYPE":"slider",
+         "UI_GROUP":"transforms",
+         "DESCRIPTION":"Modifies the rotation ridges, can give you noise if you aren't careful.",
+         "PARAMS":0.01
+      },{
+         "NAME":"fov_in",
+         "TYPE":"slider smooth",
+         "MIN":-0.9,
+         "MAX":2.7,
+         "DEFAULT":0.0,
+         "PARAMS":0.05,
+         "DESCRIPTION":"Field of View for the camera, a sort of zoom. Default 20%.",
+         "UI_GROUP":"camera"
+      },{
+         "NAME":"xyOffset",
+         "TYPE":"xy smooth",
+         "MIN":-1.0,
+         "MAX":1.0,
+         "DEFAULT":0.0,
+         "PARAMS":0.05,
+         "DESCRIPTION":"XY Position in the tunnel for the camera.",
+         "UI_GROUP":"camera"
+      },{
+         "NAME":"xyLook",
+         "TYPE":"xy smooth",
+         "MIN":-1.0,
+         "MAX":1.0,
+         "DEFAULT":0.0,
+         "PARAMS":0.01,
+         "DESCRIPTION":"Change direction the camera looks in a hemisphere. To look all the way backwards, you have to use 'look back' toggle.",
+         "UI_GROUP":"camera"
+      },{
+         "NAME":"look_back",
+         "TYPE":"toggle smooth",
+         "MIN":0.0,
+         "MAX":1.0,
+         "DEFAULT":0.0,
+         "DESCRIPTION":"Smoothly change to looking backwards. Make sure you move xyLook away from center before using this toggle, or it will be jerky!",
+         "UI_GROUP":"camera"
+      },{
+         "NAME":"col_presence",
+         "UI_GROUP":"color",
+         "TYPE":"slider smooth",
+         "PARAMS":0.2,
+         "MAX":1.0,
+         "DEFAULT":0.3,
+         "MIN":0.0,
+         "DESCRIPTION":"Scene fully lit up, or fully dark and flashing."
+      },{
+         "NAME":"deeper_colors",
+         "UI_GROUP":"color",
+         "TYPE":"slider smooth",
+         "MAX":2.0,
+         "DEFAULT":0.001,
+         "MIN":0.001,
+         "DESCRIPTION":"Earthy color scheme, or move up for deeper, more complex colors."
+      },{
+         "NAME":"media_width",
+         "UI_GROUP":"color",
+         "TYPE":"slider smooth",
+         "PARAMS":0.2,
+         "MAX":1.0,
+         "DEFAULT":0.2,
+         "MIN":0.0,
+         "DESCRIPTION":"Media must be on! Defines how much of the tunnel the media covers."
+      }
+   ]
+
+
+   ,
+   "CREDIT" : "aiekick",
+   "DESCRIPTION" : "i have the limit of the float after a certain time, and some noise appears :)\nyou can increase the iteration at line 86 to have better shape but more slow too :) ",
+   "HARD_TRANSITIONS" : null,
+   "IMAGES" : null,
+   "IMAGE_PATH" : "tunnel_beauty_6.png",
+   "PASSES" : [
+   {
+      "TARGET":"toFilter",
+      "WIDTH":640,
+      "HEIGHT":360
+   }
+   ],
+   "SMOOTH_TRANSITIONS" : null,
+   "TITLE" : "Tunnel Beauty 6",
+   "HEIGHT":1080,
+   "WIDTH":1920,
+   "GPU": 3,
+   "TAGS" : 
+   [
+   "3d",
+   "raymarching",
+   "tunnel",
+   "colorful",
+   "central"
+   ]
+}

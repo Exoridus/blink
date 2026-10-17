@@ -1,0 +1,986 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.logo_grid_pulses",
+  "title": "Logo Grid Pulses",
+  "author": "UFFFD x Meebs",
+  "description": "Grid pattern generator with hundreds of unique pattern combinations. Excellent when used with black and white logos.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "logo",
+    "2D",
+    "grid",
+    "patterns",
+    "glitchy",
+    "minimal"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "pattern",
+      "label": "pattern",
+      "description": "Adjusts the mix of the raw pattern over the whole screen (pick pattern color to the right >>>)",
+      "group": "logo_mixer",
+      "type": "float",
+      "default": 1,
+      "min": -1.5,
+      "max": 1.5
+    },
+    {
+      "name": "raw_logo",
+      "label": "raw logo",
+      "description": "Adjusts how much the logo will be mixed in (pick logo color to the right >>>)",
+      "group": "logo_mixer",
+      "type": "float",
+      "default": -0.1,
+      "min": -1.5,
+      "max": 1.5
+    },
+    {
+      "name": "displace_logo",
+      "label": "displace logo",
+      "description": "Displace the media by the pattern, then choose how much to mix (pick displace color to the right >>>). Displace group controls only affect this mix.",
+      "group": "logo_mixer",
+      "type": "float",
+      "default": 0.8,
+      "min": -1.5,
+      "max": 1.5
+    },
+    {
+      "name": "mask_logo",
+      "label": "mask logo",
+      "description": "Multiply the user media with the black and white pattern output (pick mask color to the right >>>) ",
+      "group": "logo_mixer",
+      "type": "float",
+      "default": 0.8,
+      "min": -1.5,
+      "max": 1.5
+    },
+    {
+      "name": "pattern_col",
+      "label": "pattern col",
+      "description": "Color of the base pattern. Amount of mix controlled by pattern slider to the left <<<",
+      "group": "colors",
+      "type": "color",
+      "default": [
+        1,
+        0.8,
+        0.2,
+        1
+      ]
+    },
+    {
+      "name": "logo_col",
+      "label": "logo col",
+      "description": "Color of the raw logo. Amount of mix controlled by raw logo slider to the left <<<",
+      "group": "colors",
+      "type": "color",
+      "default": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "displace_col",
+      "label": "displace col",
+      "description": "Color of the displaced logo. Amount of mix controlled by 'displace slider' to the left <<<",
+      "group": "colors",
+      "type": "color",
+      "default": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "mask_col",
+      "label": "mask col",
+      "description": "Color of the masked logo. Amount of mix controlled by 'mask logo' slider to the left <<<",
+      "group": "colors",
+      "type": "color",
+      "default": [
+        1,
+        0.8,
+        0.1,
+        1
+      ]
+    },
+    {
+      "name": "bloom_mixer",
+      "label": "bloom mixer",
+      "description": "Add a bright bloom effect when the bass hits",
+      "group": "colors",
+      "type": "float",
+      "default": 0.4,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "displace_x",
+      "label": "displace x",
+      "description": "Amount of logo displacement on the X axis ('displace logo' mix must be on)",
+      "group": "displace_logo",
+      "type": "float",
+      "default": 0.3,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "displace_y",
+      "label": "displace y",
+      "description": "Amount of logo displacement on the Y axis ('displace logo' mix must be on)",
+      "group": "displace_logo",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "displace_mirror",
+      "label": "displace mirror",
+      "description": "Evenly displaces the media so it morphs without 'wiggling' back and forth.",
+      "group": "displace_logo",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "show_displaced_only",
+      "label": "show displaced only",
+      "description": "Makes it so you'll only where the logo did get displaced, instead of base logo and its displaced form.",
+      "group": "displace_logo",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flasher",
+      "label": "flasher",
+      "description": "Brightens the overall color on beat.",
+      "group": "audio_reactivity",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flasher_invert",
+      "label": "flasher invert",
+      "group": "audio_reactivity",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "beat_jump",
+      "label": "beat jump",
+      "group": "audio_reactivity",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "more_reactivity",
+      "label": "more reactivity",
+      "group": "audio_reactivity",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "speed",
+      "label": "speed",
+      "group": "audio_reactivity",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "bloom_bass",
+      "label": "bloom bass",
+      "description": "add a bright bloom effect",
+      "group": "audio_reactivity",
+      "type": "float",
+      "default": 0.15,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "grid_size",
+      "label": "grid size",
+      "description": "Scaling of the grid cells",
+      "group": "grid_size",
+      "type": "point2d",
+      "default": [
+        5,
+        5
+      ],
+      "min": [
+        0.01,
+        0.01
+      ],
+      "max": [
+        10,
+        10
+      ]
+    },
+    {
+      "name": "squarize_grid",
+      "label": "squarize grid",
+      "description": "Hit this after playing with the grid_size XY to force the grid back into perfect squares.",
+      "group": "grid_size",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "grid_2x_stack",
+      "label": "grid 2x stack",
+      "description": "This stacks an extra layer of pattern over the top for more detail and more chaos. If you are getting too many 'negative' or grungy colors, turn this back down to zero.",
+      "group": "grid_size",
+      "type": "float",
+      "default": 0.25,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "grid_mode",
+      "label": "grid mode",
+      "description": "Choose the grid mode pattern. Each mode uses the output from pulse to fill the grid cells in a different way.",
+      "group": "grid",
+      "type": "float",
+      "default": 4,
+      "min": 0,
+      "max": 15,
+      "step": 1
+    },
+    {
+      "name": "grid_param_a",
+      "label": "grid param a",
+      "description": "Used by some grid modes to control the complexity of the grid fill pattern.",
+      "group": "grid",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "grid_param_b",
+      "label": "grid param b",
+      "description": "Used by some grid modes to control the fill amount of the grid fill pattern.",
+      "group": "grid",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "grid_auto_transition",
+      "label": "grid auto transition",
+      "description": "Automatically switches to random grid modes. Higher = more frequent, 0 = off",
+      "group": "grid",
+      "type": "float",
+      "default": 0.15,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "no_grid",
+      "label": "no grid",
+      "description": "Scaling of the grid cells",
+      "group": "grid",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "invert_grid",
+      "label": "invert grid",
+      "group": "grid",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "pulse_mode",
+      "label": "pulse mode",
+      "description": "Choose the underlying pulse pattern that drives the grid animations. Each interacts with the pulse controls in its own way.",
+      "group": "pulse",
+      "type": "float",
+      "default": 4,
+      "min": 0,
+      "max": 11,
+      "step": 1
+    },
+    {
+      "name": "pulse_param_a",
+      "label": "pulse param a",
+      "description": "Used by some pulse modes to control the complexity of the underlying pulse pattern.",
+      "group": "pulse",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "pulse_param_b",
+      "label": "pulse param b",
+      "description": "Used by some pulse modes to control the strength of the underlying pulse pattern.",
+      "group": "pulse",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "pulse_boost_cut",
+      "label": "pulse boost cut",
+      "description": "Boost or reduce the overall pulse value, effectively fading the grid patterns fully in or out.",
+      "group": "pulse",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "media_pulse_offset",
+      "label": "media pulse offset",
+      "description": "Automatically switches to random pulse pattern modes. Higher = more frequent, 0 = off",
+      "group": "pulse",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "pulse_auto_transition",
+      "label": "pulse auto transition",
+      "description": "Automatically switches to random pulse pattern modes. Higher = more frequent, 0 = off",
+      "group": "pulse",
+      "type": "float",
+      "default": 0.15,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_blur",
+      "label": "media blur",
+      "description": "This blurs the input media to create smoother pulse interactions with media. Especially useful with user_media option in pulses!!!",
+      "group": "pulse",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 8
+    },
+    {
+      "name": "feedback",
+      "label": "feedback",
+      "description": "Amount of feedback. Values around 0.9 are where you get the best trails.",
+      "group": "feedback_fx",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "feedback_rise_fall",
+      "label": "feedback rise fall",
+      "description": "Moves the feedback on the Y axis.",
+      "group": "feedback_fx",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "feedback_zoom",
+      "label": "feedback zoom",
+      "description": "Zoom the feedback effect in or out.",
+      "group": "feedback_fx",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "feedback_gain",
+      "label": "feedback gain",
+      "description": "This interacts with the feedback slider. It lets you add extra beef to the feedback effect when dealing with low color values, but quickly maxes out if you have bright ones.",
+      "group": "feedback_fx",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "edge_detect",
+      "label": "edge detect",
+      "description": "run the output through an edge detection algorithm",
+      "group": "feedback_fx",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "clamp"
+      }
+    },
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "clamp"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "gen",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.gen.previous",
+          "uniform": "gen"
+        },
+        {
+          "source": "target.fbFix.previous",
+          "uniform": "fbFix"
+        },
+        {
+          "source": "target.composite.previous",
+          "uniform": "composite"
+        },
+        {
+          "source": "target.bloomed.previous",
+          "uniform": "bloomed"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "gen",
+        "width": 3840,
+        "height": 2160,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "fbFix",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.gen",
+          "uniform": "gen"
+        },
+        {
+          "source": "target.fbFix.previous",
+          "uniform": "fbFix"
+        },
+        {
+          "source": "target.composite.previous",
+          "uniform": "composite"
+        },
+        {
+          "source": "target.bloomed.previous",
+          "uniform": "bloomed"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "fbFix",
+        "width": 3840,
+        "height": 2160,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "composite",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.gen",
+          "uniform": "gen"
+        },
+        {
+          "source": "target.fbFix",
+          "uniform": "fbFix"
+        },
+        {
+          "source": "target.composite.previous",
+          "uniform": "composite"
+        },
+        {
+          "source": "target.bloomed.previous",
+          "uniform": "bloomed"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "composite",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "mipmap",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "bloomed",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.gen",
+          "uniform": "gen"
+        },
+        {
+          "source": "target.fbFix",
+          "uniform": "fbFix"
+        },
+        {
+          "source": "target.composite",
+          "uniform": "composite"
+        },
+        {
+          "source": "target.bloomed.previous",
+          "uniform": "bloomed"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "bloomed",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.gen",
+          "uniform": "gen"
+        },
+        {
+          "source": "target.fbFix",
+          "uniform": "fbFix"
+        },
+        {
+          "source": "target.composite",
+          "uniform": "composite"
+        },
+        {
+          "source": "target.bloomed",
+          "uniform": "bloomed"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "pattern": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "raw_logo": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "displace_logo": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "mask_logo": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "pattern_col": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "logo_col": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "displace_col": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "mask_col": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "bloom_mixer": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "displace_x": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "displace_y": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "displace_mirror": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "show_displaced_only": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "flasher": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "flasher_invert": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "beat_jump": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "more_reactivity": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "speed": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "bloom_bass": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "grid_size": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "squarize_grid": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "grid_2x_stack": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "grid_mode": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "labels": [
+          "user_media",
+          "fading_stripes",
+          "rotating_x",
+          "expanding_circle",
+          "diagonal_lines",
+          "fill_up",
+          "rotating_square",
+          "spinning_heart",
+          "pulsating_cross",
+          "pulsating_box",
+          "starburst",
+          "ripples",
+          "checker_wave",
+          "heart_wave",
+          "circle_pulses",
+          "soft_bulb"
+        ],
+        "values": [
+          19,
+          4,
+          7,
+          2,
+          8,
+          1,
+          5,
+          9,
+          10,
+          3,
+          11,
+          12,
+          13,
+          15,
+          16,
+          17
+        ]
+      },
+      "grid_param_a": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "grid_param_b": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "grid_auto_transition": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "no_grid": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "invert_grid": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "pulse_mode": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "labels": [
+          "user_media",
+          "diagonal_waves",
+          "expanding_waves",
+          "peaceful_waves",
+          "zigzag",
+          "spiral_fan",
+          "spinning_star",
+          "simple_bpm_osc",
+          "hexagon",
+          "expanding_heart",
+          "twisting_layers",
+          "fade_up"
+        ],
+        "values": [
+          21,
+          18,
+          3,
+          5,
+          4,
+          6,
+          11,
+          10,
+          14,
+          16,
+          19,
+          20
+        ]
+      },
+      "pulse_param_a": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "pulse_param_b": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "pulse_boost_cut": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "media_pulse_offset": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "pulse_auto_transition": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "media_blur": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "feedback": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "feedback_rise_fall": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "feedback_zoom": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "feedback_gain": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "edge_detect": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "scriptTime": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

@@ -1,0 +1,387 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.blue_steel_grid",
+  "title": "Blue Steel Grid",
+  "author": "mrange",
+  "description": "Race through an infinite tunnel of chrome and neon in the Blue Steel Grid. This audio-reactive journey features a twisting, undulating grid structure with sleek metallic surfaces that gleam with icy blue reflections. Electric purple snake particles weave through the lattice while flash lights pulse with the bass, creating dramatic light rays that pierce through the geometry. The entire grid bends and warps along a sinuous path, offering an ever-shifting perspective through this cyberpunk corridor. Perfect for techno sets and futuristic visuals.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "grid",
+    "tunnel",
+    "chrome",
+    "metallic",
+    "raymarch",
+    "audio-reactive",
+    "blue",
+    "purple",
+    "geometric"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "path_a",
+      "label": "path a",
+      "description": "Path wave frequency (X and Y control sine wave oscillation)",
+      "group": "Path Shape",
+      "type": "point2d",
+      "default": [
+        0.0825,
+        0.1025
+      ],
+      "min": [
+        -0.5,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "name": "path_b",
+      "label": "path b",
+      "description": "Path wave amplitude (X and Y set horizontal/vertical swing size)",
+      "group": "Path Shape",
+      "type": "point2d",
+      "default": [
+        8,
+        5.656
+      ],
+      "min": [
+        -16,
+        -16
+      ],
+      "max": [
+        16,
+        16
+      ]
+    },
+    {
+      "name": "grid_dim_xy",
+      "label": "grid dim xy",
+      "description": "Grid cell size in XY plane (smaller = denser grid)",
+      "group": "Grid",
+      "type": "point2d",
+      "default": [
+        1,
+        1
+      ],
+      "min": [
+        0.25,
+        0.25
+      ],
+      "max": [
+        3,
+        3
+      ]
+    },
+    {
+      "name": "grid_dim_zr",
+      "label": "grid dim zr",
+      "description": "Grid spacing (X: depth interval, Y: tube thickness)",
+      "group": "Grid",
+      "type": "point2d",
+      "default": [
+        1,
+        0.03
+      ],
+      "min": [
+        0.25,
+        0.01
+      ],
+      "max": [
+        3,
+        0.4
+      ]
+    },
+    {
+      "name": "path_speed",
+      "label": "path speed",
+      "description": "Camera travel speed through the tunnel",
+      "group": "Path Motion",
+      "type": "float",
+      "default": 2,
+      "min": -9,
+      "max": 9
+    },
+    {
+      "name": "path_rot",
+      "label": "path rot",
+      "description": "Continuous rotation speed of the entire tunnel",
+      "group": "Path Motion",
+      "type": "float",
+      "default": 0,
+      "min": -9,
+      "max": 9
+    },
+    {
+      "name": "path_twist",
+      "label": "path twist",
+      "description": "Spiral twist amount along the tunnel depth",
+      "group": "Path Motion",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Audio response strength (X: bass level, Y: bass hits)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.7,
+        0.7
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Audio response curve (higher = more intense reaction)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        3,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Media opacity – fade visuals in or out",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_multiplier",
+      "label": "media multiplier",
+      "description": "Media multiplier – boost opacity for bold color effects",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": -9,
+      "max": 9
+    },
+    {
+      "name": "flash_col",
+      "label": "flash col",
+      "description": "RGB color of flash light effect on bass hits",
+      "group": "Colors",
+      "type": "color",
+      "default": [
+        0.2,
+        0.62,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "snake_col",
+      "label": "snake col",
+      "description": "RGB color of animated snake particles in the grid",
+      "group": "Colors",
+      "type": "color",
+      "default": [
+        0.57,
+        0.15,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "warp_world",
+      "label": "warp world",
+      "description": "Camera perspective warp (X: forward pull, Y: radial pull)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        2,
+        0.5
+      ],
+      "min": [
+        -5,
+        -5
+      ],
+      "max": [
+        5,
+        5
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "path_a": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "path_b": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "grid_dim_xy": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "grid_dim_zr": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "path_speed": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "path_rot": {
+        "format": "ssf",
+        "type": "knob speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "path_twist": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_multiplier": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "flash_col": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "snake_col": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "warp_world": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

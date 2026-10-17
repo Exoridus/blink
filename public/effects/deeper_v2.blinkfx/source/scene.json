@@ -1,0 +1,231 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT": 0.6,
+         "DESCRIPTION": "How much the beams or dots glow.",
+         "MAX": 1.0,
+         "MIN": 0,
+         "NAME": "glow_amount",
+         "PARAMS": 0.25,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "beams"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Turns on the beam geometry. The glow_amount affects whether they glow or not.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "beams_on",
+         "PARAMS" : 0.1,
+         "TYPE" : "toggle smooth",
+         "UI_GROUP" : "beams"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Replaces the beams with a field of dots. ",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "dot_field",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "beams"
+      },{
+         "DEFAULT": 1,
+         "DESCRIPTION": "Makes the beams or dots dance.",
+         "MAX": 1,
+         "MIN": 0,
+         "NAME": "auto_groove",
+         "TYPE": "toggle",
+         "UI_GROUP": "beams"
+      },
+      {
+         "DEFAULT": 0,
+         "DESCRIPTION": "Diameter of the tunnel.",
+         "MAX": 2,
+         "MIN": -1,
+         "NAME": "diameter",
+         "TYPE": "slider smooth",
+         "PARAMS": 0.1,
+         "UI_GROUP": "tunnel"
+      },
+      {
+         "DEFAULT": 0,
+         "DESCRIPTION": "Makes the tunnel stretch in waves.",
+         "MAX": 1,
+         "MIN": 0,
+         "NAME": "undulating",
+         "TYPE": "toggle smooth",
+         "UI_GROUP": "tunnel"
+      },
+      {
+         "DEFAULT": 0,
+         "DESCRIPTION": "Tunnel automatically rotates on bass.",
+         "MAX": 1,
+         "MIN": 0,
+         "NAME": "rotating",
+         "TYPE": "toggle",
+         "UI_GROUP": "tunnel"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Toggle and the tunnel will slowly unwind until it is just two flat planes.",
+         "MAX": 1,
+         "MIN": 0,
+         "NAME": "flatten",
+         "TYPE": "toggle smooth",
+         "PARAMS": 0.0025,
+         "UI_GROUP": "tunnel"
+      },
+      {
+         "DEFAULT": 0,
+         "DESCRIPTION": "Manually rotate the tunnel.",
+         "MAX": 1,
+         "MIN": -1,
+         "NAME": "manual_rotate",
+         "TYPE": "knob smooth",
+         "PARAMS": 0.1,
+         "UI_GROUP": "tunnel"
+      },
+      {
+         "DEFAULT": 1.0,
+         "DESCRIPTION": "",
+         "MAX": 3,
+         "MIN": 0,
+         "NAME": "FOV",
+         "PARAMS": 0.05,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "tunnel"
+      },{
+         "DEFAULT": 1,
+         "DESCRIPTION": "Makes the overall lighting a more colorful orange/blue/green.",
+         "MAX": 1,
+         "MIN": 0,
+         "NAME": "colorful",
+         "TYPE": "toggle",
+         "UI_GROUP": "lights"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Adds cycling lights that fly down the tunnel ahead of you.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "light_chaser",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "lights"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Makes the main light flash with the music.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "lights_react",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "lights"
+      },
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Brightness of the main light (that can be white or colorful) that lights the tunnel.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "main_light",
+         "TYPE" : "slider",
+         "UI_GROUP" : "lights"
+      },
+      {
+         "DEFAULT": 0.4,
+         "DESCRIPTION": "How much colorful fog there is in the distance.",
+         "MAX": 1,
+         "MIN": 0,
+         "NAME": "fog_col",
+         "TYPE": "slider",
+         "UI_GROUP": "lights"
+      },
+      {
+         "DEFAULT": 0.5,
+         "DESCRIPTION": "Adds more texture to the walls for light to catch.",
+         "MAX": 1,
+         "MIN": -1,
+         "NAME": "texture_on",
+         "TYPE": "knob smooth",
+         "PARAMS": 0.2,
+         "UI_GROUP": "wall texture"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Adds deep spiral ridges to the overall tunnel.",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "spiral_ridges",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "wall texture"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Sends a pulse down the tunnel. Combine vertical and horizontal for a good effect.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "undulate_up",
+         "PARAMS" : 0.01,
+         "TYPE" : "bang smooth",
+         "UI_GROUP" : "pulses"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Sends a pulse down the tunnel. Combine vertical and horizontal for a good effect.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "undulate_down",
+         "PARAMS" : 0.01,
+         "TYPE" : "bang smooth",
+         "UI_GROUP" : "pulses"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Sends a pulse down the tunnel. Combine vertical and horizontal for a good effect.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "undulate_left",
+         "PARAMS" : 0.01,
+         "TYPE" : "bang smooth",
+         "UI_GROUP" : "pulses"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Sends a pulse down the tunnel. Combine vertical and horizontal for a good effect.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "undulate_right",
+         "PARAMS" : 0.01,
+         "TYPE" : "bang smooth",
+         "UI_GROUP" : "pulses"
+      },{
+         "DEFAULT": 1.0,
+         "DESCRIPTION": "How fast you fly into or out of the tunnel with bass.",
+         "MAX": 2,
+         "MIN": -2,
+         "NAME": "bass_travel",
+         "TYPE": "knob",
+         "UI_GROUP": "travel"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "How fast you fly into or out of the tunnel at a constant speed. Can go in the opposite direction of bass travel for good effects.",
+         "MAX" : 2,
+         "MIN" : -2,
+         "NAME" : "travel",
+         "PARAMS" : 0.5,
+         "TYPE" : "knob",
+         "UI_GROUP" : "travel"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Manually trigger a jump forward.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "jump_forward",
+         "PARAMS" : 0.13,
+         "TYPE" : "bang smooth",
+         "UI_GROUP" : "travel"
+      }
+   ],
+   "CREDIT" : "Meebs",
+   "DESCRIPTION" : "",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "deeper_v2.png",
+   "PASSES" : [
+   ],
+   "TITLE" : "Deeper V2",
+   "WIDTH" : 1920
+}

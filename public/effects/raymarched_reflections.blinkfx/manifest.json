@@ -1,0 +1,451 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.raymarched_reflections",
+  "title": "Raymarched Reflections",
+  "author": "Shane",
+  "description": "A very basic demonstration of raymarching a distance field with reflections and shadows. Definitely not cutting edge, but hopefully, interesting to anyone who isn't quite familiar with the process.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "3d",
+    "raymarching",
+    "realistic",
+    "infinite"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "light_pos",
+      "label": "light pos",
+      "description": "XY Position of the light source",
+      "group": "light",
+      "type": "point2d",
+      "default": [
+        -0.2,
+        -0.2
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "light_z",
+      "label": "light z",
+      "description": "Z-axis position of the light source",
+      "group": "light",
+      "type": "float",
+      "default": 1,
+      "min": -5,
+      "max": 3
+    },
+    {
+      "name": "move_right",
+      "label": "move right",
+      "description": "Jump one column right",
+      "group": "fast_motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "move_up",
+      "label": "move up",
+      "description": "Jump one row up",
+      "group": "fast_motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rotate_right",
+      "label": "rotate right",
+      "description": "Rotate the camera view to the right",
+      "group": "fast_motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rotate_up",
+      "label": "rotate up",
+      "description": "Rotate the camera view upwards",
+      "group": "fast_motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "cube_sphere",
+      "label": "cube sphere",
+      "description": "Smoothly blend between hyper cube, cube (at 0.0), or sphere",
+      "group": "geometry",
+      "type": "float",
+      "default": 0.5,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "pulse_pillars",
+      "label": "pulse pillars",
+      "description": "A pulse that blends all the cubes together for a moment",
+      "group": "geometry",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "z_stretch",
+      "label": "z stretch",
+      "description": "Stretch or squash the objects along the Z-axis",
+      "group": "geometry",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "irregularity",
+      "label": "irregularity",
+      "description": "Move each object within its cell some random direction",
+      "group": "geometry",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "cube_size",
+      "label": "cube size",
+      "description": "Size of cuboids",
+      "group": "geometry",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "glow_amt",
+      "label": "glow amt",
+      "description": "Adds in a warm orange/pink glow",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "reflectivity",
+      "label": "reflectivity",
+      "description": "How reflective the cuboids are",
+      "group": "color",
+      "type": "float",
+      "default": 0.35,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fog_amt",
+      "label": "fog amt",
+      "description": "Adds a dark black fog, good with glow",
+      "group": "color",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_reflect",
+      "label": "media reflect",
+      "description": "How much the media will appear in the reflections",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_color",
+      "label": "media color",
+      "description": "How much the media will appear directly painted on the objects",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "camera",
+      "label": "camera",
+      "description": "Move the camera around in XY",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "FOV",
+      "label": "FOV",
+      "description": "Field of View for the perspective of the camera",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "fisheye",
+      "label": "fisheye",
+      "description": "Weird lensing effect that goes positive and negative",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "anti_aliasing_fps",
+      "label": "anti aliasing fps",
+      "description": "Turn this up if for 4x anti-aliasing, but only if you've got a really good GPU!",
+      "group": "fps_warning",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "light_pos": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "light_z": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "move_right": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "move_up": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "rotate_right": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "rotate_up": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "cube_sphere": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "pulse_pillars": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.075
+      },
+      "z_stretch": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "irregularity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "cube_size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "glow_amt": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "reflectivity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "fog_amt": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_reflect": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_color": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "camera": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.005
+      },
+      "FOV": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.035
+      },
+      "fisheye": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "anti_aliasing_fps": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "moveRightScr": "float",
+      "moveUpScr": "float",
+      "rotateRightScr": "float",
+      "rotateUpScr": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

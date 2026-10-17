@@ -1,0 +1,104 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Scaffold Fractal",
+ "IMAGE_PATH": "scaffold_fractal.png",
+ "HARD_TRANSITIONS": [],
+ "IMAGES": [],
+ "PASSES": [],
+ "HEIGHT": 1080,
+ "WIDTH": 1920,
+ "GPU": 3,
+ "TAGS" : 
+ [
+ "fractal",
+ "raymarching",
+ "dark",
+ "infinite"
+ ],
+ "CONTROLS": [{
+    "NAME": "rot_on",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "PARAMS":0.1,
+    "TYPE": "slider smooth",
+    "UI_GROUP":"psych",
+    "DESCRIPTION": "Rotate the fractal along the Z axis, turning it into a goopy mess."
+  },{
+    "NAME": "rot_direction",
+    "MAX" : 1.0,
+    "MIN" : -1.0,
+    "DEFAULT":1.0,
+    "PARAMS":0.05,
+    "TYPE": "toggle smooth",
+    "UI_GROUP":"psych",
+    "DESCRIPTION": "Rotate to the right or left."
+  },{
+    "NAME": "perspective",
+    "MAX" : 10.0,
+    "MIN" : 0.0,
+    "DEFAULT":1,
+    "PARAMS":0.025,
+    "TYPE": "slider smooth",
+    "UI_GROUP":"camera",
+    "DESCRIPTION": "Changes from a short to long lens perspective."
+  },{
+    "NAME": "z_depth",
+    "MAX" : 1.5,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "PARAMS":0.05,
+    "TYPE": "slider smooth",
+    "UI_GROUP":"camera",
+    "DESCRIPTION":"Multiplier on the z-axis. Similar, but different from perspective."
+  },{
+    "NAME": "down_rot",
+    "TYPE": "bang counter",
+    "UI_GROUP":"camera",
+    "DESCRIPTION": "Rotate the camera downwards by 90 degrees."
+  },{
+    "NAME": "right_rot",
+    "TYPE": "bang counter",
+    "UI_GROUP":"camera",
+    "DESCRIPTION": "Rotate the camera rightwards by 90 degrees."
+  },{
+    "NAME": "iters",
+    "MAX" : 4.3,
+    "MIN" : 1.01,
+    "DEFAULT":4.3,
+    "TYPE": "slider",
+    "UI_GROUP":"fractal",
+    "DESCRIPTION": "Changes the number of iterations that create the scaffold. Only 4 options here. Heavily modifies how the rotation in psych behaves as well."
+  },{
+    "NAME": "scale_xy",
+    "MAX" : 2.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "PARAMS":0.01,
+    "TYPE": "xy smooth",
+    "UI_GROUP":"fractal",
+    "DESCRIPTION":"Stretches and distorts the fractal. Default is 50/50 right in the middle."
+  },{
+    "NAME": "col1",
+    "TYPE": "color",
+    "DEF_COLOR":[1.0,1.0,1.0],
+    "UI_GROUP":"color"
+  },{
+    "NAME": "col2",
+    "TYPE": "color",
+    "DEF_COLOR":[0.0,0.8,1.0],
+    "UI_GROUP":"color"
+  },{
+    "NAME": "col3",
+    "TYPE": "color",
+    "DEF_COLOR":[1.0,0.4,0.0],
+    "UI_GROUP":"color"
+  },{
+    "NAME": "bar_on",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle smooth",
+    "UI_GROUP":"color"
+  }]
+ }

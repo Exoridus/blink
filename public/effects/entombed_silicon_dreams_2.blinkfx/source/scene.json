@@ -1,0 +1,276 @@
+{
+	"CONTROLS" :
+	[
+		{
+			"DEFAULT" :
+			[
+				0.5,
+				0.5
+			],
+			"DESCRIPTION" : "Beat calculation weights (X: bass level, Y: bass hits)",
+			"MAX" :
+			[
+				1,
+				1
+			],
+			"MIN" :
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" :
+			[
+				4,
+				1
+			],
+			"DESCRIPTION" : "Beat response curve (X: bass level power, Y: bass hits power; higher = stronger)",
+			"MAX" :
+			[
+				6,
+				6
+			],
+			"MIN" :
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "Media opacity – fade visuals in or out",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 4,
+			"DESCRIPTION" : "Camera movement speed",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" :
+			[
+				-0.5,
+				0.1
+			],
+			"DESCRIPTION" : "Camera look direction offset (X: horizontal, Y: vertical)",
+			"MAX" :
+			[
+				2,
+				2
+			],
+			"MIN" :
+			[
+				-2,
+				-2
+			],
+			"NAME" : "camera_direction",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" :
+			[
+				25,
+				3.3
+			],
+			"DESCRIPTION" : "Base camera position offsets (X and Y: position)",
+			"MAX" :
+			[
+				35,
+				9
+			],
+			"MIN" :
+			[
+				15,
+				1
+			],
+			"NAME" : "camera_pos",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "Base hue offset for all scene colors",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "base_hue",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.33,
+			"DESCRIPTION" : "Tomb visibility threshold – higher values show fewer tombs",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "tomb_probability",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" :
+			[
+				-0.2,
+				-1.1
+			],
+			"DESCRIPTION" : "Ring texture pattern direction (X and Y form normalized vector)",
+			"MAX" :
+			[
+				2,
+				2
+			],
+			"MIN" :
+			[
+				-2,
+				-2
+			],
+			"NAME" : "ring_direction",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" :
+			[
+				1,
+				-0.5
+			],
+			"DESCRIPTION" : "Light source direction for shading (X and Y angles)",
+			"MAX" :
+			[
+				2,
+				2
+			],
+			"MIN" :
+			[
+				-2,
+				-2
+			],
+			"NAME" : "light_direction",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Audio threshold for ring visualization – filters quiet frequencies",
+			"MAX" : 1.01,
+			"MIN" : -0.125,
+			"NAME" : "fft_limit",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "Hue for vignette color burn effect",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "color_burn_hue",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.7,
+			"DESCRIPTION" : "Saturation for vignette color burn effect",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "color_burn_saturation",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.2,
+			"DESCRIPTION" : "Intensity for vignette color burn effect",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "color_burn_intensity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" :
+			[
+				-700,
+				300
+			],
+			"DESCRIPTION" : "Gas giant planet position (X: horizontal, Y: vertical)",
+			"MAX" :
+			[
+				300,
+				500
+			],
+			"MIN" :
+			[
+				-900,
+				-300
+			],
+			"NAME" : "gas_giant_position",
+			"PARAMS" : 0.1,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Frame blending amount – higher creates motion blur trail",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "motion_blur",
+			"PARAMS" : 0.10601,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 2,
+			"DESCRIPTION" : "Camera field of view – higher is wider angle",
+			"MAX" : 4,
+			"MIN" : 1,
+			"NAME" : "fov",
+			"PARAMS" : 0.10001,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Entombed Silicon Dreams",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" :
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" :
+	[
+		"mrange"
+	],
+	"TITLE" : "Entombed Silicon Dreams",
+	"WIDTH" : 1920
+}

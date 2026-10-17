@@ -1,0 +1,469 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.entombed_silicon_dreams_2",
+  "title": "Entombed Silicon Dreams",
+  "author": "mrange",
+  "description": "Entombed Silicon Dreams",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Beat calculation weights (X: bass level, Y: bass hits)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Beat response curve (X: bass level power, Y: bass hits power; higher = stronger)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        4,
+        1
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Media opacity – fade visuals in or out",
+      "group": "Media",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "speed",
+      "label": "speed",
+      "description": "Camera movement speed",
+      "group": "Movement",
+      "type": "float",
+      "default": 4,
+      "min": -9,
+      "max": 9
+    },
+    {
+      "name": "camera_direction",
+      "label": "camera direction",
+      "description": "Camera look direction offset (X: horizontal, Y: vertical)",
+      "group": "Movement",
+      "type": "point2d",
+      "default": [
+        -0.5,
+        0.1
+      ],
+      "min": [
+        -2,
+        -2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "camera_pos",
+      "label": "camera pos",
+      "description": "Base camera position offsets (X and Y: position)",
+      "group": "Movement",
+      "type": "point2d",
+      "default": [
+        25,
+        3.3
+      ],
+      "min": [
+        15,
+        1
+      ],
+      "max": [
+        35,
+        9
+      ]
+    },
+    {
+      "name": "base_hue",
+      "label": "base hue",
+      "description": "Base hue offset for all scene colors",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "tomb_probability",
+      "label": "tomb probability",
+      "description": "Tomb visibility threshold – higher values show fewer tombs",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.33,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "ring_direction",
+      "label": "ring direction",
+      "description": "Ring texture pattern direction (X and Y form normalized vector)",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        -0.2,
+        -1.1
+      ],
+      "min": [
+        -2,
+        -2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "light_direction",
+      "label": "light direction",
+      "description": "Light source direction for shading (X and Y angles)",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        1,
+        -0.5
+      ],
+      "min": [
+        -2,
+        -2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "fft_limit",
+      "label": "fft limit",
+      "description": "Audio threshold for ring visualization – filters quiet frequencies",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.5,
+      "min": -0.125,
+      "max": 1.01
+    },
+    {
+      "name": "color_burn_hue",
+      "label": "color burn hue",
+      "description": "Hue for vignette color burn effect",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "color_burn_saturation",
+      "label": "color burn saturation",
+      "description": "Saturation for vignette color burn effect",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "color_burn_intensity",
+      "label": "color burn intensity",
+      "description": "Intensity for vignette color burn effect",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "gas_giant_position",
+      "label": "gas giant position",
+      "description": "Gas giant planet position (X: horizontal, Y: vertical)",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        -700,
+        300
+      ],
+      "min": [
+        -900,
+        -300
+      ],
+      "max": [
+        300,
+        500
+      ]
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Frame blending amount – higher creates motion blur trail",
+      "group": "Visual",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fov",
+      "label": "fov",
+      "description": "Camera field of view – higher is wider angle",
+      "group": "Visual",
+      "type": "float",
+      "default": 2,
+      "min": 1,
+      "max": 4
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "speed": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "camera_direction": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "camera_pos": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "base_hue": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "tomb_probability": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "ring_direction": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "light_direction": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "fft_limit": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_burn_hue": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_burn_saturation": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_burn_intensity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "gas_giant_position": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.10601
+      },
+      "fov": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.10001
+      }
+    },
+    "scriptUniforms": {
+      "OFF": "float",
+      "GG": "vec4",
+      "BY": "vec3",
+      "BG": "vec3",
+      "BW": "vec3",
+      "BF": "vec3",
+      "FC": "vec3",
+      "RN": "vec3",
+      "LD": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

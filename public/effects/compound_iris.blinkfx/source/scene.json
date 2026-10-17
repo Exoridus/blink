@@ -1,0 +1,97 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Compound Iris",
+ "IMAGE_PATH": "compound_iris.png",
+ "HARD_TRANSITIONS": [
+ {
+ "UNIFORM": "colorMode",
+ "VALUES":[0.0, 1.0, 2.0]
+ },{
+ "UNIFORM": "refract_angle",
+ "VALUES":[0.0, 0.5, 1.0]
+ },{
+ "UNIFORM": "zoomAmt",
+ "VALUES":[0.0, 1.0, 0.5]
+ }],
+ "GPU": 4,
+ "TAGS" : 
+ [
+  "2d",
+  "geometric",
+  "dark",
+  "media"
+ ],
+ "IMAGES": [],
+ "PASSES": [ {"TARGET": "firstBuffer"},{"TARGET": "secondBuffer", "FLOAT": true},{"TARGET": "forHorBlur", "WIDTH": 1600, "HEIGHT": 900},{"TARGET": "forVertBlur", "WIDTH": 1600, "HEIGHT": 900},{"TARGET": "forLastPass", "WIDTH": 1600, "HEIGHT": 900}],
+ "CONTROLS": [{
+    "NAME": "colored",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Change from pure white to one of three color palettes, with color palettes changing on transition.",
+    "UI_GROUP":"color"
+  },{
+    "NAME": "invert",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Toggle between white on black or black on white.",
+    "UI_GROUP":"color"
+  },{
+    "NAME": "motion_style",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Two motion modes for the main shape: ON is a poppy motion that moves on the beat. When set to OFF it creates a slower moving, oscillating mandala.",
+    "UI_GROUP":"rings"
+  },{
+    "NAME": "radius_ring",
+    "MAX" : 9.0,
+    "MIN" : -5.0,
+    "DEFAULT":1.0,
+    "DESCRIPTION": "Changes the radius of individual rings. Thin is an interesting look. Can be set very low for disappearing rings.",
+    "UI_GROUP":"rings"
+  },{
+    "NAME": "blur_amount",
+    "MAX" : 3.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "DESCRIPTION": "Applies blur to the rings, reducing hard edges. Can be turned way up to 'blow up' the scene.",
+    "UI_GROUP":"rings"
+  },{
+    "NAME": "aberration",
+    "MAX" : 10.0,
+    "MIN" : -10.0,
+    "DEFAULT":0.0,
+    "DESCRIPTION": "Control amount of chromatic aberration. The middle is 'none', top and bottom are full aberration amount in opposite directions.",
+    "UI_GROUP":"optical"
+  },{
+    "NAME": "refraction",
+    "MAX" : 10.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "DESCRIPTION": "Control amount of refraction through triangle surface. High refraction results in pretty colors but can lead to FPS lag. Bottom is none, top is full.",
+    "UI_GROUP":"optical"
+  },{
+    "NAME": "surface_pulse",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "bang smooth",
+    "PARAMS": 0.08,
+    "DESCRIPTION": "Send a pulse through the triangle surface, shuffling around refracted light.",
+    "UI_GROUP": "tri_surface"
+  },{
+    "NAME": "surface_fracture",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":1.0,
+    "TYPE": "bang smooth",
+    "PARAMS": 0.1,
+    "DESCRIPTION": "Fracture the triangle surface, as if it had been shattered by a hit.",
+    "UI_GROUP": "tri_surface"
+  }]
+ }

@@ -1,0 +1,147 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "TOGGLE_ON_BEAT",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "BPM_TAP",
+         "DESCRIPTION":"Toggle this on the beat to set the BPM of the animation"
+      },{
+         "DEFAULT" : 1.0,
+         "MAX" : 1.0,
+         "MIN" : 0,
+         "NAME" : "bass_rotate",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "dispersion",
+         "DESCRIPTION":"Rotates the dispersion direction with the Bass"
+      },{
+         "DEFAULT" : 1.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "extra_noise",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "dispersion",
+         "DESCRIPTION":"Adds an extra fuzz to the dispersion"
+      },{
+         "DEFAULT" : 0.2,
+         "MAX" : 0.4,
+         "MIN" : -0.4,
+         "NAME" : "dispersion_amount",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "dispersion",
+         "DESCRIPTION":"Power of the dispersion"
+      },{
+         "DEFAULT" : 0.5,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "dispersion_contrast",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "dispersion",
+         "DESCRIPTION":"Contrast applied during the dispersion effect"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 2,
+         "MIN" : 0,
+         "NAME" : "extra_brightness",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "dispersion",
+         "DESCRIPTION":"Adds in extra brightness if the scene is too dark"
+      },{
+         "DEFAULT" : 0.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "bass_twitcher",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "shape",
+         "DESCRIPTION":"Adds some twitchy motion when the bass hits"
+      },{
+         "DEFAULT" : 0.4,
+         "MAX" : 1.0,
+         "MIN" : 0,
+         "NAME" : "stroke_thickness",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "shape",
+         "DESCRIPTION":"Thickness of the lines in the shape"
+      },{
+         "DEFAULT" : 1.4,
+         "MAX" : 2,
+         "MIN" : 0,
+         "NAME" : "radius",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "shape",
+         "DESCRIPTION":"Overall size of the shape"
+      },{
+         "DEFAULT" : 0.3,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "fuzz_shape",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "fuzz",
+         "DESCRIPTION":"Adds more fuzz to the shape"
+      },{
+         "DEFAULT" : 0.3,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "fuzz_high_hits",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "fuzz",
+         "DESCRIPTION":"Adds audio reactive fuzz to the shape"
+      },{
+         "DEFAULT" : 1.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media_on",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media",
+         "DESCRIPTION":"Adds media color into the scene"
+      },{
+         "DEFAULT" : 0.5,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "mask_shape",
+         "TYPE" : "slider",
+         "UI_GROUP" : "media",
+         "DESCRIPTION":"Allow the shape to mask the media"
+      },{
+         "DEFAULT" : 1.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "shape_affect_media",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media",
+         "DESCRIPTION":"Allow the shape to affect the media's dispersion"
+      },{
+         "DEFAULT" : 1.0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media_affect_dispersion",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "media",
+         "DESCRIPTION":"Allow the media to affect its own dispersion"
+      }
+   ],
+   "GPU": 3,
+   "TAGS" : 
+   [
+   "2d",
+   "geometric",
+   "retro"
+   ],
+   "PASSES":[{"TARGET":"mainRender"}],
+   "CREDIT" : "Meebs",
+   "DESCRIPTION" : "",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "primitiv_logik.png",
+   "TITLE" : "PRIMITIV_logik",
+   "WIDTH" : 1920
+}

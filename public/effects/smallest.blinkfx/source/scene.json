@@ -1,0 +1,28 @@
+{
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Smallest scene",
+	"GPU" : 1,
+	"IMAGE_PATH" : "scene.png",
+	"IMAGES" :
+	[
+	],
+	"MEDIA" :
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" :
+	[
+	],
+	"TAGS" :
+	[
+		"mrange",
+		"smallest",
+		"example"
+	],
+	"TITLE" : "Smallest scene",
+	"HEIGHT" : 1080,
+	"WIDTH" : 1920
+}

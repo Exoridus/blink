@@ -1,0 +1,86 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Filter Blown",
+ "IMAGE_PATH": "filter_blown.png",
+ "HARD_TRANSITIONS": [
+ {
+ "UNIFORM": "direction",
+ "VALUES":[-1.0,1.0]
+ }],
+ "GPU": 1,
+ "TAGS" : 
+ [
+  "2d",
+  "dark",
+  "media",
+  "retro"
+ ],
+ "IMAGES": [],
+ "PASSES": [ {"TARGET": "firstBuffer"}, {"TARGET": "secondBuffer"}],
+ "CONTROLS": [{
+    "NAME": "MODE_1_OR_2",
+    "MAX" : 0.0,
+    "MIN" : 1.0,
+    "DEFAULT":1.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "You must pick a video from your media. DOWN applies a motion blur effect to the video, UP uses an edge detector.",
+    "UI_GROUP":"VIDEO"
+  },{
+    "NAME": "color_palette",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "bang counter",
+    "DESCRIPTION": "Choose from one of 10 color palettes.",
+    "UI_GROUP":"color"
+  },{
+    "NAME": "invert_regime",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Stay in the same color space, but switch the direction of the palette from dark to light.",
+    "UI_GROUP":"color"
+  },{
+    "NAME": "color_oscillator",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "When on, color palette will slowly oscillate vertically on the screen. ",
+    "UI_GROUP":"color"
+  },{
+    "NAME": "motion_blur",
+    "MIN" : 0.99,
+    "MAX" : 0.00,
+    "DEFAULT":0.5,
+    "TYPE": "slider",
+    "DESCRIPTION": "Adjusts the level of motion blur. If in MODE 2 (UP), then it adjusts edge thickness.",
+    "UI_GROUP":"effects"
+  },{
+    "NAME": "contrast",
+    "MAX" : 0.0,
+    "MIN" : 3.00,
+    "DEFAULT":1.0,
+    "TYPE": "slider",
+    "DESCRIPTION": "Adjusts the contrast of the underlying image or video.",
+    "UI_GROUP":"effects"
+  },{
+    "NAME": "animation_style",
+    "MAX" : 2.9,
+    "MIN" : 0.0,
+    "DEFAULT":1.1,
+    "TYPE": "slider",
+    "DESCRIPTION": "Only works in MODE 1, changes animation style. Set to bottom for none. Set to middle for diamonds. Set to top for waves.",
+    "UI_GROUP":"animation"
+  },{
+    "NAME": "manual_animation",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.2,
+    "TYPE": "bang smooth",
+    "DESCRIPTION": "Hit to create an animation pulse.",
+    "UI_GROUP":"animation"
+  }]
+ }

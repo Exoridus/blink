@@ -1,0 +1,126 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 1.0,
+         "MAX" : 0.0,
+         "MIN" : 1.0,
+         "NAME" : "droppers",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "action",
+         "DESCRIPTION":"Adds falling objects that morph into the ceiling and floor."
+      },
+      {
+         "DEFAULT" : 1.0,
+         "MAX" : 0.0,
+         "MIN" : 1.0,
+         "NAME" : "cylinders",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "action",
+         "DESCRIPTION":"Add cylinders that cut through the room and out into the sky above."
+      },{
+         "DEFAULT" : 0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "beat_twitching",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "action",
+         "DESCRIPTION":"Jumps when it detects a beat."
+      },
+      {
+         "DEFAULT" : 0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "flashing",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "action",
+         "DESCRIPTION":"Lights in certain ridges flash on drum hits."
+      },{
+         "DEFAULT" : 0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "astral_plane",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "action",
+         "DESCRIPTION":"Removes the walls and ceiling to reveal full sky. Warning: This plus cylinders or droppers can get very laggy!"
+      },
+      {
+         "DEFAULT" : 0,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "voxelate",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.3,
+         "UI_GROUP" : "voxelation",
+         "DESCRIPTION":"Render the scene in 3D-pixels for a low-fi look."
+      },
+      {
+         "DEFAULT" : 50.0,
+         "MAX" : 1.0,
+         "MIN" : 50.0,
+         "NAME" : "voxel_size",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "voxelation",
+         "DESCRIPTION":"Increase to make the voxelation effect much more pronounced, with larger voxels."
+      },
+      {
+         "DEFAULT" : 0,
+         "MAX" : 1.0,
+         "MIN" : -1.0,
+         "NAME" : "camera_look",
+         "TYPE" : "xy smooth",
+         "UI_GROUP" : "camera",
+         "DESCRIPTION":"If manual_camera is on, use this XY to look around."
+      },
+      {
+         "DEFAULT" : 0,
+         "MAX" : -3.0,
+         "MIN" : 0.0,
+         "NAME" : "gaze_into_the_abyss",
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "camera",
+         "DESCRIPTION":"Moves camera in and looks up into the sky, which is filled with your media."
+      },
+      {
+         "DEFAULT" : 0,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "manual_camera",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "camera",
+         "DESCRIPTION":"Camera automatically rotates around the room, but turn this on to take manual control."
+      },
+
+      {
+         "DEFAULT" : 0.0,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "color_mod",
+         "TYPE" : "slider",
+         "UI_GROUP" : "color",
+         "DESCRIPTION":"Instead of the default color scheme, turning this up lets you select slight variations."
+      },      {
+         "DEFAULT" : 0.0,
+         "MAX" : 5.0,
+         "MIN" : 0.0,
+         "NAME" : "palette_select",
+         "TYPE" : "slider",
+         "UI_GROUP" : "color",
+         "DESCRIPTION":"Once color_mod is all the way up, select from one of 6 color schemes here."
+      }
+   ],
+   "CREDIT" : "aiekick",
+   "DESCRIPTION" : "Alien Cavern",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "alien_cavern.png",
+   "TITLE" : "Alien Cavern",
+   "WIDTH" : 1920,
+   "GPU": 4,
+	"TAGS" : 
+	[
+		"3d",
+      "raymarching",
+      "dark",
+      "retro"
+	]
+}

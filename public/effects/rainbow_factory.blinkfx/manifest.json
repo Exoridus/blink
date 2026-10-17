@@ -1,0 +1,585 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.rainbow_factory",
+  "title": "Rainbow Factory",
+  "author": "Psybernautics - Alex Tiemann",
+  "description": "Where rainbows are made.",
+  "thumbnail": "thumbnail.png",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "move_right",
+      "label": "move right",
+      "description": "Jump one column right",
+      "group": "fast_motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 10,
+      "step": 10
+    },
+    {
+      "name": "move_left",
+      "label": "move left",
+      "description": "Jump one column left",
+      "group": "fast_motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 10,
+      "step": 10
+    },
+    {
+      "name": "audio_edge",
+      "label": "audio edge",
+      "description": "edge detection on bass hits.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rainbow",
+      "label": "rainbow",
+      "description": "Mix in rainbow color",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "edge_mix",
+      "label": "edge mix",
+      "description": "How much edge detection is present in the shader.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "diffuse_strength",
+      "label": "diffuse strength",
+      "description": "Diffused light strength",
+      "group": "color",
+      "type": "float",
+      "default": 2,
+      "min": 0.1,
+      "max": 2
+    },
+    {
+      "name": "brightness",
+      "label": "brightness",
+      "description": "How bright the scene is.",
+      "group": "color",
+      "type": "float",
+      "default": 10,
+      "min": 10,
+      "max": 10
+    },
+    {
+      "name": "base_color",
+      "label": "base color",
+      "description": "base color, this color's complement will be calculated automatically",
+      "group": "color",
+      "type": "color",
+      "default": [
+        0.12109375,
+        0.359375,
+        0.5859375,
+        1
+      ]
+    },
+    {
+      "name": "media_color",
+      "label": "media color",
+      "description": "How much the media will appear directly painted on the objects",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "level1_geo",
+      "label": "level1 geo",
+      "description": "On: show bottom level objects, Off: hide bottom level objects",
+      "group": "geo",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "level2_geo",
+      "label": "level2 geo",
+      "description": "On: show middle level objects, Off: hide middle level objects",
+      "group": "geo",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "level3_geo",
+      "label": "level3 geo",
+      "description": "On: show top level objects, Off: hide top level objects",
+      "group": "geo",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "geo_reactive_time",
+      "label": "geo reactive time",
+      "description": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+      "group": "geo",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "geo_rate",
+      "label": "geo rate",
+      "description": "How fast the time variable grows, whether it is reactive time or constant time.",
+      "group": "geo",
+      "type": "float",
+      "default": 2,
+      "min": -10,
+      "max": 10
+    },
+    {
+      "name": "bpm_round",
+      "label": "bpm round",
+      "description": "Rounds Geometry at a rate of 25 percent of the song's BPM",
+      "group": "geo",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rounded_geo",
+      "label": "rounded geo",
+      "description": "Rounds the edges of the geometry",
+      "group": "geo",
+      "type": "float",
+      "default": 0.1,
+      "min": 0.05,
+      "max": 0.2
+    },
+    {
+      "name": "FOV",
+      "label": "FOV",
+      "description": "Field of View for the perspective of the camera",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "alt_cam",
+      "label": "alt cam",
+      "description": "On: Fixed Camera, Off: Rotating camera",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "alt_cam_onBeat",
+      "label": "alt cam onBeat",
+      "description": "Toggles between the rotating and fixed (alt) cameras based on syn_ToggleOnBeat",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "reactive_time",
+      "label": "reactive time",
+      "description": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rate_in",
+      "label": "rate in",
+      "description": "How fast the time variable grows, whether it is reactive time or constant time.",
+      "group": "camera",
+      "type": "float",
+      "default": 2,
+      "min": -10,
+      "max": 10
+    },
+    {
+      "name": "hor_mir_mix",
+      "label": "hor mir mix",
+      "description": "Smooth Horizontal Mirror Mix",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "vert_mir_mix",
+      "label": "vert mir mix",
+      "description": "Smooth Vertical Mirror Mix",
+      "group": "mirror",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "buffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA.previous",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.edgePass.previous",
+          "uniform": "edgePass"
+        },
+        {
+          "source": "target.horMirrPass.previous",
+          "uniform": "horMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "buffA",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "edgePass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.edgePass.previous",
+          "uniform": "edgePass"
+        },
+        {
+          "source": "target.horMirrPass.previous",
+          "uniform": "horMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "edgePass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "horMirrPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.edgePass",
+          "uniform": "edgePass"
+        },
+        {
+          "source": "target.horMirrPass.previous",
+          "uniform": "horMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "horMirrPass",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "target.edgePass",
+          "uniform": "edgePass"
+        },
+        {
+          "source": "target.horMirrPass",
+          "uniform": "horMirrPass"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "move_right": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "move_left": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "audio_edge": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "rainbow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "edge_mix": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "diffuse_strength": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "brightness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "base_color": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "media_color": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.100000001490116
+      },
+      "level1_geo": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "level2_geo": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "level3_geo": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "geo_reactive_time": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "geo_rate": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "bpm_round": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "rounded_geo": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "FOV": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.0350000001490116
+      },
+      "alt_cam": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "alt_cam_onBeat": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "reactive_time": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "rate_in": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.299999993294477
+      },
+      "hor_mir_mix": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.09999993294477
+      },
+      "vert_mir_mix": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.09999993294477
+      }
+    },
+    "scriptUniforms": {
+      "dynamic_time": "float",
+      "geo_dynamic_time": "float",
+      "moveRightScr": "float",
+      "abs_sin_time_16th_speed": "float",
+      "abs_sin_time_4th_speed_geo": "float",
+      "abs_sin_time_4th_speed_o_geo": "float",
+      "abs_sin_time_8th_speed_geo": "float",
+      "edgeMix": "float",
+      "altCam": "float",
+      "roundedGeo": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

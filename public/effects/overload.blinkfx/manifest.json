@@ -1,0 +1,228 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.overload",
+  "title": "Overload",
+  "author": "Alex Rowe",
+  "thumbnail": "thumbnail.jpg",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "auto_cycle",
+      "label": "auto cycle",
+      "description": "When enabled, automatically randomizes when a music transition is detected.",
+      "group": "automation",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "cycle",
+      "label": "cycle",
+      "description": "Manually trigger dropdown randomization",
+      "group": "automation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "distortion_type",
+      "label": "distortion type",
+      "description": "Distortion effect: none, gritty, wavy, or disgusting  slimy mess",
+      "group": "aesthetic",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3,
+      "step": 1
+    },
+    {
+      "name": "color_scheme",
+      "label": "color scheme",
+      "description": "Color scheme",
+      "group": "aesthetic",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "name": "weird_color",
+      "label": "weird color",
+      "description": "Enables a fuschia/cyan power punk pop palette",
+      "group": "aesthetic",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_tile",
+      "label": "media tile",
+      "description": "Tiles the media",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "logo_center",
+      "label": "logo center",
+      "description": "Centers the media (ideal for logos)",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_glitch",
+      "label": "media glitch",
+      "description": "When enabled, automatically randomizes all dropdowns on automatically detected musical transition.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "the_ritual_has_begun",
+      "label": "the ritual has begun",
+      "description": "When enabled, automatically randomizes all dropdowns on automatically detected musical transition.",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "auto_cycle": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "cycle": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "distortion_type": {
+        "format": "ssf",
+        "type": "dropdown smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01,
+        "labels": [
+          "None",
+          "Gritty",
+          "Wavy",
+          "Melting"
+        ]
+      },
+      "color_scheme": {
+        "format": "ssf",
+        "type": "dropdown smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01,
+        "labels": [
+          "Default",
+          "Green Mix",
+          "Teal Mix",
+          "Red Noise",
+          "HSV Rainbow"
+        ]
+      },
+      "weird_color": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_tile": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "logo_center": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_glitch": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "the_ritual_has_begun": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "spinTime": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

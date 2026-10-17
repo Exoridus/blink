@@ -1,0 +1,347 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.hyperspace_scenesat",
+  "title": "Hyperspace Scenesat",
+  "author": "mrange",
+  "description": "A glowing pink heart floats at the center of a geometric hyperspace tunnel, surrounded by pulsing golden structures hurtling through space. The satellite camera sways hypnotically while audio reactivity drives the intensity of the chromatic tunnel walls. CRT scanlines flicker across this retro-futuristic dreamscape, blending romance with 80s synthwave aesthetics. Created for SceneSat.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "hyperspace",
+    "heart",
+    "audio-reactive",
+    "geometric",
+    "neon",
+    "synthwave",
+    "retro",
+    "space",
+    "crt",
+    "romantic",
+    "ambient"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "use_media",
+      "label": "use media",
+      "description": "Show media – display input video or scenesat logo",
+      "group": "Media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_zoom",
+      "label": "media zoom",
+      "description": "Media zoom – scale inner video",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0.25,
+      "max": 4
+    },
+    {
+      "name": "satellite_distance",
+      "label": "satellite distance",
+      "description": "Camera distance – zoom in/out from satellite",
+      "group": "Camera",
+      "type": "float",
+      "default": 1.1,
+      "min": 1,
+      "max": 9
+    },
+    {
+      "name": "sway_factor",
+      "label": "sway factor",
+      "description": "Camera sway – side-to-side motion amplitude",
+      "group": "Camera",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1.5
+    },
+    {
+      "name": "screen_distance",
+      "label": "screen distance",
+      "description": "Screen position – depth of inner reflections plane",
+      "group": "Camera",
+      "type": "float",
+      "default": -0.1,
+      "min": -0.5,
+      "max": 2
+    },
+    {
+      "name": "show_satellite",
+      "label": "show satellite",
+      "description": "Show satellite – toggle satellite on or off",
+      "group": "Camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "spectrum_boost",
+      "label": "spectrum boost",
+      "description": "Audio intensity – amplify spectrum in hyperspace",
+      "group": "Audio",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "beat_boost",
+      "label": "beat boost",
+      "description": "Beat intensity – amplify hyperspace response to audio beat",
+      "group": "Audio",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 4
+    },
+    {
+      "name": "screen_brightness",
+      "label": "screen brightness",
+      "description": "Screen brightness – intensity of inner screen",
+      "group": "Effects",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "crt_effect",
+      "label": "crt effect",
+      "description": "CRT scanlines – add retro screen effect",
+      "group": "Effects",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_base",
+      "label": "color base",
+      "description": "Color base – hyperspace lines base hue",
+      "group": "Colors",
+      "type": "float",
+      "default": 6,
+      "min": 0,
+      "max": 7
+    },
+    {
+      "name": "color_off0",
+      "label": "color off0",
+      "description": "Color offset 1 – shift hue of primary hyperspace layer",
+      "group": "Colors",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 9
+    },
+    {
+      "name": "color_off1",
+      "label": "color off1",
+      "description": "Color offset 2 – shift hue of secondary hyperspace layer",
+      "group": "Colors",
+      "type": "float",
+      "default": 8,
+      "min": 0,
+      "max": 9
+    },
+    {
+      "name": "color_off2",
+      "label": "color off2",
+      "description": "Color offset 3 – shift hue of tertiary hyperspace layer",
+      "group": "Colors",
+      "type": "float",
+      "default": 4,
+      "min": 0,
+      "max": 9
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "t_scenesat",
+      "type": "texture2d",
+      "path": "assets/t_scenesat.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "asset.t_scenesat",
+          "uniform": "t_scenesat"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "use_media": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_zoom": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "satellite_distance": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.02
+      },
+      "sway_factor": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "screen_distance": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.02
+      },
+      "show_satellite": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "spectrum_boost": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "beat_boost": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.21201
+      },
+      "screen_brightness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "crt_effect": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_base": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "color_off0": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20201
+      },
+      "color_off1": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19601
+      },
+      "color_off2": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.24301
+      }
+    },
+    "scriptUniforms": {
+      "zcolor": "vec4",
+      "time": "float",
+      "bass_thump": "float",
+      "cam_RO": "vec3",
+      "cam_X": "vec3",
+      "cam_Y": "vec3",
+      "cam_Z": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

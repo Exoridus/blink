@@ -1,0 +1,509 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.biopsy_v2",
+  "title": "Biopsy_V2",
+  "author": "Meebs ft. Flexi",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "simulation",
+    "feedback",
+    "abstract",
+    "media",
+    "reaction-diffusion"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "drips",
+      "label": "drips",
+      "description": "Changes the simulation to make it more drippy.",
+      "group": "motion",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "slicing",
+      "label": "slicing",
+      "description": "Automatically slice the simulation on the beats in the music.",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "stretching",
+      "label": "stretching",
+      "description": "Vertical and horizontal stretching in time with the music.",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "distort",
+      "label": "distort",
+      "description": "Adds a slow lens distortion. Add vertical or horizontal mirrors for best effect.",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "in_or_out",
+      "label": "in or out",
+      "group": "motion",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "circle_on",
+      "label": "circle on",
+      "description": "If on, only center circle will be 'fiery'.",
+      "group": "circle",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "circle_size",
+      "label": "circle size",
+      "description": "Size of center circle.",
+      "group": "circle",
+      "type": "float",
+      "default": 0,
+      "min": -0.3,
+      "max": 1
+    },
+    {
+      "name": "color_palette",
+      "label": "color palette",
+      "description": "Choose from one of three color palettes.",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "flashing",
+      "label": "flashing",
+      "description": "Flash yellow on high hits.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "no_shading",
+      "label": "no shading",
+      "description": "Default scene has a darker, subtly audio reactive shading. Turn this up to use full-color, no shading.",
+      "group": "color",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "down_sweep",
+      "label": "down sweep",
+      "description": "Send a sweep through the simulation.",
+      "group": "sweep",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "up_sweep",
+      "label": "up sweep",
+      "description": "Send a sweep through the simulation.",
+      "group": "sweep",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "left_sweep",
+      "label": "left sweep",
+      "description": "Send a sweep through the simulation.",
+      "group": "sweep",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "right_sweep",
+      "label": "right sweep",
+      "description": "Send a sweep through the simulation.",
+      "group": "sweep",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "inOrOut",
+      "label": "inOrOut",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    },
+    {
+      "name": "mode",
+      "label": "mode",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "colornoise",
+      "type": "texture2d",
+      "path": "assets/colornoise.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "buffB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB.previous",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2.previous",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "target.buffC.previous",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffB",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffB2",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2.previous",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "target.buffC.previous",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffB2",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffC",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "target.buffC.previous",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffC",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffD",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "target.buffC",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD.previous",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffD",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.buffB",
+          "uniform": "buffB"
+        },
+        {
+          "source": "target.buffB2",
+          "uniform": "buffB2"
+        },
+        {
+          "source": "target.buffC",
+          "uniform": "buffC"
+        },
+        {
+          "source": "target.buffD",
+          "uniform": "buffD"
+        },
+        {
+          "source": "asset.colornoise",
+          "uniform": "colornoise"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "drips": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "slicing": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "stretching": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "distort": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "in_or_out": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "circle_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "circle_size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "color_palette": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "flashing": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "no_shading": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "down_sweep": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "up_sweep": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "left_sweep": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "right_sweep": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

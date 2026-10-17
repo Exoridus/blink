@@ -1,0 +1,438 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.terrain_lattice",
+  "title": "Terrain Lattice",
+  "author": "Shane",
+  "description": "A hybrid point-lit, flat-shaded terrain with a mesh structure on it.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "3d",
+    "realistic",
+    "raymarching",
+    "media"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "hori_sg",
+      "label": "hori sg",
+      "description": "Turn horizontal segments on or off.",
+      "group": "tubes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "vert_sg",
+      "label": "vert sg",
+      "description": "Turn vertical segments on or off.",
+      "group": "tubes",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "diag_sg",
+      "label": "diag sg",
+      "description": "Turn diagonal segments on or off.",
+      "group": "tubes",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "stick_sg",
+      "label": "stick sg",
+      "description": "Turn stick segments on or off.",
+      "group": "tubes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "sphere_sg",
+      "label": "sphere sg",
+      "description": "Turn sphere segments on or off.",
+      "group": "tubes",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_thickness",
+      "label": "auto thickness",
+      "description": "When this is ON, the tubes will bump with drum hits, when OFF, they'll keep a constant thickness.",
+      "group": "tubes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "thickness",
+      "label": "thickness",
+      "description": "Thickness of the tubes and spheres. Default 25%.",
+      "group": "tubes",
+      "type": "float",
+      "default": 0.25,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "perturbation",
+      "label": "perturbation",
+      "description": "0% is fully flat. 100% is high pointed peaks. Default is 25%.",
+      "group": "floor",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 4
+    },
+    {
+      "name": "auto_perturb",
+      "label": "auto perturb",
+      "description": "Floor will automatically change from flat to perturbed slowly as the music energy rises and falls.",
+      "group": "floor",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "blinking_floor",
+      "label": "blinking floor",
+      "description": "Turn ON for audio-reactive blinking floor. You'll need to choose a floor color that is non-black as well.",
+      "group": "floor",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "overblown",
+      "label": "overblown",
+      "description": "ON to make the 3D lighting overblown and sharp.",
+      "group": "floor",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.2,
+      "step": 0.2
+    },
+    {
+      "name": "flat_blurred",
+      "label": "flat blurred",
+      "description": "ON make the 3D lighting flat and blurred.",
+      "group": "floor",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.8,
+      "step": 0.8
+    },
+    {
+      "name": "glossy",
+      "label": "glossy",
+      "description": "ON for a smooth, glossy floor, or OFF for the low-poly triangle floor.",
+      "group": "floor",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_scale",
+      "label": "media scale",
+      "description": "How much of the floor the media covers. Default 50%, up to make it small and tiled, down to make it huge.",
+      "group": "look",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "zoom",
+      "label": "zoom",
+      "description": "Defines the scale of the space. Down to zoom in, up to zoom out. Best to just click a new spot, not use smoothly.",
+      "group": "look",
+      "type": "float",
+      "default": 1.5,
+      "min": 0,
+      "max": 4
+    },
+    {
+      "name": "pipe_col",
+      "label": "pipe col",
+      "description": "Color of the pipes.",
+      "group": "look",
+      "type": "color",
+      "default": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "floor_col",
+      "label": "floor col",
+      "description": "The color of the floor. Make this non-black to use the blinking floor effect. If you have media selected, this is ignored.",
+      "group": "look",
+      "type": "color",
+      "default": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "auto_split",
+      "label": "auto split",
+      "description": "Turn ON for red/cyan split when the bass hits, or OFF for a constant split controlled by the slider.",
+      "group": "redcyan_split",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "incl_original",
+      "label": "incl original",
+      "description": "Turn ON to splits the red and cyan color channels, but also keep the unchanged original colors, or OFF for just red/cyan.",
+      "group": "redcyan_split",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "noisy_split",
+      "label": "noisy split",
+      "description": "Turn ON for a noisier split efect, or off for the standard split.",
+      "group": "redcyan_split",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "split_amt",
+      "label": "split amt",
+      "description": "Default: 0%, meaning split effect is off. Turn up to increase the intensity of the red/cyan split effect.",
+      "group": "redcyan_split",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 2
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "image3",
+      "type": "texture2d",
+      "path": "assets/3.jpg",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "meshPass",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.meshPass.previous",
+          "uniform": "meshPass"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "meshPass",
+        "width": 768,
+        "height": 432,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.meshPass",
+          "uniform": "meshPass"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "hori_sg": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "vert_sg": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "diag_sg": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "stick_sg": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "sphere_sg": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_thickness": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "thickness": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "perturbation": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "auto_perturb": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "blinking_floor": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "overblown": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "flat_blurred": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "glossy": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_scale": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "zoom": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "pipe_col": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "floor_col": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "auto_split": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "incl_original": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "noisy_split": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "split_amt": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

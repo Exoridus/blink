@@ -1,0 +1,189 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "RGB or CMYK for glitch colors",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "rgb_vs_cmyk",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "glitch"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Audio-reactive glitch flashes",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "glitch_flashes",
+         "TYPE" : "knob",
+         "UI_GROUP" : "glitch"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Constant glitch effect (non-reactive)",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "glitch_constant",
+         "TYPE" : "slider",
+         "UI_GROUP" : "glitch"
+      },
+      {
+         "DEFAULT" : 0.85,
+         "DESCRIPTION" : "How far the glitch extends outward",
+         "MAX" : 2,
+         "MIN" : 0,
+         "NAME" : "glitch_scale",
+         "TYPE" : "slider",
+         "UI_GROUP" : "glitch"
+      },
+      {
+         "DEFAULT" : 0.3,
+         "DESCRIPTION" : "Audio-reactive fuzz flashes",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "fuzz_flashes",
+         "TYPE" : "knob",
+         "UI_GROUP" : "fuzz"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Constant fuzz effect (non-reactive)",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "fuzz_constant",
+         "TYPE" : "slider",
+         "UI_GROUP" : "fuzz"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "How far the fuzz extends outward",
+         "MAX" : 2,
+         "MIN" : 0,
+         "NAME" : "fuzz_scale",
+         "TYPE" : "slider",
+         "UI_GROUP" : "fuzz"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Amount of feedback",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "feedback_amt",
+         "TYPE" : "slider",
+         "UI_GROUP" : "feedback"
+      },
+      {
+         "DEFAULT" : 0.2,
+         "DESCRIPTION" : "",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "feedback_scale",
+         "TYPE" : "slider",
+         "UI_GROUP" : "feedback"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "feedback_style",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.5,
+         "UI_GROUP" : "feedback"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Shake the screen",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "anger_shake",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.25,
+         "UI_GROUP" : "fx"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Send a ripple outward",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "ripple_snap",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "fx"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Switches from main pattern to simple lines to save FPS on older computers",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "save_fps",
+         "TYPE" : "toggle",
+         "PARAMS":0.1,
+         "UI_GROUP" : "pattern"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Switches to a subtractive pattern instead of additive",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "mix_type",
+         "TYPE" : "toggle",
+         "PARAMS":0.1,
+         "UI_GROUP" : "pattern"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Multiplies the pattern into the media",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "pattern_media_multiply",
+         "TYPE" : "toggle",
+         "PARAMS":0.1,
+         "UI_GROUP" : "pattern"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Makes the pattern jump on the beat for when you need maximum tactical glitch",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "beat_jump",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "pattern"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Mixes the media into the pattern",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media_glitch",
+         "TYPE" : "toggle",
+         "PARAMS":0.1,
+         "UI_GROUP" : "media_glitch"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Makes all the other effects only happen towards the edges of the screen",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "vignette",
+         "TYPE" : "slider",
+         "UI_GROUP" : "vignette"
+      },{
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Inverts the vignette so all effects only happen towards the center",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "vignette_invert",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "vignette"
+      }
+   ],
+   "CREDIT" : "Meebs",
+   "DESCRIPTION" : "",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "fuzzy_signal.png",
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "TARGET" : "feedback"
+      }
+   ],
+   "TITLE" : "Fuzzy Signal",
+   "WIDTH" : 1920,
+   "GPU": 4,
+   "TAGS" : 
+   [
+    "glitchy",
+    "feedback",
+    "colorful",
+    "groovy"
+   ]
+}

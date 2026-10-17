@@ -1,0 +1,98 @@
+{
+  "CREDIT": "Meebs",
+  "TITLE": "Deeper",
+  "IMAGE_PATH": "deeper.png",
+  "GPU": 2,
+  "TAGS" : 
+  [
+   "raymarching",
+   "3d",
+   "dark",
+   "grayscale",
+   "tunnel",
+   "infinite"
+  ],
+  "CONTROLS": [
+    {
+      "NAME" : "fly_in_out",
+      "TYPE" : "slider traveler",
+      "PARAMS": 0.15,
+      "UI_GROUP": "camera",
+      "DESCRIPTION":"Fly deeper quickly or go slowly backwards."
+    },{
+      "NAME" : "rotating",
+      "TYPE" : "toggle",
+      "DEFAULT":0.0,
+      "UI_GROUP": "camera",
+      "DESCRIPTION":"Constant rotation, spinning the scene."
+    },{
+      "NAME" : "beams_on",
+      "TYPE" : "toggle smooth",
+      "PARAMS": 0.1,
+      "DEFAULT" : 0.0,
+      "UI_GROUP": "beams",
+      "DESCRIPTION":"Add in beams, and control their brightness with beam glow."
+    },{
+      "NAME" : "many_beams",
+      "TYPE" : "toggle",
+      "DEFAULT" : 0.0,
+      "UI_GROUP": "beams",
+      "DESCRIPTION":"A few thin beams, or many undulating beams."
+    },{
+      "NAME" : "beam_glow",
+      "TYPE" : "slider smooth",
+      "PARAMS": 0.1,
+      "DEFAULT" :0.0,
+      "MIN" : 0,
+      "MAX" : 0.5,
+      "UI_GROUP": "beams",
+      "DESCRIPTION":"Controls how brightly the beams glow."
+    },{
+      "NAME" : "undulating",
+      "TYPE" : "toggle",
+      "DEFAULT" : 0.0,
+      "UI_GROUP": "cavern",
+      "DESCRIPTION":"Rhythmic contractions of the cavern lining..."
+    },{
+      "NAME" : "wave_pulse",
+      "TYPE" : "bang smooth",
+      "PARAMS": 0.01,
+      "DEFAULT" :0.0,
+      "MIN" : 0,
+      "MAX" : 1,
+      "UI_GROUP": "cavern",
+      "DESCRIPTION":"Send one smooth pulse outward from the camera."
+    },{
+      "NAME" : "light_chaser",
+      "TYPE" : "toggle",
+      "DEFAULT" :0.0,
+      "MIN" : 0,
+      "MAX" : 1,
+      "UI_GROUP": "lighting",
+      "DESCRIPTION":"A light that chases down the corridor in time with the music."
+    },{
+      "NAME" : "lights_react",
+      "TYPE" : "toggle",
+      "DEFAULT" :0.0,
+      "MIN" : 0,
+      "MAX" : 1,
+      "UI_GROUP": "lighting",
+      "DESCRIPTION":"Flash the lights according to the music, instead of constant lights."
+    },{
+      "NAME" : "colorful",
+      "TYPE" : "toggle",
+      "DEFAULT":0.0,
+      "UI_GROUP": "lighting",
+      "DESCRIPTION":"Stuff gets colorful! Definitely experiment with walls texture while this is on."
+    },{
+      "NAME" : "walls_texture",
+      "TYPE" : "slider",
+      "DEFAULT":0.0,
+      "UI_GROUP": "lighting",
+      "DESCRIPTION":"Add spiral bumps to the surface of the corridor."
+    }
+  ],
+  "PASSES": [
+    {"TARGET":"backbuffer", "WIDTH":1024, "HEIGHT":576}
+  ]
+}

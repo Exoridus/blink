@@ -1,0 +1,72 @@
+{
+  "CREDIT": "Felix Woitzel",
+  "TITLE": "Nova",
+  "IMAGE_PATH": "nova.jpg",
+  "SMOOTH_TRANSITIONS":[{
+  "UNIFORMS":["light", "dark"],
+  "DURATION": 3
+},{
+  "UNIFORMS":["cReg1", "cReg0", "cReg2", "cReg3"],
+  "DURATION": 3
+  }],
+  "PASSES": [ {"TARGET":"buffA", "WIDTH":960, "HEIGHT":540, "FLOAT": true},
+  {"TARGET":"buffC", "WIDTH":960, "HEIGHT":540, "FLOAT": true},
+  {"TARGET":"buffD", "WIDTH":960, "HEIGHT":540, "FLOAT": true}
+  ],
+  "GPU": 2,
+  "TAGS" : 
+  [
+  "groovy",
+  "mandala",
+  "dark"
+  ],
+  "CONTROLS":[
+  {
+    "NAME":"simplify",
+    "TYPE": "slider smooth",
+    "DEFAULT":0,
+    "MAX":1.0,
+    "MIN":0.0,
+    "PARAMS":0.25,
+    "DESCRIPTION": "Turn up to simplify the scene into a few splotches of color.",
+    "UI_GROUP":"zoom"
+  },
+    {
+    "NAME":"sandstorm",
+    "TYPE": "slider smooth",
+    "DEFAULT":0,
+    "MIN":0.0,
+    "MAX":1.0,
+    "PARAMS":0.4,
+    "DESCRIPTION": "'Zooms Out' when turned up, causing a grainy effect like a sandstorm.",
+    "UI_GROUP":"zoom"
+  },
+  {
+    "NAME":"flashing",
+    "UI_GROUP": "action",
+    "TYPE": "toggle",
+    "DEFAULT":0,
+    "DESCRIPTION": "Cause the slopes of the texture to highlight on high percussive hits."
+  },
+  {
+    "NAME":"pulsate",
+    "TYPE": "toggle",
+    "UI_GROUP": "action",
+    "DEFAULT":0,
+    "DESCRIPTION": "While ON, pulses emanate outwards synced to the BPM of the song."
+  },{
+    "NAME":"radial_grid",
+    "TYPE": "toggle",
+    "UI_GROUP": "action",
+    "DEFAULT":0,
+    "DESCRIPTION": "A radial grid effect that emanates out from the center like rays of energy."
+  },{
+    "NAME":"beat_rotate",
+    "TYPE": "toggle",
+    "UI_GROUP": "action",
+    "DEFAULT":0,
+    "DESCRIPTION": "Rotates the main texture on the beat when set to ON. Standard slow rotation when set to OFF."
+  }
+  ]
+}
+

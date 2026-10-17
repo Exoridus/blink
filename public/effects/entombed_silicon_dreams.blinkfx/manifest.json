@@ -1,0 +1,696 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.entombed_silicon_dreams",
+  "title": "Entombed Silicon Dreams",
+  "author": "mrange",
+  "description": "Entombed Silicon Dreams",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "How much to blend media with scene",
+      "group": "Media",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_displace",
+      "label": "media displace",
+      "description": "How strongly the media is displaced by the scene's color",
+      "group": "Media",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "speed",
+      "label": "speed",
+      "description": "Forward flight speed, negative reverses direction",
+      "group": "Movement",
+      "type": "float",
+      "default": 4,
+      "min": -9,
+      "max": 9
+    },
+    {
+      "name": "camera_direction",
+      "label": "camera direction",
+      "description": "Camera aim offset (X: left/right tilt, Y: up/down tilt)",
+      "group": "Movement",
+      "type": "point2d",
+      "default": [
+        -0.5,
+        0.1
+      ],
+      "min": [
+        -2,
+        -2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "camera_pos",
+      "label": "camera pos",
+      "description": "Camera position offset",
+      "group": "Movement",
+      "type": "point2d",
+      "default": [
+        25,
+        3.3
+      ],
+      "min": [
+        15,
+        1
+      ],
+      "max": [
+        35,
+        9
+      ]
+    },
+    {
+      "name": "base_hue",
+      "label": "base hue",
+      "description": "Master hue shift for the entire scene palette",
+      "group": "Color",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "color_burn_hue",
+      "label": "color burn hue",
+      "description": "Hue of the vignette burn applied at the screen edges",
+      "group": "Color",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "color_burn_saturation",
+      "label": "color burn saturation",
+      "description": "Saturation of the vignette burn color",
+      "group": "Color",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "color_burn_intensity",
+      "label": "color burn intensity",
+      "description": "Strength of the vignette burn at screen edges",
+      "group": "Color",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "bloom_amount",
+      "label": "bloom amount",
+      "description": "Bloom intensity",
+      "group": "Color",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 8
+    },
+    {
+      "name": "tomb_probability",
+      "label": "tomb probability",
+      "description": "Density of pyramid tombs in the field — higher fills more grid slots",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.33,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "ring_direction",
+      "label": "ring direction",
+      "description": "Tilt of the planetary ring plane (X/Y adjust the surface normal)",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        -0.2,
+        -1.1
+      ],
+      "min": [
+        -2,
+        -2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "light_direction",
+      "label": "light direction",
+      "description": "Direction of the main light (affects shading on sphere and ring)",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        1,
+        -0.5
+      ],
+      "min": [
+        -2,
+        -2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "gas_giant_position",
+      "label": "gas giant position",
+      "description": "World-space position of the gas giant (X: left/right, Y: up/down)",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        -700,
+        300
+      ],
+      "min": [
+        -900,
+        -300
+      ],
+      "max": [
+        300,
+        500
+      ]
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Blend of previous frame — creates motion trails and temporal smoothing",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.05,
+      "min": 0,
+      "max": 0.992
+    },
+    {
+      "name": "fov",
+      "label": "fov",
+      "description": "Field of view — lower is more zoomed, higher is wider and more immersive",
+      "group": "Visual",
+      "type": "float",
+      "default": 2,
+      "min": 1,
+      "max": 4
+    },
+    {
+      "name": "fft_limit",
+      "label": "fft limit",
+      "description": "Minimum spectrum intensity to show on the ring, raise to reduce noise, lower to show more detail",
+      "group": "Audio",
+      "type": "float",
+      "default": 0.4,
+      "min": -0.125,
+      "max": 1.01
+    },
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Audio response strength (X: bass level, Y: bass hits)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.1,
+        0.3
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Audio response curve (higher = more intense reaction)",
+      "group": "Audio",
+      "type": "float",
+      "default": 4.5,
+      "min": 0,
+      "max": 6
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "BuffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA.previous",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC.previous",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "target.BuffD.previous",
+          "uniform": "BuffD"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "BuffA",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba8",
+        "sampling": {
+          "filter": "mipmap",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC.previous",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "target.BuffD.previous",
+          "uniform": "BuffD"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "BuffB",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba8",
+        "sampling": {
+          "filter": "mipmap",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffC",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC.previous",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "target.BuffD.previous",
+          "uniform": "BuffD"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "BuffC",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba8",
+        "sampling": {
+          "filter": "mipmap",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffD",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "target.BuffD.previous",
+          "uniform": "BuffD"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "BuffD",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba8",
+        "sampling": {
+          "filter": "mipmap",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "target.BuffD",
+          "uniform": "BuffD"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "media_displace": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "speed": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "camera_direction": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.02
+      },
+      "camera_pos": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.04
+      },
+      "base_hue": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_burn_hue": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_burn_saturation": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_burn_intensity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bloom_amount": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "tomb_probability": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "ring_direction": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "light_direction": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "gas_giant_position": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.10601
+      },
+      "fov": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.10001
+      },
+      "fft_limit": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    },
+    "scriptUniforms": {
+      "OFF": "float",
+      "GG": "vec4",
+      "BY": "vec3",
+      "BG": "vec3",
+      "BW": "vec3",
+      "BF": "vec3",
+      "FC": "vec3",
+      "RN": "vec3",
+      "LD": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

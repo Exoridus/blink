@@ -1,0 +1,329 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.canvas",
+  "title": "Canvas",
+  "author": "Synesthesia",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "grayscale",
+    "feedback",
+    "media",
+    "dark"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "pulser_on",
+      "label": "pulser on",
+      "description": "Creates pulses emanating from the center. Moves on BPM with the option bpm pulse, or manually with the button manual pulse.",
+      "group": "pulser",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "bpm_pulse",
+      "label": "bpm pulse",
+      "description": "Pulses every two beats, based on bpm.",
+      "group": "pulser",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "manual_pulse",
+      "label": "manual pulse",
+      "description": "bpm pulse should be set to OFF to use this. Manually create a pulse on press.",
+      "group": "pulser",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "beat_flasher_on",
+      "label": "beat flasher on",
+      "description": "Flashes the whole screen when a beat is detected if set to on.",
+      "group": "flasher",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "bpm_flasher_on",
+      "label": "bpm flasher on",
+      "description": "Turns the screen into a BPM strobe effect when set to on.",
+      "group": "flasher",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "painter_on",
+      "label": "painter on",
+      "description": "Turns the screen into a BPM strobe effect when set to on.",
+      "group": "painter",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_painter",
+      "label": "auto painter",
+      "description": "When set to on, pushes the brush around the screen in time to the music. Disable this to manually control the painter.",
+      "group": "painter",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "paint_pulse",
+      "label": "paint pulse",
+      "description": "Pulse the size of the brush on button press.",
+      "group": "painter",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "manual_painter",
+      "label": "manual painter",
+      "description": "auto painter MUST BE SET TO OFF. Manually move the brush around the screen by using the pad.",
+      "group": "painter",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "brush_size",
+      "label": "brush size",
+      "description": "Change the size of the circular paintbrush by moving this slider.",
+      "group": "painter",
+      "type": "float",
+      "default": 0.44,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "feedback",
+      "label": "feedback",
+      "description": "Add motion blur to everything in the scene. Higher is more blur.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0.4,
+      "min": 0,
+      "max": 0.99
+    },
+    {
+      "name": "noise_on",
+      "label": "noise on",
+      "description": "Add a white noise/grain effect to everything in the scene.",
+      "group": "general",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "invert",
+      "label": "invert",
+      "description": "Change from white on black to black on white.",
+      "group": "general",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "brightness",
+      "label": "brightness",
+      "description": "Change brightness of the output. With feedback this can get overdriven to complete whiteout.",
+      "group": "general",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "pulser_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "bpm_pulse": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "manual_pulse": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "beat_flasher_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "bpm_flasher_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "painter_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_painter": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "paint_pulse": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "manual_painter": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "brush_size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "feedback": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "noise_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "invert": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      },
+      "brightness": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.25
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

@@ -1,0 +1,27 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "replik8",
+ "IMAGE_PATH": "replik8.png",
+ "IMAGES": [{
+    "PATH": "images/colornoise.jpg",
+    "NAME": "colornoise"
+  }],
+  "GPU": 3,
+  "TAGS" : 
+  [
+  "2d",
+  "geometric",
+  "grayscale",
+  "media"
+  ],
+ "PASSES": [{"TARGET": "backbuffer", "WIDTH": 1280, "HEIGHT":720}],
+ "CONTROLS": [
+ {"NAME":"circle_or_tri", "TYPE": "toggle smooth", "UI_GROUP": "geometry", "PARAMS": 0.1},
+ {"NAME":"distort", "TYPE": "slider smooth", "UI_GROUP": "geometry", "PARAMS": 0.1, "MIN":-0.2, "MAX":0.2, "DEFAULT":0.0},
+ {"NAME":"layers_on", "TYPE": "toggle smooth", "UI_GROUP": "layers", "MAX": 1.0, "DEFAULT": 1.0, "PARAMS":0.1},
+ {"NAME":"twist", "TYPE": "toggle smooth", "UI_GROUP": "layers", "MAX": 1.0, "DEFAULT": 0.0},
+ {"NAME":"flashing", "TYPE": "toggle", "UI_GROUP": "layers", "MAX": 1.0, "DEFAULT": 0.0},
+ {"NAME":"power_zoom", "TYPE": "slider smooth", "UI_GROUP": "layers", "MAX": 1.0, "DEFAULT": 0.2},
+ {"NAME":"media_on", "TYPE": "toggle smooth", "UI_GROUP": "media", "MAX": 1.0, "DEFAULT": 1.0, "PARAMS":0.2, "DESCRIPTION":"Use this scene with Media!"}
+ ]
+ }

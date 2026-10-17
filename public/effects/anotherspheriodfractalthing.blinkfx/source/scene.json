@@ -1,0 +1,110 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0.230000004172325,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0.0500000007450581,
+         "NAME" : "range",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      },
+      {
+         "DEFAULT" : -1.07000005245209,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 3,
+         "MIN" : -3,
+         "NAME" : "cycle",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      },
+      {
+         "DEFAULT" : 1.86000001430511,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 5,
+         "MIN" : -5,
+         "NAME" : "rate",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      },
+      {
+         "DEFAULT" : -0.600000023841858,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "CX",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      },
+      {
+         "DEFAULT" : -0.800000011920929,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "CY",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      },
+      {
+         "DEFAULT" : 0.100000001490116,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "CZ",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      },
+      {
+         "DEFAULT" : -3.1415901184082,
+         "DESCRIPTION" : "X rotate",
+         "IS_META" : false,
+         "MAX" : 6.28318548202515,
+         "MIN" : -6.28318548202515,
+         "NAME" : "RX",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      },
+      {
+         "DEFAULT" : 1.570796251297,
+         "DESCRIPTION" : "Y rotate",
+         "IS_META" : false,
+         "MAX" : 6.28318548202515,
+         "MIN" : -6.28318548202515,
+         "NAME" : "RY",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      },
+      {
+         "DEFAULT" : -1.570796251297,
+         "DESCRIPTION" : "Z rotate",
+         "IS_META" : false,
+         "MAX" : 6.28318548202515,
+         "MIN" : -6.28318548202515,
+         "NAME" : "RZ",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      },
+      {
+         "DEFAULT" : 0.759999990463257,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "morph",
+         "TYPE" : "slider",
+         "UI_GROUP" : "ungrouped"
+      }
+   ],
+   "CREDIT" : "by mojovideotech",
+   "DESCRIPTION" : "",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "anotherspheriodfractalthing.png",
+   "TITLE" : "AnotherSpheriodFractalThing",
+   "WIDTH" : 1920
+}

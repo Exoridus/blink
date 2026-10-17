@@ -1,0 +1,104 @@
+{
+  "CREDIT": "sheltron",
+  "TITLE": "Hex Array",
+  "IMAGE_PATH": "hex_array.png",
+  "GPU": 2,
+  "TAGS" : 
+  [
+   "3d",
+   "raymarching",
+   "dark",
+   "tunnel",
+   "infinite"
+  ],
+  "CONTROLS": [
+    {
+      "NAME" : "spin",
+      "TYPE" : "knob smooth",
+      "PARAMS": 0.11,
+      "DEFAULT" :3.14,
+      "MIN" : 0,
+      "MAX" : 6.28,
+      "UI_GROUP": "twist"
+    },
+    {
+      "NAME" : "squiggle",
+      "TYPE" : "knob smooth",
+      "PARAMS": 0.11,
+      "DEFAULT" : 0.5,
+      "MIN" : -1.5,
+      "MAX" : 1.5,
+      "UI_GROUP": "twist"
+    },
+    {
+      "NAME" : "separation",
+      "TYPE" : "slider smooth",
+      "PARAMS": 0.11,
+      "DEFAULT" : 0.5,
+      "MIN" : 0.01,
+      "MAX" : 3,
+      "UI_GROUP": "space"
+    },
+    {
+      "NAME" : "xy_mod",
+      "TYPE" : "xy smooth",
+      "PARAMS": 0.11,
+      "DEFAULT" : 0.5,
+      "MIN" : 0.0,
+      "MAX" : 5,
+      "UI_GROUP": "space"
+    },
+    {
+      "NAME" : "fly_in_out",
+      "TYPE" : "slider traveler",
+      "PARAMS": 0.08,
+      "UI_GROUP": "space"
+    },
+    {
+      "NAME" : "size",
+      "TYPE" : "slider smooth",
+      "PARAMS": 0.15,
+      "DEFAULT" : 0.4,
+      "MIN" : 0.01,
+      "MAX" : 1.4,
+      "UI_GROUP": "hexagons"
+    },
+    {
+      "NAME" : "size_hole",
+      "TYPE" : "slider smooth",
+      "PARAMS": 0.15,
+      "DEFAULT" : 0.5,
+      "MIN" : 0,
+      "MAX" : 1,
+      "UI_GROUP": "hexagons"
+    },
+    {
+      "NAME" : "depth",
+      "TYPE" : "slider smooth",
+      "PARAMS": 0.11,
+      "DEFAULT" : 0.1,
+      "MIN" : 0.001,
+      "MAX" : 1,
+      "UI_GROUP": "hexagons"
+    },{
+      "NAME" : "greyscale",
+      "TYPE" : "toggle",
+      "DEFAULT" : 0,
+      "MIN" : 0,
+      "MAX" : 1,
+      "UI_GROUP": "color"
+    },{
+      "NAME" : "lighting",
+      "TYPE" : "slider smooth",
+      "PARAMS": 0.4,
+      "DEFAULT" :0.7,
+      "MIN" : 0,
+      "MAX" : 1,
+      "UI_GROUP": "color"
+    }
+
+  ],
+  "PASSES": [
+    {"TARGET":"backbuffer", "WIDTH":1200, "HEIGHT":720}
+  ]
+}

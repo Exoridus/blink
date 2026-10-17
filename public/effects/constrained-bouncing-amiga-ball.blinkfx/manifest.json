@@ -1,0 +1,464 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.constrained_bouncing_amiga_ball",
+  "title": "Constrained Bouncing Amiga Ball",
+  "author": "mrange",
+  "description": "A neon-soaked homage to computing history. The iconic red and white checkered Amiga sphere bounces within a glowing wireframe cosmos,    rendered in cutting-edge path tracing. Audio-reactive controls let you feel the music's pulse through bass-driven visualization and neon effects. Adjust camera rotations, reflections, and celestial elements to explore this reimagined Amiga universe. Retro computing heritage meets modern rendering.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "bouncy",
+    "amiga",
+    "path_tracer",
+    "audio-reactive",
+    "retro",
+    "crt",
+    "neon",
+    "space",
+    "grid",
+    "sphere"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "min_bass_gain",
+      "label": "min bass gain",
+      "description": "Minimum bass gain – lower value for bass response",
+      "group": "Audio",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "max_bass_gain",
+      "label": "max bass gain",
+      "description": "Maximum bass gain – upper value for bass response",
+      "group": "Audio",
+      "type": "float",
+      "default": 1.5,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "main_bass_gain",
+      "label": "main bass gain",
+      "description": "Main bass gain – multiplier for bass visualization intensity",
+      "group": "Audio",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "low_bass_edge",
+      "label": "low bass edge",
+      "description": "Bass threshold low – lower smoothstep edge for FFT visualization",
+      "group": "Audio",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "high_bass_edge",
+      "label": "high bass edge",
+      "description": "Bass threshold high – upper smoothstep edge for FFT visualization",
+      "group": "Audio",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "drop_ball",
+      "label": "drop ball",
+      "description": "Drop ball – reset the bouncing ball to starting position",
+      "group": "Visual",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "crt_effect",
+      "label": "crt effect",
+      "description": "CRT effect – screen distortion and scanline intensity",
+      "group": "Visual",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "mix_mode",
+      "label": "mix mode",
+      "description": "Mix mode – blend mode for media layer (0=brightness, 1=alpha)",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_opaque",
+      "label": "media opaque",
+      "description": "Media opacity – media layer transparency (0=hidden, 1=opaque)",
+      "group": "Visual",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rotation_speed_0",
+      "label": "rotation speed 0",
+      "description": "Camera rotation X – rotation speed around xz-plane",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.25,
+      "min": -2,
+      "max": 2
+    },
+    {
+      "name": "rotation_speed_1",
+      "label": "rotation speed 1",
+      "description": "Camera rotation Y – rotation speed around xy-plane",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.1234,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "reflection_mode",
+      "label": "reflection mode",
+      "description": "Reflection mode – blend between diffuse and specular (0=diffuse, 1=shiny)",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.9,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Motion blur – temporal smoothing for reduced noise",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.125,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "sky_mode",
+      "label": "sky mode",
+      "description": "Sky mode – star field and background intensity",
+      "group": "Visual",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "sun_mode",
+      "label": "sun mode",
+      "description": "Sun mode – sun glow intensity in the scene",
+      "group": "Visual",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "denoise_level",
+      "label": "denoise level",
+      "group": "Visual",
+      "type": "float",
+      "default": 7,
+      "min": 1,
+      "max": 9
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "tex_amiga",
+      "type": "texture2d",
+      "path": "assets/amiga-texture.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "passMain",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.passMain.previous",
+          "uniform": "passMain"
+        },
+        {
+          "source": "target.passDenoise.previous",
+          "uniform": "passDenoise"
+        },
+        {
+          "source": "asset.tex_amiga",
+          "uniform": "tex_amiga"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "passMain",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "passDenoise",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.passMain",
+          "uniform": "passMain"
+        },
+        {
+          "source": "target.passDenoise.previous",
+          "uniform": "passDenoise"
+        },
+        {
+          "source": "asset.tex_amiga",
+          "uniform": "tex_amiga"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "passDenoise",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.passMain",
+          "uniform": "passMain"
+        },
+        {
+          "source": "target.passDenoise",
+          "uniform": "passDenoise"
+        },
+        {
+          "source": "asset.tex_amiga",
+          "uniform": "tex_amiga"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "min_bass_gain": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19901
+      },
+      "max_bass_gain": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20301
+      },
+      "main_bass_gain": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19401
+      },
+      "low_bass_edge": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20601
+      },
+      "high_bass_edge": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20901
+      },
+      "drop_ball": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "crt_effect": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20501
+      },
+      "mix_mode": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19001
+      },
+      "media_opaque": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19701
+      },
+      "rotation_speed_0": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "rotation_speed_1": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "reflection_mode": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20401
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19501
+      },
+      "sky_mode": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.21401
+      },
+      "sun_mode": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20301
+      },
+      "denoise_level": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "u_sphere_pos": "vec3",
+      "u_rot_x": "vec3",
+      "u_rot_y": "vec3",
+      "u_rot_z": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

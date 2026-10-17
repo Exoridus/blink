@@ -1,0 +1,208 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.waterly",
+  "title": "Waterly",
+  "author": "Shady Headstash",
+  "description": "Distort media with noise.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "distorted",
+    "2d"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "rate",
+      "label": "rate",
+      "description": "Rate of the effect.",
+      "group": "effect",
+      "type": "float",
+      "default": 0.25,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "scale",
+      "label": "scale",
+      "description": "Scale of the effect on the input media.",
+      "group": "effect",
+      "type": "float",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 1
+    },
+    {
+      "name": "intensity",
+      "label": "intensity",
+      "description": "How dramatically the effect modifies the input media.",
+      "group": "effect",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "direction",
+      "label": "direction",
+      "description": "Nudge effect in any direction.",
+      "group": "effect",
+      "type": "point2d",
+      "default": [
+        2,
+        2
+      ],
+      "min": [
+        2,
+        2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "position",
+      "label": "position",
+      "description": "Pan input media in any direction.",
+      "group": "media",
+      "type": "point2d",
+      "default": [
+        1,
+        1
+      ],
+      "min": [
+        1,
+        1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "zoom",
+      "label": "zoom",
+      "description": "Zoom in and out of the input media.",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "name": "image10",
+      "type": "texture2d",
+      "path": "assets/watertex.png",
+      "sampling": {
+        "filter": "mipmap",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "asset.image10",
+          "uniform": "image10"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "rate": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "scale": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "intensity": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "direction": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "position": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "zoom": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      }
+    },
+    "scriptUniforms": {
+      "bass_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

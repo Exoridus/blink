@@ -1,0 +1,347 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Diffused light strength",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.05,
+         "NAME" : "diffuse_strength",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 50.0,
+         "DESCRIPTION" : "How bright the scene is.",
+         "IS_META" : false,
+         "MAX" : 2.0,
+         "MIN" : 100.0,
+         "NAME" : "brightness",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.200000002980232,
+         "DEF_COLOR" : [ 0.12109375, 0.359375, 0.5859375 ],
+         "DESCRIPTION" : "base color, this color's complement will be calculated automatically",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "base_color",
+         "TYPE" : "color",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "edge detection on bass hits.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "audio_edge",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Mix in rainbow color",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "rainbow",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.1,
+         "DESCRIPTION" : "How wide the stripes in the rainbow are",
+         "IS_META" : false,
+         "MAX" : 0.1,
+         "MIN" : 1.0,
+         "NAME" : "rainbow_width",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "How much edge detection is present in the shader.",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "edge_mix",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+      {
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "How reflective the geometry is",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.2,
+         "NAME" : "reflectivity",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "color"
+      },
+	  {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Move the camera",
+         "IS_META": false,
+         "MAX": -0.125,
+         "MIN": 0.125,
+         "NAME": "lookXY",
+         "PARAMS": 0.0119999993294477,
+         "TYPE": "xy smooth",
+         "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "reactive_time",
+         "TYPE": "toggle",
+         "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT": 2.5,
+         "DESCRIPTION": "How fast the time variable grows, whether it is reactive time or constant time.",
+         "IS_META": false,
+         "MAX": 10.0,
+         "MIN": -10.0,
+         "NAME": "rate_in",
+		   "PARAMS": 0.299999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT": 1.0,
+         "DESCRIPTION": "field of view from the perspective of the camera",
+         "IS_META": false,
+         "MAX": 2.0,
+         "MIN": 0.15,
+         "NAME": "f_o_v",
+         "PARAMS": 0.0099999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "camera"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "How much the media will appear directly painted on the objects",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "media_color",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT" : 0.25,
+         "DESCRIPTION" : "Control the scale of the media",
+         "IS_META" : false,
+         "MAX" : 0.0625,
+         "MIN" : 1.0,
+         "NAME" : "media_scale",
+         "PARAMS" : 0.100000001490116,
+         "TYPE" : "knob smooth",
+         "UI_GROUP" : "media"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Multiply the scene color with the media color",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "multiply_media",
+         "PARAMS" : 0.0500000001490116,
+         "TYPE": "toggle smooth",
+         "UI_GROUP": "media"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Multiply the scene color with the media color according the bass presences in the audio",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "bass_mult",
+         "TYPE": "toggle",
+         "UI_GROUP": "media"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Smooth Horizontal Mirror Mix",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "hor_mir_mix",
+		   "PARAMS": 0.09999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "mirror"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Smooth Vertical Mirror Mix",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "vert_mir_mix",
+		   "PARAMS": 0.09999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "mirror"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "ON: time variable is influenced by the audio bass. OFF: constant rate.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "geo_reactive_time",
+         "TYPE": "toggle",
+         "UI_GROUP": "geometry"
+      },
+      {
+         "DEFAULT": 2.0,
+         "DESCRIPTION": "How fast the time variable grows, whether it is reactive time or constant time.",
+         "IS_META": false,
+         "MAX": 5.0,
+         "MIN": -5.0,
+         "NAME": "geo_rate",
+		   "PARAMS": 0.299999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geometry"
+      },
+      {
+         "DEFAULT": 4.0,
+         "DESCRIPTION": "Number of satellite geometries encircling the torus cemter",
+         "IS_META": false,
+         "MAX": 24.0,
+         "MIN": 0.0,
+         "NAME": "satellites",
+         "TYPE": "slider",
+         "UI_GROUP": "geometry"
+      },
+      {
+         "DEFAULT": 1.0,
+         "DESCRIPTION": "Scale the size of the satellites",
+         "IS_META": false,
+         "MAX": 1.5,
+         "MIN": 0.5,
+         "NAME": "sat_scale",
+         "PARAMS": 0.299999993294477,
+         "TYPE": "slider smooth",
+         "UI_GROUP": "geometry"
+      },
+      {
+         "DEFAULT": 0.25,
+         "DESCRIPTION": "How strong the satellites are unioned with the torus",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.1,
+         "NAME": "gooey",
+         "PARAMS": 0.0299999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geometry"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Increase/Descrease the diameter of the satellites' orbit path.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": -0.5,
+         "NAME": "orbit_width",
+         "PARAMS": 0.0299999993294477,
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geometry"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "ON: choose random combination of cage and ring geometry geometry on beat.",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "random_geo",
+         "TYPE": "toggle",
+         "UI_GROUP": "geometry"
+      },
+      {
+         "DEFAULT": 0.0,
+         "DESCRIPTION": "Smoothly blend between ring and cage geometries",
+         "IS_META": false,
+         "MAX": 1.0,
+         "MIN": 0.0,
+         "NAME": "ring_or_cage",
+         "TYPE": "knob smooth",
+         "UI_GROUP": "geometry"
+      },
+      {
+         "DEFAULT" : 0.0,
+         "DESCRIPTION" : "Twist the torus according the geo time variable",
+         "IS_META" : false,
+         "MAX" : 1.0,
+         "MIN" : 0.0,
+         "NAME" : "audio_twist",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 0.355,
+         "DESCRIPTION" : "How much the torus is twisted",
+         "IS_META" : false,
+         "MAX" : 0.5,
+         "MIN" : -0.5,
+         "PARAMS": 0.00999999,
+         "NAME" : "twist_val",
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 3.0,
+         "DESCRIPTION" : "Displaces the surface of the torus",
+         "IS_META" : false,
+         "MAX" : 10.0,
+         "MIN" : 1.0,
+         "PARAMS": 0.00999999,
+         "NAME" : "displace_surface",
+         "TYPE" : "slider smooth",
+         "UI_GROUP" : "geometry"
+      }
+   ],
+   "PASSES": [
+      {
+         "FLOAT": true,
+         "HEIGHT": 1080,
+         "TARGET": "mainPass",
+         "WIDTH": 1920
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 1080,
+         "TARGET" : "edgePass",
+         "WIDTH" : 1920
+      },
+      {
+         "FLOAT": true,
+         "HEIGHT": 1080,
+         "TARGET": "horMirrPass",
+         "WIDTH": 1920
+      },
+      {
+         "FLOAT": true,
+         "HEIGHT": 1080,
+         "TARGET": "vertMirrPass",
+         "WIDTH": 1920
+      }
+   ],
+   "CREDIT" : "Psybernautics - Alex Tiemann",
+   "DESCRIPTION" : "Inverted Torus encircled by geometric satellites.",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "alien_torus.png",
+   "TITLE" : "Alien Torus",
+   "WIDTH" : 1920
+}

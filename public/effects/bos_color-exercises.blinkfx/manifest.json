@@ -1,0 +1,165 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.bos_color_exercises",
+  "title": "Book of Shaders - Color Exercises",
+  "author": "Broken",
+  "tags": [],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "sky_color",
+      "label": "sky color",
+      "description": "Sky color",
+      "group": "Colors",
+      "type": "color",
+      "default": [
+        0.38,
+        0.46,
+        0.64,
+        1
+      ]
+    },
+    {
+      "name": "sun_color",
+      "label": "sun color",
+      "description": "Sunset color",
+      "group": "Colors",
+      "type": "color",
+      "default": [
+        0.88,
+        0.42,
+        0.22,
+        1
+      ]
+    },
+    {
+      "name": "rainbow_mask",
+      "label": "rainbow mask",
+      "description": "Rainbow Mask",
+      "group": "Colors",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.5
+    },
+    {
+      "name": "horizon",
+      "label": "horizon",
+      "description": "Horizon Position",
+      "group": "layout",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "show_german_flag",
+      "label": "show german flag",
+      "description": "Show German flag",
+      "group": "layout",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "show_pride_flag",
+      "label": "show pride flag",
+      "description": "Show Pride flag",
+      "group": "layout",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "animate",
+      "label": "animate",
+      "description": "Passing of time?",
+      "group": "animation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "animation_speed",
+      "label": "animation speed",
+      "description": "Animation speed",
+      "group": "animation",
+      "type": "float",
+      "default": 1,
+      "min": 0.1,
+      "max": 5
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "sky_color": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "sun_color": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "rainbow_mask": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "horizon": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "show_german_flag": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "show_pride_flag": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "animate": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "animation_speed": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

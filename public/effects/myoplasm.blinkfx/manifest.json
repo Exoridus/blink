@@ -1,0 +1,301 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.myoplasm",
+  "title": "Myoplasm",
+  "author": "Alex Rowe",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "groovy",
+    "particles",
+    "dark"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "levels",
+      "label": "levels",
+      "description": "Reduces the color space, resulting contour lines instead of smooth shading. 100% is all colors, 0% is only 2 or 3.",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0.1,
+      "max": 1
+    },
+    {
+      "name": "color_mode",
+      "label": "color mode",
+      "description": "OFF is normal. ON is grainy and inverse.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "zoom",
+      "label": "zoom",
+      "description": "Zoom in and out.",
+      "group": "cells",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 12
+    },
+    {
+      "name": "arranged",
+      "label": "arranged",
+      "description": "Arrange the spheres randomly (OFF) or on a grid (ON).",
+      "group": "cells",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "rotation",
+      "label": "rotation",
+      "description": "Define a rotation direction and amount.",
+      "group": "motion",
+      "type": "float",
+      "default": 0.5,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "xyPos",
+      "label": "xyPos",
+      "description": "Define a direction for the spheres to move.",
+      "group": "motion",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feedback",
+      "label": "feedback",
+      "description": "Add a motion blur effect. 100% will freeze the scene. 0% is no blur.",
+      "group": "feedback",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "name": "r0",
+      "label": "r0",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    },
+    {
+      "name": "r1",
+      "label": "r1",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "r2",
+      "label": "r2",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "r3",
+      "label": "r3",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "r4",
+      "label": "r4",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "n0",
+      "label": "n0",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    },
+    {
+      "name": "n1",
+      "label": "n1",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "n2",
+      "label": "n2",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "n3",
+      "label": "n3",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "c0",
+      "label": "c0",
+      "type": "float",
+      "default": 1,
+      "group": "Transitions"
+    },
+    {
+      "name": "c1",
+      "label": "c1",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "c2",
+      "label": "c2",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "c3",
+      "label": "c3",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "c4",
+      "label": "c4",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        },
+        {
+          "source": "target.syn_FinalBuffer.previous",
+          "uniform": "syn_FinalPass"
+        }
+      ],
+      "target": {
+        "name": "syn_FinalBuffer",
+        "format": "rgba8",
+        "persistent": true
+      },
+      "clear": true
+    },
+    {
+      "name": "present",
+      "shader": "present",
+      "inputs": [
+        {
+          "source": "target.syn_FinalBuffer",
+          "uniform": "present_source"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl",
+      "present": "shaders/present.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "levels": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "color_mode": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "zoom": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "arranged": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "rotation": {
+        "format": "ssf",
+        "type": "knob traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.5
+      },
+      "xyPos": {
+        "format": "ssf",
+        "type": "xy traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.5
+      },
+      "feedback": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

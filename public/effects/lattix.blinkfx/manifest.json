@@ -1,0 +1,214 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.lattix",
+  "title": "lattix",
+  "author": "Anonymous",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "infinite",
+    "raymarching",
+    "3d",
+    "glitchy",
+    "tunnel"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "fly_in_out",
+      "label": "fly in out",
+      "description": "Center for no flight. Up to fly forward, down to fly backwards.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "forward_on_beat",
+      "label": "forward on beat",
+      "description": "Turn off to stop the forward progress on the beat.",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "twitch",
+      "label": "twitch",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "down_rot",
+      "label": "down rot",
+      "group": "rotate",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "right_rot",
+      "label": "right rot",
+      "group": "rotate",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "invert",
+      "label": "invert",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "aberration",
+      "label": "aberration",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "firstBuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer.previous",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "firstBuffer",
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.firstBuffer",
+          "uniform": "firstBuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "fly_in_out": {
+        "format": "ssf",
+        "type": "slider traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.05
+      },
+      "forward_on_beat": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "twitch": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "down_rot": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "right_rot": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "invert": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "aberration": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "script_time": "float",
+      "down_rot_scr": "float",
+      "right_rot_scr": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

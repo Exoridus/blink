@@ -1,0 +1,153 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Automatically swing the camera back and forth",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_camera",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Remove depth of field for fully focused scene",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "focused",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "camera"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Control where the camera is pointed",
+         "MAX" : 1,
+         "MIN" : -1,
+         "NAME" : "cam_look",
+         "TYPE" : "xy smooth",
+         "PARAMS":0.005,
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Field of View of the perspective of the camera",
+         "MAX" : 3,
+         "MIN" : 0.1,
+         "NAME" : "FOV",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.05,
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Quick 'zoom in' field of view hit",
+         "MAX" : 0.4,
+         "MIN" : 0,
+         "NAME" : "FOV_bump",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.075,
+         "UI_GROUP" : "camera"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Add flashes scanning along X-axis in scene",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "scan_x",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "walls_coloration"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Add flashes scanning along Z-axis in scene",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "scan_z",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.02,
+         "UI_GROUP" : "walls_coloration"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Adjust the size of the pixels that form the walls",
+         "MAX" : 3,
+         "MIN" : 0,
+         "NAME" : "pixelation",
+         "TYPE" : "slider",
+         "PARAMS":0.1,
+         "UI_GROUP" : "walls_coloration"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Whether media that paints the pixel walls is scrolling or not",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "media_scrolling",
+         "TYPE" : "toggle",
+         "PARAMS":0.1,
+         "UI_GROUP" : "walls_coloration"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Adds flashes to the media on the walls",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_flasher",
+         "TYPE" : "toggle",
+         "PARAMS":0.1,
+         "UI_GROUP" : "walls_coloration"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Remove side walls for a flat plane above and below",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "flat_space",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.04,
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Rotate the planes around the camera",
+         "MAX" : 2,
+         "MIN" : 0,
+         "NAME" : "rotate_planes",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.04,
+         "UI_GROUP" : "geometry"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Make the wall pixels circles instead of squares",
+         "MAX" : 1.5,
+         "MIN" : 0,
+         "NAME" : "small_circles",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.1,
+         "UI_GROUP" : "geometry"
+      }
+   ],
+   "CREDIT" : "Shane",
+   "DESCRIPTION" : "A multipass reflective box tunnel with some random reflective ray scattering thrown in. Basically, it's just a remake of W23's \"Path Racer\" and NuSan's \"Corridor Travel\" examples.",
+   "HEIGHT" : 1080,
+   "IMAGES" : [
+      {
+         "NAME" : "image3",
+         "PATH" : "images/3.jpg"
+      },
+      {
+         "NAME" : "image48",
+         "PATH" : "images/48.jpg"
+      }
+   ],
+   "IMAGE_PATH" : "traced_tunnel.png",
+   "TITLE" : "Traced Tunnel",
+   "WIDTH" : 1920,
+   "GPU": 5,
+   "TAGS" : 
+   [
+   "3d",
+   "realistic",
+   "raymarching",
+   "tunnel"
+   ]
+}

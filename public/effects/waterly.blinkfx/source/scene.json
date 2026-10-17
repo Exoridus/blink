@@ -1,0 +1,83 @@
+{
+    "CONTROLS": [
+        {
+            "DEFAULT": 0.25,
+            "DESCRIPTION": "Rate of the effect.",
+            "IS_META": false,
+            "MAX": 1,
+            "MIN": 0,
+            "NAME": "rate",
+            "TYPE": "knob smooth",
+            "UI_GROUP": "effect"
+        },
+        {
+            "DEFAULT": 0.5,
+            "DESCRIPTION": "Scale of the effect on the input media.",
+            "IS_META": false,
+            "MAX": 1.0,
+            "MIN": 0.1,
+            "NAME": "scale",
+            "TYPE": "slider smooth",
+            "UI_GROUP": "effect"
+        },
+        {
+            "DEFAULT": 0.5,
+            "DESCRIPTION": "How dramatically the effect modifies the input media.",
+            "IS_META": false,
+            "MAX": 1,
+            "MIN": 0,
+            "NAME": "intensity",
+            "TYPE": "slider",
+            "UI_GROUP": "effect"
+        },
+        {
+            "DEFAULT": 0,
+            "DESCRIPTION": "Nudge effect in any direction.",
+            "IS_META": false,
+            "MAX": -2,
+            "MIN": 2,
+            "NAME": "direction",
+            "TYPE": "xy smooth",
+            "UI_GROUP": "effect"
+        },
+        {
+            "DEFAULT": 0,
+            "DESCRIPTION": "Pan input media in any direction.",
+            "IS_META": false,
+            "MAX": -1,
+            "MIN": 1,
+            "NAME": "position",
+            "TYPE": "xy smooth",
+            "UI_GROUP": "media"
+        },
+        {
+            "DEFAULT": 0.0,
+            "DESCRIPTION": "Zoom in and out of the input media.",
+            "IS_META": false,
+            "MAX": 1.0,
+            "MIN": 0.0,
+            "NAME": "zoom",
+            "TYPE": "slider smooth",
+            "UI_GROUP": "media"
+        }
+    ],
+    "CREDIT": "Shady Headstash",
+    "DESCRIPTION": "Distort media with noise.",
+    "HEIGHT": 1080,
+    "IMAGES": [
+        {
+            "NAME": "image10",
+            "PATH": "images/watertex.png"
+        }
+    ],
+    "IMAGE_PATH": "waterly.png",
+    "TITLE": "Waterly",
+    "WIDTH": 1920,
+    "GPU":  1,
+    "TAGS" : 
+    [
+    "media",
+    "distorted",
+    "2d"
+    ]
+}

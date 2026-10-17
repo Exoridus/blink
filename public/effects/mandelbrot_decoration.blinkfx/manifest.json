@@ -1,0 +1,330 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.mandelbrot_decoration",
+  "title": "Mandelbrot Decoration",
+  "author": "Shane",
+  "description": "Applying a simple pattern and coloring to a standard iterative Mandelbrot transformation.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "fractal",
+    "media",
+    "infinite",
+    "psychedelic"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "navigate",
+      "label": "navigate",
+      "description": "Move camera to explore the fractal",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "constant_rotate",
+      "label": "constant rotate",
+      "description": "Camera will constantly be slowly rotating",
+      "group": "camera",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_camera_jumps",
+      "label": "auto camera jumps",
+      "description": "Camera will automatically jump around on the beat",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "random_camera",
+      "label": "random camera",
+      "description": "Manually do a random camera jump",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "zoom",
+      "label": "zoom",
+      "description": "Zoom in or out of the fractal",
+      "group": "camera",
+      "type": "float",
+      "default": 1.4,
+      "min": 0,
+      "max": 10
+    },
+    {
+      "name": "media_xy",
+      "label": "media xy",
+      "description": "Move the media around within the fractal",
+      "group": "media",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "media_style",
+      "label": "media style",
+      "description": "Media appears in flat layers or branching curves",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "sub_pattern",
+      "label": "sub pattern",
+      "description": "Subtract the grid pattern from the media",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "grid",
+      "label": "grid",
+      "description": "Affect the grid shape",
+      "group": "shape",
+      "type": "float",
+      "default": 1,
+      "min": 0.001,
+      "max": 3
+    },
+    {
+      "name": "bubbling",
+      "label": "bubbling",
+      "description": "Subtle morphing of the fractal shape for extra action",
+      "group": "shape",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "minimal",
+      "label": "minimal",
+      "description": "Remove the grid pattern and reflections",
+      "group": "shape",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "pulser",
+      "label": "pulser",
+      "description": "Send a smooth white pulse down",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "pulse2",
+      "label": "pulse2",
+      "description": "Send a black/white pulse down",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flasher_on",
+      "label": "flasher on",
+      "description": "Flasher rising up in sync with the beat",
+      "group": "action",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "navigate": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.005
+      },
+      "constant_rotate": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_camera_jumps": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "random_camera": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "zoom": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.02
+      },
+      "media_xy": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "media_style": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "sub_pattern": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "grid": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bubbling": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "minimal": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "pulser": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "pulse2": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "flasher_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "random_spot": "vec3"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

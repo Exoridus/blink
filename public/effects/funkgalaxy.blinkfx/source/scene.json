@@ -1,0 +1,60 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : -0.5,
+         "MIN" : 0.5,
+         "NAME" : "GalaxyXY",
+         "TYPE" : "xy",
+         "UI_GROUP" : "defaults"
+      },
+      {
+         "DEFAULT" : 5,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 10,
+         "MIN" : 0.10000000149011612,
+         "NAME" : "rot_zoom",
+         "TYPE" : "slider",
+         "UI_GROUP" : "defaults"
+      },
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 5,
+         "MIN" : 0.10000000149011612,
+         "NAME" : "bass_rot_zoom",
+         "TYPE" : "slider",
+         "UI_GROUP" : "defaults"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 2,
+         "MIN" : -2,
+         "NAME" : "curved",
+         "TYPE" : "slider",
+         "UI_GROUP" : "defaults"
+      },
+      {
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "",
+         "IS_META" : false,
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "bg_opacity",
+         "TYPE" : "slider",
+         "UI_GROUP" : "background"
+      }
+   ],
+   "CREDIT" : "Dave Hoskins & PatchFunk",
+   "DESCRIPTION" : "Inspired by the Galaxy of Universes",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "funkgalaxy.png",
+   "TITLE" : "FunkGalaxy (The Galaxy of the Universes)",
+   "WIDTH" : 1920
+}

@@ -1,0 +1,504 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.neon_triangulator",
+  "title": "Neon Triangulator",
+  "author": "mrange",
+  "description": "Dive through an infinite synthwave tunnel of neon triangles and glowing geometry. This audio-reactive journey features cascading triangular patterns that pulse and twist with the music, creating a hypnotic path through electric blue and magenta space. Glowing snake-like tubes weave through the geometric landscape while reflective surfaces bounce light in mesmerizing patterns. Every bass hit transforms the tunnel with warping effects and intense flashes, making this the perfect centerpiece for live performances and VJ sets",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "neon",
+    "synthwave",
+    "triangle",
+    "tunnel",
+    "raymarch",
+    "audio-reactive",
+    "geometric",
+    "bass-reactive",
+    "reflections",
+    "cyberpunk",
+    "purple"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "path_speed",
+      "label": "path speed",
+      "description": "Camera travel speed through the tunnel (forward/reverse)",
+      "group": "Motion",
+      "type": "float",
+      "default": 1,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "tri_speed",
+      "label": "tri speed",
+      "description": "Animation speed of the triangular geometry sections",
+      "group": "Motion",
+      "type": "float",
+      "default": -2,
+      "min": -10,
+      "max": 10
+    },
+    {
+      "name": "rot_speed",
+      "label": "rot speed",
+      "description": "Continuous rotation speed of the entire scene",
+      "group": "Motion",
+      "type": "float",
+      "default": 0,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "rot_base",
+      "label": "rot base",
+      "description": "Fixed rotation angle for the scene orientation",
+      "group": "Motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "pattern_size",
+      "label": "pattern size",
+      "description": "Scale of surface pattern tiles (higher = smaller, more transparent)",
+      "group": "Effects",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "flash_control",
+      "label": "flash control",
+      "description": "Flash light intensity (X: on beat, Y: base intensity)",
+      "group": "Effects",
+      "type": "point2d",
+      "default": [
+        20,
+        2
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        50,
+        50
+      ]
+    },
+    {
+      "name": "show_snakes",
+      "label": "show snakes",
+      "description": "Toggle visibility of animated glowing snake tubes",
+      "group": "Effects",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "tri_hue",
+      "label": "tri hue",
+      "description": "Hue offset for triangle surface colors",
+      "group": "Colors",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "flash_col",
+      "label": "flash col",
+      "description": "RGB color of the flashing light effect",
+      "group": "Colors",
+      "type": "color",
+      "default": [
+        0.39,
+        0.1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "snake_hue",
+      "label": "snake hue",
+      "description": "Hue offset for the glowing snake elements",
+      "group": "Colors",
+      "type": "float",
+      "default": 0.6,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "bass_mix",
+      "label": "bass mix",
+      "description": "Audio response strength (X: bass level, Y: bass hits)",
+      "group": "Audio",
+      "type": "point2d",
+      "default": [
+        0.7,
+        0.7
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "bass_pow",
+      "label": "bass pow",
+      "description": "Audio response curve (higher = more intense reaction)",
+      "group": "Audio",
+      "type": "float",
+      "default": 3,
+      "min": 0,
+      "max": 6
+    },
+    {
+      "name": "twist_on",
+      "label": "twist on",
+      "description": "Enable twisting deformation of geometry sections",
+      "group": "Shape",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 2,
+      "step": 1
+    },
+    {
+      "name": "twist_mix",
+      "label": "twist mix",
+      "description": "Blend ratio between linear and sine wave twisting",
+      "group": "Shape",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "twist_straight",
+      "label": "twist straight",
+      "description": "Amount of linear twist applied along depth axis",
+      "group": "Shape",
+      "type": "float",
+      "default": 0.3,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "twist_sine",
+      "label": "twist sine",
+      "description": "Sine wave twist parameters (X: amplitude, Y: frequency)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0.4,
+        0.5
+      ],
+      "min": [
+        -3,
+        -3
+      ],
+      "max": [
+        3,
+        3
+      ]
+    },
+    {
+      "name": "warp_world",
+      "label": "warp world",
+      "description": "Base tunnel warping (X: forward pull, Y: radial pull)",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "warp_world_beat",
+      "label": "warp world beat",
+      "description": "Additional warping applied on bass hits for pumping effect",
+      "group": "Shape",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Opacity of media texture overlay on surfaces",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_zoom",
+      "label": "media zoom",
+      "description": "Scale of media texture mapping (higher = zoomed in)",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0.125,
+      "max": 8
+    },
+    {
+      "name": "media_offset",
+      "label": "media offset",
+      "description": "Offset position of media texture (X: horizontal, Y: vertical)",
+      "group": "Media",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "path_speed": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "tri_speed": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "rot_speed": {
+        "format": "ssf",
+        "type": "knob speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "rot_base": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "pattern_size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "flash_control": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "show_snakes": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "tri_hue": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "flash_col": {
+        "format": "ssf",
+        "type": "color smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "snake_hue": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bass_mix": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "bass_pow": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "twist_on": {
+        "format": "ssf",
+        "type": "dropdown",
+        "modifiers": [],
+        "labels": [
+          "None",
+          "Some",
+          "All"
+        ],
+        "values": [
+          0,
+          1,
+          9
+        ]
+      },
+      "twist_mix": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.02
+      },
+      "twist_straight": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "twist_sine": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "warp_world": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "warp_world_beat": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.19401
+      },
+      "media_zoom": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.23001
+      },
+      "media_offset": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.24001
+      }
+    },
+    "scriptUniforms": {
+      "warp_beat_script1": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

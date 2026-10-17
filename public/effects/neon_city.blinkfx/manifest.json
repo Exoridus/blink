@@ -1,0 +1,565 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.neon_city",
+  "title": "Neon City by Night",
+  "author": "mrange",
+  "description": "Fly through an endless neon metropolis at night. Procedurally generated towers pulse with audio-reactive lighting, their glass facades reflecting cyan and magenta hues. The cityscape stretches infinitely ahead as you glide along a winding path through glowing streets. Features path-traced reflections, volumetric bloom, and glass refraction effects that interact beautifully with media layers.",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "mrange",
+    "city",
+    "neon",
+    "night",
+    "synthwave",
+    "cyberpunk",
+    "path tracing",
+    "audio reactive",
+    "buildings",
+    "reflection",
+    "glow",
+    "motion blur",
+    "urban",
+    "fly through"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "tower_threshold",
+      "label": "tower threshold",
+      "description": "Tower threshold – higher values reveal more neon buildings",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "motion_blur",
+      "label": "motion blur",
+      "description": "Motion blur – smooth camera movement trails",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "audio_reactivity",
+      "label": "audio reactivity",
+      "description": "Audio reactivity – building heights respond to spectrum",
+      "group": "Visual",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "reflection",
+      "label": "reflection",
+      "description": "Surface reflection – Fresnel min/max for building glass",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        0.0625,
+        0.75
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "audio_threshold",
+      "label": "audio threshold",
+      "description": "Audio threshold – filter out quiet audio values",
+      "group": "Visual",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0.9
+    },
+    {
+      "name": "neon_color",
+      "label": "neon color",
+      "description": "Neon hue – color phase shifts for cyan/magenta tones",
+      "group": "Visual",
+      "type": "point2d",
+      "default": [
+        5,
+        2
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        7,
+        7
+      ]
+    },
+    {
+      "name": "retain_glow",
+      "label": "retain glow",
+      "description": "Glow persistence – retain bloom across frames",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.8,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "neon_glow",
+      "label": "neon glow",
+      "description": "Glow intensity – brighten neon light bloom",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "glass_blend",
+      "label": "glass blend",
+      "description": "Glass blend – media layer viewed through glow tint",
+      "group": "Visual",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_opacity",
+      "label": "media opacity",
+      "description": "Media opacity – fade visuals in or out",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "media_intensity",
+      "label": "media intensity",
+      "description": "Media intensity – amplify blend (negative inverts)",
+      "group": "Media",
+      "type": "float",
+      "default": 1,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "media_mask",
+      "label": "media mask",
+      "description": "Media mask – luminance threshold for glass blend",
+      "group": "Media",
+      "type": "point2d",
+      "default": [
+        0.25,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "speed",
+      "label": "speed",
+      "description": "Travel speed – camera movement through the city",
+      "group": "Movement",
+      "type": "float",
+      "default": 0.5,
+      "min": -5,
+      "max": 5
+    },
+    {
+      "name": "path_wave",
+      "label": "path wave",
+      "description": "Camera path – sine wave amplitude and frequency",
+      "group": "Movement",
+      "type": "point2d",
+      "default": [
+        1,
+        0.33
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        2,
+        0.5
+      ]
+    },
+    {
+      "name": "camera_height",
+      "label": "camera height",
+      "description": "Camera height – elevation above city streets",
+      "group": "Movement",
+      "type": "float",
+      "default": 2.1,
+      "min": 2.1,
+      "max": 2.9
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "mirror"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "pass0",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0.previous",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1.previous",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2.previous",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3.previous",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass0",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "nearest",
+          "wrap": "clamp"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "pass1",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1.previous",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2.previous",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3.previous",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass1",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "nearest",
+          "wrap": "clamp"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "pass2",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2.previous",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3.previous",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass2",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "nearest",
+          "wrap": "clamp"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "pass3",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3.previous",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "pass3",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.pass0",
+          "uniform": "pass0"
+        },
+        {
+          "source": "target.pass1",
+          "uniform": "pass1"
+        },
+        {
+          "source": "target.pass2",
+          "uniform": "pass2"
+        },
+        {
+          "source": "target.pass3",
+          "uniform": "pass3"
+        },
+        {
+          "source": "blink.audio.spectrum",
+          "uniform": "syn_Spectrum"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "tower_threshold": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "motion_blur": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "audio_reactivity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "reflection": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "audio_threshold": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "neon_color": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "retain_glow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "neon_glow": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "glass_blend": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_opacity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_intensity": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "media_mask": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "speed": {
+        "format": "ssf",
+        "type": "slider speed",
+        "modifiers": [
+          "speed"
+        ]
+      },
+      "path_wave": {
+        "format": "ssf",
+        "type": "xy",
+        "modifiers": []
+      },
+      "camera_height": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

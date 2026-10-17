@@ -1,0 +1,34 @@
+{
+  "TITLE": "Hello World",
+  "CREDIT": "Broken",
+  "HARD_TRANSITIONS": [
+    {
+      "UNIFORM": "color_transition",
+      "VALUES": [0.0, 1.0]
+    }
+  ],
+  "CONTROLS": [
+    {
+      "NAME": "split_position",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "DEFAULT": 0.5,
+      "TYPE": "slider"
+    },
+    {
+      "NAME": "circle_position",
+      "MIN": -0.5,
+      "MAX": 0.5,
+      "DEFAULT": 0.0,
+      "TYPE": "xy"
+    },
+    {
+      "NAME": "grow_circle",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "DEFAULT": 0.0,
+      "TYPE": "bang smooth",
+      "PARAMS": 0.2
+    }
+  ]
+}

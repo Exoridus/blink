@@ -57,6 +57,9 @@ function assertNoSymlinks(directory: string): void {
     for (const name of readdirSync(directory)) assertNoSymlinks(join(directory, name));
 }
 
+/** Marks converted community scenes whose authors keep their rights; they ship as previews, not as MIT. */
+const THIRD_PARTY_PREVIEW_LICENSE = 'Third-party preview:';
+
 export function preparePublicAssets(source: string, destination: string, packages: string[]) {
     if (!Array.isArray(packages) || packages.length === 0) throw new Error('Public package list is empty');
     for (const directory of [source, join(source, 'effects')]) {
@@ -70,7 +73,8 @@ export function preparePublicAssets(source: string, destination: string, package
             license?: string;
             id?: string;
         };
-        if (manifest.license !== 'MIT') throw new Error(`Public package is not declared MIT: ${name}`);
+        if (manifest.license !== 'MIT' && !manifest.license?.startsWith(THIRD_PARTY_PREVIEW_LICENSE))
+            throw new Error(`Public package is neither MIT nor a declared third-party preview: ${name}`);
         return { name, directory, id: manifest.id };
     });
     mkdirSync(join(destination, 'effects'), { recursive: true });

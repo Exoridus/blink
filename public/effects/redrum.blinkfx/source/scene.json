@@ -1,0 +1,165 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Turn OFF auto splatter and use this button to trigger splatters instead. Every time you click, another one dies. You monster.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "manual_splatter",
+         "PARAMS" : 0.4,
+         "TYPE" : "bang smooth",
+         "UI_GROUP" : "splatter"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Turn ON for automatic blood splatters on the beat, turn off if you want to use the manual splatter button.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_splatter",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "splatter"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Choose whether the extra, slow drips are included in each splatter.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "extra_drips",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "splatter"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Turn ON for automatic slices on the beat, turn off you want to use the manual slice button.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "auto_slicer",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "slicer"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Turn ON for high-contrast slices instead of red.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "constrast_slices",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "slicer"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Turn OFF auto slicer and use this button to trigger slices instead. Splatter wasn't enough? Do you have an insatiable thirst for blood?",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "manual_slice",
+         "TYPE" : "bang counter",
+         "UI_GROUP" : "slicer"
+      },
+      {
+         "DEFAULT" : 0.35,
+         "DESCRIPTION" : "Intensity of the shake effect.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "shake",
+         "TYPE" : "slider",
+         "UI_GROUP" : "effects"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Turn ON for a glitch effect when the highs hit.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "highs_glitch",
+         "TYPE" : "toggle",
+         "UI_GROUP" : "effects"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Turn this up to increase the intensity of the blood.",
+         "MAX" : 2,
+         "MIN" : 1,
+         "NAME" : "more_blood",
+         "TYPE" : "slider",
+         "UI_GROUP" : "blood"
+      },
+      {
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Turn this up to decrease the intensity of the blood.",
+         "MAX" : 0,
+         "MIN" : 1,
+         "NAME" : "less_blood",
+         "TYPE" : "slider",
+         "UI_GROUP" : "blood"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Hit this to push the blood out radially.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "punch_out",
+         "PARAMS" : 0.6,
+         "TYPE" : "bang smooth",
+         "UI_GROUP" : "puncher"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Hit this to pull the blood in towards the center.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "punch_in",
+         "PARAMS" : 0.6,
+         "TYPE" : "bang smooth",
+         "UI_GROUP" : "puncher"
+      },
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Turn this up to make the punch effect of the two buttons more intense. High values can turn the scene into a sort of tunnel.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "intensity_punch",
+         "TYPE" : "slider",
+         "UI_GROUP" : "puncher"
+      }
+   ],
+   "CREDIT" : "Meebs",
+   "DESCRIPTION" : "",
+   "HEIGHT" : 1080,
+   "IMAGES" : [
+      {
+         "NAME" : "wall1Tex",
+         "PATH" : "images/wall1.jpg"
+      },
+      {
+         "NAME" : "wall2Tex",
+         "PATH" : "images/wall2.jpg"
+      },
+      {
+         "NAME" : "wall3Tex",
+         "PATH" : "images/wall3.jpg"
+      }
+   ],
+   "IMAGE_PATH" : "redrum.png",
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 0,
+         "TARGET" : "dataPass",
+         "WIDTH" : 0
+      },
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 0,
+         "TARGET" : "simPass",
+         "WIDTH" : 0
+      }
+   ],
+   "GPU": 3,
+   "TAGS" : 
+   [
+   "2d",
+   "dark",
+   "horror"
+   ],
+   "TITLE" : "REDRUM",
+   "WIDTH" : 1920
+}

@@ -1,0 +1,122 @@
+{
+  "TITLE": "Boreal",
+  "CREDIT": "Alex Rowe",
+  "IMAGE_PATH": "boreal.png",
+  "CONTROLS": [
+    {
+      "DEFAULT": 1,
+      "DESCRIPTION": "Automatically randomizes all dropdowns when musical transitions are detected",
+      "NAME": "auto_cycle",
+      "TYPE": "toggle",
+      "UI_GROUP": "automation"
+    },
+    {
+      "DEFAULT": 0,
+      "DESCRIPTION": "Manually trigger dropdown randomization",
+      "NAME": "cycle",
+      "TYPE": "bang",
+      "UI_GROUP": "automation"
+    },{
+      "DEFAULT": 0,
+      "DESCRIPTION": "Warps media content using the same warp as the background effect",
+      "NAME": "media_warp",
+      "TYPE": "toggle",
+      "UI_GROUP": "motion"
+    },
+    {
+      "DEFAULT": 1,
+      "DESCRIPTION": "Texture distortion effects: Waving (fluid noise motion), Still (no distortion), Still 2 (no distortion), Woozy (stretching and drippy distortion)",
+      "LABELS": [
+        "Waving", "Still", "Still 2", "Woozy"],
+      "NAME": "warp_type",
+      "TYPE": "dropdown smooth",
+      "PARAMS": 0.04,
+      "UI_GROUP": "motion"
+    },{
+      "DEFAULT": 1,
+      "DESCRIPTION": "Controls camera movement: Moves In (zoom toward center), Rotate Only (static), Moves Out (zoom away from center)",
+      "LABELS": ["Moves In", "Rotate Only", "Moves Out"],
+      "NAME": "wind_movement",
+      "TYPE": "dropdown smooth",
+      "PARAMS":0.04,
+      "UI_GROUP": "motion"
+    },    
+    {
+      "DEFAULT": 1,
+      "DESCRIPTION": "Selects background texture that feeds the aurora. Choose your own media to replace the texture.",
+      "LABELS": ["white_pebbles", "white_feathers", "color_tears", "color_pebbles"],
+      "NAME": "image_select",
+      "TYPE": "dropdown smooth",
+      "PARAMS": 0.04,
+      "UI_GROUP": "appearance"
+    },
+    {
+      "DEFAULT": 0.2,
+      "DESCRIPTION": "Adds extra coloration if you want more saturated colors.",
+      "NAME": "extra_color_tint",
+      "TYPE": "slider",
+      "UI_GROUP": "color"
+    },{
+      "DEFAULT": 1.0,
+      "MAX":2.0,
+      "DESCRIPTION": "Controls thickness of the image scanning lines that feed the aurora",
+      "NAME": "scanline_thinness",
+      "TYPE": "slider",
+      "UI_GROUP": "scanning"
+    },
+    {
+      "DEFAULT": 0,
+      "DESCRIPTION": "Static phase offset for the scanning pattern",
+      "NAME": "static_scan",
+      "TYPE": "slider smooth",
+      "PARAMS": 0.15,
+      "UI_GROUP": "scanning"
+    },
+    {
+      "DEFAULT": 0,
+      "DESCRIPTION": "Sends a pulse of scan through the media",
+      "NAME": "pulse_forward",
+      "TYPE": "bang smooth",
+      "PARAMS": 0.09,
+      "UI_GROUP": "scanning"
+    },
+    {
+      "DEFAULT": 1,
+      "MIN": 0.0,
+      "MAX": 2.0,
+      "DESCRIPTION": "How fast the scanner will move when audio is present",
+      "NAME": "scanner_audio_rate",
+      "TYPE": "knob",
+      "UI_GROUP": "scanning"
+    },
+    {
+      "DEFAULT": 1,
+      "MIN": 0.0,
+      "MAX": 2.0,
+      "DESCRIPTION": "Base constant speed for the scanner animation, independent of audio input",
+      "NAME": "scanner_const_rate",
+      "TYPE": "knob",
+      "UI_GROUP": "scanning"
+    }
+  ],
+  "IMAGES": [{
+    "NAME": "bubbles",
+    "PATH": "./images/boreal_bubbles.png"
+  },{
+    "NAME": "lines",
+    "PATH": "./images/boreal_lines.jpg"
+  },{
+    "NAME": "tears",
+    "PATH": "./images/boreal_tears.jpg"
+  },{
+    "NAME": "linework",
+    "PATH": "./images/pebbletex.jpg"
+  }],
+  "PASSES": [
+    {
+      "HEIGHT": 1080,
+      "TARGET": "backbuff",
+      "WIDTH": 1920
+    }
+  ]
+}

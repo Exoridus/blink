@@ -1,0 +1,95 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Min Max Hex",
+ "IMAGE_PATH": "min_max_hex.png",
+ "HARD_TRANSITIONS": [
+ {
+ "UNIFORM": "mask_type",
+ "VALUES":[0.0, 1.0, 2.0, 3.0, 4.0]
+ }],
+ "GPU": 1,
+ "TAGS" : 
+ [
+  "feedback",
+  "grayscale",
+  "2d",
+  "geometric"
+ ],
+ "IMAGES": [],
+ "PASSES": [ {"TARGET": "firstBuffer"}, {"TARGET": "secondBuffer"}],
+ "CONTROLS": [{
+    "NAME": "flashing_mode",
+    "MIN" : 0.0,
+    "MAX" : 1.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Turn ON for a brighter flashing effect, instead of the contour lines.",
+    "UI_GROUP":"mode"
+  },{
+    "NAME": "triangle_mode",
+    "MIN" : 0.0,
+    "MAX" : 1.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Turn ON for shimmering triangles instead of flashing or contour lines.",
+    "UI_GROUP":"mode"
+  },{
+    "NAME": "circular_mode",
+    "MIN" : 0.0,
+    "MAX" : 1.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Turn ON while other modes are OFF for circular contours instead of angular contours.",
+    "UI_GROUP":"mode"
+  },{
+    "NAME": "center_pulse",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.2,
+    "TYPE": "bang smooth",
+    "DESCRIPTION": "A bright pulse of light that comes out from the center.",
+    "UI_GROUP":"effects"
+  },{
+    "NAME": "noise",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "TYPE": "slider",
+    "DESCRIPTION": "Change how noisy the scene is.",
+    "UI_GROUP":"effects"
+  },{
+    "NAME": "fragment_media",
+    "MIN" : 0.0,
+    "MAX" : 1.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Cut the media source into a mosaic of triangles, if a media source is selected.",
+    "UI_GROUP":"media"
+  },{
+    "NAME": "media_pulse",
+    "MAX" : 1.0,
+    "MIN" : 0.0,
+    "DEFAULT":0.0,
+    "PARAMS": 0.2,
+    "TYPE": "bang smooth",
+    "DESCRIPTION": "Zoom out and fly back in on the media, if media is selected.",
+    "UI_GROUP":"media"
+  },{
+    "NAME": "speed",
+    "MAX" : 0.25,
+    "MIN" : 0.0,
+    "DEFAULT":0.1,
+    "TYPE": "slider",
+    "DESCRIPTION": "Speed of the white painting action.",
+    "UI_GROUP":"speed"
+  },{
+    "NAME": "EXPLODE",
+    "MIN" : 0.0,
+    "MAX" : 1.0,
+    "DEFAULT":0.0,
+    "TYPE": "toggle",
+    "DESCRIPTION": "Rapidly cycle through triangles and hexagons. BOOM.",
+    "UI_GROUP":"boom"
+  }]
+ }

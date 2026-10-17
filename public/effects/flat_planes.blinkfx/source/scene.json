@@ -1,0 +1,398 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 
+			[
+				0.1,
+				0.00444,
+				0.02
+			],
+			"DESCRIPTION" : "Flash color",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "flash_color",
+			"TYPE" : "color",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.3,
+				2
+			],
+			"DESCRIPTION" : "Color mod",
+			"MAX" : 
+			[
+				1,
+				5
+			],
+			"MIN" : 
+			[
+				-1,
+				-5
+			],
+			"NAME" : "color_mod",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				4
+			],
+			"DESCRIPTION" : "Color xy",
+			"MAX" : 
+			[
+				9,
+				9
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "color_xy",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				2,
+				1
+			],
+			"DESCRIPTION" : "Color ZW",
+			"MAX" : 
+			[
+				9,
+				3
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "color_zw",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				0.5
+			],
+			"DESCRIPTION" : "fade",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "fade",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				2,
+				0
+			],
+			"DESCRIPTION" : "Ray distortion",
+			"MAX" : 
+			[
+				4,
+				4
+			],
+			"MIN" : 
+			[
+				-4,
+				-4
+			],
+			"NAME" : "warp_world",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Distortion"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.707,
+				1.414
+			],
+			"DESCRIPTION" : "Ray limits",
+			"MAX" : 
+			[
+				3,
+				3
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "warp_limit",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Distortion"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				1
+			],
+			"DESCRIPTION" : "Ray beat",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				-1,
+				-1
+			],
+			"NAME" : "warp_beat",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Distortion"
+		},
+		{
+			"DEFAULT" : 
+			[
+				5,
+				25
+			],
+			"DESCRIPTION" : "Repetitions",
+			"MAX" : 
+			[
+				50,
+				50
+			],
+			"MIN" : 
+			[
+				3,
+				3
+			],
+			"NAME" : "rep",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.03,
+				0.24
+			],
+			"DESCRIPTION" : "Widths",
+			"MAX" : 
+			[
+				0.15,
+				0.4
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "width",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.4,
+				2
+			],
+			"DESCRIPTION" : "Zooms",
+			"MAX" : 
+			[
+				4,
+				4
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "zoom",
+			"TYPE" : "xy",
+			"UI_GROUP" : "Shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.1111,
+				0.0786
+			],
+			"DESCRIPTION" : "Path A",
+			"MAX" : 
+			[
+				0.3,
+				0.3
+			],
+			"MIN" : 
+			[
+				-0.3,
+				-0.3
+			],
+			"NAME" : "path_a",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" : 
+			[
+				3,
+				3
+			],
+			"DESCRIPTION" : "Path B",
+			"MAX" : 
+			[
+				6,
+				6
+			],
+			"MIN" : 
+			[
+				-6,
+				-6
+			],
+			"NAME" : "path_b",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Movement"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.7,
+				0.7
+			],
+			"DESCRIPTION" : "Bass mix",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				3,
+				1
+			],
+			"DESCRIPTION" : "Bass power",
+			"MAX" : 
+			[
+				6,
+				6
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.707,
+				0.5
+			],
+			"DESCRIPTION" : "Bass speed",
+			"MAX" : 
+			[
+				6,
+				2
+			],
+			"MIN" : 
+			[
+				-6,
+				-2
+			],
+			"NAME" : "bass_speed",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media opacity",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Media multiplier",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "media_multiplier",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Flat planes scene",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"planes",
+		"flat"
+	],
+	"TITLE" : "Flat planes",
+	"WIDTH" : 1920
+}

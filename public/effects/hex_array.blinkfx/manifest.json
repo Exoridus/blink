@@ -1,0 +1,278 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.hex_array",
+  "title": "Hex Array",
+  "author": "sheltron",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "3d",
+    "raymarching",
+    "dark",
+    "tunnel",
+    "infinite"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "spin",
+      "label": "spin",
+      "group": "twist",
+      "type": "float",
+      "default": 3.14,
+      "min": 0,
+      "max": 6.28
+    },
+    {
+      "name": "squiggle",
+      "label": "squiggle",
+      "group": "twist",
+      "type": "float",
+      "default": 0.5,
+      "min": -1.5,
+      "max": 1.5
+    },
+    {
+      "name": "separation",
+      "label": "separation",
+      "group": "space",
+      "type": "float",
+      "default": 0.5,
+      "min": 0.01,
+      "max": 3
+    },
+    {
+      "name": "xy_mod",
+      "label": "xy mod",
+      "group": "space",
+      "type": "point2d",
+      "default": [
+        0.5,
+        0.5
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        5,
+        5
+      ]
+    },
+    {
+      "name": "fly_in_out",
+      "label": "fly in out",
+      "group": "space",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "size",
+      "label": "size",
+      "group": "hexagons",
+      "type": "float",
+      "default": 0.4,
+      "min": 0.01,
+      "max": 1.4
+    },
+    {
+      "name": "size_hole",
+      "label": "size hole",
+      "group": "hexagons",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "depth",
+      "label": "depth",
+      "group": "hexagons",
+      "type": "float",
+      "default": 0.1,
+      "min": 0.001,
+      "max": 1
+    },
+    {
+      "name": "greyscale",
+      "label": "greyscale",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "lighting",
+      "label": "lighting",
+      "group": "color",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "backbuffer",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backbuffer.previous",
+          "uniform": "backbuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "backbuffer",
+        "width": 1200,
+        "height": 720,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.backbuffer",
+          "uniform": "backbuffer"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "spin": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.11
+      },
+      "squiggle": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.11
+      },
+      "separation": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.11
+      },
+      "xy_mod": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.11
+      },
+      "fly_in_out": {
+        "format": "ssf",
+        "type": "slider traveler",
+        "modifiers": [
+          "traveler"
+        ],
+        "params": 0.08
+      },
+      "size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "size_hole": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.15
+      },
+      "depth": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.11
+      },
+      "greyscale": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "lighting": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.4
+      }
+    },
+    "scriptUniforms": {
+      "script_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

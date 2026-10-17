@@ -1,0 +1,275 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.alien_cavern",
+  "title": "Alien Cavern",
+  "author": "aiekick",
+  "description": "Alien Cavern",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "3d",
+    "raymarching",
+    "dark",
+    "retro"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "droppers",
+      "label": "droppers",
+      "description": "Adds falling objects that morph into the ceiling and floor.",
+      "group": "action",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "cylinders",
+      "label": "cylinders",
+      "description": "Add cylinders that cut through the room and out into the sky above.",
+      "group": "action",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "beat_twitching",
+      "label": "beat twitching",
+      "description": "Jumps when it detects a beat.",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flashing",
+      "label": "flashing",
+      "description": "Lights in certain ridges flash on drum hits.",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "astral_plane",
+      "label": "astral plane",
+      "description": "Removes the walls and ceiling to reveal full sky. Warning: This plus cylinders or droppers can get very laggy!",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "voxelate",
+      "label": "voxelate",
+      "description": "Render the scene in 3D-pixels for a low-fi look.",
+      "group": "voxelation",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "voxel_size",
+      "label": "voxel size",
+      "description": "Increase to make the voxelation effect much more pronounced, with larger voxels.",
+      "group": "voxelation",
+      "type": "float",
+      "default": 50,
+      "min": 50,
+      "max": 50
+    },
+    {
+      "name": "camera_look",
+      "label": "camera look",
+      "description": "If manual_camera is on, use this XY to look around.",
+      "group": "camera",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "gaze_into_the_abyss",
+      "label": "gaze into the abyss",
+      "description": "Moves camera in and looks up into the sky, which is filled with your media.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 0
+    },
+    {
+      "name": "manual_camera",
+      "label": "manual camera",
+      "description": "Camera automatically rotates around the room, but turn this on to take manual control.",
+      "group": "camera",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_mod",
+      "label": "color mod",
+      "description": "Instead of the default color scheme, turning this up lets you select slight variations.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "palette_select",
+      "label": "palette select",
+      "description": "Once color_mod is all the way up, select from one of 6 color schemes here.",
+      "group": "color",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 5
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "droppers": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "cylinders": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "beat_twitching": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "flashing": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "astral_plane": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "voxelate": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.3
+      },
+      "voxel_size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "camera_look": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "gaze_into_the_abyss": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "manual_camera": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_mod": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "palette_select": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

@@ -1,0 +1,316 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.exoplanet",
+  "title": "EXOplanet",
+  "author": "Meebs ft. WAHa_06x36",
+  "thumbnail": "thumbnail.jpg",
+  "tags": [
+    "raymarching",
+    "dark",
+    "displacement"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "mirror_on",
+      "label": "mirror on",
+      "description": "Mirror the scene across an axis for a symmetrical look.",
+      "group": "mirror",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "mirror_change",
+      "label": "mirror change",
+      "description": "mirror on MUST BE SET TO ON. Change the mirror location on every press to get different kinds of symmetry.",
+      "group": "mirror",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "refract_type",
+      "label": "refract type",
+      "description": "Refract the scene through one of two surfaces. 1/3 up selects an 'X' surface. 2/3 up selects a diamond surface. All the way down for None. Both move on the beat.",
+      "group": "refractor",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "RGB_Split",
+      "label": "RGB Split",
+      "description": "Turn on an RGB Split effect that splits more when the bass hits.",
+      "group": "effects",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "intns_atmos",
+      "label": "intns atmos",
+      "description": "Intensity of the atmosphere's glow. ",
+      "group": "effects",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "intns_planet",
+      "label": "intns planet",
+      "description": "Intensity of the planet's glow.",
+      "group": "effects",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "color_scheme",
+      "label": "color scheme",
+      "description": "Choose between your two selected colors or a full spectrum color scheme.",
+      "group": "color",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "color_low",
+      "label": "color low",
+      "description": "color scheme MUST BE SET TO ON. Color of planet surface.",
+      "group": "color",
+      "type": "color",
+      "default": [
+        0.785,
+        0.26,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "color_high",
+      "label": "color high",
+      "description": "color scheme MUST BE SET TO ON. Color of atmosphere.",
+      "group": "color",
+      "type": "color",
+      "default": [
+        0.7,
+        0.6,
+        0.1,
+        1
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_UserImage",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "sunTexIn",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.sunTexIn.previous",
+          "uniform": "sunTexIn"
+        },
+        {
+          "source": "target.forMirroring.previous",
+          "uniform": "forMirroring"
+        },
+        {
+          "source": "target.forRGBSplit.previous",
+          "uniform": "forRGBSplit"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "sunTexIn",
+        "width": 3000,
+        "height": 1500,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "forMirroring",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.sunTexIn",
+          "uniform": "sunTexIn"
+        },
+        {
+          "source": "target.forMirroring.previous",
+          "uniform": "forMirroring"
+        },
+        {
+          "source": "target.forRGBSplit.previous",
+          "uniform": "forRGBSplit"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "forMirroring",
+        "width": 1280,
+        "height": 720,
+        "format": "rgba8",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "forRGBSplit",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.sunTexIn",
+          "uniform": "sunTexIn"
+        },
+        {
+          "source": "target.forMirroring",
+          "uniform": "forMirroring"
+        },
+        {
+          "source": "target.forRGBSplit.previous",
+          "uniform": "forRGBSplit"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": {
+        "name": "forRGBSplit",
+        "format": "rgba8",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.sunTexIn",
+          "uniform": "sunTexIn"
+        },
+        {
+          "source": "target.forMirroring",
+          "uniform": "forMirroring"
+        },
+        {
+          "source": "target.forRGBSplit",
+          "uniform": "forRGBSplit"
+        },
+        {
+          "source": "input.syn_UserImage",
+          "uniform": "syn_UserImage"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "mirror_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "mirror_change": {
+        "format": "ssf",
+        "type": "bang counter",
+        "modifiers": [
+          "counter"
+        ]
+      },
+      "refract_type": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "RGB_Split": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "intns_atmos": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "intns_planet": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "color_scheme": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "color_low": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "color_high": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

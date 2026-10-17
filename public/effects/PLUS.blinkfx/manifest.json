@@ -1,0 +1,126 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.plus",
+  "title": "PLUS",
+  "author": "Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "2d",
+    "grayscale",
+    "media"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "x_mod",
+      "label": "x mod",
+      "group": "xy",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "y_mod",
+      "label": "y mod",
+      "group": "xy",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "pop",
+      "label": "pop",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "type",
+      "label": "type",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    },
+    {
+      "name": "resoMod",
+      "label": "resoMod",
+      "type": "float",
+      "default": 0,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "x_mod": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "y_mod": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "pop": {
+        "format": "ssf",
+        "type": "bang smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

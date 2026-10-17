@@ -1,0 +1,583 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.thresholder",
+  "title": "Thresholder",
+  "author": "Kyle Grover",
+  "description": "Behold the threshold on hold",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "colorful",
+    "pyschedelic",
+    "intense",
+    "glitchy"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "THRESHOLD",
+      "label": "THRESHOLD",
+      "description": "up for more media, down for more feedback",
+      "group": "feedback threshold",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1.1
+    },
+    {
+      "name": "threshold_vol",
+      "label": "threshold vol",
+      "description": "volume increases threshold",
+      "group": "feedback threshold",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "keep_color",
+      "label": "keep color",
+      "description": "this color will be the middle of the threshold range",
+      "group": "feedback threshold",
+      "type": "color",
+      "default": [
+        0.8,
+        0.1,
+        0.1,
+        1
+      ]
+    },
+    {
+      "name": "random_keep_color",
+      "label": "random keep color",
+      "description": "randomize color",
+      "group": "feedback threshold",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "tone_movement",
+      "label": "tone movement",
+      "description": "tone effects movements",
+      "group": "feedback motion",
+      "type": "float",
+      "default": 0.004,
+      "min": 0,
+      "max": 0.01
+    },
+    {
+      "name": "zoom_to_volume",
+      "label": "zoom to volume",
+      "description": "zoom on the beat",
+      "group": "feedback motion",
+      "type": "float",
+      "default": 0.003,
+      "min": 0,
+      "max": 0.02
+    },
+    {
+      "name": "bufferglitch",
+      "label": "bufferglitch",
+      "description": "introduces literal glitches. great for prolonged feedback",
+      "group": "feedback motion",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "bright_adjust",
+      "label": "bright adjust",
+      "description": "brightness/value adjustment",
+      "group": "feedback hsv",
+      "type": "float",
+      "default": 0,
+      "min": -0.002,
+      "max": 0.002
+    },
+    {
+      "name": "color_spin",
+      "label": "color spin",
+      "description": "hue adjustment",
+      "group": "feedback hsv",
+      "type": "float",
+      "default": 0.005,
+      "min": 0.001,
+      "max": 0.03
+    },
+    {
+      "name": "saturate_adjust",
+      "label": "saturate adjust",
+      "description": "saturation adjustment",
+      "group": "feedback hsv",
+      "type": "float",
+      "default": 0,
+      "min": -0.002,
+      "max": 0.002
+    },
+    {
+      "name": "bright_adjust_auto",
+      "label": "bright adjust auto",
+      "description": "adjusts brightness based on current keep color. may strobe wildly",
+      "group": "feedback hsv",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "palletize_after",
+      "label": "palletize after",
+      "group": "palettes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "palletize_before",
+      "label": "palletize before",
+      "group": "palettes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "random_palette",
+      "label": "random palette",
+      "description": "random",
+      "group": "palettes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "palette1",
+      "label": "palette1",
+      "description": "audioreactive 1. DEFAULT",
+      "group": "palettes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "palette2",
+      "label": "palette2",
+      "description": "audioreactive 2",
+      "group": "palettes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "palette3",
+      "label": "palette3",
+      "description": "+",
+      "group": "palettes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "palette4",
+      "label": "palette4",
+      "description": "color bands",
+      "group": "palettes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "palette5",
+      "label": "palette5",
+      "description": "rainbow blast. requires sound",
+      "group": "palettes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "get_frame",
+      "label": "get frame",
+      "description": "snags a single frame of media or videosynth",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "play_media",
+      "label": "play media",
+      "description": "plays incoming media or videosynth",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_get_frame",
+      "label": "auto get frame",
+      "description": "snags frames on the beat",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "synthScale",
+      "label": "synthScale",
+      "description": "scale of video synth",
+      "group": "videosynth",
+      "type": "float",
+      "default": 0.25,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "synthMacro",
+      "label": "synthMacro",
+      "description": "scales the videosynths RGB channels",
+      "group": "videosynth",
+      "type": "float",
+      "default": 0.4,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "synthSpeed",
+      "label": "synthSpeed",
+      "description": "synth speed",
+      "group": "videosynth",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "movementDir",
+      "label": "movementDir",
+      "type": "float",
+      "default": -1,
+      "group": "Transitions"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "fkry",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.fkry.previous",
+          "uniform": "fkry"
+        },
+        {
+          "source": "target.buffA.previous",
+          "uniform": "buffA"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "fkry",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "buffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.fkry",
+          "uniform": "fkry"
+        },
+        {
+          "source": "target.buffA.previous",
+          "uniform": "buffA"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "buffA",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.fkry",
+          "uniform": "fkry"
+        },
+        {
+          "source": "target.buffA",
+          "uniform": "buffA"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "THRESHOLD": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "threshold_vol": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "keep_color": {
+        "format": "ssf",
+        "type": "color",
+        "modifiers": []
+      },
+      "random_keep_color": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "tone_movement": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "zoom_to_volume": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bufferglitch": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "bright_adjust": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "color_spin": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "saturate_adjust": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "bright_adjust_auto": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "palletize_after": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "palletize_before": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "random_palette": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "palette1": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "palette2": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "palette3": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "palette4": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "palette5": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "get_frame": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "play_media": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_get_frame": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "synthScale": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "synthMacro": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "synthSpeed": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      }
+    },
+    "scriptUniforms": {
+      "synthTime": "vec3",
+      "randomR": "float",
+      "randomG": "float",
+      "randomB": "float",
+      "current_pallete": "float",
+      "randomR1": "float",
+      "randomG1": "float",
+      "randomB1": "float",
+      "randomR2": "float",
+      "randomG2": "float",
+      "randomB2": "float",
+      "randomR3": "float",
+      "randomG3": "float",
+      "randomB3": "float",
+      "randomR4": "float",
+      "randomG4": "float",
+      "randomB4": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

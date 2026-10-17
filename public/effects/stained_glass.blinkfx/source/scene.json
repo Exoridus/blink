@@ -1,0 +1,56 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Stained Glass",
+ "IMAGE_PATH": "stainedglass.png",
+ "IMAGES": [{"NAME": "colorNoise", "PATH":"images/colornoise.jpg"}],
+ "PASSES": [{"TARGET":"firstBuff", "WIDTH": 1280, "HEIGHT":720}],
+ "GPU": 2,
+"TAGS" : 
+[
+"media",
+"psychedelic",
+"abstract"
+],
+ "CONTROLS": [
+  {
+ 	"NAME":"pattern", "TYPE": "slider smooth", "PARAMS": 0.05,
+ 	"MIN": 0.0, "MAX": 3.0, "DEFAULT": 0.0,
+ 	"UI_GROUP": "pattern",
+ 	"DESCRIPTION": "Choose from one of four different patterns for the scene."
+ 	},{
+ 	"NAME":"move_xy", "TYPE": "xy smooth", "PARAMS": 0.04,
+ 	"MIN": -300.0, "MAX": 300.0, "DEFAULT": 0.0,
+ 	"UI_GROUP": "motion",
+ 	"DESCRIPTION":"Relocate the camera position to be off-center."
+ 	},{
+ 	"NAME":"reverse", "TYPE": "toggle",
+ 	"MIN": -1.0, "MAX": 1.0, "DEFAULT": 0.0,
+ 	"UI_GROUP": "motion",
+ 	"DESCRIPTION": "Reverse direction of zoom, to be traveling in or out."
+ 	},{
+ 	"NAME":"zoom_speed", "TYPE": "slider",
+ 	"MIN": 0.0, "MAX": 2.0, "DEFAULT": 0.8,
+ 	"UI_GROUP": "motion",
+ 	"DESCRIPTION": "How fast to zoom in or out."
+ 	},{
+ 	"NAME":"spin", "TYPE": "slider traveler",
+ 	"MIN": 0.0, "MAX": 2.0, "DEFAULT": 0.2, "PARAMS": 0.02,
+ 	"UI_GROUP": "motion",
+ 	"DESCRIPTION": "Really intense spin effect. Default: 50%."
+ 	},{
+ 	"NAME":"distortion", "TYPE": "slider smooth", "PARAMS": 0.05,
+ 	"MIN": -1.0, "MAX": 1.0, "DEFAULT": 0.0,
+ 	"UI_GROUP": "geometry",
+	"DESCRIPTION": "Barrel distortion in or out."
+ 	},{
+ 	"NAME":"stacked_layers", "TYPE": "slider",
+	"DEFAULT": 4.0, "MIN": 0.0,	"MAX": 7.0,
+	"UI_GROUP": "geometry",
+	"DESCRIPTION": "Number of axes of symmetry. Careful, increasing this can lower FPS."
+ },{
+ 	"NAME":"pearlescence", "TYPE": "slider smooth",
+	"DEFAULT": 0.0, "MIN": 0.0,	"MAX": 1.0,
+	"UI_GROUP": "colorize"
+ }
+ ]
+ }

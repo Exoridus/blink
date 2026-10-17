@@ -1,0 +1,145 @@
+{
+   "CONTROLS" : [
+   {
+      "NAME":"pulsing_fire",
+      "DESCRIPTION":"Audio reactive pulses. Turn OFF for constant motion.",
+      "TYPE":"toggle",
+      "DEFAULT":1.0,
+      "MAX":1.0,
+      "MIN":0.0,
+      "UI_GROUP":"reactivity"
+   },{
+      "NAME":"bass_travel",
+      "DESCRIPTION":"Zoom in on bass hits, creating a feeling of moving forwards.",
+      "TYPE":"toggle",
+      "DEFAULT":0.0,
+      "MAX":1.0,
+      "MIN":0.0,
+      "UI_GROUP":"reactivity"
+   },{
+      "NAME":"media_color_only",
+      "DESCRIPTION":"This lets you use the media color only, instead of mixing with the fire.",
+      "TYPE":"slider",
+      "DEFAULT":1.0,
+      "MAX":0.0,
+      "MIN":1.0,
+      "UI_GROUP":"media"
+   },{
+      "NAME":"multiply_color",
+      "DESCRIPTION":"When ON, multiplies the media and fire color, otherwise it is additive.",
+      "TYPE":"toggle",
+      "DEFAULT":0.0,
+      "MAX":1.0,
+      "MIN":0.0,
+      "UI_GROUP":"media"
+   },{
+      "NAME":"media_refract",
+      "DESCRIPTION":"Affects how distorted the media is.",
+      "TYPE":"slider smooth",
+      "DEFAULT":0.4,
+      "PARAMS":0.1,
+      "MAX":1.0,
+      "MIN":0.0,
+      "UI_GROUP":"media"
+   },{
+      "NAME":"color_palette",
+      "DESCRIPTION":"4 color palettes to choose from on one slider.",
+      "TYPE":"slider",
+      "DEFAULT":0.0,
+      "MAX":3.0,
+      "MIN":0.0,
+      "UI_GROUP":"color"
+   },{
+      "NAME":"glassy_surface",
+      "DESCRIPTION":"Creates a smooth glassy surface. Tipping point is around 70%.",
+      "TYPE":"slider",
+      "DEFAULT":1.0,
+      "MAX":0.0,
+      "MIN":1.0,
+      "UI_GROUP":"action"
+   },{
+      "NAME":"scan_lines",
+      "DESCRIPTION":"Pulses vertical scan lines out from the center.",
+      "TYPE":"bang smooth",
+      "DEFAULT":0.0,
+      "MAX":1.0,
+      "MIN":0.0,
+      "PARAMS":0.05,
+      "UI_GROUP":"action"
+   },{
+      "NAME":"ring_of_fire",
+      "DESCRIPTION":"Spawns a slow moving ring of fire moving out from the center.",
+      "TYPE":"bang smooth",
+      "DEFAULT":0.0,
+      "MAX":1.0,
+      "MIN":0.0,
+      "PARAMS":0.0025,
+      "UI_GROUP":"action"
+   },{
+      "NAME":"darken",
+      "DESCRIPTION":"Pulse of darkness across the screen, with fire returning shortly afer.",
+      "TYPE":"bang smooth",
+      "DEFAULT":0.0,
+      "MAX":1.0,
+      "MIN":0.0,
+      "PARAMS":0.5,
+      "UI_GROUP":"action"
+   },{
+      "NAME":"fireworks",
+      "DESCRIPTION":"Creates quick burst effects in each cell of the fire.",
+      "TYPE":"bang smooth",
+      "DEFAULT":0.0,
+      "MAX":1.0,
+      "MIN":0.0,
+      "PARAMS":0.1,
+      "UI_GROUP":"action"
+   },{
+      "NAME":"reset_sim",
+      "DESCRIPTION":"Only used to reset the simulation if it entirely dies.",
+      "TYPE":"bang",
+      "UI_GROUP":"reset"
+   }
+
+   ],
+   "CREDIT" : "cornusammonis",
+   "DESCRIPTION" : "A flaming dynamical system. Click to interact, press spacebar to reset.",
+   "HARD_TRANSITIONS" : null,
+   "IMAGES" : [
+      {
+         "NAME" : "image16",
+         "PATH" : "images/16.png"
+      }
+   ],
+   "IMAGE_PATH" : "dynamical_flame.png",
+   "MEDIA":
+   [
+      {
+         "FILTER": "mipmap",
+         "WRAP": "repeat"
+      }
+   ],
+   "PASSES" : [
+      {
+         "FLOAT" : true,
+         "HEIGHT" : 720,
+         "TARGET" : "BuffA",
+         "WIDTH" : 1280
+      },{
+         "FLOAT" : true,
+         "HEIGHT" : 720,
+         "TARGET" : "BuffA2",
+         "WIDTH" : 1280
+      }
+   ],
+   "SMOOTH_TRANSITIONS" : null,
+   "TITLE" : "Dynamical Flame",
+   "GPU": 2,
+   "TAGS" : 
+   [
+    "feedback",
+    "media",
+    "colorful",
+    "fluid",
+    "simulation"
+   ]
+}

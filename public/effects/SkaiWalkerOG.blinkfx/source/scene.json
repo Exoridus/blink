@@ -1,0 +1,180 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Toggle automatic application of the glyph overlay",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "auto_overlay",
+			"PARAMS" : 0.1,
+			"TYPE" : "toggle smooth",
+			"UI_GROUP" : "fb"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Blend amount for overlaying glyph/media onto the scene",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "overlay_glyphs",
+			"PARAMS" : 0.3,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "fb"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.57,
+				0.85,
+				0.95
+			],
+			"DESCRIPTION" : "Base seed color used by the scene palette. TIP: Checkout the grayer areas of each color",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "color_seed",
+			"TYPE" : "color",
+			"UI_GROUP" : "color"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Amount of media texture blended onto scene surfaces",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "show_media",
+			"PARAMS" : 0.01,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "color"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Global time-rate multiplier (currently unused in shader)",
+			"MAX" : 1,
+			"MIN" : 0.2,
+			"NAME" : "time_rate",
+			"TYPE" : "slider",
+			"UI_GROUP" : "time"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Toggle single-room view (disable repeated tiling/cutouts)",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "single_room",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "geo"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Toggle automatic post-process flip driven by bass presence",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "auto_flip",
+			"PARAMS" : 0.1,
+			"TYPE" : "toggle smooth",
+			"UI_GROUP" : "mirror"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Manual blend amount for the post-process mirror/flip effect",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "flip",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "mirror"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Camera FOV / bubble distortion amount used in view-ray mixing",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "bubble_cam",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "bubble"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Toggle automatic FOV/bubble driven by bass presence",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "auto_bubble",
+			"PARAMS" : 0.1,
+			"TYPE" : "toggle smooth",
+			"UI_GROUP" : "bubble"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Use square (box-like) bubble distortion instead of circular",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "square_bubble",
+			"PARAMS" : 0.1,
+			"TYPE" : "toggle smooth",
+			"UI_GROUP" : "bubble"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Perspective morph amount (mixes view towards spherical/warped projection)",
+			"MAX" : 0.95,
+			"MIN" : 0,
+			"NAME" : "perspective",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "morph"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Toggle automatic morphing driven by audio presence",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "auto_morph",
+			"PARAMS" : 0.01,
+			"TYPE" : "toggle smooth",
+			"UI_GROUP" : "morph"
+		}
+	],
+	"CREDIT" : "Psybernautics",
+	"DESCRIPTION" : "Inspired by Laia.",
+	"GPU" : 0,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "thumb.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "repeat"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "glyphPass",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		},
+		{
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "mainPass",
+			"WIDTH" : 1920,
+			"WRAP" : "repeat"
+		}
+	],
+	"TITLE" : "Skaiwalker OG",
+	"WIDTH" : 1920
+}

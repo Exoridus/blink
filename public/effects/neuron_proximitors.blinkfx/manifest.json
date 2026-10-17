@@ -1,0 +1,475 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.neuron_proximitors",
+  "title": "Neuron Proximitors",
+  "author": "patu x Meebs",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "groovy",
+    "particles",
+    "dark",
+    "media",
+    "simulation"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "multiplexer_on",
+      "label": "multiplexer on",
+      "description": "Replicate the entire system at different zoom levels",
+      "group": "multiplexer",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "multiplexer_layers",
+      "label": "multiplexer layers",
+      "description": "Number of layers in the multiplexer",
+      "group": "multiplexer",
+      "type": "float",
+      "default": 5,
+      "min": 2,
+      "max": 8
+    },
+    {
+      "name": "randomize_layers",
+      "label": "randomize layers",
+      "description": "Randomize each layer so they don't align",
+      "group": "multiplexer",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "zoom_power",
+      "label": "zoom power",
+      "description": "Amount of zoom between each layer",
+      "group": "multiplexer",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rate_zoom",
+      "label": "rate zoom",
+      "description": "How fast the layers zoom - negative reverses the direction",
+      "group": "multiplexer",
+      "type": "float",
+      "default": 0.5,
+      "min": -3,
+      "max": 3
+    },
+    {
+      "name": "particle_speed",
+      "label": "particle speed",
+      "description": "Overall speed of particles",
+      "group": "motion",
+      "type": "float",
+      "default": 0.075,
+      "min": 0,
+      "max": 0.2
+    },
+    {
+      "name": "beat_randomizer",
+      "label": "beat randomizer",
+      "description": "Particles get new direction to travel every beat hit",
+      "group": "motion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "audio_motion",
+      "label": "audio motion",
+      "description": "Speed controlled by audio or constant",
+      "group": "motion",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flow_amount",
+      "label": "flow amount",
+      "description": "Turn up to add in flow",
+      "group": "flow",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "vertical_flow",
+      "label": "vertical flow",
+      "description": "Flow direction, up or down",
+      "group": "flow",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "flow_in_out",
+      "label": "flow in out",
+      "description": "Flow zooming in or out",
+      "group": "flow",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "reactive_flow",
+      "label": "reactive flow",
+      "description": "Audio reactive flow or constant",
+      "group": "flow",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "particle_col",
+      "label": "particle col",
+      "description": "Use media to choose particle colors",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "simple_multiply",
+      "label": "simple multiply",
+      "description": "Use media in a simple multiply blend",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "feedback_mask",
+      "label": "feedback mask",
+      "description": "Use media as a mask for the flow effect",
+      "group": "media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "flashing_lines",
+      "label": "flashing lines",
+      "description": "Audio reactive flashing of the lines between particles",
+      "group": "modes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "minimal_mode",
+      "label": "minimal mode",
+      "description": "Totally different look, monochrome thin connections between all particles",
+      "group": "modes",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "FPS_fewer_particles",
+      "label": "FPS fewer particles",
+      "description": "TURN THIS ON TO FIX BAD FPS - Reduces particle number which can also give unique looks",
+      "group": "fps_fix",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "BuffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA.previous",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC.previous",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffA",
+        "width": 5,
+        "height": 512,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC.previous",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffB",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffC",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC.previous",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffC",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "target.BuffC",
+          "uniform": "BuffC"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "script": {
+    "entry": "script.js",
+    "abi": "ssf/1"
+  },
+  "requirements": {
+    "features": [
+      "script:ssf/1"
+    ]
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "multiplexer_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "multiplexer_layers": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "randomize_layers": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "zoom_power": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "rate_zoom": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "particle_speed": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "beat_randomizer": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "audio_motion": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "flow_amount": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.5
+      },
+      "vertical_flow": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "flow_in_out": {
+        "format": "ssf",
+        "type": "knob",
+        "modifiers": []
+      },
+      "reactive_flow": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "particle_col": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "simple_multiply": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "feedback_mask": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "flashing_lines": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "minimal_mode": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "FPS_fewer_particles": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      }
+    },
+    "scriptUniforms": {
+      "scr_time": "float"
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

@@ -1,0 +1,181 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 0.25,
+			"DESCRIPTION" : "Reflection plane depth – adjust Z distance to the Scenesat triangle",
+			"MAX" : 4,
+			"MIN" : -0.25,
+			"NAME" : "z_dist",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Motion blur – blend with previous frame, can reduce noise",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "motion_blur",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 2,
+			"DESCRIPTION" : "Triangle fade – center opaque to edge transparency",
+			"MAX" : 5,
+			"MIN" : 0,
+			"NAME" : "tri_transparency",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "CRT effect – screen distortion, vignette, scanlines",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "crt_effect",
+			"PARAMS" : 0.1,
+			"TYPE" : "toggle smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Bouncing bars – antenna respond to audio hits",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "bouncing_bars",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 5,
+			"DESCRIPTION" : "Denoising passes – higher quality, more samples",
+			"MAX" : 7,
+			"MIN" : 1,
+			"NAME" : "denoise",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 5.6,
+			"DESCRIPTION" : "Base color hue – shifts antenna animation color",
+			"MAX" : 7,
+			"MIN" : 0,
+			"NAME" : "base_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Neon grid animation speed – reflection plane movement",
+			"MAX" : 3,
+			"MIN" : -3,
+			"NAME" : "grid_speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : -0.2,
+			"DESCRIPTION" : "Sun vertical position – sun height over the mountains",
+			"MAX" : 2,
+			"MIN" : -1,
+			"NAME" : "sun_height",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Visual"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Media transparency – video bleeds through the SceneSat triangle",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_leak",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 0.5,
+			"DESCRIPTION" : "Media texture zoom level – scale media size",
+			"MAX" : 2,
+			"MIN" : 0,
+			"NAME" : "media_zoom",
+			"PARAMS" : 0.2,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "A retro-futuristic satellite orbits a neon dreamscape, its antenna responding to the audio beat. A glowing pink triangle floats above an infinite grid of electric blue, reflecting the cosmic sunset beyond. Media content bleeds through as the satellite rotates, while CRT scan lines flicker across the screen. The entire scene pulses with 80s synthwave energy. Created for SceneSat (https://www.scenesat.com/). Font: Cyber Brush by burhanafif (https://hanscostudio.com/), licensed as Non-Commercial.",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGES" : 
+	[
+		{
+			"FILTER" : "mipmap",
+			"NAME" : "t_scenesat",
+			"PATH" : "assets/t_scenesat.png",
+			"WRAP" : "repeat"
+		}
+	],
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"PASSES" : 
+	[
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 540,
+			"TARGET" : "pass_sunset",
+			"WIDTH" : 1920,
+			"WRAP" : "clamp"
+		},
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 800,
+			"TARGET" : "pass_scenesat",
+			"WIDTH" : 800,
+			"WRAP" : "clamp"
+		},
+		{
+			"DOUBLE_BUFFER" : false,
+			"FILTER" : "linear",
+			"FLOAT" : true,
+			"HEIGHT" : 1080,
+			"TARGET" : "pass_reflection",
+			"WIDTH" : 1920,
+			"WRAP" : "clamp"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"neon",
+		"scenesat",
+		"satellite",
+		"antenna",
+		"audio-reactive",
+		"crt",
+		"retro",
+		"synthwave",
+		"reflection",
+		"grid",
+		"atmospheric"
+	],
+	"TITLE" : "Neon Scenesat",
+	"WIDTH" : 1920
+}

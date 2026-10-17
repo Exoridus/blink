@@ -1,0 +1,282 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.videofx_directionalblur",
+  "title": "VideoFX_DirectionalBlur",
+  "author": "Synesthesia",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "utility"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "roto",
+      "label": "roto",
+      "description": "Rotation of each layer of the blur",
+      "group": "blur",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "zoom_amt",
+      "label": "zoom amt",
+      "description": "Amount of zoom between each layer of the blur",
+      "group": "blur",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 0.3
+    },
+    {
+      "name": "blur_gamma",
+      "label": "blur gamma",
+      "description": "Gamma of each layer of the blur",
+      "group": "blur",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "name": "zoom_levels",
+      "label": "zoom levels",
+      "description": "Number of levels of zoom. If you have FPS issues lower this.",
+      "group": "blur",
+      "type": "float",
+      "default": 40,
+      "min": 0,
+      "max": 60
+    },
+    {
+      "name": "brightness",
+      "label": "brightness",
+      "description": "Brightness of each layer of the blur",
+      "group": "blur",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 3
+    },
+    {
+      "name": "audio_zoom",
+      "label": "audio zoom",
+      "description": "Adds an audio-reactive pulsing effect lighting up each layer of blur",
+      "group": "action",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "zoom_pos",
+      "label": "zoom pos",
+      "description": "Adjusts the position of the zoom, giving a 3D effect",
+      "group": "position",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "micro_adjust",
+      "label": "micro adjust",
+      "description": "Changes whether the zoom pos XY pad has a small or large effect",
+      "group": "position",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_direction",
+      "label": "auto direction",
+      "description": "Turn this on for auto audio-reactive zoom pos control",
+      "group": "position",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_pos",
+      "label": "media pos",
+      "description": "This lets you scroll the underlying media while keeping the directional blur effect constant",
+      "group": "media",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "mirror_tile",
+      "label": "mirror tile",
+      "description": "Turn off if you want the media to tile normally, instead of mirrored",
+      "group": "media",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "thickness_grid",
+      "label": "thickness grid",
+      "description": "This affects the thickness of the grid lines that show up when no media is selected",
+      "group": "no_media",
+      "type": "float",
+      "default": 0.03,
+      "min": 0,
+      "max": 0.2
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "main",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "roto": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "zoom_amt": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "blur_gamma": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "zoom_levels": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "brightness": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "audio_zoom": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "zoom_pos": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "micro_adjust": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "auto_direction": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_pos": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.02
+      },
+      "mirror_tile": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "thickness_grid": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.04
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

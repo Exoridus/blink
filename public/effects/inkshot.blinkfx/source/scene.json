@@ -1,0 +1,66 @@
+{
+ "CREDIT": "Meebs",
+ "TITLE": "Ink Shot",
+ "IMAGE_PATH": "inkshot.jpg",
+ "HARD_TRANSITIONS": [{
+  "UNIFORM": "whichTwoColors",
+  "VALUES": [0.0, 0.1, 0.2]
+ }],
+ "PASSES": [ {"TARGET": "forRGBSplit", "FLOAT":false}
+ ],
+ "GPU": 1,
+ "TAGS" : 
+ [
+  "glitchy",
+  "media",
+  "2d",
+  "psychedelic",
+  "colorful"
+ ],
+ "CONTROLS": [ 
+  {
+ 		"NAME": "auto_jumper", 
+		"TYPE": "toggle",
+		"DEFAULT": 1.0,
+		"DESCRIPTION": "Automatically jumps to a new background location on percussive beats. Turn off for full manual control.",
+    "UI_GROUP":"jump"
+	},{
+ 		"NAME": "jump", 
+		"TYPE": "bang counter",
+		"DESCRIPTION": "Press to manually jump to a new background location.",
+    "UI_GROUP":"jump"
+	},{
+ 		"NAME": "auto_pulse", 
+		"TYPE": "toggle",
+		"DEFAULT": 1.0,
+		"DESCRIPTION": "Automatically pulses on bass hits. Turn off for full manual control.",
+    "UI_GROUP":"pulse"
+	},{
+ 		"NAME": "pulse", 
+		"TYPE": "bang smooth",
+		"PARAMS": 0.05,
+		"DESCRIPTION": "Press to manually create a pulse.",
+    "UI_GROUP":"pulse"
+	},{
+ 		"NAME": "pulse_intensity", 
+		"TYPE": "slider smooth",
+		"DEFAULT": 1.0,
+		"MAX": 2.0,
+		"PARAMS": 0.05,
+		"DESCRIPTION": "Control the intensity of the pulse. Lower for subtle, high for a lot of motion.",
+    "UI_GROUP":"pulse"
+	},{
+ 		"NAME": "contrast", 
+ 		"UI_GROUP":"effects",
+		"TYPE": "toggle",
+		"DEFAULT": 0.0,
+		"DESCRIPTION": "Turn on to increase contrast. Less uniform and more distinct dots. Try with pulse intensity on high and slices ON."
+	},{
+ 		"NAME": "slices", 
+ 		"UI_GROUP":"effects",
+		"TYPE": "toggle",
+		"DEFAULT": 0.0,
+		"DESCRIPTION": "Slices up the screen. Turn on, then turn pulse intensity up for a cool splitting effect."
+	}
+ ]
+}

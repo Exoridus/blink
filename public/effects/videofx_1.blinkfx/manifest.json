@@ -1,0 +1,516 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.videofx_1",
+  "title": "VideoFX_1",
+  "author": "Synesthesia",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "media",
+    "utility",
+    "feedback",
+    "glitchy"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "normal_mix",
+      "label": "normal mix",
+      "description": "Mix in the unaffected media. Don't forget to use 'media' meta controls, too!",
+      "group": "master mixer",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "edge_mix",
+      "label": "edge mix",
+      "description": "Mix in the edge detection effect, modified by controls in 'edge detect'.",
+      "group": "master mixer",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "rgb_mix",
+      "label": "rgb mix",
+      "description": "Mix in the rgb split effect, modified by controls in 'rgb split'.",
+      "group": "master mixer",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "pixelate_mix",
+      "label": "pixelate mix",
+      "description": "Mix in the pixelate effect, modified by controls in 'pixelate'.",
+      "group": "master mixer",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "feedback_mix",
+      "label": "feedback mix",
+      "description": "Mix in the feedback effect. Needs other channels. Try edge detect to get extra trippy!",
+      "group": "master mixer",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "subtract",
+      "label": "subtract",
+      "description": "Subtracts the normal video, instead of adding, for darker looks.",
+      "group": "normal media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "expand",
+      "label": "expand",
+      "description": "Edge detection tends to make colors pure R, G, B, this readjusts them to the original media.",
+      "group": "edge detect",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "color_fix",
+      "label": "color fix",
+      "description": "Expands and duplicates the edges.",
+      "group": "edge detect",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "split_amount",
+      "label": "split amount",
+      "description": "desc",
+      "group": "rgb split",
+      "type": "float",
+      "default": 0.75,
+      "min": 0,
+      "max": 1.5
+    },
+    {
+      "name": "auto_split",
+      "label": "auto split",
+      "description": "Bass-reactive RGB split effect. Toggle OFF for non-reactive.",
+      "group": "rgb split",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "woozy",
+      "label": "woozy",
+      "description": "Channels constantly move in a chaotic way, instead of orderly.",
+      "group": "rgb split",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "woozy_speed",
+      "label": "woozy speed",
+      "description": "Affects how fast the 'woozy' effect will run.",
+      "group": "rgb split",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 10
+    },
+    {
+      "name": "square_pix",
+      "label": "square pix",
+      "description": "Simple, square pixels. Turn OFF to use other pixel types.",
+      "group": "pixelate",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "tri_pix",
+      "label": "tri pix",
+      "description": "Triangular pixels. Turn OFF to use other pixel types.",
+      "group": "pixelate",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "circle_pix",
+      "label": "circle pix",
+      "description": "Circular pixels. Turn OFF to use other pixel types.",
+      "group": "pixelate",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "pixel_size",
+      "label": "pixel size",
+      "description": "Size of the pixels while mix on the pixelate effect is turned up.",
+      "group": "pixelate",
+      "type": "float",
+      "default": 3,
+      "min": 3,
+      "max": 3
+    },
+    {
+      "name": "clamp_color",
+      "label": "clamp color",
+      "description": "Helps limit white-out/black-out, but modifies how some feedback behaves.",
+      "group": "feedback",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "extra_bright",
+      "label": "extra bright",
+      "description": "Additive instead of mixing. Turn up for extra echoes and a more pronounced effect.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "fb_motion",
+      "label": "fb motion",
+      "description": "XY offset for feedback.",
+      "group": "feedback",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -3,
+        -3
+      ],
+      "max": [
+        3,
+        3
+      ]
+    },
+    {
+      "name": "fb_zoom",
+      "label": "fb zoom",
+      "description": "Zoom in/out offset for feedback.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0,
+      "min": -1,
+      "max": 1
+    },
+    {
+      "name": "fb_rotate",
+      "label": "fb rotate",
+      "description": "Rotational offset for feedback.",
+      "group": "feedback",
+      "type": "float",
+      "default": 0,
+      "min": -0.1,
+      "max": 0.1
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "noMedia",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.noMedia.previous",
+          "uniform": "noMedia"
+        },
+        {
+          "source": "target.userImgFB.previous",
+          "uniform": "userImgFB"
+        },
+        {
+          "source": "target.fxApplied.previous",
+          "uniform": "fxApplied"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "noMedia",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "userImgFB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.noMedia",
+          "uniform": "noMedia"
+        },
+        {
+          "source": "target.userImgFB.previous",
+          "uniform": "userImgFB"
+        },
+        {
+          "source": "target.fxApplied.previous",
+          "uniform": "fxApplied"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "userImgFB",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "fxApplied",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.noMedia",
+          "uniform": "noMedia"
+        },
+        {
+          "source": "target.userImgFB",
+          "uniform": "userImgFB"
+        },
+        {
+          "source": "target.fxApplied.previous",
+          "uniform": "fxApplied"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "fxApplied",
+        "width": 1920,
+        "height": 1080,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.noMedia",
+          "uniform": "noMedia"
+        },
+        {
+          "source": "target.userImgFB",
+          "uniform": "userImgFB"
+        },
+        {
+          "source": "target.fxApplied",
+          "uniform": "fxApplied"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "normal_mix": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "edge_mix": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "rgb_mix": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "pixelate_mix": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "feedback_mix": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "subtract": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "expand": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "color_fix": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "split_amount": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "auto_split": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "woozy": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "woozy_speed": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "square_pix": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "tri_pix": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "circle_pix": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "pixel_size": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.20000000298023224
+      },
+      "clamp_color": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "extra_bright": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "fb_motion": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "fb_zoom": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      },
+      "fb_rotate": {
+        "format": "ssf",
+        "type": "knob smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.01
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

@@ -1,0 +1,370 @@
+{
+   "CONTROLS" : [
+      {
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+         "MAX" : 0.9,
+         "MIN" : 0.05,
+         "NAME" : "TOGGLE_0",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.15,
+         "UI_GROUP" : "toggle"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+         "MAX" : 0.9,
+         "MIN" : 0.05,
+         "NAME" : "TOGGLE_1",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.15,
+         "UI_GROUP" : "toggle"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+         "MAX" : 0.9,
+         "MIN" : 0.05,
+         "NAME" : "TOGGLE_2",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.15,
+         "UI_GROUP" : "toggle"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+         "MAX" : 0.9,
+         "MIN" : 0.05,
+         "NAME" : "TOGGLE_3",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.15,
+         "UI_GROUP" : "toggle"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+         "MAX" : 0.9,
+         "MIN" : 0.05,
+         "NAME" : "TOGGLE_4",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.15,
+         "UI_GROUP" : "toggle"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+         "MAX" : 0.9,
+         "MIN" : 0.05,
+         "NAME" : "TOGGLE_5",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.15,
+         "UI_GROUP" : "toggle"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+         "MAX" : 0.9,
+         "MIN" : 0.05,
+         "NAME" : "TOGGLE_6",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.15,
+         "UI_GROUP" : "toggle"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Toggles respond well to NOTE ON/OFF messages, but can also take CC messages, and will go OFF below 64, or ON above it.",
+         "MAX" : 0.9,
+         "MIN" : 0.05,
+         "NAME" : "TOGGLE_7",
+         "TYPE" : "toggle smooth",
+         "PARAMS":0.15,
+         "UI_GROUP" : "toggle"
+      },{
+         "DEFAULT" : 0.125,
+         "DESCRIPTION" : "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+         "MAX" : 0.95,
+         "MIN" : 0.05,
+         "NAME" : "SLIDER_0",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "slider"
+      },{
+         "DEFAULT" : 0.25,
+         "DESCRIPTION" : "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+         "MAX" : 0.95,
+         "MIN" : 0.05,
+         "NAME" : "SLIDER_1",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "slider"
+      },{
+         "DEFAULT" : 0.375,
+         "DESCRIPTION" : "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+         "MAX" : 0.95,
+         "MIN" : 0.05,
+         "NAME" : "SLIDER_2",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "slider"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+         "MAX" : 0.95,
+         "MIN" : 0.05,
+         "NAME" : "SLIDER_3",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "slider"
+      },{
+         "DEFAULT" : 0.625,
+         "DESCRIPTION" : "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+         "MAX" : 0.95,
+         "MIN" : 0.05,
+         "NAME" : "SLIDER_4",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "slider"
+      },{
+         "DEFAULT" : 0.75,
+         "DESCRIPTION" : "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+         "MAX" : 0.95,
+         "MIN" : 0.05,
+         "NAME" : "SLIDER_5",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "slider"
+      },{
+         "DEFAULT" : 0.875,
+         "DESCRIPTION" : "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+         "MAX" : 0.95,
+         "MIN" : 0.05,
+         "NAME" : "SLIDER_6",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "slider"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Sliders respond best to CC messages. 0 will be 0% on the slider, 127 will be 100%. NOTE ON will be treated as 100%, NOTE OFF will be 0%.",
+         "MAX" : 0.95,
+         "MIN" : 0.05,
+         "NAME" : "SLIDER_7",
+         "TYPE" : "slider smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "slider"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "BANG_0",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "bang"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "BANG_1",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "bang"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "BANG_2",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "bang"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "BANG_3",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "bang"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "BANG_4",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "bang"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "BANG_5",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "bang"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "BANG_6",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "bang"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Bangs respond best to NOTE ON/OFF messages. A NOTE ON will trigger the bang, while a NOTE OFF will do nothing. Any new CC value over 64 will trigger the bang, so knobs and faders are not ideal.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "BANG_7",
+         "TYPE" : "bang smooth",
+         "PARAMS":0.2,
+         "UI_GROUP" : "bang"
+      },{
+         "DEFAULT" : 0.125,
+         "DESCRIPTION" : "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "KNOB_0",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "knob"
+      },{
+         "DEFAULT" : 0.25,
+         "DESCRIPTION" : "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "KNOB_1",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "knob"
+      },{
+         "DEFAULT" : 0.375,
+         "DESCRIPTION" : "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "KNOB_2",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "knob"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "KNOB_3",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "knob"
+      },{
+         "DEFAULT" : 0.625,
+         "DESCRIPTION" : "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "KNOB_4",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "knob"
+      },{
+         "DEFAULT" : 0.75,
+         "DESCRIPTION" : "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "KNOB_5",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "knob"
+      },{
+         "DEFAULT" : 0.875,
+         "DESCRIPTION" : "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "KNOB_6",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "knob"
+      },{
+         "DEFAULT" : 1.0,
+         "DESCRIPTION" : "Knobs behave just like sliders, responding best to CC messages, but they do not share mappings with sliders. They must be independently mapped.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "KNOB_7",
+         "TYPE" : "knob smooth",
+         "PARAMS":0.4,
+         "UI_GROUP" : "knob"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "XY pads can be thought of as two independent sliders in one control. If you have an XY pad on your MIDI controller, map that! Otherwise, you can just map two adjacent knobs or faders, one for each axis.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "XY_0",
+         "TYPE" : "xy smooth",
+         "PARAMS":0.3,
+         "UI_GROUP" : "xy"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "XY pads can be thought of as two independent sliders in one control. If you have an XY pad on your MIDI controller, map that! Otherwise, you can just map two adjacent knobs or faders, one for each axis.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "XY_1",
+         "TYPE" : "xy smooth",
+         "PARAMS":0.3,
+         "UI_GROUP" : "xy"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "XY pads can be thought of as two independent sliders in one control. If you have an XY pad on your MIDI controller, map that! Otherwise, you can just map two adjacent knobs or faders, one for each axis.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "XY_2",
+         "TYPE" : "xy smooth",
+         "PARAMS":0.3,
+         "UI_GROUP" : "xy"
+      },{
+         "DEFAULT" : 0.5,
+         "DESCRIPTION" : "XY pads can be thought of as two independent sliders in one control. If you have an XY pad on your MIDI controller, map that! Otherwise, you can just map two adjacent knobs or faders, one for each axis.",
+         "MAX" : 1,
+         "MIN" : 0,
+         "NAME" : "XY_3",
+         "TYPE" : "xy smooth",
+         "PARAMS":0.3,
+         "UI_GROUP" : "xy"
+      },{
+         "DEFAULT" : 0,
+         "DESCRIPTION" : "Dropdowns work best with CC messages. The CC value between 0 and 127 will be interpolated as an index to select one of the dropdown options.",
+         "NAME" : "DROPDOWN_0",
+         "VALUES": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0],
+         "TYPE" : "dropdown",
+         "UI_GROUP" : "dropdown"
+      },{
+         "DEFAULT" : 1,
+         "DESCRIPTION" : "Dropdowns work best with CC messages. The CC value between 0 and 127 will be interpolated as an index to select one of the dropdown options.",
+         "NAME" : "DROPDOWN_1",
+         "VALUES": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0],
+         "TYPE" : "dropdown",
+         "UI_GROUP" : "dropdown"
+      },{
+         "DEFAULT" : 4,
+         "DESCRIPTION" : "Dropdowns work best with CC messages. The CC value between 0 and 127 will be interpolated as an index to select one of the dropdown options.",
+         "NAME" : "DROPDOWN_2",
+         "VALUES": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0],
+         "TYPE" : "dropdown",
+         "UI_GROUP" : "dropdown"
+      },{
+         "DEFAULT" : 5,
+         "DESCRIPTION" : "Dropdowns work best with CC messages. The CC value between 0 and 127 will be interpolated as an index to select one of the dropdown options.",
+         "NAME" : "DROPDOWN_3",
+         "VALUES": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0],
+         "TYPE" : "dropdown",
+         "UI_GROUP" : "dropdown"
+      }
+   ],
+   "CREDIT" : "Synesthesia",
+   "DESCRIPTION" : "",
+   "HEIGHT" : 1080,
+   "IMAGE_PATH" : "midi_mapping.png",
+   "TITLE" : "MIDI_MAPPING",
+   "WIDTH" : 1920,
+   "GPU": 1,
+   "TAGS" : 
+   [
+    "utility",
+    "developer",
+    "visualizer"
+   ]
+}

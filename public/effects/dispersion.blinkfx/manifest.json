@@ -1,0 +1,393 @@
+{
+  "format": "blinkfx/1",
+  "id": "com.codexo.ssf.dispersion",
+  "title": "Dispersion",
+  "author": "cornusammonis",
+  "thumbnail": "thumbnail.png",
+  "tags": [
+    "feedback",
+    "media",
+    "colorful",
+    "reaction-diffusion",
+    "displacement"
+  ],
+  "kind": "generator",
+  "controls": [
+    {
+      "name": "aberration_amount",
+      "label": "aberration amount",
+      "description": "The most important slider. 50% is zero aberration. 100% is full, 0% is negative full. Be careful very far from 0, your FPS may drop.",
+      "group": "Media",
+      "type": "float",
+      "default": 0.7,
+      "min": -1.2,
+      "max": 1.2
+    },
+    {
+      "name": "switch_direction",
+      "label": "switch direction",
+      "description": "If aberration_amount isn't set to zero, this will switch between negative and positive aberration.",
+      "group": "Media",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "clouds",
+      "label": "clouds",
+      "description": "Generally, just keep one of these four regime toggles selected at a time.",
+      "group": "regimes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "snakes",
+      "label": "snakes",
+      "description": "Generally, just keep one of these four regime toggles selected at a time.",
+      "group": "regimes",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "backwards_ripples",
+      "label": "backwards ripples",
+      "description": "Generally, just keep one of these four regime toggles selected at a time.",
+      "group": "regimes",
+      "type": "float",
+      "default": 1,
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "smooth_glass",
+      "label": "smooth glass",
+      "description": "Generally, just keep one of these four regime toggles selected at a time.",
+      "group": "regimes",
+      "type": "float",
+      "default": 0.99,
+      "min": 0.99,
+      "max": 1,
+      "step": 0.010000000000000009
+    },
+    {
+      "name": "reset_sim",
+      "label": "reset sim",
+      "description": "If you get lost, go back to 'clouds' and click this button to restart the simulation.",
+      "group": "regimes",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "drum_flow",
+      "label": "drum flow",
+      "description": "Modifies the flow of the scene so that every time a drum hits, it will bounce backward.",
+      "group": "reactivity",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "media_hits",
+      "label": "media hits",
+      "description": "With media selected, this will use your media as a flow source on audio hits.",
+      "group": "reactivity",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "auto_distortion",
+      "label": "auto distortion",
+      "description": "Set this to automatically have audio-reactive extra distortion, or use the slider to manually control.",
+      "group": "extra_distortion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "distortion",
+      "label": "distortion",
+      "description": "Add an extra level of distortion to the scene, or just use the auto toggle to have the distortion on drum hits.",
+      "group": "extra_distortion",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1
+    },
+    {
+      "name": "xyPaint1",
+      "label": "xyPaint1",
+      "description": "XY Position of the brush.",
+      "group": "brush1",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "paint1_on",
+      "label": "paint1 on",
+      "description": "When the simulation is looking a little dead, paint some new flow into it by toggling this brush on.",
+      "group": "brush1",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "paint2_on",
+      "label": "paint2 on",
+      "description": "A different, smoother style of painting that will leave streaks instead of forming ripples.",
+      "group": "brush2",
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "name": "xyPaint2",
+      "label": "xyPaint2",
+      "description": "XY Position of the brush.",
+      "group": "brush2",
+      "type": "point2d",
+      "default": [
+        0,
+        0
+      ],
+      "min": [
+        -1,
+        -1
+      ],
+      "max": [
+        1,
+        1
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "syn_Media",
+      "type": "image",
+      "required": false,
+      "sampling": {
+        "filter": "linear",
+        "wrap": "repeat"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "name": "BuffA",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA.previous",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffA",
+        "width": 1024,
+        "height": 576,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "BuffB",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB.previous",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": {
+        "name": "BuffB",
+        "width": 1024,
+        "height": 576,
+        "format": "rgba32f",
+        "sampling": {
+          "filter": "linear",
+          "wrap": "repeat"
+        },
+        "persistent": true
+      },
+      "clear": false
+    },
+    {
+      "name": "final",
+      "shader": "main",
+      "inputs": [
+        {
+          "source": "target.BuffA",
+          "uniform": "BuffA"
+        },
+        {
+          "source": "target.BuffB",
+          "uniform": "BuffB"
+        },
+        {
+          "source": "input.syn_Media",
+          "uniform": "syn_Media"
+        }
+      ],
+      "target": "screen",
+      "clear": true
+    }
+  ],
+  "shaders": {
+    "glsl": {
+      "main": "shaders/main.frag.glsl"
+    }
+  },
+  "compatibility": {
+    "source": {
+      "format": "ssf",
+      "version": "2.0"
+    },
+    "profile": "ssf/1",
+    "mode": "preserve",
+    "converter": "blinkfx-ssf-converter/1",
+    "controls": {
+      "aberration_amount": {
+        "format": "ssf",
+        "type": "slider smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.2
+      },
+      "switch_direction": {
+        "format": "ssf",
+        "type": "toggle smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      },
+      "clouds": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "snakes": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "backwards_ripples": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "smooth_glass": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "reset_sim": {
+        "format": "ssf",
+        "type": "bang",
+        "modifiers": []
+      },
+      "drum_flow": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "media_hits": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "auto_distortion": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "distortion": {
+        "format": "ssf",
+        "type": "slider",
+        "modifiers": []
+      },
+      "xyPaint1": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.1
+      },
+      "paint1_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "paint2_on": {
+        "format": "ssf",
+        "type": "toggle",
+        "modifiers": []
+      },
+      "xyPaint2": {
+        "format": "ssf",
+        "type": "xy smooth",
+        "modifiers": [
+          "smooth"
+        ],
+        "params": 0.05
+      }
+    }
+  },
+  "license": "Third-party preview: original authors retain all rights; see the author field and source/ directory. Not relicensed by Blink."
+}

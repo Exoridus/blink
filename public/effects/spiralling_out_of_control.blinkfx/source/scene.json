@@ -1,0 +1,337 @@
+{
+	"CONTROLS" : 
+	[
+		{
+			"DEFAULT" : 2,
+			"DESCRIPTION" : "Travel speed through the Blue Steel grid – slow cruise or hyperspace jump.",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "path_speed",
+			"TYPE" : "slider speed",
+			"UI_GROUP" : "Path Motion"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Double or nothing?",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "double_spiral",
+			"TYPE" : "toggle",
+			"UI_GROUP" : "Spiral shape"
+		},
+		{
+			"DEFAULT" : 0.4,
+			"DESCRIPTION" : "Spiral twisting",
+			"MAX" : 1,
+			"MIN" : -1,
+			"NAME" : "spiral_twist",
+			"PARAMS" : 0.2,
+			"TYPE" : "knob smooth",
+			"UI_GROUP" : "Spiral shape"
+		},
+		{
+			"DEFAULT" : 0.3,
+			"DESCRIPTION" : "Spiral rotation",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "spiral_rot",
+			"TYPE" : "knob speed",
+			"UI_GROUP" : "Spiral shape"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.9,
+				0.5
+			],
+			"DESCRIPTION" : "Spiral dimensions",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "spiral_dim",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Spiral shape"
+		},
+		{
+			"DEFAULT" : 0,
+			"DESCRIPTION" : "Color rotation",
+			"MAX" : 5,
+			"MIN" : -5,
+			"NAME" : "color_rot",
+			"TYPE" : "knob speed",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				0.66666,
+				0.33333
+			],
+			"DESCRIPTION" : "Flash color – the strobe’s personality.",
+			"MAX" : 
+			[
+				1,
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0,
+				0
+			],
+			"NAME" : "flash_col",
+			"PARAMS" : 0.2,
+			"TYPE" : "color smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				3,
+				2
+			],
+			"DESCRIPTION" : "Spiral color #0",
+			"MAX" : 
+			[
+				6,
+				6
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "spiral_col_xy",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				0
+			],
+			"DESCRIPTION" : "Spiral col #1",
+			"MAX" : 
+			[
+				6,
+				6
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "spiral_col_zw",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				4,
+				1
+			],
+			"DESCRIPTION" : "Spiral col twister",
+			"MAX" : 
+			[
+				6,
+				6
+			],
+			"MIN" : 
+			[
+				-6,
+				-6
+			],
+			"NAME" : "spiral_col_twist",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				6
+			],
+			"DESCRIPTION" : "Controls flash min max",
+			"MAX" : 
+			[
+				9,
+				9
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "flash_scale",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Colors"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1.5,
+				0.5
+			],
+			"DESCRIPTION" : "Border fade",
+			"MAX" : 
+			[
+				2,
+				2
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "border_fade",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Post"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0.5,
+				0
+			],
+			"DESCRIPTION" : "Border glow post",
+			"MAX" : 
+			[
+				2,
+				2
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "border_glow",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Post"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				0
+			],
+			"DESCRIPTION" : "Mixes border fade and glow",
+			"MAX" : 
+			[
+				1,
+				9
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "border_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Post"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Fade your media from ghostly transparent to fully present.",
+			"MAX" : 1,
+			"MIN" : 0,
+			"NAME" : "media_opacity",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 1,
+			"DESCRIPTION" : "Boosts opacity strength to unleash extra punch and funky color effects.",
+			"MAX" : 9,
+			"MIN" : -9,
+			"NAME" : "media_multiplier",
+			"PARAMS" : 0.1,
+			"TYPE" : "slider smooth",
+			"UI_GROUP" : "Media"
+		},
+		{
+			"DEFAULT" : 
+			[
+				0,
+				1
+			],
+			"DESCRIPTION" : "Bass mix – balance steady bass levels with punchy bass hits. Find your groove.",
+			"MAX" : 
+			[
+				1,
+				1
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_mix",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		},
+		{
+			"DEFAULT" : 
+			[
+				1,
+				1
+			],
+			"DESCRIPTION" : "Bass power – turn up the 'pow' for bass levels and hits. More punch equals brighter flashes.",
+			"MAX" : 
+			[
+				6,
+				6
+			],
+			"MIN" : 
+			[
+				0,
+				0
+			],
+			"NAME" : "bass_pow",
+			"PARAMS" : 0.2,
+			"TYPE" : "xy smooth",
+			"UI_GROUP" : "Audio"
+		}
+	],
+	"CREDIT" : "mrange",
+	"DESCRIPTION" : "Spiralling out of control",
+	"GPU" : 1,
+	"HEIGHT" : 1080,
+	"IMAGE_PATH" : "scene.png",
+	"MEDIA" : 
+	[
+		{
+			"FILTER" : "linear",
+			"WRAP" : "mirror"
+		}
+	],
+	"TAGS" : 
+	[
+		"mrange",
+		"Spiral shape",
+		"raymarch",
+		"flashing"
+	],
+	"TITLE" : "Spiralling out of control",
+	"WIDTH" : 1920
+}

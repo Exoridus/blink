@@ -1,0 +1,69 @@
+{
+ "CREDIT": "Felix Woitzel ft. Meebs",
+ "TITLE": "Shrouded",
+ "IMAGE_PATH": "shrouded.png",
+    "HARD_TRANSITIONS": [
+    ],
+ "SMOOTH_TRANSITIONS":[{
+ "UNIFORMS":["cReg0", "cReg1", "cReg2", "cReg3", "cReg4"],
+ "DURATION": 10
+ }],
+ "GPU": 3,
+ "TAGS" : 
+ [
+ "feedback",
+ "simulation",
+ "media",
+ "reaction-diffusion"
+ ],
+ "IMAGES": [{
+    "PATH": "images/colornoise.jpg",
+    "NAME": "colornoise"
+  }],
+ "PASSES": [ {"TARGET":"buffA", "WIDTH":1600, "HEIGHT":800, "FLOAT": true},
+ {"TARGET":"buffC", "WIDTH":1600, "HEIGHT":800, "FLOAT": true},
+ {"TARGET":"buffD", "WIDTH":1600, "HEIGHT":800, "FLOAT": true} ],
+ "CONTROLS": [
+ {
+ 	"NAME":"shimmer", "TYPE": "bang smooth", "PARAMS": 0.05,
+	"DEFAULT": 1.0, "MIN": 1.0,	"MAX": -10.0,
+	"DESCRIPTION": "Send a colorful shimmer through the fluid. Careful, too much shimmering can kill the simulation.",
+  "UI_GROUP":"surface"
+ },{
+ 	"NAME":"shock", "TYPE": "bang smooth", "PARAMS": 0.05,
+	"DEFAULT": 0.0, "MIN": 0.0,	"MAX": -1.0,
+	"DESCRIPTION": "Send a vertical shock through the fluid, pulsing the color as well. Careful, too many shocks can kill it.",
+  "UI_GROUP":"surface"
+ },{
+ 	"NAME":"reset_center", "TYPE": "bang smooth", "PARAMS": 0.05,
+	"DEFAULT": 0.0, "MIN": 0.0,	"MAX": 0.15,
+	"DESCRIPTION": "Feeds the center of the scene. Push if your simulation dies, or the screen is all black.",
+  "UI_GROUP":"surface"
+ },{
+ 	"NAME":"bpm_oscillate", "TYPE": "toggle",
+	"DEFAULT": 0.0, "MIN": 0.0,	"MAX": 1.0,
+	"DESCRIPTION": "Change the motion of the fluid. When OFF, it will be more constant. When ON it will move back and forth with the BPM of the song.",
+  "UI_GROUP":"motion"
+ },{
+ 	"NAME":"media_color", "TYPE": "toggle",
+	"DEFAULT": 2.0, "MIN": 0.0,	"MAX": 2.0,
+	"DESCRIPTION": "Media MUST BE SELECTED to see effects. Changes the paint color of the user selected texture.",
+  "UI_GROUP":"motion"
+ },{
+ 	"NAME":"tunnel", "TYPE": "xy smooth", "PARAMS": 0.25,
+	"DEFAULT": 0.0, "MIN": 0.0,	"MAX": 1.0,
+	"UI_GROUP": "motion",
+	"DESCRIPTION": "Bottom Left is OFF. Moving this causes a 'tunneling' effect. Can be great with bpm oscillate ON."
+ },{
+ 	"NAME":"pyramid", "TYPE": "toggle",
+	"DEFAULT": 0.0, "MIN": 0.0,	"MAX": 1.0,
+	"DESCRIPTION": "Apply some triangularly arranged mirrors to the scene.",
+  "UI_GROUP":"mirrors"
+ },{
+ 	"NAME":"mirror", "TYPE": "toggle",
+	"DEFAULT": 1.0, "MIN": 0.0,	"MAX": 1.0,
+	"DESCRIPTION": "Mirror the scene (including Media).",
+  "UI_GROUP":"mirrors"
+ }
+ ]
+ }
