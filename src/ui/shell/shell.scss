@@ -698,3 +698,18 @@ $shell-narrow-breakpoint: 700px;
         margin: 8px 0 0;
     }
 }
+
+.shell-overlay[data-shell-id='analysis-panel'] {
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .analysis-panel__option {
+        display: block;
+        margin: 4px 0;
+    }
+
+    .analysis-panel__status {
+        margin: 8px 0 0;
+    }
+}

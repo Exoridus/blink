@@ -50,6 +50,9 @@ const createRenderService = (): RenderService & RenderServiceStub => {
         getDiagnosticsSnapshot: vi.fn(() => ({ frame: 7 })),
         compatibilityReport: vi.fn(() => null),
         faults: vi.fn(() => []),
+        analysisMode: 'original',
+        presetAnalysisMode: vi.fn(),
+        setAnalysisMode: vi.fn((): Promise<void> => Promise.resolve()),
         setProfilingEnabled: vi.fn(() => true),
         onHealthChange: { add: vi.fn(), remove: vi.fn() },
         controlSpecs: [] as readonly BlinkControlSpec[],
@@ -217,6 +220,7 @@ describe('Application as a ShellHost', () => {
             compatibility: null,
             faults: [],
             media: { inputs: [], kind: 'none', label: '' },
+            analysis: { mode: 'original', applicable: false },
         });
     });
 
@@ -244,6 +248,7 @@ describe('Application as a ShellHost', () => {
             compatibility: null,
             faults: [],
             media: { inputs: [], kind: 'none', label: '' },
+            analysis: { mode: 'original', applicable: false },
         });
     });
 

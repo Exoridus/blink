@@ -13,6 +13,7 @@ import { Clock } from '../classes/Clock';
 import { Flags } from '../classes/Flags';
 import { isfProfile } from '../packages/isf/profile/IsfProfile';
 import { shadertoyProfile } from '../packages/shadertoy/profile/ShadertoyProfile';
+import { ssfEnhancedProfile } from '../packages/ssf/profile/SsfEnhancedProfile';
 import { ssfOriginalProfile } from '../packages/ssf/profile/SsfOriginalProfile';
 import { legacySsfProfile, ssfProfile } from '../packages/ssf/profile/SsfProfile';
 import { SsfScriptRuntime, type SsfUniformValue } from '../packages/ssf/script/SsfScriptRuntime';
@@ -37,6 +38,7 @@ import {
     describeCapabilityFailures,
     resolveCapabilities,
 } from '../runtime/capability/resolveCapabilities';
+import { type AnalysisMode, isSwitchableProfile, substituteProfile } from '../runtime/compat/analysisMode';
 import { type CompatibilityProfileInstance, CompatibilityRegistry } from '../runtime/compat/CompatibilityProfile';
 import { buildCompatibilityReport, type CompatibilityReport } from '../runtime/diagnostics/CompatibilityReport';
 import { FaultGuard, type FaultRecord, FrameTimeMonitor, type FrameTimeReport } from '../runtime/health';
@@ -260,9 +262,11 @@ export class RenderService {
         .register(ssfProfile)
         .register(ssfOriginalProfile)
         .register(legacySsfProfile)
+        .register(ssfEnhancedProfile)
         .register(isfProfile)
         .register(shadertoyProfile);
     private profile: CompatibilityProfileInstance | null = null;
+    private analysisModeValue: AnalysisMode = 'original';
     private releaseProfilePcm: (() => void) | null = null;
     private ssfStageTime = 0;
     private ssfStageCounter = 0;
@@ -544,6 +548,35 @@ export class RenderService {
         };
     }
 
+    public get analysisMode(): AnalysisMode {
+        return this.analysisModeValue;
+    }
+
+    /** Chooses the analysis before the first effect loads, without rebuilding anything. */
+    public presetAnalysisMode(mode: AnalysisMode): void {
+        this.analysisModeValue = mode;
+    }
+
+    /**
+     * Switches the analysis of SSF-family effects. The running effect is rebuilt with the new
+     * profile and keeps its control values; a failed rebuild restores the previous mode.
+     */
+    public async setAnalysisMode(mode: AnalysisMode): Promise<void> {
+        const previous = this.analysisModeValue;
+        if (mode === previous) return;
+        this.analysisModeValue = mode;
+        const effect = this.blinkFxEffect;
+        if (effect === null || !isSwitchableProfile(effect.compatibility?.profile)) return;
+        const values = { ...this.controlValues };
+        try {
+            await this.updateBlinkFxShader(effect);
+            this.applyControlValues(values);
+        } catch (error) {
+            this.analysisModeValue = previous;
+            throw error;
+        }
+    }
+
     /** Register the texture a declared `image` host input samples, or clear it with null. */
     public setHostImageSource(name: string, texture: Texture | null): void {
         this.hostInputs.setImageSource(name, texture);
@@ -680,7 +713,7 @@ export class RenderService {
         // Assets load before the pass runtime is built, so a pass binding asset.<name>
         // always finds a committed texture. A failed load rejects here and leaves the
         // currently running effect (and its AssetBinder) untouched.
-        const profile = this.profiles.resolve(effect);
+        const profile = this.profiles.resolve(effect, substituteProfile(this.analysisModeValue));
         if (this.backendType === 'webgpu' && profile !== null) {
             profile.dispose?.();
             throw new Error(
@@ -833,7 +866,9 @@ export class RenderService {
         this.profile?.dispose?.();
         this.releaseProfilePcm = releasePcm;
         this.profile = profile;
-        this.audioService.setGenericAnalysisEnabled?.(profile?.processPcm === undefined);
+        this.audioService.setGenericAnalysisEnabled?.(
+            profile?.processPcm === undefined || profile.needsGenericAnalysis === true
+        );
         this.blinkFxAudioValues = { ...buildBlinkAudioValues(silentBlinkAudioFrame()), ...profile?.neutralUniforms() };
         this.ssfStageTime = 0;
         this.ssfStageCounter = 0;

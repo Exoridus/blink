@@ -3,6 +3,7 @@ import type { UniformValue } from '@codexo/exojs';
 import { loadBlinkPreset } from '../packages/blinkfx/presets';
 import { createBlinkAudioDebugBridge } from '../runtime/audio/BlinkAudioDebugBridge';
 import type { BlinkEffectIR } from '../runtime/ir/types';
+import { type AnalysisMode, isAnalysisMode, isSwitchableProfile } from '../runtime/compat/analysisMode';
 import { fetchPackageFile } from '../runtime/package';
 import type { OutputSettings } from '../runtime/render/outputSettings';
 import type { BlinkFxPackageList, BlinkFxPackageListItem, BlinkFxService } from '../services/BlinkFxService';
@@ -18,6 +19,24 @@ import { Statistics } from './Statistics';
 // wants less unsubscribes.
 const DIAGNOSTICS_HZ = 10;
 const DIAGNOSTICS_INTERVAL_MS = 1000 / DIAGNOSTICS_HZ;
+const ANALYSIS_STORAGE_KEY = 'blink.analysis.mode';
+
+function readStoredAnalysisMode(): AnalysisMode | null {
+    try {
+        const stored = localStorage.getItem(ANALYSIS_STORAGE_KEY);
+        return isAnalysisMode(stored) ? stored : null;
+    } catch {
+        return null;
+    }
+}
+
+function storeAnalysisMode(mode: AnalysisMode): void {
+    try {
+        localStorage.setItem(ANALYSIS_STORAGE_KEY, mode);
+    } catch {
+        // The choice then lasts for this session only.
+    }
+}
 
 function describeError(error: unknown, fallback: string): string {
     return error instanceof Error && error.message.length > 0 ? error.message : fallback;
@@ -50,6 +69,8 @@ export class Application implements ShellHost {
         this.blinkFxService = blinkFxService;
         this.renderService.onHealthChange.add(this.handleHealthChange);
         this.mediaInput.onChange.add(this.handleMediaChange);
+        const storedMode = readStoredAnalysisMode();
+        if (storedMode !== null) this.renderService.presetAnalysisMode(storedMode);
 
         if (this.envService.isDevelopmentBuild) {
             this.statistics = new Statistics(this.renderService);
@@ -222,6 +243,10 @@ export class Application implements ShellHost {
             compatibility: this.renderService.compatibilityReport(),
             faults: this.renderService.faults(),
             media: { inputs: this.mediaInputNames(), ...this.mediaInput.state },
+            analysis: {
+                mode: this.renderService.analysisMode,
+                applicable: isSwitchableProfile(this.activeEffect?.compatibility?.profile),
+            },
         };
     }
 
@@ -271,6 +296,12 @@ export class Application implements ShellHost {
     /** Binds the current media texture to every image input of the running effect; null clears them. */
     private attachMedia(): void {
         for (const name of this.mediaInputNames()) this.renderService.setHostImageSource(name, this.mediaInput.texture);
+    }
+
+    public async setAnalysisMode(mode: AnalysisMode): Promise<void> {
+        await this.renderService.setAnalysisMode(mode);
+        storeAnalysisMode(mode);
+        this.emitState();
     }
 
     public useMediaCamera(): Promise<void> {

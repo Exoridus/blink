@@ -3,6 +3,7 @@ import './shell.scss';
 import { CompatibilityPanel } from './CompatibilityPanel';
 import { ControlPanel } from './ControlPanel';
 import { DebugPanel } from './DebugPanel';
+import { AnalysisPanel } from './AnalysisPanel';
 import { EffectPanel } from './EffectPanel';
 import { MediaPanel } from './MediaPanel';
 import { OutputPanel } from './OutputPanel';
@@ -19,6 +20,7 @@ const PANEL_IDS = [
     COMPATIBILITY_PANEL_ID,
     'output-panel',
     'media-panel',
+    'analysis-panel',
 ] as const;
 
 function isEditableTarget(target: EventTarget | null): boolean {
@@ -50,6 +52,7 @@ export class Shell {
     private mounted = false;
     private readonly outputPanel: OutputPanel | null;
     private readonly mediaPanel: MediaPanel | null;
+    private readonly analysisPanel: AnalysisPanel | null;
 
     // Alt avoids the single-letter menu mnemonics (Alt+F, Alt+E, ...) browsers and Windows
     // itself already own; a bare digit key would collide with typing inside a control field.
@@ -77,6 +80,9 @@ export class Shell {
             case '6':
                 this.togglePanel('media-panel');
                 break;
+            case '7':
+                this.togglePanel('analysis-panel');
+                break;
             case '0':
                 this.collapseAll();
                 break;
@@ -89,6 +95,7 @@ export class Shell {
     public constructor(host: ShellHost) {
         this.outputPanel = host.getOutputSettings === undefined ? null : new OutputPanel(host);
         this.mediaPanel = host.useMediaFile === undefined ? null : new MediaPanel(host);
+        this.analysisPanel = host.setAnalysisMode === undefined ? null : new AnalysisPanel(host);
         this.controlPanel = new ControlPanel(host);
         this.effectPanel = new EffectPanel(host);
         this.debugPanel = new DebugPanel(host);
@@ -111,6 +118,7 @@ export class Shell {
         this.compatibilityPanel.mount(this.container);
         this.outputPanel?.mount(this.container);
         this.mediaPanel?.mount(this.container);
+        this.analysisPanel?.mount(this.container);
         parent.appendChild(this.container);
         document.addEventListener('keydown', this.handleKeydown);
         this.mounted = true;
@@ -123,6 +131,7 @@ export class Shell {
         document.removeEventListener('keydown', this.handleKeydown);
         this.outputPanel?.unmount();
         this.mediaPanel?.unmount();
+        this.analysisPanel?.unmount();
         this.effectPanel.unmount();
         this.controlPanel.unmount();
         this.debugPanel.unmount();
