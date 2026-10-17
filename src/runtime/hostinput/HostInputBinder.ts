@@ -250,6 +250,19 @@ export class HostInputBinder {
         )
             return;
         if (input.imageView !== null && input.imageVersion === donor.version) return;
+        if (
+            input.imageView !== null &&
+            input.imageView.source === donor.source &&
+            donor.pixels === null &&
+            donor.compressed === null &&
+            !(donor instanceof DataTexture)
+        ) {
+            // A live source (video) advances the donor's version every frame; re-uploading the same
+            // element in place avoids creating and destroying a texture per frame.
+            input.imageView.updateSource();
+            input.imageVersion = donor.version;
+            return;
+        }
 
         const sampling = input.spec.sampling;
         const colorSpace = this.imagePolicy.colorSpace ?? donor.colorSpace;

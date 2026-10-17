@@ -37,6 +37,12 @@ export interface ShellRuntimeState {
      * off until another effect is loaded.
      */
     readonly faults?: readonly FaultRecord[];
+    /** Image inputs the running effect declares and the media source feeding them; absent for a host without media. */
+    readonly media?: {
+        readonly inputs: readonly string[];
+        readonly kind: 'none' | 'camera' | 'file';
+        readonly label: string;
+    };
 }
 
 /**
@@ -118,4 +124,11 @@ export interface ShellHost {
      * no consumer, so an implementation may record the event and do nothing else.
      */
     fireBang(name: string): void;
+
+    /** Feeds the camera to the running effect's image inputs. Rejects when access is denied. */
+    useMediaCamera?(): Promise<void>;
+    /** Feeds an image or video file to the running effect's image inputs. Rejects for an unreadable file. */
+    useMediaFile?(file: File): Promise<void>;
+    /** Stops the media source; image inputs fall back to nothing. */
+    clearMedia?(): void;
 }
